@@ -1,287 +1,509 @@
-/* ============================= */
-/* GENERAL PAGE STYLE            */
-/* ============================= */
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+:root {
+    --paper: #f4ecdc;
+    --paper-deep: #e8dcc5;
+    --surface: #fffaf1;
+    --surface-soft: #f8f0e2;
+
+    --ink: #2d2924;
+    --muted: #6f665b;
+
+    --gold: #b08a4a;
+    --gold-dark: #86652f;
+
+    --teal: #315f63;
+    --wine: #7b4956;
+    --olive: #756631;
+    --blue: #4a587b;
+
+    --line: #d8c9ae;
+    --shadow: rgba(65, 46, 26, 0.15);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
     margin: 0;
-    padding: 0;
 
-    background: #f4efe3;
+    background:
+        radial-gradient(circle at top left,
+            rgba(255,255,255,0.65),
+            transparent 35%),
+        linear-gradient(
+            135deg,
+            var(--paper-deep),
+            var(--paper),
+            #efe4cf
+        );
 
-    color: #2f2a24;
+    color: var(--ink);
 
     font-family:
         Georgia,
         "Times New Roman",
         "Noto Serif TC",
         "Songti TC",
+        "STSong",
         serif;
 
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 
-/* ============================= */
-/* MAIN PAGE CONTAINER           */
-/* ============================= */
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
 
 .page-container {
-    max-width: 900px;
+    width: min(94%, 980px);
 
-    margin: 40px auto;
+    margin: 42px auto;
 
-    padding: 40px;
+    padding: 42px;
 
-    background: #fffdf7;
+    background: rgba(255, 250, 241, 0.96);
 
-    border: 1px solid #d8cfbc;
+    border: 1px solid var(--line);
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.08);
+        0 18px 45px var(--shadow);
 }
 
 
-/* ============================= */
-/* HEADER                        */
-/* ============================= */
+/* =========================================
+   HERO HEADER
+   ========================================= */
 
-header {
+.hero {
+    position: relative;
+
     text-align: center;
 
-    padding-bottom: 25px;
+    padding: 50px 28px 42px;
 
-    border-bottom: 2px solid #b8a27a;
+    margin-bottom: 34px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #3c2e23,
+            #6a5036 55%,
+            #9a7745
+        );
+
+    color: white;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 28px rgba(44, 31, 20, 0.24);
 }
 
 
-header h1 {
-    margin-bottom: 5px;
+.hero::before {
+    content: "";
 
-    font-size: 2.5rem;
+    position: absolute;
 
-    letter-spacing: 1px;
+    inset: 10px;
 
-    color: #4d3c2c;
+    border: 1px solid rgba(255,255,255,0.28);
+
+    border-radius: 12px;
+
+    pointer-events: none;
 }
 
 
-header h2 {
-    margin-top: 0;
+.hero-symbol {
+    font-size: 2rem;
 
-    font-size: 1.8rem;
+    margin-bottom: 4px;
 
-    font-weight: normal;
+    color: #ecd7a4;
+}
 
-    color: #6a5541;
+
+.hero h1 {
+    position: relative;
+
+    margin: 0;
+
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+
+    letter-spacing: 0.06em;
+
+    font-weight: 700;
+}
+
+
+.hero h2 {
+    position: relative;
+
+    margin: 6px 0 0;
+
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+
+    font-weight: 400;
+
+    letter-spacing: 0.08em;
+
+    color: #f6e7c6;
 }
 
 
 .subtitle {
-    margin-top: 20px;
+    position: relative;
 
-    font-size: 1.05rem;
+    margin-top: 22px;
 
-    color: #6b6258;
+    font-size: 1.04rem;
+
+    color: #f4ead8;
 }
 
 
-/* ============================= */
-/* MAIN SECTIONS                 */
-/* ============================= */
+/* =========================================
+   SECTION CARDS
+   ========================================= */
 
 main {
-    margin-top: 30px;
+    display: grid;
+
+    gap: 18px;
 }
 
 
-section {
-    margin-bottom: 18px;
-}
+.study-card {
+    border-radius: 14px;
 
+    overflow: hidden;
 
-section > details {
-    background: #faf7ef;
+    border: 1px solid var(--line);
 
-    border: 1px solid #d9cfbd;
+    background: var(--surface);
 
-    border-radius: 8px;
-
-    padding: 4px 14px;
+    box-shadow:
+        0 5px 16px rgba(60, 45, 28, 0.08);
 
     transition:
-        background 0.2s ease,
+        transform 0.2s ease,
         box-shadow 0.2s ease;
 }
 
 
-section > details:hover {
-    background: #f7f1e5;
+.study-card:hover {
+    transform: translateY(-2px);
 
     box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.05);
+        0 8px 24px rgba(60, 45, 28, 0.12);
 }
 
 
-/* ============================= */
-/* EXPANDABLE HEADINGS           */
-/* ============================= */
+/* =========================================
+   MAIN SECTION HEADERS
+   ========================================= */
 
-summary {
+.study-card > details > summary {
+    list-style: none;
+
     cursor: pointer;
 
-    padding: 12px 4px;
+    padding: 18px 22px;
 
-    font-size: 1.1rem;
+    font-size: 1.18rem;
 
-    color: #4c3928;
+    font-weight: 700;
+
+    color: white;
+
+    letter-spacing: 0.01em;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
 }
 
 
-summary:hover {
-    color: #7a5c34;
+.study-card > details > summary::-webkit-details-marker {
+    display: none;
 }
 
 
-/* ============================= */
-/* CONTENT INSIDE SECTIONS       */
-/* ============================= */
+.study-card > details > summary::before {
+    content: "▶";
+
+    font-size: 0.8rem;
+
+    transition: transform 0.2s ease;
+}
+
+
+.study-card > details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+
+.biblical > details > summary {
+    background:
+        linear-gradient(135deg, #294f53, var(--teal));
+}
+
+
+.truths > details > summary {
+    background:
+        linear-gradient(135deg, #643b47, var(--wine));
+}
+
+
+.words > details > summary {
+    background:
+        linear-gradient(135deg, #5e522d, var(--olive));
+}
+
+
+.graphics > details > summary {
+    background:
+        linear-gradient(135deg, #3d4968, var(--blue));
+}
+
+
+/* =========================================
+   SECTION CONTENT
+   ========================================= */
 
 .section-content {
-    padding:
-        5px 10px 15px 26px;
+    padding: 22px 28px 26px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--surface),
+            var(--surface-soft)
+        );
 }
 
 
-.subsection-content {
-    padding:
-        5px 10px 10px 20px;
-}
-
-
-/* ============================= */
-/* LISTS                         */
-/* ============================= */
-
-ul {
-    margin-top: 10px;
-}
-
-
-li {
-    margin-bottom: 8px;
-}
-
+/* =========================================
+   BOOK LIST
+   ========================================= */
 
 .book-list {
-    list-style-type: none;
+    list-style: none;
 
-    padding-left: 5px;
+    padding: 0;
+
+    margin: 0;
 }
 
 
 .book-list > li {
-    padding: 5px 0;
+    padding: 10px 8px;
+
+    border-bottom:
+        1px solid rgba(176, 138, 74, 0.18);
+
+    font-size: 1.02rem;
 }
 
 
-/* ============================= */
-/* NESTED EXPANDABLE ITEMS       */
-/* ============================= */
+.book-list > li:last-child {
+    border-bottom: none;
+}
 
-.book-list details {
-    background: #fffdf8;
 
-    border-left: 3px solid #b59a6a;
+/* =========================================
+   HEBREWS NESTED SECTION
+   ========================================= */
+
+.nested {
+    margin: 8px 0;
+
+    border-left: 4px solid var(--gold);
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f4ead7,
+            #fffaf1
+        );
+}
+
+
+.nested > summary {
+    cursor: pointer;
+
+    list-style: none;
+
+    padding: 12px 14px;
+
+    font-weight: 700;
+
+    color: #4b3826;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.nested > summary::-webkit-details-marker {
+    display: none;
+}
+
+
+.nested > summary::before {
+    content: "▸";
+
+    color: var(--gold-dark);
+
+    transition: transform 0.2s ease;
+}
+
+
+.nested[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+
+.nested ul {
+    margin: 0;
 
     padding:
-        2px 10px;
-
-    margin:
-        4px 0 8px 0;
+        2px 22px 16px 38px;
 }
 
 
-.book-list details summary {
-    font-weight: bold;
-
-    padding: 7px 4px;
+.nested li {
+    margin: 7px 0;
 }
 
 
-/* ============================= */
-/* LINKS                         */
-/* ============================= */
+/* =========================================
+   LINKS
+   ========================================= */
 
 a {
-    color: #6a4b2f;
+    color: #70461f;
+
+    font-weight: 600;
 
     text-decoration: none;
 
     border-bottom:
-        1px dotted #9f8668;
+        1px dotted #a8865d;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 
 a:hover {
-    color: #9b6b32;
+    color: #ad6f25;
 
     border-bottom:
-        1px solid #9b6b32;
+        1px solid #ad6f25;
 }
 
 
-/* ============================= */
-/* FOOTER                        */
-/* ============================= */
+/* =========================================
+   TEXT
+   ========================================= */
+
+p {
+    margin-top: 0;
+}
+
+
+.section-content p {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
 
 footer {
-    margin-top: 35px;
+    margin-top: 36px;
 
-    padding-top: 20px;
+    padding-top: 22px;
 
     text-align: center;
 
     border-top:
-        1px solid #d8cfbc;
+        1px solid var(--line);
+
+    color: var(--muted);
 
     font-size: 0.95rem;
-
-    color: #776d62;
 }
 
 
-/* ============================= */
-/* MOBILE / SMALL SCREENS        */
-/* ============================= */
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 700px) {
 
     .page-container {
+        width: 100%;
+
         margin: 0;
 
-        padding: 22px;
+        padding: 18px;
 
         border-radius: 0;
 
-        border-left: none;
+        border-left: 0;
 
-        border-right: none;
+        border-right: 0;
     }
 
 
-    header h1 {
-        font-size: 2rem;
-    }
+    .hero {
+        padding: 34px 16px 30px;
 
-
-    header h2 {
-        font-size: 1.5rem;
+        border-radius: 12px;
     }
 
 
     .section-content {
-        padding-left: 12px;
+        padding: 18px;
+    }
+
+
+    .study-card > details > summary {
+        padding: 16px 17px;
+
+        font-size: 1.05rem;
+    }
+
+
+    .book-list > li {
+        padding: 9px 4px;
     }
 }
