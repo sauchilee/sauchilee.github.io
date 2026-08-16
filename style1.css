@@ -1,0 +1,287 @@
+/* ============================= */
+/* GENERAL PAGE STYLE            */
+/* ============================= */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #f4efe3;
+
+    color: #2f2a24;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        "Noto Serif TC",
+        "Songti TC",
+        serif;
+
+    line-height: 1.7;
+}
+
+
+/* ============================= */
+/* MAIN PAGE CONTAINER           */
+/* ============================= */
+
+.page-container {
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    background: #fffdf7;
+
+    border: 1px solid #d8cfbc;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ============================= */
+/* HEADER                        */
+/* ============================= */
+
+header {
+    text-align: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 2px solid #b8a27a;
+}
+
+
+header h1 {
+    margin-bottom: 5px;
+
+    font-size: 2.5rem;
+
+    letter-spacing: 1px;
+
+    color: #4d3c2c;
+}
+
+
+header h2 {
+    margin-top: 0;
+
+    font-size: 1.8rem;
+
+    font-weight: normal;
+
+    color: #6a5541;
+}
+
+
+.subtitle {
+    margin-top: 20px;
+
+    font-size: 1.05rem;
+
+    color: #6b6258;
+}
+
+
+/* ============================= */
+/* MAIN SECTIONS                 */
+/* ============================= */
+
+main {
+    margin-top: 30px;
+}
+
+
+section {
+    margin-bottom: 18px;
+}
+
+
+section > details {
+    background: #faf7ef;
+
+    border: 1px solid #d9cfbd;
+
+    border-radius: 8px;
+
+    padding: 4px 14px;
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+section > details:hover {
+    background: #f7f1e5;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ============================= */
+/* EXPANDABLE HEADINGS           */
+/* ============================= */
+
+summary {
+    cursor: pointer;
+
+    padding: 12px 4px;
+
+    font-size: 1.1rem;
+
+    color: #4c3928;
+}
+
+
+summary:hover {
+    color: #7a5c34;
+}
+
+
+/* ============================= */
+/* CONTENT INSIDE SECTIONS       */
+/* ============================= */
+
+.section-content {
+    padding:
+        5px 10px 15px 26px;
+}
+
+
+.subsection-content {
+    padding:
+        5px 10px 10px 20px;
+}
+
+
+/* ============================= */
+/* LISTS                         */
+/* ============================= */
+
+ul {
+    margin-top: 10px;
+}
+
+
+li {
+    margin-bottom: 8px;
+}
+
+
+.book-list {
+    list-style-type: none;
+
+    padding-left: 5px;
+}
+
+
+.book-list > li {
+    padding: 5px 0;
+}
+
+
+/* ============================= */
+/* NESTED EXPANDABLE ITEMS       */
+/* ============================= */
+
+.book-list details {
+    background: #fffdf8;
+
+    border-left: 3px solid #b59a6a;
+
+    padding:
+        2px 10px;
+
+    margin:
+        4px 0 8px 0;
+}
+
+
+.book-list details summary {
+    font-weight: bold;
+
+    padding: 7px 4px;
+}
+
+
+/* ============================= */
+/* LINKS                         */
+/* ============================= */
+
+a {
+    color: #6a4b2f;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px dotted #9f8668;
+}
+
+
+a:hover {
+    color: #9b6b32;
+
+    border-bottom:
+        1px solid #9b6b32;
+}
+
+
+/* ============================= */
+/* FOOTER                        */
+/* ============================= */
+
+footer {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid #d8cfbc;
+
+    font-size: 0.95rem;
+
+    color: #776d62;
+}
+
+
+/* ============================= */
+/* MOBILE / SMALL SCREENS        */
+/* ============================= */
+
+@media (max-width: 700px) {
+
+    .page-container {
+        margin: 0;
+
+        padding: 22px;
+
+        border-radius: 0;
+
+        border-left: none;
+
+        border-right: none;
+    }
+
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+
+    header h2 {
+        font-size: 1.5rem;
+    }
+
+
+    .section-content {
+        padding-left: 12px;
+    }
+}
