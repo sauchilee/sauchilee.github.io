@@ -507,3 +507,90 @@ footer {
         padding: 9px 4px;
     }
 }
+
+
+
+
+
+
+
+/* =========================================
+   PSALM SUBLIST
+   Clean second-level hierarchy
+   ========================================= */
+
+.psalm-list {
+    margin: 5px 0 10px 22px;
+    padding: 4px 0;
+}
+
+
+/* Individual Psalms — NO extra gold bracket */
+
+.psalm-item {
+    margin: 4px 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+
+.psalm-item > summary {
+    cursor: pointer;
+    list-style: none;
+
+    padding: 9px 10px;
+
+    font-weight: 700;
+
+    color: var(--ink);
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+
+.psalm-item > summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/* One simple triangle */
+
+.psalm-item > summary::before {
+    content: "▶";
+
+    font-size: 0.72rem;
+
+    color: var(--gold-dark);
+
+    transition: transform 0.2s ease;
+}
+
+
+.psalm-item[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+
+/* Embedded video */
+
+.video-container {
+    margin: 8px 10px 18px 28px;
+}
+
+
+.video-container iframe {
+    display: block;
+
+    max-width: 760px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(60, 45, 28, 0.12);
+}
+
+
