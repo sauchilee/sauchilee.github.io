@@ -171,16 +171,76 @@ body::before {
 }
 
 
-.hero-symbol {
-    margin-bottom: 10px;
+.hero-corner {
+    position: absolute;
+
+    width: 30px;
+    height: 30px;
+
+    color: rgba(236, 215, 164, 0.55);
+
+    pointer-events: none;
+}
+
+
+.corner-tl {
+    top: 14px;
+    left: 14px;
+}
+
+
+.corner-tr {
+    top: 14px;
+    right: 14px;
+    transform: rotate(90deg);
+}
+
+
+.corner-br {
+    bottom: 14px;
+    right: 14px;
+    transform: rotate(180deg);
+}
+
+
+.corner-bl {
+    bottom: 14px;
+    left: 14px;
+    transform: rotate(270deg);
+}
+
+
+.hero-emblem {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 8px;
 
     color: #ecd7a4;
 }
 
 
-.hero-symbol .icon {
-    width: 52px;
+.hero-symbol {
+    width: 46px;
+    height: 46px;
+}
+
+
+.laurel {
+    width: 22px;
     height: 52px;
+
+    opacity: 0.85;
+}
+
+
+.laurel-flip {
+    transform: scaleX(-1);
 }
 
 
@@ -251,6 +311,111 @@ body::before {
     margin-top: 20px;
 
     font-size: 1.04rem;
+
+    color: #f4ead8;
+}
+
+
+/* =========================================
+   HERO PREVIEW STRIP
+   Visual table of contents
+   ========================================= */
+
+.hero-preview {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 128px;
+
+    padding: 14px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.preview-item:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+
+.preview-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 8px;
+
+    border-radius: 50%;
+
+    color: white;
+}
+
+
+.preview-item .icon {
+    width: 18px;
+    height: 18px;
+}
+
+
+.preview-item.biblical .preview-icon {
+    background: linear-gradient(135deg, #294f53, var(--teal));
+}
+
+
+.preview-item.truths .preview-icon {
+    background: linear-gradient(135deg, #643b47, var(--wine));
+}
+
+
+.preview-item.words .preview-icon {
+    background: linear-gradient(135deg, #5e522d, var(--olive));
+}
+
+
+.preview-item.graphics .preview-icon {
+    background: linear-gradient(135deg, #3d4968, var(--blue));
+}
+
+
+.preview-label {
+    font-size: 0.72rem;
+
+    line-height: 1.4;
+    text-align: center;
+
+    letter-spacing: 0.02em;
 
     color: #f4ead8;
 }
@@ -588,6 +753,51 @@ footer {
 
     .book-list > li {
         padding: 9px 4px;
+    }
+
+
+    .hero-corner {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .corner-tl, .corner-tr {
+        top: 8px;
+    }
+
+
+    .corner-bl, .corner-br {
+        bottom: 8px;
+    }
+
+
+    .corner-tl, .corner-bl {
+        left: 8px;
+    }
+
+
+    .corner-tr, .corner-br {
+        right: 8px;
+    }
+
+
+    .laurel {
+        width: 16px;
+        height: 38px;
+    }
+
+
+    .hero-symbol {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .preview-item {
+        width: 104px;
+
+        padding: 12px 6px;
     }
 }
 

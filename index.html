@@ -26,7 +26,7 @@
           rel="stylesheet">
 
     <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 
@@ -86,6 +86,27 @@
             </g>
         </symbol>
 
+        <symbol id="icon-laurel" viewBox="0 0 30 70">
+            <path fill="none" stroke="currentColor" stroke-width="1.3"
+                  stroke-linecap="round"
+                  d="M15 68 C 12 50, 18 34, 12 18 C 9 10, 13 4, 15 2"></path>
+            <g fill="currentColor" opacity="0.9">
+                <ellipse cx="9" cy="58" rx="5" ry="2.6" transform="rotate(-35 9 58)"></ellipse>
+                <ellipse cx="19" cy="50" rx="5" ry="2.6" transform="rotate(35 19 50)"></ellipse>
+                <ellipse cx="8" cy="40" rx="5" ry="2.6" transform="rotate(-35 8 40)"></ellipse>
+                <ellipse cx="18" cy="32" rx="5" ry="2.6" transform="rotate(35 18 32)"></ellipse>
+                <ellipse cx="9" cy="22" rx="4.5" ry="2.3" transform="rotate(-35 9 22)"></ellipse>
+                <ellipse cx="17" cy="15" rx="4.2" ry="2.1" transform="rotate(35 17 15)"></ellipse>
+            </g>
+        </symbol>
+
+        <symbol id="icon-corner" viewBox="0 0 40 40">
+            <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M2 16 V2 H16"></path>
+                <path d="M2 9 C 10 9, 9 1, 17 1"></path>
+            </g>
+        </symbol>
+
     </defs>
 </svg>
 
@@ -98,8 +119,15 @@
 
     <header class="hero">
 
-        <div class="hero-symbol">
-            <svg class="icon" aria-hidden="true"><use href="#icon-hero"></use></svg>
+        <svg class="icon hero-corner corner-tl" aria-hidden="true"><use href="#icon-corner"></use></svg>
+        <svg class="icon hero-corner corner-tr" aria-hidden="true"><use href="#icon-corner"></use></svg>
+        <svg class="icon hero-corner corner-bl" aria-hidden="true"><use href="#icon-corner"></use></svg>
+        <svg class="icon hero-corner corner-br" aria-hidden="true"><use href="#icon-corner"></use></svg>
+
+        <div class="hero-emblem">
+            <svg class="icon laurel" aria-hidden="true"><use href="#icon-laurel"></use></svg>
+            <svg class="icon hero-symbol" aria-hidden="true"><use href="#icon-hero"></use></svg>
+            <svg class="icon laurel laurel-flip" aria-hidden="true"><use href="#icon-laurel"></use></svg>
         </div>
 
         <h1>Biblical Studies</h1>
@@ -118,6 +146,54 @@
             聖經研究、研讀資料與互動式資源。
         </p>
 
+        <nav class="hero-preview" aria-label="Section overview">
+
+            <a class="preview-item biblical" href="#section-biblical">
+                <span class="preview-icon">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-book"></use></svg>
+                </span>
+                <span class="preview-label">
+                    Biblical Studies
+                    <br>
+                    聖經書卷研究
+                </span>
+            </a>
+
+            <a class="preview-item truths" href="#section-truths">
+                <span class="preview-icon">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-flame"></use></svg>
+                </span>
+                <span class="preview-label">
+                    Biblical Truths
+                    <br>
+                    聖經真理
+                </span>
+            </a>
+
+            <a class="preview-item words" href="#section-words">
+                <span class="preview-icon">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+                </span>
+                <span class="preview-label">
+                    Word Studies
+                    <br>
+                    聖經字詞研究
+                </span>
+            </a>
+
+            <a class="preview-item graphics" href="#section-graphics">
+                <span class="preview-icon">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-graph"></use></svg>
+                </span>
+                <span class="preview-label">
+                    Interactive Graphics
+                    <br>
+                    互動式圖表
+                </span>
+            </a>
+
+        </nav>
+
     </header>
 
 
@@ -133,7 +209,7 @@
         <!-- 1. BIBLICAL STUDIES                -->
         <!-- ================================== -->
 
-        <section class="study-card biblical">
+        <section class="study-card biblical" id="section-biblical">
 
             <details open>
 
@@ -510,7 +586,7 @@
         <!-- 2. BIBLICAL TRUTHS                 -->
         <!-- ================================== -->
 
-        <section class="study-card truths">
+        <section class="study-card truths" id="section-truths">
 
             <details>
 
@@ -539,7 +615,7 @@
         <!-- 3. WORD STUDIES                    -->
         <!-- ================================== -->
 
-        <section class="study-card words">
+        <section class="study-card words" id="section-words">
 
             <details>
 
@@ -568,7 +644,7 @@
         <!-- 4. INTERACTIVE GRAPHICS            -->
         <!-- ================================== -->
 
-        <section class="study-card graphics">
+        <section class="study-card graphics" id="section-graphics">
 
             <details>
 
