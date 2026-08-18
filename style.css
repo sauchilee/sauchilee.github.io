@@ -34,8 +34,24 @@ html {
 }
 
 
+.icon-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+
 body {
     margin: 0;
+    position: relative;
 
     background:
         radial-gradient(circle at top left,
@@ -59,6 +75,30 @@ body {
         serif;
 
     line-height: 1.8;
+}
+
+
+/* Subtle paper-grain texture, sits above the background gradient */
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.page-container {
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -132,11 +172,15 @@ body {
 
 
 .hero-symbol {
-    font-size: 2rem;
-
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 
     color: #ecd7a4;
+}
+
+
+.hero-symbol .icon {
+    width: 52px;
+    height: 52px;
 }
 
 
@@ -145,9 +189,11 @@ body {
 
     margin: 0;
 
-    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    font-family: "Cinzel", Georgia, "Noto Serif TC", serif;
 
-    letter-spacing: 0.06em;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+
+    letter-spacing: 0.08em;
 
     font-weight: 700;
 }
@@ -156,22 +202,53 @@ body {
 .hero h2 {
     position: relative;
 
-    margin: 6px 0 0;
+    margin: 8px 0 0;
 
-    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    font-family: "Cinzel", "Noto Serif TC", serif;
 
-    font-weight: 400;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
 
-    letter-spacing: 0.08em;
+    font-weight: 500;
+
+    letter-spacing: 0.1em;
 
     color: #f6e7c6;
+}
+
+
+.hero-divider {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: min(240px, 60%);
+
+    margin: 20px auto 0;
+
+    gap: 10px;
+}
+
+
+.hero-divider .line {
+    flex: 1;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+.hero-divider .diamond {
+    font-size: 0.6rem;
+
+    color: #ecd7a4;
 }
 
 
 .subtitle {
     position: relative;
 
-    margin-top: 22px;
+    margin-top: 20px;
 
     font-size: 1.04rem;
 
@@ -398,6 +475,12 @@ main {
 
 .nested li {
     margin: 7px 0;
+}
+
+
+.nested li.placeholder {
+    color: var(--muted);
+    font-style: italic;
 }
 
 
