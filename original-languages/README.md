@@ -2,29 +2,34 @@
 
 **Status: IN PROGRESS — not presentable yet, not linked from the site's index.html.**
 
-This folder is a recoverable backup of the working data behind a Neo4j graph
-of original-language (Hebrew, Greek, Arabic) biblical source materials. It
-holds the human-readable inputs only — never the Neo4j binary database
-store itself (`.db` / `data/databases/...`), which isn't diffable and
-shouldn't live in git.
+This folder is a recoverable, git-friendly mirror of the working data
+behind a Neo4j graph of original-language (Hebrew, Greek, Arabic) biblical
+source materials — verse text, translations, and word-level morphology.
+It holds human-readable text (JSON Lines) only — never the Neo4j binary
+database store itself (`.db` / `.dump`), which isn't diffable, is far too
+large for git, and stays in Google Drive (`BibleKnowledge-backups/`)
+instead.
 
 ## What's here
 
-- `import/` — Cypher scripts (`.cypher`) and/or CSV files (`.csv`) used to
-  build or reload the graph via `LOAD CSV` or `cypher-shell`. These are the
-  recoverable source of truth: if the Neo4j Desktop install is lost, the
-  graph can be rebuilt from these files.
-- `schema.md` (added once the schema is known) — node labels, relationship
-  types, and properties in use.
+- `verses/` — one JSON Lines file per Bible book: original-language text
+  (Hebrew/Aramaic/Greek), LXX Greek, KJV, BSB, and per-clause morphology
+  with Strong's numbers. **63 of 66 books present** — see
+  `verses/README.md` for the 3 still-missing books and why.
+- `pilot11_clauses_phrases.jsonl` (pending transfer — see `verses/README.md`)
+  — Genesis 1 clause/phrase syntax pilot data.
+- `import/` — reserved for Cypher scripts (`.cypher`) and/or CSV files
+  (`.csv`) if/when the graph's schema and load scripts are exported here
+  too. Currently empty; the verse text in `verses/` is the recoverable
+  content transferred so far.
 
-## Recovering the graph from these files
+## Recovering the full graph
 
-```
-cypher-shell -u neo4j -p <password> -f import/<script>.cypher
-```
-
-or, for CSV-based loads, copy the CSVs into Neo4j's `import/` directory and
-run the corresponding `LOAD CSV` statements in `import/<script>.cypher`.
+The verse text here is a **read-only reference mirror**, not a database
+backup — it can't be loaded back into Neo4j. The actual recoverable backup
+of the live database is the `.dump` file in Google Drive's
+`BibleKnowledge-backups/` folder (too large for git; restore via
+`neo4j-admin database load`).
 
 ## Copyright note
 
