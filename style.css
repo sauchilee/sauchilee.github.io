@@ -681,6 +681,31 @@ main {
 }
 
 
+/* Flat entry: title links directly, no expand/collapse needed */
+
+.sermon-flat {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 10px;
+}
+
+
+.sermon-flat .sermon-date {
+    margin-left: auto;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+
+    color: var(--gold-dark);
+
+    opacity: 0.85;
+}
+
+
 .sermon-detail {
     display: flex;
     flex-wrap: wrap;
