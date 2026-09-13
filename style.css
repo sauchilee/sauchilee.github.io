@@ -619,35 +619,88 @@ main {
 
 /* =========================================
    SERMON ENTRIES (Preaching section)
+   Collapsed: scripture ref + date only.
+   Expanded: bilingual title + files.
    ========================================= */
 
-.sermon-entry {
+.sermon-item {
+    margin: 4px 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+
+.sermon-item > summary {
+    cursor: pointer;
+    list-style: none;
+
+    padding: 9px 10px;
+
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    gap: 9px;
 }
 
 
-.sermon-title {
-    font-size: 1.02rem;
+.sermon-item > summary::-webkit-details-marker {
+    display: none;
 }
 
 
-.sermon-title .ref {
-    margin-left: 6px;
+.sermon-item > summary::before {
+    content: "▶";
 
-    font-weight: 400;
-    font-size: 0.88em;
+    font-size: 0.72rem;
 
     color: var(--gold-dark);
+
+    transition: transform 0.2s ease;
+}
+
+
+.sermon-item[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+
+.sermon-item > summary .ref {
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    color: var(--ink);
 
     border-bottom: none;
 }
 
 
-.sermon-en {
-    margin: 0;
+.sermon-item > summary .sermon-date {
+    margin-left: auto;
 
+    font-weight: 700;
+}
+
+
+.sermon-detail {
+    padding: 2px 10px 12px 29px;
+}
+
+
+.sermon-title-full {
+    margin: 0 0 6px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: var(--ink);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.sermon-en {
     font-size: 0.85rem;
     font-weight: 400;
 
@@ -663,18 +716,6 @@ main {
     color: var(--gold-dark);
 
     opacity: 0.85;
-}
-
-
-.sermon-en .sermon-date {
-    margin-left: 8px;
-}
-
-
-.psalm-item > summary .sermon-date {
-    margin-left: auto;
-
-    font-weight: 700;
 }
 
 
@@ -775,10 +816,8 @@ main {
 
 /* Preaching section: per-sermon spacing */
 
-.study-card.preaching .sermon-entry {
-    margin: 9px 0;
-
-    gap: 3px;
+.study-card.preaching .sermon-item {
+    margin: 2px 0;
 }
 
 
