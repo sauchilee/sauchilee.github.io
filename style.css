@@ -1245,3 +1245,58 @@ footer {
 }
 
 
+/* =========================================
+   HOVER-PREVIEW TOOLTIPS
+   Custom (not native title=) so they appear
+   immediately instead of the browser's ~1.5s delay
+   ========================================= */
+
+[data-tip] {
+    position: relative;
+}
+
+
+[data-tip]::after {
+    content: attr(data-tip);
+
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%) translateY(2px);
+
+    width: max-content;
+    max-width: 300px;
+
+    padding: 7px 11px;
+
+    background: var(--ink);
+    color: #f7f3e8;
+
+    font-size: 0.76rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    white-space: normal;
+    text-align: left;
+
+    border-radius: 7px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.08s ease, transform 0.08s ease;
+
+    z-index: 80;
+}
+
+
+[data-tip]:hover::after,
+[data-tip]:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+
