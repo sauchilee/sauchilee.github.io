@@ -330,11 +330,11 @@ body::before {
     position: relative;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 14px;
 
-    max-width: 480px;
+    max-width: 680px;
     margin: 34px auto 0;
 }
 
@@ -1061,10 +1061,10 @@ footer {
     }
 
 
-    .preview-item {
-        width: 104px;
+    .hero-preview {
+        grid-template-columns: repeat(2, 1fr);
 
-        padding: 12px 6px;
+        max-width: 340px;
     }
 }
 
