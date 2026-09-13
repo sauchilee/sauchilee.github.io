@@ -1247,24 +1247,15 @@ footer {
 
 /* =========================================
    HOVER-PREVIEW TOOLTIPS
-   Custom (not native title=) so they appear
-   immediately instead of the browser's ~1.5s delay
+   JS-driven, positioned via getBoundingClientRect
+   into a single fixed-position tooltip appended to
+   <body> -- escapes any ancestor's overflow:hidden
+   (e.g. .hero), unlike a per-element ::after would.
    ========================================= */
 
-[data-tip] {
-    position: relative;
-}
+.global-tooltip {
+    position: fixed;
 
-
-[data-tip]::after {
-    content: attr(data-tip);
-
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 8px);
-    transform: translateX(-50%) translateY(2px);
-
-    width: max-content;
     max-width: 300px;
 
     padding: 7px 11px;
@@ -1275,7 +1266,6 @@ footer {
     font-size: 0.76rem;
     font-weight: 500;
     line-height: 1.4;
-    letter-spacing: 0;
     white-space: normal;
     text-align: left;
 
@@ -1286,17 +1276,15 @@ footer {
     visibility: hidden;
     pointer-events: none;
 
-    transition: opacity 0.08s ease, transform 0.08s ease;
+    transition: opacity 0.08s ease;
 
-    z-index: 80;
+    z-index: 200;
 }
 
 
-[data-tip]:hover::after,
-[data-tip]:focus-visible::after {
+.global-tooltip.visible {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
 }
 
 
