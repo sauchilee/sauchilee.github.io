@@ -18,6 +18,7 @@
     --wine: #7b4956;
     --olive: #756631;
     --blue: #4a587b;
+    --ember: #9c5024;
 
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
@@ -142,10 +143,14 @@ body::before {
     background:
         linear-gradient(
             145deg,
-            #3c2e23,
-            #6a5036 55%,
-            #9a7745
-        );
+            rgba(60, 46, 35, 0.90),
+            rgba(106, 80, 54, 0.84) 55%,
+            rgba(154, 119, 69, 0.82)
+        ),
+        url("assets/hero-pulpit.jpg");
+
+    background-size: cover;
+    background-position: center 35%;
 
     color: white;
 
@@ -389,6 +394,11 @@ body::before {
 }
 
 
+.preview-item.preaching .preview-icon {
+    background: linear-gradient(135deg, #6b3416, var(--ember));
+}
+
+
 .preview-item.biblical .preview-icon {
     background: linear-gradient(135deg, #294f53, var(--teal));
 }
@@ -504,6 +514,12 @@ main {
 }
 
 
+.preaching > details > summary {
+    background:
+        linear-gradient(135deg, #6b3416, var(--ember));
+}
+
+
 .biblical > details > summary {
     background:
         linear-gradient(135deg, #294f53, var(--teal));
@@ -573,22 +589,244 @@ main {
 
 
 /* =========================================
+   SERMON ENTRIES (Preaching section)
+   ========================================= */
+
+.sermon-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.sermon-title {
+    font-size: 1.02rem;
+}
+
+
+.sermon-title .ref {
+    margin-left: 6px;
+
+    font-weight: 400;
+    font-size: 0.88em;
+
+    color: var(--gold-dark);
+
+    border-bottom: none;
+}
+
+
+.sermon-en {
+    margin: 0;
+
+    font-size: 0.85rem;
+    font-weight: 400;
+
+    color: var(--muted);
+}
+
+
+.sermon-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+
+    color: var(--gold-dark);
+
+    opacity: 0.85;
+}
+
+
+.sermon-en .sermon-date {
+    margin-left: 8px;
+}
+
+
+.psalm-item > summary .sermon-date {
+    margin-left: auto;
+
+    font-weight: 700;
+}
+
+
+.sermon-files {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 2px;
+}
+
+
+.file-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: var(--gold-dark);
+
+    padding: 2px 9px;
+
+    border: 1px solid rgba(176, 138, 74, 0.45);
+    border-radius: 20px;
+    border-bottom: 1px solid rgba(176, 138, 74, 0.45);
+
+    background: rgba(176, 138, 74, 0.08);
+
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+
+.file-tag:hover {
+    background: rgba(176, 138, 74, 0.16);
+    border-color: var(--gold-dark);
+}
+
+
+/* =========================================
    HEBREWS NESTED SECTION
    ========================================= */
 
 .nested {
-    margin: 8px 0;
+    margin: 0;
 
-    border-left: 4px solid var(--gold);
+    border-left: none;
+    border-radius: 0;
 
-    border-radius: 8px;
+    background: none;
 
-    background:
-        linear-gradient(
-            90deg,
-            #f4ead7,
-            #fffaf1
-        );
+    border-bottom: 1px solid var(--line);
+}
+
+
+.nested:last-child {
+    border-bottom: none;
+}
+
+
+.nested.topical > summary::before {
+    color: var(--ember);
+}
+
+
+/* Old Testament / New Testament / Topical color coding */
+
+.nested.ot > summary::before {
+    color: var(--blue);
+}
+
+
+.nested.ot > summary {
+    color: #30395a;
+}
+
+
+.nested.nt > summary::before {
+    color: var(--gold-dark);
+}
+
+
+.nested.topical > summary {
+    color: #7a3c1a;
+}
+
+
+.book-group.ot .book-icon {
+    color: var(--blue);
+}
+
+
+.book-group.nt .book-icon {
+    color: var(--gold-dark);
+}
+
+
+/* Preaching section: per-sermon spacing */
+
+.study-card.preaching .sermon-entry {
+    margin: 9px 0;
+
+    gap: 3px;
+}
+
+
+.book-icon {
+    width: 19px;
+    height: 19px;
+
+    color: var(--gold-dark);
+
+    flex-shrink: 0;
+}
+
+
+.book-group.topical .book-icon {
+    color: var(--ember);
+}
+
+
+.group-latest-date {
+    margin-left: auto;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+
+    color: var(--muted);
+
+    white-space: nowrap;
+}
+
+
+.group-latest-date::before {
+    content: "最近 · Latest ";
+
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+
+.sort-toggle {
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+
+.sort-btn {
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    color: var(--gold-dark);
+
+    background: var(--surface);
+
+    border: 1px solid rgba(176, 138, 74, 0.4);
+    border-radius: 20px;
+
+    padding: 5px 14px;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+
+.sort-btn:hover {
+    border-color: var(--gold-dark);
+}
+
+
+.sort-btn.active {
+    color: white;
+    background: linear-gradient(135deg, #6b3416, var(--ember));
+    border-color: transparent;
 }
 
 
@@ -597,7 +835,7 @@ main {
 
     list-style: none;
 
-    padding: 12px 14px;
+    padding: 13px 2px;
 
     font-weight: 700;
 
@@ -607,7 +845,7 @@ main {
 
     align-items: center;
 
-    gap: 8px;
+    gap: 10px;
 }
 
 
@@ -634,12 +872,12 @@ main {
     margin: 0;
 
     padding:
-        2px 22px 16px 38px;
+        0 2px 14px 34px;
 }
 
 
 .nested li {
-    margin: 7px 0;
+    margin: 9px 0;
 }
 
 
