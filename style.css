@@ -751,6 +751,18 @@ main {
 }
 
 
+.sermon-subtitle {
+    flex-basis: 100%;
+
+    margin-top: 2px;
+
+    font-size: 0.82rem;
+    font-weight: 500;
+
+    color: var(--muted);
+}
+
+
 .sermon-en {
     font-size: 0.85rem;
     font-weight: 400;
