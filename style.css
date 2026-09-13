@@ -715,16 +715,14 @@ main {
 
     font-weight: 700;
 
-    border-bottom: 1px solid rgba(21, 101, 192, 0.4);
+    border-bottom: none;
 
-    transition: color 0.15s ease, border-color 0.15s ease;
+    transition: color 0.15s ease;
 }
 
 
 .sermon-link:hover {
     color: #0d47a1;
-
-    border-bottom-color: #0d47a1;
 }
 
 
