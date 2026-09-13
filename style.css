@@ -419,6 +419,16 @@ body::before {
 }
 
 
+.preview-item.external {
+    border-style: dashed;
+}
+
+
+.preview-item.external .preview-icon {
+    background: linear-gradient(135deg, #4a4030, var(--gold-dark));
+}
+
+
 .preview-label {
     font-size: 0.72rem;
 
