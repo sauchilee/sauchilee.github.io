@@ -682,12 +682,18 @@ main {
 
 
 .sermon-detail {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    gap: 6px 10px;
+
     padding: 2px 10px 12px 29px;
 }
 
 
 .sermon-title-full {
-    margin: 0 0 6px;
+    margin: 0;
 
     font-size: 1rem;
     font-weight: 600;
@@ -695,8 +701,12 @@ main {
     color: var(--ink);
 
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    gap: 4px 8px;
+
+    flex: 1 1 auto;
 }
 
 
@@ -722,10 +732,9 @@ main {
 .sermon-files {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 
     gap: 6px;
-
-    margin-top: 2px;
 }
 
 
