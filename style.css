@@ -696,7 +696,7 @@ main {
 .sermon-flat .sermon-date {
     margin-left: auto;
 
-    font-size: 0.78rem;
+    font-size: 0.88rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
 
@@ -760,7 +760,7 @@ main {
 
 
 .sermon-date {
-    font-size: 0.78rem;
+    font-size: 0.88rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
 
@@ -1222,6 +1222,17 @@ footer {
 
 .psalm-item[open] > summary::before {
     transform: rotate(90deg);
+}
+
+
+/* Bilingual header labels: Chinese slightly larger than English */
+
+.zh-lbl {
+    font-size: 1.08em;
+}
+
+.en-lbl {
+    font-size: 1em;
 }
 
 
