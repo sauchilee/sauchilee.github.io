@@ -1,0 +1,772 @@
+<title>更美的中保：希伯來書概論</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
+
+  :root{
+    --navy-0:#0A101A;
+    --navy-1:#121E2E;
+    --gold:#C9A666;
+    --gold-bright:#F3D98C;
+    --gold-dim:#8a7346;
+    --terracotta:#C1663B;
+    --warn:#FF3B30;
+    --cream:#F7F3E8;
+    --ink:#0A101A;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{background:var(--navy-0);color:var(--cream);}
+  body{
+    font-family:'Cinzel','PingFang SC','Noto Sans SC',sans-serif;
+    overflow-x:hidden;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+    margin:0;
+  }
+  .cjk{font-family:'PingFang SC','Noto Sans SC',sans-serif;}
+
+  .page{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:28px 16px;
+    scroll-snap-align:start;
+    background:radial-gradient(ellipse at 50% 30%, var(--navy-1), var(--navy-0));
+    gap:18px;
+  }
+
+  .frame{
+    position:relative;
+    width:min(100%, calc((100vh - 220px) * 3 / 2));
+    max-width:1100px;
+    aspect-ratio:3/2;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,166,102,0.35);
+  }
+  .frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .hotspot{
+    position:absolute;
+    cursor:help;
+    background:transparent;
+  }
+
+  .titlebar{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:26px 20px 18px;
+    background:linear-gradient(0deg, rgba(10,16,26,0.9), rgba(10,16,26,0));
+    text-align:center;
+    cursor:help;
+    transition:background 0.15s ease;
+  }
+  .titlebar:hover, .titlebar:focus{
+    background:linear-gradient(0deg, rgba(10,16,26,0.98), rgba(10,16,26,0.25) 70%, rgba(10,16,26,0));
+  }
+  .titlebar .zh{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.0rem, 3vw, 1.6rem);
+    color:var(--gold-bright);
+    letter-spacing:0.02em;
+    text-shadow:0 2px 10px rgba(0,0,0,0.7);
+  }
+  .titlebar .en{
+    font-size:clamp(0.6rem, 1.5vw, 0.82rem);
+    color:var(--cream);
+    opacity:0.85;
+    letter-spacing:0.03em;
+    margin-top:4px;
+    text-shadow:0 2px 8px rgba(0,0,0,0.7);
+  }
+  .titlebar .ref{
+    margin-top:6px;
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:clamp(0.58rem, 1.3vw, 0.76rem);
+    color:var(--gold);
+    opacity:0.9;
+  }
+
+  .badges{
+    position:absolute;
+    top:10px; right:10px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    pointer-events:none;
+    z-index:5;
+  }
+  .badge-count{
+    background:rgba(10,16,26,0.72);
+    border:1px solid rgba(201,166,102,0.55);
+    color:var(--gold-bright);
+    font-size:0.66rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:3px 8px;
+    border-radius:5px;
+    font-variant-numeric:tabular-nums;
+  }
+  .hept{
+    width:28px; height:28px;
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  }
+  .hept svg{position:absolute; inset:0; width:100%; height:100%;}
+  .hept span{
+    position:relative;
+    font-size:0.72rem;
+    font-weight:700;
+    color:var(--ink);
+  }
+
+  .warn-badge{
+    position:absolute;
+    left:10px; bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding:5px 9px 5px 6px;
+    background:rgba(10,16,26,0.78);
+    border:1px solid rgba(255,59,48,0.75);
+    border-radius:6px;
+    cursor:help;
+    z-index:5;
+    transition:background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .warn-badge:hover, .warn-badge:focus{
+    background:rgba(255,59,48,0.22);
+    box-shadow:0 0 0 1.5px rgba(255,59,48,0.9);
+  }
+  .warn-badge svg{width:15px; height:15px; flex:none;}
+  .warn-badge .wlabel{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:0.66rem;
+    font-weight:700;
+    color:var(--warn);
+    letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+
+  .caption-block{
+    max-width:660px;
+    text-align:center;
+    padding:10px 18px;
+    cursor:help;
+    border-radius:14px;
+    transition:background 0.15s ease;
+  }
+  .caption-block:hover, .caption-block:focus{
+    background:rgba(201,166,102,0.1);
+  }
+  .caption-block .zh{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:0.9rem;
+    color:var(--cream);
+    opacity:0.88;
+    line-height:1.7;
+  }
+  .caption-block .en{
+    font-size:0.7rem;
+    color:var(--gold);
+    opacity:0.8;
+    margin-top:6px;
+    font-style:italic;
+  }
+
+  .hero-title{
+    text-align:center;
+    cursor:help;
+    border-radius:14px;
+    padding:10px 18px;
+    transition:background 0.15s ease;
+  }
+  .hero-title:hover, .hero-title:focus{
+    background:rgba(201,166,102,0.1);
+  }
+  .hero-title .zh{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.5rem, 4.6vw, 2.4rem);
+    color:var(--gold-bright);
+    letter-spacing:0.03em;
+  }
+  .hero-title .en{
+    font-family:'Cinzel',serif;
+    font-size:clamp(0.7rem, 1.8vw, 0.95rem);
+    letter-spacing:0.1em;
+    color:var(--cream);
+    opacity:0.8;
+    margin-top:6px;
+    text-transform:uppercase;
+  }
+  .hero-title .verse{
+    margin-top:14px;
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:clamp(0.76rem, 1.7vw, 0.92rem);
+    color:var(--gold);
+    line-height:1.8;
+    max-width:580px;
+  }
+
+  .navdots{
+    position:fixed;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    z-index:50;
+  }
+  .navdots a{
+    width:9px; height:9px;
+    border-radius:50%;
+    background:rgba(201,166,102,0.35);
+    border:1px solid rgba(201,166,102,0.6);
+    display:block;
+    text-decoration:none;
+  }
+  .navdots a:hover, .navdots a.active{
+    background:var(--gold-bright);
+  }
+
+  .scrolldown{
+    font-size:0.68rem;
+    color:var(--gold);
+    opacity:0.7;
+    letter-spacing:0.08em;
+  }
+
+  .global-tooltip{
+    position:fixed;
+    max-width:min(1000px, 92vw);
+    padding:28px 34px;
+    background:transparent;
+    color:var(--gold-bright);
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:2.6rem;
+    font-weight:700;
+    line-height:1.42;
+    white-space:normal;
+    text-align:left;
+    text-shadow:
+      1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      0 3px 8px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8);
+    border-radius:14px;
+    border:1px solid rgba(201,166,102,0.45);
+    box-shadow:none;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity 0.08s ease;
+    z-index:500;
+  }
+  .global-tooltip.warn{
+    border-color:rgba(255,59,48,0.65);
+    color:var(--warn);
+  }
+  .global-tooltip.warn .en{
+    color:#ff8a80;
+  }
+  .global-tooltip .tag{
+    display:inline-block;
+    font-size:1.1rem;
+    color:var(--warn);
+    font-weight:700;
+    margin-bottom:8px;
+    letter-spacing:0.04em;
+  }
+  .global-tooltip .en{
+    display:block;
+    margin-top:12px;
+    font-style:italic;
+    font-weight:600;
+    color:#ffffff;
+    font-size:2rem;
+    text-shadow:
+      1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+      0 3px 8px rgba(0,0,0,0.95), 0 0 20px rgba(0,0,0,0.8);
+  }
+  .global-tooltip.visible{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .recap-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    width:min(100%, calc((100vh - 260px) * 3 / 2 * 1.7));
+    max-width:1200px;
+  }
+  .recap-tile{
+    position:relative;
+    aspect-ratio:4/3;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:help;
+    box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,166,102,0.3);
+    transition:box-shadow 0.15s ease;
+  }
+  .recap-tile:hover, .recap-tile:focus{
+    box-shadow:0 10px 26px rgba(0,0,0,0.5), 0 0 0 2.5px var(--gold-bright);
+  }
+  .recap-tile img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .recap-tile .label{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:8px 10px 6px;
+    background:linear-gradient(0deg, rgba(10,16,26,0.92), rgba(10,16,26,0));
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-size:clamp(0.62rem, 1.3vw, 0.78rem);
+    color:var(--cream);
+    text-align:left;
+  }
+  .recap-tile .label b{
+    color:var(--gold-bright);
+    font-family:'Cinzel',serif;
+  }
+
+  /* heptagon diagram page */
+  .hept-wrap{
+    position:relative;
+    width:min(92vw, 640px);
+    aspect-ratio:1/1;
+  }
+  .hept-wrap svg{width:100%; height:100%;}
+  .hept-node{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    width:15%;
+    aspect-ratio:1/1;
+    clip-path:polygon(50% 2%, 88.6% 21%, 98.5% 61%, 71.6% 95%, 28.4% 95%, 1.5% 61%, 11.4% 21%);
+    background:radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 60%, var(--gold-dim));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink);
+    font-weight:700;
+    font-size:clamp(1rem, 2.4vw, 1.4rem);
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,0.55));
+    cursor:help;
+    z-index:3;
+    transition:filter 0.15s ease, transform 0.15s ease;
+  }
+  .hept-node:hover, .hept-node:focus{
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,0.6)) drop-shadow(0 0 5px var(--gold-bright));
+    transform:translate(-50%,-50%) scale(1.08);
+  }
+  .hept-label{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    pointer-events:none;
+    width:22%;
+  }
+  .hept-label .zh{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-weight:700;
+    font-size:clamp(0.72rem, 1.7vw, 0.95rem);
+    color:var(--gold-bright);
+    text-shadow:0 2px 6px rgba(0,0,0,0.8);
+  }
+  .hept-label .en{
+    font-size:clamp(0.52rem, 1.1vw, 0.66rem);
+    color:var(--cream);
+    opacity:0.8;
+  }
+  .hept-center{
+    position:absolute;
+    left:50%; top:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:2;
+  }
+  .hept-center .zh{
+    font-family:'PingFang SC','Noto Sans SC',sans-serif;
+    font-weight:700;
+    font-size:clamp(1.1rem, 3vw, 1.6rem);
+    color:var(--gold-bright);
+  }
+  .hept-center .en{
+    font-size:clamp(0.6rem, 1.3vw, 0.78rem);
+    color:var(--gold);
+    opacity:0.85;
+    margin-top:4px;
+  }
+
+  @media (max-width:640px){
+    .navdots{display:none;}
+    .page{padding:20px 12px;}
+    .global-tooltip{font-size:1.4rem; padding:16px 18px;}
+    .global-tooltip .en{font-size:1.1rem;}
+    .recap-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+
+<div class="navdots" id="navdots">
+  <a href="#p0" data-i="0" title="Title"></a>
+  <a href="#p1" data-i="1" title="Overview"></a>
+  <a href="#p2" data-i="2" title="A"></a>
+  <a href="#p3" data-i="3" title="B"></a>
+  <a href="#p4" data-i="4" title="C"></a>
+  <a href="#p5" data-i="5" title="D"></a>
+  <a href="#p6" data-i="6" title="E"></a>
+  <a href="#p7" data-i="7" title="F"></a>
+  <a href="#p8" data-i="8" title="G"></a>
+  <a href="#p9" data-i="9" title="Recap"></a>
+</div>
+
+<!-- PAGE 0: TITLE -->
+<section class="page" id="p0">
+  <div class="hero-title" data-tip-zh="更美的中保：希伯來書概論——作者不详，成书于主后64年末，正值罗马尼禄皇帝嫁祸基督徒、大肆逼迫之际。许多犹太基督徒面临「苟且偷生」、退回犹太教献祭体系的试探。作者因此展开一场层层递进的论证：基督在身分、治理、职份、功效上都远超旧约一切人物与制度——他是更美的中保。" data-tip-en="A Better Mediator: An Overview of Hebrews — author unknown, written near the end of AD 64, amid Nero's persecution of Christians in Rome. Many Jewish believers faced the temptation to drift back into Judaism's sacrificial system. The author responds with a sustained argument: Christ is supreme — in identity, authority, office, and effect — over every figure and institution of the old covenant. He is the better mediator.">
+    <div class="zh">更美的中保</div>
+    <div class="en">A Better Mediator — An Overview of Hebrews</div>
+    <div class="verse">「弟兄们，我们既因耶稣的血得以坦然进入至圣所，是藉着他给我们开了一条又新又活的路，从幔子经过...就当存着诚心和充足的信心来到神面前。」<br>—— 希伯来书 10:19-22</div>
+  </div>
+  <div class="frame">
+    <img src="images/title.jpg" alt="A massive ancient temple veil hangs almost fully closed across a dim temple interior, only a thin sliver of golden light glowing through the center gap">
+    <div class="hotspot" data-tip-zh="至圣所的幔子——旧约的敬拜者被幔子隔绝在外，不能坦然进到神的面前。" data-tip-en="The Veil of the Holy Place — under the old covenant, worshippers were kept back from God's presence by this very curtain." style="left:18%; top:4%; width:64%; height:70%;"></div>
+    <div class="hotspot" data-tip-zh="幽暗中的敬拜者——许多信徒面对罗马逼迫，动了「苟且偷生」、退回旧体系的心思，却仍在幔子外徘徊，不敢坦然进前。" data-tip-en="Worshippers in the Shadows — facing persecution, many believers were tempted to retreat to the old system, lingering outside the veil rather than drawing near." style="left:4%; top:62%; width:30%; height:34%;"></div>
+    <div class="badges"><span class="badge-count">1 / 10</span></div>
+  </div>
+  <div class="caption-block" data-tip-zh="本书辞藻优美，引用旧约高达八十六次，是新约中唯一详论基督现今在天上大祭司职事的书卷。全书以「更美」（Better）一词贯穿十三次：更美的名、更美的应许、更美的约、更美的祭物、更美的家乡——层层证明，唯有基督才是那更美的中保与救主。" data-tip-en="Written in the most polished Greek of the New Testament, quoting the Old Testament 86 times, Hebrews is the only book besides Romans 8:34 to dwell at length on Christ's present high-priestly work in heaven. The word 'better' runs through it thirteen times — a better name, better promises, a better covenant, a better sacrifice, a better homeland — building, layer upon layer, to one conclusion: Christ alone is the better mediator and Savior.">
+    <div class="zh cjk">本书辞藻优美，引用旧约高达八十六次，是新约中唯一详论基督现今在天上大祭司职事的书卷。全书以「更美」一词贯穿十三次——层层证明，唯有基督才是那更美的中保与救主。</div>
+    <div class="en">Quoting the Old Testament 86 times, Hebrews is the New Testament's fullest picture of Christ's present high-priestly work in heaven. The word "better" runs through it thirteen times, building toward one conclusion: Christ alone is the better mediator and Savior.</div>
+  </div>
+  <div class="scrolldown">向下滚动 · SCROLL ↓</div>
+</section>
+
+<!-- PAGE 1: HEPTAGON OVERVIEW -->
+<section class="page" id="p1">
+  <div class="hero-title" style="cursor:default;">
+    <div class="zh">七重超越</div>
+    <div class="en">Seven-Fold Supremacy</div>
+  </div>
+  <div class="hept-wrap">
+    <svg viewBox="0 0 100 100">
+      <polygon points="50,4 85.96,21.32 94.87,60.23 69.96,91.44 30.04,91.44 5.13,60.23 14.04,21.32" fill="rgba(201,166,102,0.07)" stroke="rgba(201,166,102,0.65)" stroke-width="0.6"/>
+      <line x1="50" y1="50" x2="50" y2="4" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="85.96" y2="21.32" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="94.87" y2="60.23" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="69.96" y2="91.44" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="30.04" y2="91.44" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="5.13" y2="60.23" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="14.04" y2="21.32" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+    </svg>
+    <div class="hept-center">
+      <div class="zh">基督<br>更美</div>
+      <div class="en">Christ, Better in All</div>
+    </div>
+
+    <div class="hept-node" tabindex="0" style="left:50%; top:4%;" data-tip-zh="A · 身分上的超越：遠超天使（來1:4–2:18）" data-tip-en="A · Supreme in Identity — Far Above the Angels (Heb 1:4–2:18)">A</div>
+    <div class="hept-label" style="left:50%; top:15%;"><div class="zh">身分</div><div class="en">Identity</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:85.96%; top:21.32%;" data-tip-zh="B · 治理上的超越：遠超摩西，進入安息（來3:1–4:13）" data-tip-en="B · Supreme in Authority — Far Above Moses, Into God's Rest (Heb 3:1–4:13)">B</div>
+    <div class="hept-label" style="left:88%; top:33.5%; width:26%;"><div class="zh">治理</div><div class="en">Authority</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:94.87%; top:60.23%;" data-tip-zh="C · 職份上的超越：遠超亞倫（來4:14–7:28）" data-tip-en="C · Supreme in Office — A Better Priesthood After Melchizedek (Heb 4:14–7:28)">C</div>
+    <div class="hept-label" style="left:87%; top:71.5%; width:26%;"><div class="zh">職份</div><div class="en">Office</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:69.96%; top:91.44%;" data-tip-zh="D · 功效上的超越：更美的新約、帳幕與祭物（來8:1–10:18）" data-tip-en="D · Supreme in Effect — A Better Covenant, Tabernacle, and Sacrifice (Heb 8:1–10:18)">D</div>
+    <div class="hept-label" style="left:69.96%; top:100%;"><div class="zh">功效</div><div class="en">Effect</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:30.04%; top:91.44%;" data-tip-zh="E · 信心的新路（來10:19–11:40）" data-tip-en="E · The New and Living Way of Faith (Heb 10:19–11:40)">E</div>
+    <div class="hept-label" style="left:30.04%; top:100%;"><div class="zh">信心</div><div class="en">Faith</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:5.13%; top:60.23%;" data-tip-zh="F · 盼望的試煉（來12:1–29）" data-tip-en="F · The Trial and Discipline of Hope (Heb 12:1–29)">F</div>
+    <div class="hept-label" style="left:13%; top:71.5%; width:26%;"><div class="zh">盼望</div><div class="en">Hope</div></div>
+
+    <div class="hept-node" tabindex="0" style="left:14.04%; top:21.32%;" data-tip-zh="G · 愛心的實在（來13:1–17）" data-tip-en="G · The Reality of Love, Lived Out (Heb 13:1–17)">G</div>
+    <div class="hept-label" style="left:12%; top:33.5%; width:26%;"><div class="zh">愛心</div><div class="en">Love</div></div>
+  </div>
+  <div class="caption-block" data-tip-zh="全书以七重论证层层展开：A至D是教义篇（1:1–10:18），证明基督本身的超越；E至G是实践篇（10:19–13:17），呼召信徒活出与蒙召相称的超越生命——信心、盼望、爱心。五篇警戒短文穿插其间，提醒我们不可随流失去、不可硬心、不可停滞、不可故意犯罪、不可弃绝那从天上警戒我们的。" data-tip-en="The book unfolds in seven movements: A–D form the doctrinal half (1:1–10:18), proving Christ's own supremacy; E–G form the practical half (10:19–13:17), calling believers to live out that supremacy in faith, hope, and love. Five warning passages are woven throughout, cautioning us not to drift, not to harden our hearts, not to stagnate, not to sin willfully, and not to refuse the One who speaks from heaven.">
+    <div class="zh cjk">A至D是教义篇——证明基督本身的超越；E至G是实践篇——呼召信徒活出与蒙召相称的信心、盼望、爱心。五篇警戒短文穿插其间。</div>
+    <div class="en">A–D: the doctrinal half, proving Christ's supremacy. E–G: the practical half, calling us to live it out in faith, hope, and love — with five warnings woven throughout.</div>
+  </div>
+  <div class="badges" style="position:relative; top:auto; right:auto;"><span class="badge-count">2 / 10</span></div>
+</section>
+
+<!-- PAGE 2: A -->
+<section class="page" id="p2">
+  <div class="frame">
+    <img src="images/A.jpg" alt="Jesus, crowned and seated on the right hand of the great throne, faces forward with his pierced hands resting on his knees, while a great circle of kneeling angels worships">
+    <div class="titlebar" data-tip-zh="A · 身分上的超越：遠超天使 —— 希伯來書 1:4–2:18" data-tip-en="A · Supreme in Identity — Far Above the Angels — Hebrews 1:4–2:18">
+      <div class="zh">A · 身分上的超越：遠超天使</div>
+      <div class="en">A · Supreme in Identity — Far Above the Angels</div>
+      <div class="ref">希伯來書 1:4–2:18 · Hebrews 1:4–2:18</div>
+    </div>
+    <div class="hotspot" data-tip-zh="神子的荣耀——他是神荣耀所发的光辉，是神本体的真像...就承受了比天使更尊贵的名。（来1:3-4）" data-tip-en="The Son's Glory — the radiance of God's glory and the exact imprint of His nature... having become as much superior to angels as the name he has inherited. (Heb 1:3-4)" style="left:30%; top:4%; width:40%; height:56%;"></div>
+    <div class="hotspot" data-tip-zh="天使的敬拜——神的使者都要拜他。（来1:6）" data-tip-en="The Angels' Worship — let all God's angels worship him. (Heb 1:6)" style="left:4%; top:44%; width:92%; height:48%;"></div>
+    <div class="badges"><span class="badge-count">3 / 10</span></div>
+    <div class="warn-badge" tabindex="0" data-tip-zh="第一篇警戒（來2:1-4）：所以我们当越发郑重所听见的道理，恐怕我们随流失去...怎能逃罪呢？我们若忽略这么大的救恩。" data-tip-en="1st Warning (Heb 2:1-4): We must pay much closer attention to what we have heard, lest we drift away... how shall we escape if we neglect such a great salvation?">
+      <svg viewBox="0 0 24 24"><polygon points="12,3 22,20 2,20" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linejoin="round"/><text x="12" y="17" font-size="11" font-weight="700" fill="#FF3B30" text-anchor="middle">!</text></svg>
+      <span class="wlabel">警戒一 · 2:1-4</span>
+    </div>
+  </div>
+  <div class="caption-block" data-tip-zh="作者以七层身分描绘基督：承受万有、创造万有、神荣耀的光辉、神本体的真像、托住万有、洗净人罪、掌管万有——他不仅是神子，也成为人子，为要替世人尝死味，带领许多的儿子进荣耀里去。" data-tip-en="The author unveils the Son's seven-fold identity: heir, creator, radiance of glory, exact imprint of God's being, sustainer, purifier of sins, enthroned ruler — yet He also became the Son of Man, tasting death for everyone, to bring many sons to glory.">
+    <div class="zh cjk">作者以七层身分描绘基督的荣耀——他不仅是神子，也成为人子，为要替世人尝死味，带领许多的儿子进荣耀里去。</div>
+    <div class="en">Seven-fold in glory as the Son — yet He also became the Son of Man, tasting death for everyone, to bring many sons to glory.</div>
+  </div>
+</section>
+
+<!-- PAGE 3: B -->
+<section class="page" id="p3">
+  <div class="frame">
+    <img src="images/B.jpg" alt="A humble shepherd figure stands as a servant at a tent entrance while a radiant kingly figure rests a hand on the tent pole as its master; a still lake beyond">
+    <div class="titlebar" data-tip-zh="B · 治理上的超越：遠超摩西，進入安息 —— 希伯來書 3:1–4:13" data-tip-en="B · Supreme in Authority — Far Above Moses, Into God's Rest — Hebrews 3:1–4:13">
+      <div class="zh">B · 治理上的超越：遠超摩西</div>
+      <div class="en">B · Supreme in Authority — Far Above Moses</div>
+      <div class="ref">希伯來書 3:1–4:13 · Hebrews 3:1–4:13</div>
+    </div>
+    <div class="hotspot" data-tip-zh="仆人与儿子——摩西为仆人，在神的全家诚然尽忠；但基督为儿子，治理神的家。（来3:5-6）" data-tip-en="Servant and Son — Moses was faithful as a servant in God's house, but Christ is faithful as a Son over God's house. (Heb 3:5-6)" style="left:6%; top:10%; width:52%; height:70%;"></div>
+    <div class="hotspot" data-tip-zh="竭力进入安息——我们务必竭力进入那安息，免得有人学那不信从的样子跌倒了。（来4:11）" data-tip-en="Strive to Enter That Rest — let us strive to enter that rest, so that no one may fall by the same sort of disobedience. (Heb 4:11)" style="left:58%; top:0%; width:42%; height:60%;"></div>
+    <div class="badges"><span class="badge-count">4 / 10</span></div>
+    <div class="warn-badge" tabindex="0" data-tip-zh="第二篇警戒（來3:7-4:13）：你们今日若听他的话，就不可硬着心，像在旷野惹他发怒的日子一样——那一代人因不信而未能进入安息。" data-tip-en="2nd Warning (Heb 3:7-4:13): Today, if you hear his voice, do not harden your hearts as in the rebellion — that generation was barred from His rest through unbelief.">
+      <svg viewBox="0 0 24 24"><polygon points="12,3 22,20 2,20" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linejoin="round"/><text x="12" y="17" font-size="11" font-weight="700" fill="#FF3B30" text-anchor="middle">!</text></svg>
+      <span class="wlabel">警戒二 · 3:7-4:13</span>
+    </div>
+  </div>
+  <div class="caption-block" data-tip-zh="旷野的一代因不信而倒毙，未能进入应许之地的安息；基督却为神的子民存留了一个更美、更真实的安息——不再靠自己的劳碌，而是止息在神已经成全的工作里。" data-tip-en="The wilderness generation fell in unbelief, never entering the rest of the promised land. Christ has opened a better, truer rest for God's people — resting not in our own labor, but in the finished work of God.">
+    <div class="zh cjk">旷野的一代因不信而倒毙；基督却为神的子民存留了一个更真实的安息——止息在神已经成全的工作里。</div>
+    <div class="en">The wilderness generation fell in unbelief. Christ has opened a truer rest — resting in the finished work of God, not our own labor.</div>
+  </div>
+</section>
+
+<!-- PAGE 4: C -->
+<section class="page" id="p4">
+  <div class="frame">
+    <img src="images/C.jpg" alt="A high priest in white and gold robes stands eternally at a golden altar with rising incense, Aaron's turban and breastplate set aside on the floor, bread and wine on a low table">
+    <div class="titlebar" data-tip-zh="C · 職份上的超越：遠超亞倫 —— 希伯來書 4:14–7:28" data-tip-en="C · Supreme in Office — A Better Priesthood After Melchizedek — Hebrews 4:14–7:28">
+      <div class="zh">C · 職份上的超越：遠超亞倫</div>
+      <div class="en">C · Supreme in Office — After Melchizedek</div>
+      <div class="ref">希伯來書 4:14–7:28 · Hebrews 4:14–7:28</div>
+    </div>
+    <div class="hotspot" data-tip-zh="坦然进到施恩宝座前——我们既有一位已经升入高天尊荣的大祭司...就当坦然无惧地来到施恩的宝座前。（来4:14-16）" data-tip-en="Draw Near with Confidence — since we have a great high priest who has passed through the heavens, let us approach the throne of grace with confidence. (Heb 4:14-16)" style="left:22%; top:0%; width:56%; height:58%;"></div>
+    <div class="hotspot" data-tip-zh="麦基洗德的等次——基督不是自取荣耀作大祭司，乃是照麦基洗德的等次，永远为祭司。（来5:5-6；7:11-17）" data-tip-en="The Order of Melchizedek — Christ did not exalt himself, but was appointed priest forever, after the order of Melchizedek. (Heb 5:5-6; 7:11-17)" style="left:2%; top:60%; width:40%; height:38%;"></div>
+    <div class="hotspot" data-tip-zh="他长远活着，替人祈求——凡靠着他进到神面前的人，他都能拯救到底，因为他是长远活着，替他们祈求。（来7:24-25）" data-tip-en="He Always Lives to Intercede — he is able to save to the uttermost those who draw near through him, since he always lives to make intercession. (Heb 7:24-25)" style="left:56%; top:60%; width:42%; height:38%;"></div>
+    <div class="badges"><span class="badge-count">5 / 10</span></div>
+    <div class="warn-badge" tabindex="0" data-tip-zh="第三篇警戒（來5:11-6:20）：把基督道理的开端丢下，竭力进到完全的地步...若是离弃道理，就不能叫他们从新懊悔了。" data-tip-en="3rd Warning (Heb 5:11-6:20): Leave elementary teaching and press on to maturity — it is impossible to restore again to repentance those who then fall away.">
+      <svg viewBox="0 0 24 24"><polygon points="12,3 22,20 2,20" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linejoin="round"/><text x="12" y="17" font-size="11" font-weight="700" fill="#FF3B30" text-anchor="middle">!</text></svg>
+      <span class="wlabel">警戒三 · 5:11-6:20</span>
+    </div>
+  </div>
+  <div class="caption-block" data-tip-zh="亚伦的祭司职分因不完全、因死而需要更换；基督却照无穷生命的大能设立，神起誓立他为永远的祭司——他一次献上自己，就永远成全了那些得以成圣的人。" data-tip-en="Aaron's priesthood, weakened by death and imperfection, had to be replaced. Christ was established by the power of an indestructible life, sworn in by God as priest forever.">
+    <div class="zh cjk">亚伦的祭司职分因不完全而需要更换；基督却按无穷生命的大能设立，神起誓立他为永远的祭司。</div>
+    <div class="en">Aaron's priesthood, weakened by death, had to be replaced. Christ was sworn in by God as priest forever, by the power of an indestructible life.</div>
+  </div>
+</section>
+
+<!-- PAGE 5: D -->
+<section class="page" id="p5">
+  <div class="frame">
+    <img src="images/D.jpg" alt="The great temple veil torn from top to bottom, golden light and the Ark of the Covenant glimpsed beyond; old stone tablets fading below beside a glowing new scroll">
+    <div class="titlebar" data-tip-zh="D · 功效上的超越：更美的新約、帳幕與祭物 —— 希伯來書 8:1–10:18" data-tip-en="D · Supreme in Effect — A Better Covenant, Tabernacle, and Sacrifice — Hebrews 8:1–10:18">
+      <div class="zh">D · 功效上的超越：更美的新約與帳幕</div>
+      <div class="en">D · Supreme in Effect — A Better Covenant &amp; Tabernacle</div>
+      <div class="ref">希伯來書 8:1–10:18 · Hebrews 8:1–10:18</div>
+    </div>
+    <div class="hotspot" data-tip-zh="更美的应许，更美的约——这约原是凭更美之应许立的...我要将我的律法放在他们里面，写在他们心上。（来8:6-10）" data-tip-en="A Better Covenant, Better Promises — this covenant is enacted on better promises... I will write my laws on their hearts. (Heb 8:6-10)" style="left:4%; top:58%; width:44%; height:40%;"></div>
+    <div class="hotspot" data-tip-zh="更大更全备的帐幕——基督进入更大更全备的帐幕，不是人手所造的...用自己的血，只一次进入圣所，成了永远赎罪的事。（来9:11-12）" data-tip-en="A Greater, More Perfect Tent — Christ entered the greater tabernacle not made with hands, by his own blood, once for all. (Heb 9:11-12)" style="left:22%; top:2%; width:56%; height:58%;"></div>
+    <div class="hotspot" data-tip-zh="一次献上，永远成全——我们凭这旨意，靠耶稣基督只一次献上他的身体，就得以成圣。（来10:10-12）" data-tip-en="Once for All — by that will we have been sanctified through the offering of the body of Jesus Christ once for all. (Heb 10:10-12)" style="left:52%; top:58%; width:44%; height:40%;"></div>
+    <div class="badges"><span class="badge-count">6 / 10</span></div>
+  </div>
+  <div class="caption-block" data-tip-zh="旧约的帐幕与祭物，年年重复，却不能除罪；基督却以自己的身体为更美的帐幕，以自己的血为更美的祭，一次献上，永远成全，又将神的律法写在我们心版上——这两者都胜过旧约：更美的约，也更美的帐幕。" data-tip-en="The old tabernacle and its sacrifices were repeated endlessly, yet could never take away sin. Christ, as the better tabernacle, offered the better sacrifice — once for all, and wrote God's law on our hearts. Both the covenant and the tabernacle are surpassed.">
+    <div class="zh cjk">旧约的帐幕与祭物年年重复，却不能除罪；基督一次献上自己，就永远成全——祂既是更美之约的中保，也开启了更美的帐幕。</div>
+    <div class="en">The old tabernacle and sacrifices repeated endlessly, yet never removed sin. Christ offered himself once, forever effective — mediator of a better covenant, and of a better tabernacle.</div>
+  </div>
+</section>
+
+<!-- PAGE 6: E -->
+<section class="page" id="p6">
+  <div class="frame">
+    <img src="images/E.jpg" alt="A radiant straight path leads through a torn veil toward brilliant light, a robed figure walking forward, faint silhouettes of ancient faith heroes along the edges">
+    <div class="titlebar" data-tip-zh="E · 信心的新路 —— 希伯來書 10:19–11:40" data-tip-en="E · The New and Living Way of Faith — Hebrews 10:19–11:40">
+      <div class="zh">E · 信心的新路</div>
+      <div class="en">E · The New and Living Way of Faith</div>
+      <div class="ref">希伯來書 10:19–11:40 · Hebrews 10:19–11:40</div>
+    </div>
+    <div class="hotspot" data-tip-zh="又新又活的路——我们既因耶稣的血得以坦然进入至圣所，是藉着他给我们开了一条又新又活的路，从幔子经过。（来10:19-20）" data-tip-en="A New and Living Way — we have confidence to enter the holy places by the blood of Jesus, through the curtain, that is, through his flesh. (Heb 10:19-20)" style="left:30%; top:0%; width:40%; height:70%;"></div>
+    <div class="hotspot" data-tip-zh="信心的定义与云彩般的见证人——信就是所望之事的实底，是未见之事的确据...古人在这信上得了美好的证据。（来11:1-2）" data-tip-en="Faith Defined, a Cloud of Witnesses — faith is the assurance of things hoped for, the conviction of things not seen. (Heb 11:1-2)" style="left:0%; top:60%; width:100%; height:40%;"></div>
+    <div class="badges"><span class="badge-count">7 / 10</span></div>
+    <div class="warn-badge" tabindex="0" data-tip-zh="第四篇警戒（來10:26-39）：因为我们得知真道以后，若故意犯罪，赎罪的祭就再没有了...你们必须忍耐，使你们行完了神的旨意，就可以得着所应许的。" data-tip-en="4th Warning (Heb 10:26-39): If we go on sinning deliberately after receiving the knowledge of the truth, no sacrifice for sins remains — you have need of endurance.">
+      <svg viewBox="0 0 24 24"><polygon points="12,3 22,20 2,20" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linejoin="round"/><text x="12" y="17" font-size="11" font-weight="700" fill="#FF3B30" text-anchor="middle">!</text></svg>
+      <span class="wlabel">警戒四 · 10:26-39</span>
+    </div>
+  </div>
+  <div class="caption-block" data-tip-zh="从亚伯、以诺、挪亚，到亚伯拉罕、摩西，这一切都是存着信心死的，并没有得着所应许的；因为神给我们预备了更美的事，使他们若不与我们同得，就不能完全。（来11:39-40）" data-tip-en="From Abel, Enoch, and Noah, to Abraham and Moses — all these died in faith, not having received the promised things, since God had provided something better for us. (Heb 11:39-40)">
+    <div class="zh cjk">古今信心伟人都存着信心死了，并没有得着所应许的；神给我们预备了更美的事，使他们若不与我们同得，就不能完全。</div>
+    <div class="en">All these died in faith, not having received what was promised — God had provided something better for us, so that apart from us they would not be made perfect.</div>
+  </div>
+</section>
+
+<!-- PAGE 7: F -->
+<section class="page" id="p7">
+  <div class="frame">
+    <img src="images/F.jpg" alt="A lone runner strides an ancient stone racetrack toward a glowing hill in the distance, faint translucent figures filling the stone stands as witnesses">
+    <div class="titlebar" data-tip-zh="F · 盼望的試煉 —— 希伯來書 12:1–29" data-tip-en="F · The Trial and Discipline of Hope — Hebrews 12:1–29">
+      <div class="zh">F · 盼望的試煉</div>
+      <div class="en">F · The Trial and Discipline of Hope</div>
+      <div class="ref">希伯來書 12:1–29 · Hebrews 12:1–29</div>
+    </div>
+    <div class="hotspot" data-tip-zh="存心忍耐，奔那摆在前头的路程——仰望为我们信心创始成终的耶稣...存心忍耐，奔那摆在我们前头的路程。（来12:1-2）" data-tip-en="Run With Endurance — looking to Jesus, the founder and perfecter of our faith, let us run with endurance the race set before us. (Heb 12:1-2)" style="left:20%; top:20%; width:60%; height:60%;"></div>
+    <div class="hotspot" data-tip-zh="如同云彩围着我们的见证人——我们既有这许多的见证人，如同云彩围着我们，就当放下各样的重担，脱去容易缠累我们的罪。（来12:1）" data-tip-en="A Great Cloud of Witnesses — since we are surrounded by so great a cloud of witnesses, let us lay aside every weight and sin that clings so closely. (Heb 12:1)" style="left:0%; top:0%; width:100%; height:24%;"></div>
+    <div class="hotspot" data-tip-zh="来到锡安山——你们乃是来到锡安山，永生神的城邑，就是天上的耶路撒冷...和被成全之义人的灵魂。（来12:22-24）" data-tip-en="You Have Come to Mount Zion — you have come to Mount Zion, the city of the living God, the heavenly Jerusalem, and to the spirits of the righteous made perfect. (Heb 12:22-24)" style="left:66%; top:6%; width:32%; height:44%;"></div>
+    <div class="badges"><span class="badge-count">8 / 10</span></div>
+    <div class="warn-badge" tabindex="0" data-tip-zh="第五篇警戒（來12:14-29）：你们要谨慎，不可弃绝那从天上警戒我们的...因为我们的神乃是烈火。" data-tip-en="5th Warning (Heb 12:14-29): See that you do not refuse him who is speaking from heaven — for our God is a consuming fire.">
+      <svg viewBox="0 0 24 24"><polygon points="12,3 22,20 2,20" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linejoin="round"/><text x="12" y="17" font-size="11" font-weight="700" fill="#FF3B30" text-anchor="middle">!</text></svg>
+      <span class="wlabel">警戒五 · 12:14-29</span>
+    </div>
+  </div>
+  <div class="caption-block" data-tip-zh="主所爱的，他必管教——管教虽不觉得快乐，反觉得愁苦，后来却为那经练过的人结出平安的果子，就是义。我们所得的国是不能震动的，所以当存感恩的心，照神所喜悦的，用虔诚敬畏的心事奉神。（来12:6-11, 28）" data-tip-en="The Lord disciplines the one he loves — discipline seems painful, yet later yields the peaceful fruit of righteousness. Since we receive a kingdom that cannot be shaken, let us worship with reverence and awe. (Heb 12:6-11, 28)">
+    <div class="zh cjk">主所爱的，他必管教——后来却为那经练过的人结出平安的果子。我们所得的国不能震动，当以虔诚敬畏的心事奉神。</div>
+    <div class="en">The Lord disciplines those he loves, yielding the peaceful fruit of righteousness. Receiving a kingdom that cannot be shaken, let us worship with reverence and awe.</div>
+  </div>
+</section>
+
+<!-- PAGE 8: G -->
+<section class="page" id="p8">
+  <div class="frame">
+    <img src="images/G.jpg" alt="A warm firelit home with a table set for fellowship, an open door welcoming a traveler, and a small altar with a single flame in the corner">
+    <div class="titlebar" data-tip-zh="G · 愛心的實在 —— 希伯來書 13:1–17" data-tip-en="G · The Reality of Love, Lived Out — Hebrews 13:1–17">
+      <div class="zh">G · 愛心的實在</div>
+      <div class="en">G · The Reality of Love, Lived Out</div>
+      <div class="ref">希伯來書 13:1–17 · Hebrews 13:1–17</div>
+    </div>
+    <div class="hotspot" data-tip-zh="常存弟兄相爱的心——你们务要常存弟兄相爱的心...你们要顾念被捆绑的人，好像与他们同受捆绑一样。（来13:1-3）" data-tip-en="Let Brotherly Love Continue — remember those who are in prison, as though in prison with them. (Heb 13:1-3)" style="left:6%; top:20%; width:52%; height:64%;"></div>
+    <div class="hotspot" data-tip-zh="不可忘记用爱心接待客旅——因为曾有人这样行，不知不觉就接待了天使。（来13:2）" data-tip-en="Do Not Neglect Hospitality — for by doing so some have entertained angels without knowing it. (Heb 13:2)" style="left:58%; top:8%; width:38%; height:50%;"></div>
+    <div class="hotspot" data-tip-zh="常以颂赞为祭——我们应当靠着耶稣，常常以颂赞为祭献给神...只是不可忘记行善和捐输的事，因为这样的祭，是神所喜悦的。（来13:15-16）" data-tip-en="A Sacrifice of Praise — through Jesus let us offer up a sacrifice of praise to God continually; do not neglect to do good and to share. (Heb 13:15-16)" style="left:2%; top:2%; width:26%; height:30%;"></div>
+    <div class="badges"><span class="badge-count">9 / 10</span></div>
+  </div>
+  <div class="caption-block" data-tip-zh="从至圣所的荣耀，到家中筵席的温暖——希伯来书的结语提醒我们：真实的信仰不只停在教义的高处，更活在弟兄相爱、接待客旅、婚姻圣洁、不贪爱钱财，并以颂赞与行善为祭的日常生活里。" data-tip-en="From the glory of the Most Holy Place to the warmth of a shared table — Hebrews closes by reminding us that true faith is lived out in brotherly love, hospitality, honored marriage, contentment, and the daily sacrifices of praise and good works.">
+    <div class="zh cjk">从至圣所的荣耀，到家中筵席的温暖——真实的信仰活在弟兄相爱、接待客旅、颂赞与行善的日常生活里。</div>
+    <div class="en">From the glory of the Most Holy Place to the warmth of a shared table — true faith is lived out in brotherly love, hospitality, praise, and good works.</div>
+  </div>
+</section>
+
+<!-- PAGE 9: RECAP -->
+<section class="page" id="p9">
+  <div class="badges" style="top:16px; right:16px;"><span class="badge-count">10 / 10</span></div>
+  <div class="hero-title" data-tip-zh="更美的中保：希伯來書概論——七重超越，證明基督遠超舊約一切人物與制度。" data-tip-en="A Better Mediator: An Overview of Hebrews — seven-fold proof that Christ is supreme over every figure and institution of the old covenant." style="margin-bottom:2px;">
+    <div class="zh" style="font-size:clamp(1.1rem, 3.2vw, 1.8rem);">更美的中保</div>
+    <div class="en">A Better Mediator — An Overview of Hebrews</div>
+  </div>
+  <div class="recap-grid">
+    <div class="recap-tile" data-tip-zh="A · 身分上的超越：遠超天使 —— 希伯來書 1:4–2:18" data-tip-en="A · Supreme in Identity — Far Above the Angels — Hebrews 1:4–2:18">
+      <img src="images/A.jpg" alt="Section A thumbnail">
+      <div class="label"><b>A</b> · 遠超天使</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="B · 治理上的超越：遠超摩西 —— 希伯來書 3:1–4:13" data-tip-en="B · Supreme in Authority — Far Above Moses — Hebrews 3:1–4:13">
+      <img src="images/B.jpg" alt="Section B thumbnail">
+      <div class="label"><b>B</b> · 遠超摩西</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="C · 職份上的超越：遠超亞倫 —— 希伯來書 4:14–7:28" data-tip-en="C · Supreme in Office — After Melchizedek — Hebrews 4:14–7:28">
+      <img src="images/C.jpg" alt="Section C thumbnail">
+      <div class="label"><b>C</b> · 遠超亞倫</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="D · 功效上的超越：更美的新約與帳幕 —— 希伯來書 8:1–10:18" data-tip-en="D · Supreme in Effect — Better Covenant &amp; Tabernacle — Hebrews 8:1–10:18">
+      <img src="images/D.jpg" alt="Section D thumbnail">
+      <div class="label"><b>D</b> · 更美新約帳幕</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="E · 信心的新路 —— 希伯來書 10:19–11:40" data-tip-en="E · The New and Living Way of Faith — Hebrews 10:19–11:40">
+      <img src="images/E.jpg" alt="Section E thumbnail">
+      <div class="label"><b>E</b> · 信心的新路</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="F · 盼望的試煉 —— 希伯來書 12:1–29" data-tip-en="F · The Trial and Discipline of Hope — Hebrews 12:1–29">
+      <img src="images/F.jpg" alt="Section F thumbnail">
+      <div class="label"><b>F</b> · 盼望的試煉</div>
+    </div>
+    <div class="recap-tile" data-tip-zh="G · 愛心的實在 —— 希伯來書 13:1–17" data-tip-en="G · The Reality of Love, Lived Out — Hebrews 13:1–17">
+      <img src="images/G.jpg" alt="Section G thumbnail">
+      <div class="label"><b>G</b> · 愛心的實在</div>
+    </div>
+    <div class="recap-tile" style="display:flex; align-items:center; justify-content:center; background:radial-gradient(ellipse at 50% 40%, var(--navy-1), var(--navy-0));" data-tip-zh="愿赐平安的神，就是那凭永约之血，使群羊的大牧人我主耶稣从死里复活的神，在各样善事上成全你们，叫你们遵行他的旨意...愿荣耀归给他，直到永永远远。阿们。（来13:20-21）" data-tip-en="Now may the God of peace, who brought again from the dead our Lord Jesus, the great shepherd of the sheep, by the blood of the eternal covenant, equip you with everything good that you may do his will... to whom be glory forever and ever. Amen. (Heb 13:20-21)">
+      <div style="text-align:center; padding:10%;">
+        <div class="zh cjk" style="font-size:clamp(0.72rem,1.6vw,0.92rem); color:var(--gold-bright); font-weight:700; line-height:1.7;">愿赐平安的神...使群羊的大牧人我主耶稣从死里复活...愿荣耀归给他，直到永永远远。阿们。</div>
+        <div class="en" style="font-size:0.62rem; color:var(--gold); opacity:0.8; margin-top:8px; font-style:italic;">Heb 13:20-21</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var tip = document.createElement('div');
+  tip.className = 'global-tooltip';
+  document.body.appendChild(tip);
+
+  var spots = document.querySelectorAll('[data-tip-zh]');
+  spots.forEach(function(el){
+    el.setAttribute('tabindex', el.getAttribute('tabindex') || '0');
+    var isWarn = el.classList.contains('warn-badge');
+    function show(){
+      var zh = el.getAttribute('data-tip-zh');
+      var en = el.getAttribute('data-tip-en');
+      tip.classList.toggle('warn', isWarn);
+      tip.innerHTML = (isWarn ? '<span class="tag">⚠ 警戒 · WARNING</span><br>' : '') + zh + (en ? '<span class="en">' + en + '</span>' : '');
+      tip.classList.add('visible');
+      position();
+    }
+    function position(){
+      var r = el.getBoundingClientRect();
+      tip.style.left = '0px';
+      tip.style.top = '0px';
+      var tw = tip.offsetWidth, th = tip.offsetHeight;
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var x = r.left + r.width/2 - tw/2;
+      var y = r.top - th - 10;
+      if (y < 8) y = r.bottom + 10;
+      if (x < 8) x = 8;
+      if (x + tw > vw - 8) x = vw - 8 - tw;
+      if (y + th > vh - 8) y = vh - 8 - th;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    }
+    function hide(){
+      tip.classList.remove('visible');
+    }
+    el.addEventListener('mouseenter', show);
+    el.addEventListener('mousemove', position);
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('focus', show);
+    el.addEventListener('blur', hide);
+  });
+
+  var dots = document.querySelectorAll('#navdots a');
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var currentIndex = 0;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var idx = pages.indexOf(entry.target);
+        currentIndex = idx;
+        dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+      }
+    });
+  }, {threshold:0.55});
+  pages.forEach(function(p){ io.observe(p); });
+
+  var stepKeys = {'PageDown':1, 'ArrowDown':1, ' ':1, 'PageUp':-1, 'ArrowUp':-1};
+  document.addEventListener('keydown', function(e){
+    if (!(e.key in stepKeys)) return;
+    e.preventDefault();
+    var next = currentIndex + stepKeys[e.key];
+    next = Math.max(0, Math.min(pages.length - 1, next));
+    pages[next].scrollIntoView({behavior:'smooth', block:'start'});
+    currentIndex = next;
+  });
+})();
+</script>
