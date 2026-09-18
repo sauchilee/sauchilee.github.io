@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>更美的中保：希伯來書概論</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
@@ -369,6 +371,14 @@
     filter:drop-shadow(0 6px 10px rgba(0,0,0,0.6)) drop-shadow(0 0 5px var(--gold-bright));
     transform:translate(-50%,-50%) scale(1.08);
   }
+
+  /* doctrine (A-D) = gold fill / black letter; application (E-G) = black fill / gold letter; light-blue outline on both */
+  .hept-node{ --lblue:#BDE3FF; background:var(--lblue) !important; }
+  .hept-node::before{ content:""; position:absolute; inset:7%; clip-path:polygon(50% 2%, 88.6% 21%, 98.5% 61%, 71.6% 95%, 28.4% 95%, 1.5% 61%, 11.4% 21%); z-index:-1; }
+  .hept-node.doc::before{ background:radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 60%, var(--gold-dim)); }
+  .hept-node.doc{ color:#000; }
+  .hept-node.app::before{ background:#000; }
+  .hept-node.app{ color:var(--gold-bright); }
   .hept-label{
     position:absolute;
     transform:translate(-50%,-50%);
@@ -459,38 +469,39 @@
   <div class="hept-wrap">
     <svg viewBox="0 0 100 100">
       <polygon points="50,4 85.96,21.32 94.87,60.23 69.96,91.44 30.04,91.44 5.13,60.23 14.04,21.32" fill="rgba(201,166,102,0.07)" stroke="rgba(201,166,102,0.65)" stroke-width="0.6"/>
-      <line x1="50" y1="50" x2="50" y2="4" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="85.96" y2="21.32" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="94.87" y2="60.23" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="69.96" y2="91.44" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="30.04" y2="91.44" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="5.13" y2="60.23" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
-      <line x1="50" y1="50" x2="14.04" y2="21.32" stroke="rgba(201,166,102,0.35)" stroke-width="0.4"/>
+      <line x1="50" y1="50" x2="50" y2="4" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="85.96" y2="21.32" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="94.87" y2="60.23" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="69.96" y2="91.44" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="30.04" y2="91.44" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="5.13" y2="60.23" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <line x1="50" y1="50" x2="14.04" y2="21.32" stroke="rgba(189,227,255,0.85)" stroke-width="0.9"/>
+      <circle cx="50" cy="50" r="15.5" fill="rgba(10,16,26,0.92)" stroke="#BDE3FF" stroke-width="1.1"/>
     </svg>
     <div class="hept-center">
       <div class="zh">基督<br>更美</div>
       <div class="en">Christ, Better in All</div>
     </div>
 
-    <div class="hept-node" tabindex="0" style="left:50%; top:4%;" data-tip-zh="A · 身分上的超越：遠超天使（來1:4–2:18）" data-tip-en="A · Supreme in Identity — Far Above the Angels (Heb 1:4–2:18)">A</div>
+    <div class="hept-node doc" tabindex="0" style="left:50%; top:4%;" data-tip-zh="A · 身分上的超越：遠超天使（來1:4–2:18）" data-tip-en="A · Supreme in Identity — Far Above the Angels (Heb 1:4–2:18)">A</div>
     <div class="hept-label" style="left:50%; top:15%;"><div class="zh">身分</div><div class="en">Identity</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:85.96%; top:21.32%;" data-tip-zh="B · 治理上的超越：遠超摩西，進入安息（來3:1–4:13）" data-tip-en="B · Supreme in Authority — Far Above Moses, Into God's Rest (Heb 3:1–4:13)">B</div>
+    <div class="hept-node doc" tabindex="0" style="left:85.96%; top:21.32%;" data-tip-zh="B · 治理上的超越：遠超摩西，進入安息（來3:1–4:13）" data-tip-en="B · Supreme in Authority — Far Above Moses, Into God's Rest (Heb 3:1–4:13)">B</div>
     <div class="hept-label" style="left:88%; top:33.5%; width:26%;"><div class="zh">治理</div><div class="en">Authority</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:94.87%; top:60.23%;" data-tip-zh="C · 職份上的超越：遠超亞倫（來4:14–7:28）" data-tip-en="C · Supreme in Office — A Better Priesthood After Melchizedek (Heb 4:14–7:28)">C</div>
+    <div class="hept-node doc" tabindex="0" style="left:94.87%; top:60.23%;" data-tip-zh="C · 職份上的超越：遠超亞倫（來4:14–7:28）" data-tip-en="C · Supreme in Office — A Better Priesthood After Melchizedek (Heb 4:14–7:28)">C</div>
     <div class="hept-label" style="left:87%; top:71.5%; width:26%;"><div class="zh">職份</div><div class="en">Office</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:69.96%; top:91.44%;" data-tip-zh="D · 功效上的超越：更美的新約、帳幕與祭物（來8:1–10:18）" data-tip-en="D · Supreme in Effect — A Better Covenant, Tabernacle, and Sacrifice (Heb 8:1–10:18)">D</div>
+    <div class="hept-node doc" tabindex="0" style="left:69.96%; top:91.44%;" data-tip-zh="D · 功效上的超越：更美的新約、帳幕與祭物（來8:1–10:18）" data-tip-en="D · Supreme in Effect — A Better Covenant, Tabernacle, and Sacrifice (Heb 8:1–10:18)">D</div>
     <div class="hept-label" style="left:69.96%; top:100%;"><div class="zh">功效</div><div class="en">Effect</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:30.04%; top:91.44%;" data-tip-zh="E · 信心的新路（來10:19–11:40）" data-tip-en="E · The New and Living Way of Faith (Heb 10:19–11:40)">E</div>
+    <div class="hept-node app" tabindex="0" style="left:30.04%; top:91.44%;" data-tip-zh="E · 信心的新路（來10:19–11:40）" data-tip-en="E · The New and Living Way of Faith (Heb 10:19–11:40)">E</div>
     <div class="hept-label" style="left:30.04%; top:100%;"><div class="zh">信心</div><div class="en">Faith</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:5.13%; top:60.23%;" data-tip-zh="F · 盼望的試煉（來12:1–29）" data-tip-en="F · The Trial and Discipline of Hope (Heb 12:1–29)">F</div>
+    <div class="hept-node app" tabindex="0" style="left:5.13%; top:60.23%;" data-tip-zh="F · 盼望的試煉（來12:1–29）" data-tip-en="F · The Trial and Discipline of Hope (Heb 12:1–29)">F</div>
     <div class="hept-label" style="left:13%; top:71.5%; width:26%;"><div class="zh">盼望</div><div class="en">Hope</div></div>
 
-    <div class="hept-node" tabindex="0" style="left:14.04%; top:21.32%;" data-tip-zh="G · 愛心的實在（來13:1–17）" data-tip-en="G · The Reality of Love, Lived Out (Heb 13:1–17)">G</div>
+    <div class="hept-node app" tabindex="0" style="left:14.04%; top:21.32%;" data-tip-zh="G · 愛心的實在（來13:1–17）" data-tip-en="G · The Reality of Love, Lived Out (Heb 13:1–17)">G</div>
     <div class="hept-label" style="left:12%; top:33.5%; width:26%;"><div class="zh">愛心</div><div class="en">Love</div></div>
   </div>
   <div class="caption-block" data-tip-zh="全书以七重论证层层展开：A至D是教义篇（1:1–10:18），证明基督本身的超越；E至G是实践篇（10:19–13:17），呼召信徒活出与蒙召相称的超越生命——信心、盼望、爱心。五篇警戒短文穿插其间，提醒我们不可随流失去、不可硬心、不可停滞、不可故意犯罪、不可弃绝那从天上警戒我们的。" data-tip-en="The book unfolds in seven movements: A–D form the doctrinal half (1:1–10:18), proving Christ's own supremacy; E–G form the practical half (10:19–13:17), calling believers to live out that supremacy in faith, hope, and love. Five warning passages are woven throughout, cautioning us not to drift, not to harden our hearts, not to stagnate, not to sin willfully, and not to refuse the One who speaks from heaven.">
