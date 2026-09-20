@@ -718,6 +718,41 @@ main {
 }
 
 
+/* One-line entry: dot, date, title link, tag(s) */
+
+.sermon-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    gap: 4px 12px;
+
+    padding: 9px 10px;
+}
+
+
+.sermon-line::before {
+    content: "";
+
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+
+    align-self: center;
+
+    border-radius: 50%;
+
+    background: var(--gold-dark);
+}
+
+
+.sermon-line .sermon-date {
+    margin-left: 0;
+
+    font-weight: 700;
+}
+
+
 .sermon-flat .sermon-date {
     margin-left: auto;
 
