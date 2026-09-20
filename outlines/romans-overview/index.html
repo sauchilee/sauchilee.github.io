@@ -45,11 +45,12 @@
   .illus .more a:hover{background:rgba(47,95,99,.1);}
   .illus-pair{margin:14px 0 0;}
   .illus-pair .illus{display:none; margin-top:8px;} .illus-pair .illus.on{display:block;}
-  .illus-sw{display:inline-flex; align-items:center; gap:.5em; font:inherit; font-size:.95rem; color:var(--teal); background:#fff; border:1px solid var(--teal); border-radius:999px; padding:3px 14px 3px 10px; cursor:pointer;}
-  .illus-sw:hover{background:rgba(47,95,99,.1);}
-  .illus-sw .tri{display:inline-block; font-size:1.05rem; line-height:1; transition:transform .2s;}
-  .illus-sw.second .tri{transform:rotate(180deg);}
-  .illus-sw .cnt{color:var(--brown);}
+  .illus-sel{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px;}
+  .illus-sel .sel-lab{display:inline-flex; align-items:center; gap:.4em; color:var(--brown); font-weight:700; font-size:.95rem; margin-right:2px;}
+  .illus-sel .tri{color:var(--teal); font-size:1rem; line-height:1;}
+  .illus-sel button{font:inherit; font-size:.92rem; color:var(--teal); background:#fff; border:1px solid var(--teal); border-radius:999px; padding:3px 13px; cursor:pointer;}
+  .illus-sel button:hover{background:rgba(47,95,99,.1);}
+  .illus-sel button[aria-pressed="true"]{background:var(--teal); color:#fff; font-weight:700;}
   details.alts{margin:10px 0 0;} details.alts summary{cursor:pointer; color:var(--teal); font-size:.95rem; padding:4px 0;} details.alts .illus{margin-top:6px; opacity:.95;}
   .recap{margin:.6em 0 0; padding:16px 20px 14px; background:#FFF; border:1px solid var(--line); border-radius:14px;}
   .recap .one{margin:.2em 0 .6em; font-size:1.15rem; color:var(--brown); text-align:center;}
@@ -115,7 +116,7 @@
       <p class="keyv"><b>關鍵經文　3:20、23</b>　「所以凡有血氣的，沒有一個因行律法能在神面前稱義，因為律法本是叫人知罪。」「因為世人都犯了罪，虧缺了神的榮耀。」</p>
       <p>外邦人與猶太人同樣活在罪的轄制之下：沒有人能靠「表現」過關，律法只是叫人知罪，並讓人渴慕真正的義。</p>
       <div class="illus-pair">
-        <button type="button" class="illus-sw" aria-label="切換例證 Switch illustration" title="按三角形，切換另一則例證 | Click the triangle to switch to the other illustration"><span class="tri">▶</span><span class="lbl">換一則例證　<b class="cnt">1 / 2</b></span></button>
+        <div class="illus-sel" role="group" aria-label="例證選擇 Choose illustrations"><span class="sel-lab"><span class="tri">▶</span>例證</span><button type="button" data-v="none" title="這一點不放例證 | No illustration for this point">不用</button><button type="button" data-v="1" title="只顯示例證 1 | Show illustration 1 only">1　大眾汽車</button><button type="button" data-v="2" title="只顯示例證 2 | Show illustration 2 only">2　米爾格蘭姆</button><button type="button" data-v="both" title="兩則都顯示 | Show both illustrations">兩則都用</button></div>
       <div class="illus on">
         <div class="lab"><span class="tag">當代新聞・Contemporary news</span><h4>「只在考場上乖」——大眾汽車排放門（2015）</h4></div>
         <p>2015 年 9 月，美國環保署指控德國大眾汽車：約 1100 萬輛柴油車裝了一段軟件，車子一被送進實驗室測試，排放控制就啟動、數據漂亮過關；一上馬路，氮氧化物排放最高可達標準的 40 倍。公司後來認罪，並支付了巨額賠償。這不只是壞人的故事，而是一家備受敬重的公司，為了「通過測試」，把作弊寫進了系統。我們何嘗不是？在人面前、在教會裡、在社交媒體上，我們很會「過關」；沒人看見的時候，才是真實的排放量。羅馬書說，憑行律法，沒有一個人能在神面前稱義（3:20）。我們需要的，不是更會過關，而是一條不必靠「通過測試」的出路。</p>
@@ -141,7 +142,7 @@
         <li><b>體　得榮</b>將來復活的日子，完全得榮耀</li>
       </ul>
       <div class="illus-pair">
-        <button type="button" class="illus-sw" aria-label="切換例證 Switch illustration" title="按三角形，切換另一則例證 | Click the triangle to switch to the other illustration"><span class="tri">▶</span><span class="lbl">換一則例證　<b class="cnt">1 / 2</b></span></button>
+        <div class="illus-sel" role="group" aria-label="例證選擇 Choose illustrations"><span class="sel-lab"><span class="tri">▶</span>例證</span><button type="button" data-v="none" title="這一點不放例證 | No illustration for this point">不用</button><button type="button" data-v="1" title="只顯示例證 1 | Show illustration 1 only">1　約翰・牛頓</button><button type="button" data-v="2" title="只顯示例證 2 | Show illustration 2 only">2　醫療債務</button><button type="button" data-v="both" title="兩則都顯示 | Show both illustrations">兩則都用</button></div>
       <div class="illus on">
         <div class="lab"><span class="tag">歷史與詩歌・社會倫理　History & hymn</span><h4>「曾經是奴隸販子」——約翰・牛頓與〈奇異恩典〉</h4></div>
         <p>約翰・牛頓（John Newton，1725–1807）年輕時當上奴隸船的船長，也投資奴隸貿易；他自己回顧那段日子：「曾是不信的、放蕩的人，西非奴隸的僕人」。1748 年，他在返回英國的海上遇到幾乎沉船的風暴，開始向神呼求，日後視此為信主的起點。奇怪的是，信主之後，他仍在奴隸貿易中工作、投資多年；直到退出奴隸貿易 34 年後的 1788 年，他才發表小冊子，公開揭露奴隸船上的殘酷，加入廢奴運動。他也是〈奇異恩典〉的作詞者。「稱義」是一瞬間的事（羅 3:24；5:1）；「成聖」卻是一天一天的更新（8:29；12:2），連生命裡的盲點，也要一層一層被光照亮。信主之後，你有哪一塊「還沒看見」？</p>
@@ -163,7 +164,7 @@
       <p class="keyv"><b>關鍵經文　11:33、36</b>　「深哉，神豐富的智慧和知識！他的判斷何其難測！他的蹤跡何其難尋！」「因為萬有都是本於他，倚靠他，歸於他。願榮耀歸給他，直到永遠。阿們！」</p>
       <p>面對以色列的不信與萬民的蒙恩，保羅不是給出全部答案，而是使我們在神的主權與智慧面前俯伏敬拜。</p>
       <div class="illus-pair">
-        <button type="button" class="illus-sw" aria-label="切換例證 Switch illustration" title="按三角形，切換另一則例證 | Click the triangle to switch to the other illustration"><span class="tri">▶</span><span class="lbl">換一則例證　<b class="cnt">1 / 2</b></span></button>
+        <div class="illus-sel" role="group" aria-label="例證選擇 Choose illustrations"><span class="sel-lab"><span class="tri">▶</span>例證</span><button type="button" data-v="none" title="這一點不放例證 | No illustration for this point">不用</button><button type="button" data-v="1" title="只顯示例證 1 | Show illustration 1 only">1　泰國山洞</button><button type="button" data-v="2" title="只顯示例證 2 | Show illustration 2 only">2　敦克爾克</button><button type="button" data-v="both" title="兩則都顯示 | Show both illustrations">兩則都用</button></div>
       <div class="illus on">
         <div class="lab"><span class="tag">當代新聞・Contemporary news</span><h4>「洞裡的十三個人」——泰國山洞救援（2018）</h4></div>
         <p>2018 年 6 月 23 日，泰國清萊省，十二名少年足球隊員和二十五歲的助理教練進入山洞，突降暴雨，洪水封住了出口。他們與外界失聯超過一星期，直到 7 月 2 日才被英國潛水員找到。最後採用的方案，是替每個孩子戴上氧氣面罩、注射鎮靜劑，由潛水員帶著穿過漆黑混濁的水道——孩子們看不見路，也不明白全部細節，只能信靠帶路的人。7 月 8 日至 10 日，十三人全部獲救；救援動員多達一萬人，其中一位前海軍蛙人也為此犧牲。我們的生活也有「洞」：看不見出口，聽不懂計畫。羅馬書 9–11 章回顧神在歷史中的作為，最後只能說：「深哉，神豐富的智慧和知識！」（11:33）信靠，不是先弄懂全部，而是把自己交給那位看得見出口的主。</p>
@@ -185,7 +186,7 @@
       <p class="keyv"><b>關鍵經文　12:1–2</b>　「所以弟兄們，我以神的慈悲勸你們，將身體獻上，當作活祭，是聖潔的，是神所喜悅的；你們如此事奉乃是理所當然的。不要效法這個世界，只要心意更新而變化，叫你們察驗何為神的善良、純全、可喜悅的旨意。」</p>
       <p>因信得義的人，在日常生活與教會中活出神的義：獻上自己、彼此接納、與眾人和睦。</p>
       <div class="illus-pair">
-        <button type="button" class="illus-sw" aria-label="切換例證 Switch illustration" title="按三角形，切換另一則例證 | Click the triangle to switch to the other illustration"><span class="tri">▶</span><span class="lbl">換一則例證　<b class="cnt">1 / 2</b></span></button>
+        <div class="illus-sel" role="group" aria-label="例證選擇 Choose illustrations"><span class="sel-lab"><span class="tri">▶</span>例證</span><button type="button" data-v="none" title="這一點不放例證 | No illustration for this point">不用</button><button type="button" data-v="1" title="只顯示例證 1 | Show illustration 1 only">1　卡津海軍</button><button type="button" data-v="2" title="只顯示例證 2 | Show illustration 2 only">2　法庭擁抱</button><button type="button" data-v="both" title="兩則都顯示 | Show both illustrations">兩則都用</button></div>
       <div class="illus on">
         <div class="lab"><span class="tag">當代新聞・生活應用　Contemporary news · daily life</span><h4>「開著自家釣魚船出門」——路易斯安那的「卡津海軍」</h4></div>
         <p>卡津海軍不是軍隊，而是一群自發的民間船主。他們在 2005 年卡崔娜颶風之後成形，其後在多次洪災與颶風（包括 2017 年的哈維颶風）中再度出動，用自己的釣魚船和平底小艇，把被洪水困住的人接出來，據稱救出了成千上萬的人。他們出發時，不問對方是誰、支持誰、信什麼；水漲了，鄰舍在屋頂上，船就開出去。羅馬書 12 章說：把身體獻上，當作活祭（12:1）；恩賜各不相同，卻同屬一個身體（12:4–5）；與哀哭的人要同哭（12:15）；若是能行，總要盡力與眾人和睦（12:18）。你的「船」是什麼——時間、車子、廚房、專業？此刻，有誰就在你附近「被水困住」，而且和你的想法不同？</p>
@@ -223,7 +224,7 @@
   </ol>
   <p class="bless"><b>祝頌　羅馬書 16:25–27</b><br>惟有神能照我所傳的福音和所講的耶穌基督，並照永古隱藏不言的奧祕，堅固你們的心。這奧祕如今顯明出來，而且按着永生神的命，藉眾先知的書指示萬國的民，使他們信服真道。願榮耀因耶穌基督歸與獨一全智的神，直到永遠。阿們！</p>
 
-  <p class="foot">經文：和合本（繁體）。引言與各要點取自本篇講章 PPT〈從罪到恩，由死而生〉；例證資料取自公開來源（見各「查看詳情」連結），數字以 2026 年查閱為準；每個要點有兩則例證，按例證上方的三角形即可切換。<br>Scripture: Chinese Union Version. Introduction and main points are taken from the sermon slides; illustrations draw on public sources linked above (figures as consulted in 2026).</p>
+  <p class="foot">經文：和合本（繁體）。引言與各要點取自本篇講章 PPT〈從罪到恩，由死而生〉；例證資料取自公開來源（見各「查看詳情」連結），數字以 2026 年查閱為準；每個要點有兩則例證，可在例證上方選擇「不用／例證 1／例證 2／兩則都用」。<br>Scripture: Chinese Union Version. Introduction and main points are taken from the sermon slides; illustrations draw on public sources linked above (figures as consulted in 2026).</p>
 
 </div>
 <script>
@@ -236,18 +237,18 @@
 })();
 </script>
 <script>
-/* two illustrations per main point: click the triangle to switch between them; the choice is remembered on this computer */
+/* two illustrations per main point: choose none / 1 / 2 / both for each point; the choice is remembered on this computer */
 [].forEach.call(document.querySelectorAll('.illus-pair'),function(pair){
-  var sw=pair.querySelector('.illus-sw'), ill=pair.querySelectorAll('.illus'), pt=pair.closest('.point'), key='romansOutline.'+(pt?pt.id:'x');
-  function show(second){
-    ill[0].classList.toggle('on',!second); ill[1].classList.toggle('on',second);
-    sw.classList.toggle('second',second); sw.querySelector('.cnt').textContent=(second?'2':'1')+' / 2';
+  var btns=pair.querySelectorAll('.illus-sel button'), ill=pair.querySelectorAll('.illus'), pt=pair.closest('.point'), key='romansOutline.'+(pt?pt.id:'x');
+  function show(v){
+    ill[0].classList.toggle('on',v==='1'||v==='both'); ill[1].classList.toggle('on',v==='2'||v==='both');
+    [].forEach.call(btns,function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false'); });
   }
-  sw.addEventListener('click',function(){
-    var second=!ill[1].classList.contains('on'); show(second);
-    try{ localStorage.setItem(key,second?'2':'1'); }catch(e){}
+  [].forEach.call(btns,function(b){
+    b.addEventListener('click',function(){ var v=b.getAttribute('data-v'); show(v); try{ localStorage.setItem(key,v); }catch(e){} });
   });
-  try{ if(localStorage.getItem(key)==='2') show(true); }catch(e){}
+  var v='1'; try{ var g=localStorage.getItem(key); if(g==='none'||g==='1'||g==='2'||g==='both') v=g; }catch(e){}
+  show(v);
 });
 </script>
 </body>
