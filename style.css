@@ -330,13 +330,17 @@ body::before {
     position: relative;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);      /* five tiles: 3 + 2, second row centred */
 
     gap: 14px;
 
     max-width: 680px;
     margin: 34px auto 0;
 }
+
+.hero-preview .preview-item { grid-column: span 2; }
+.hero-preview .preview-item:nth-child(4) { grid-column: 2 / span 2; }
+.hero-preview .preview-item:nth-child(5) { grid-column: 4 / span 2; }
 
 
 .preview-item {
@@ -1178,6 +1182,12 @@ footer {
 
         max-width: 340px;
     }
+
+    .hero-preview .preview-item,
+    .hero-preview .preview-item:nth-child(4),
+    .hero-preview .preview-item:nth-child(5) { grid-column: auto; }
+
+    .hero-preview .preview-item:nth-child(5) { grid-column: 1 / -1; justify-self: center; width: 50%; }
 }
 
 
