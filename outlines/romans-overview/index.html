@@ -165,7 +165,7 @@
     <div class="pb">
       <p class="keyv"><b>關鍵經文　11:33、36</b>　「深哉，神豐富的智慧和知識！他的判斷何其難測！他的蹤跡何其難尋！」「因為萬有都是本於他，倚靠他，歸於他。願榮耀歸給他，直到永遠。阿們！」</p>
       <p>面對以色列的不信與萬民的蒙恩，保羅不是給出全部答案，而是使我們在神的主權與智慧面前俯伏敬拜。</p>
-      <div class="illus-pair" data-default="1">
+      <div class="illus-pair" data-default="2">
         <div class="illus-sel" role="group" aria-label="例證 Illustrations"><span class="sel-lab"><span class="tri">▶</span>例證</span></div>
       <div class="illus on" data-short="泰國山洞">
         <div class="lab"><span class="tag">當代新聞・Contemporary news</span><h4>「洞裡的十三個人」——<u class="nm">泰國山洞</u><span class="en">（Tham Luang Cave）</span>救援（2018）</h4></div>
@@ -242,11 +242,11 @@
 /* illustrations per main point: one toggle button per illustration (click = on, click again = off), any number can be on at once.
    Works for 1, 2, 3 … illustrations. The choice per point is remembered on this device. */
 (function(){
-  var KEY='romansOutline.';
+  var KEY='romansOutline.v2.';   /* v2: earlier saved choices are ignored so every copy starts from the same defaults */
   function load(id,n,def){ var g=null;
     try{ if(parent!==window && parent.__illusState && parent.__illusState[id]!==undefined) g=parent.__illusState[id]; }catch(e){}   /* single-file package: the wrapper page keeps the choice */
     if(g===null){ try{ g=localStorage.getItem(KEY+id); }catch(e){} }
-    if(g===null||g===undefined) return (def===null||def===undefined)?[1]:def.split(',').filter(Boolean).map(Number);   /* default set on the point (data-default): here A, B, C, D = first illustration (D = Cajun Navy) */
+    if(g===null||g===undefined) return (def===null||def===undefined)?[1]:def.split(',').filter(Boolean).map(Number);   /* default set on the point (data-default): here A = Volkswagen, B = John Newton, C = Dunkirk, D = Cajun Navy */
     if(g==='none'||g==='') return []; if(g==='both') return [1,2]; if(g==='1'||g==='2') return [+g];   /* old saved values */
     return String(g).split(',').filter(Boolean).map(Number); }
   function save(id,list){ var v=list.join(','); try{ localStorage.setItem(KEY+id,v); }catch(e){} try{ if(parent!==window && parent.__illusState) parent.__illusState[id]=v; }catch(e){} }
