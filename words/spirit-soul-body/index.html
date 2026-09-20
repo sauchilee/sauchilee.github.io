@@ -214,7 +214,7 @@ mark{padding:0 .14em; border-radius:.2em; font-weight:700; -webkit-box-decoratio
 .filters .f small{opacity:.75; margin:0 .2em;}
 .filters .f .cnt{color:var(--gold-bright); margin-left:.2em;}
 .filters .f.on{background:rgba(199,164,95,.2); border:1px solid var(--gold-bright);}
-.lpage.hide-t0 .pass.t0,.lpage.hide-t1 .pass.t1,.lpage.hide-t2 .pass.t2{display:none;}
+.lpage:not(.only-tri):not(.only-body).hide-t0 .pass.t0,.lpage:not(.only-tri):not(.only-body).hide-t1 .pass.t1,.lpage:not(.only-tri):not(.only-body).hide-t2 .pass.t2{display:none;}
 .lpage[data-kind="ot"]:not(.show-wind) .pass.wind{display:none;}
 .pass{border:1px solid rgba(199,164,95,.4); background:rgba(255,255,255,.035); border-radius:14px; padding:12px 16px 8px; margin:0 0 16px; counter-increment:pn;}
 .pass>header{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; text-align:left; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid rgba(199,164,95,.25);}
@@ -255,7 +255,7 @@ mark{padding:0 .14em; border-radius:.2em; font-weight:700; -webkit-box-decoratio
 .tg[lang="grc"]{font-family:'Palatino','Palatino Linotype','Times New Roman',serif;}
 .tg.R{background:#F3D98C;} .tg.N{background:#F1F4F9;}
 
-.lpage.hide-t3 .pass.t3{display:none;}
+.lpage:not(.only-tri):not(.only-body).hide-t3 .pass.t3{display:none;}
 body[data-page="ot"] .cap, body[data-page="nt"] .cap{display:none;}
 
 /* third colour: 'the inner man' (Eph 3:16) */
@@ -279,11 +279,11 @@ mark.L,.lg.L,.wc.L,.tg.L{background:#B4C0D2; color:#0A101A;}
 
 .lpage .shown{margin:2px 0 12px; color:var(--gold-bright); font-size:1.05rem; font-weight:700;}
 
-.lpage.hide-t4 .pass.t4{display:none;}
+.lpage:not(.only-tri):not(.only-body).hide-t4 .pass.t4{display:none;}
 .lpage.only-body .pass:not(.body){display:none;}
 .pass .tb.bodyb{border-color:#B4C0D2; color:#0A101A; background:#B4C0D2; font-weight:700;}
 
-.lpage.hide-t5 .pass.t5{display:none;}
+.lpage:not(.only-tri):not(.only-body).hide-t5 .pass.t5{display:none;}
 /* front-page colour key */
 .ckey{display:flex; flex-wrap:wrap; justify-content:center; gap:6px 8px; margin:8px auto 2px; max-width:min(96vw,1300px);}
 .ckey .ck{font-size:.9rem; line-height:1.35; padding:2px 11px; border-radius:8px; color:#0A101A; white-space:nowrap;}
@@ -332,6 +332,10 @@ body[data-page="ot"] .ckey, body[data-page="nt"] .ckey{display:none;}
 .lpage .tot[hidden]{display:none;}
 .bar-total{margin-top:8px; padding-top:8px; border-top:1px solid rgba(199,164,95,.4); text-align:right; font-size:1.1rem; color:var(--cream);}
 .bar-total b{color:var(--gold-bright); font-size:1.2em;}
+
+/* while a 'show only ...' view is on, the category buttons are paused (dimmed) — the view lists all of its passages */
+.lpage.only-tri .f[data-f^="t"], .lpage.only-body .f[data-f^="t"]{opacity:.5; border-style:dotted;}
+.lpage.only-tri .filters .f.on[data-f^="t"], .lpage.only-body .filters .f.on[data-f^="t"]{background:transparent;}
 
 </style>
 </head>
@@ -808,7 +812,7 @@ setChrome(); showIdle();
       var s=pg.querySelector('.shown'); if(s) s.textContent='目前顯示 '+shown+' 則經文（全部共 '+all.length+' 則），分屬 '+nb+' 卷書';
       /* TOTAL: the categories that are switched on add up to what is listed, e.g. 70 + 6 = 76 */
       var parts=[]; ['t0','t1','t2','t3','t4','t5'].forEach(function(t){
-        var b=pg.querySelector('.f[data-f="'+t+'"]'); if(!b || !b.classList.contains('on')) return;
+        var b=pg.querySelector('.f[data-f="'+t+'"]'); if(!b || (!(onlyTri||onlyBody) && !b.classList.contains('on'))) return;
         var n=parseInt(b.querySelector('.cnt').textContent,10); if(n>0) parts.push({l:b.childNodes[0].textContent.trim(),n:n}); });
       var tt=pg.querySelector('.tot'); if(tt){ tt.innerHTML='合計 <b>'+shown+'</b> 則'+(parts.length>1?'　＝　'+parts.map(function(p){return p.l+' <b>'+p.n+'</b>';}).join('　＋　'):''); tt.hidden=(shown===0); }
       var bt=pg.querySelector('.bar-total'); if(bt) bt.innerHTML='合計 <b>'+shown+'</b> 則，分屬 <b>'+nb+'</b> 卷書';
@@ -838,7 +842,9 @@ setChrome(); showIdle();
       b.addEventListener('click',function(){
         var f=b.getAttribute('data-f'), on;
         if(f==='only-body'){ on=!pg.classList.contains('only-body'); pg.classList.toggle('only-body',on); b.classList.toggle('on',on); refresh(); return; }
-        if(f==='only-tri'){ on=!pg.classList.contains('only-tri'); pg.classList.toggle('only-tri',on); b.classList.toggle('on',on); refresh(); return; }
+        if(f==='only-tri'){ on=!pg.classList.contains('only-tri'); pg.classList.toggle('only-tri',on); b.classList.toggle('on',on); refresh();
+          if(on) Array.prototype.forEach.call(pg.querySelectorAll('.book'),function(bk){ bk.classList.add('open'); var h=bk.querySelector('.bk-h'); h.setAttribute('aria-expanded','true'); h.querySelector('.bk-arrow').textContent='▾'; });
+          return; }
         if(f==='reset'){
           ['t0','t1','t2','t3','t4','t5'].forEach(function(t){ pg.classList.remove('hide-'+t); var x=pg.querySelector('.f[data-f="'+t+'"]'); if(x) x.classList.add('on'); });
           pg.classList.remove('show-wind','only-tri','only-body'); ['only-tri','only-body'].forEach(function(m){ var q=pg.querySelector('.f[data-f="'+m+'"]'); if(q) q.classList.remove('on'); }); var w=pg.querySelector('.f[data-f="wind"]'); if(w) w.classList.remove('on');
