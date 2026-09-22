@@ -282,6 +282,14 @@ body::before {
 }
 
 
+/* force exactly one phrase per line at any viewport width — never a mid-phrase wrap */
+.hero h1 .line-item,
+.hero h2 .line-item {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
 .hero-divider {
     position: relative;
 
