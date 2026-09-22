@@ -614,6 +614,67 @@ main {
 }
 
 
+
+/* Preaching panel: two series classes (Faith & Living / Other) */
+
+.series-class {
+    margin: 4px 0 22px;
+}
+
+.series-class-title {
+    margin: 18px 0 6px;
+
+    padding: 0 8px 6px;
+
+    font-size: 1.12rem;
+    font-weight: 700;
+
+    color: var(--gold-dark);
+
+    border-bottom: 2px solid rgba(176, 138, 74, 0.45);
+}
+
+.series-class-title .en-lbl {
+    font-weight: 500;
+    opacity: 0.85;
+}
+
+
+/* Preaching panel: two collapsible classes, each a flat list of dated sermons */
+
+.class-group {
+    margin: 4px 0 6px;
+
+    border-bottom: 1px solid rgba(176, 138, 74, 0.25);
+}
+
+.class-group > summary {
+    font-size: 1.12rem;
+}
+
+.class-count {
+    margin-left: auto;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    color: var(--gold-dark);
+
+    background: rgba(176, 138, 74, 0.14);
+
+    border-radius: 999px;
+
+    padding: 1px 11px;
+}
+
+.sermon-list {
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0 0 8px 22px;
+}
+
 /* =========================================
    BOOK LIST
    ========================================= */
@@ -1365,3 +1426,38 @@ footer {
 }
 
 
+
+
+/* Other Series: sort buttons live inside the group; the book name only shows in book order */
+
+.class-group > .sort-toggle {
+    margin: 2px 0 6px 22px;
+}
+
+.bk-tag {
+    display: none;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    color: var(--muted);
+
+    background: rgba(176, 138, 74, 0.10);
+
+    border-radius: 6px;
+
+    padding: 0 8px;
+}
+
+.mode-book .bk-tag {
+    display: inline-block;
+}
+
+
+/* plain bullet entries inside a book-list (e.g. Psalm 120 / 121 in Biblical Studies): no divider lines */
+
+.book-list > li.sermon-line {
+    border-bottom: none;
+
+    padding: 9px 10px;
+}
