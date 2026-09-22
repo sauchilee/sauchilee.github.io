@@ -19,6 +19,7 @@
     --olive: #756631;
     --blue: #4a587b;
     --ember: #9c5024;
+    --plum: #6b4a7b;
 
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
@@ -330,7 +331,7 @@ body::before {
     position: relative;
 
     display: grid;
-    grid-template-columns: repeat(6, 1fr);      /* five tiles: 3 + 2, second row centred */
+    grid-template-columns: repeat(6, 1fr);      /* six tiles: even 3 + 3 */
 
     gap: 14px;
 
@@ -339,8 +340,6 @@ body::before {
 }
 
 .hero-preview .preview-item { grid-column: span 2; }
-.hero-preview .preview-item:nth-child(4) { grid-column: 2 / span 2; }
-.hero-preview .preview-item:nth-child(5) { grid-column: 4 / span 2; }
 
 
 .preview-item {
@@ -425,13 +424,18 @@ body::before {
 }
 
 
+.preview-item.worldwatch .preview-icon {
+    background: linear-gradient(135deg, #26334a, var(--blue));
+}
+
+
 .preview-item.external {
     border-style: dashed;
 }
 
 
 .preview-item.external .preview-icon {
-    background: linear-gradient(135deg, #4a4030, var(--gold-dark));
+    background: linear-gradient(135deg, #3d2a45, var(--plum));
 }
 
 
@@ -594,7 +598,13 @@ main {
 
 .churchhome > details > summary {
     background:
-        linear-gradient(135deg, #4a4030, var(--gold-dark));
+        linear-gradient(135deg, #3d2a45, var(--plum));
+}
+
+
+.worldwatch > details > summary {
+    background:
+        linear-gradient(135deg, #26334a, var(--blue));
 }
 
 
@@ -1119,6 +1129,45 @@ main {
 
 .nested li {
     margin: 9px 0;
+}
+
+
+/* bilingual proper-name/technical-term convention: 中文 underlined + (English) right beside */
+.zh-term {
+    text-decoration: underline;
+    text-decoration-color: rgba(176, 138, 74, 0.55);
+    text-underline-offset: 2px;
+}
+
+
+/* Scripture-reference tag on a case line (World Watch matrix) — always visible, unlike .bk-tag */
+.passage-tag {
+    display: inline-block;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+
+    color: var(--gold-dark);
+
+    background: rgba(176, 138, 74, 0.14);
+    border-radius: 6px;
+    padding: 1px 7px;
+
+    white-space: nowrap;
+}
+
+
+/* domain tag word on a World Watch case (no matrix/grid shown publicly — just a plain label) */
+.domain-tag {
+    display: inline-block;
+
+    margin-left: 8px;
+
+    font-size: 0.76rem;
+    font-style: italic;
+
+    color: var(--muted);
 }
 
 

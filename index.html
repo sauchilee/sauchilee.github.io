@@ -29,7 +29,7 @@
           rel="stylesheet">
 
     <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="stylesheet" href="style.css?v=21">
 </head>
 
 
@@ -192,6 +192,16 @@
             <line x1="9.3" y1="16.3" x2="14.7" y2="16.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
         </symbol>
 
+        <symbol id="icon-globe" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <path d="M4.5 7.5c2 1.3 5 2 7.5 2s5.5-.7 7.5-2"></path>
+                <path d="M4.5 16.5c2-1.3 5-2 7.5-2s5.5.7 7.5 2"></path>
+            </g>
+        </symbol>
+
         <symbol id="icon-laurel" viewBox="0 0 30 70">
             <path fill="none" stroke="currentColor" stroke-width="1.3"
                   stroke-linecap="round"
@@ -284,6 +294,14 @@
                     <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search"></use></svg>
                 </span>
                 <span class="preview-label-en">Word Studies &amp; Interactive Graphics</span>
+            </a>
+
+            <a class="preview-item worldwatch" href="#section-worldwatch" data-tip="世界觀察：當代基督教倫理與世界觀，逐步建立中 | World Watch: contemporary Christian ethics and worldview, being built gradually">
+                <span class="preview-label-zh">世界觀察</span>
+                <span class="preview-icon">
+                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe"></use></svg>
+                </span>
+                <span class="preview-label-en">World Watch</span>
             </a>
 
             <a class="preview-item external" href="#section-church-home" data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive">
@@ -734,6 +752,36 @@
 
 
         <!-- ================================== -->
+        <!-- WORLD WATCH (draft 5x5x5 matrix)    -->
+        <!-- Regenerate with: python3 ~/Documents/GitHub/world-watch/tools/build_site_section.py -->
+        <!-- ================================== -->
+
+        <section class="study-card worldwatch" id="section-worldwatch">
+        <!-- WORLDWATCH:START -->
+<details open>
+
+                <summary>
+                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe"></use></svg>
+                    <span data-tip="世界觀察：當代基督教倫理與世界觀，逐步建立中 | World Watch: contemporary Christian ethics and worldview, being built gradually"><span class="zh-lbl">5. 世界觀察</span> | <span class="en-lbl">World Watch</span></span>
+                </summary>
+
+                <div class="section-content">
+                    <ul class="sermon-list">
+                    <li class="sermon-line"><a href="world-watch/cases/hansen-1988.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">氣候暖化警報</span>（Hansen）</a><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
+<li class="sermon-line"><a href="world-watch/cases/titan-2023.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">泰坦號潛水器</span>（Titan）</a><span class="domain-tag">工作、財富、公義與社會 Work, Wealth, Justice &amp; Society</span></li>
+<li class="sermon-line"><a href="world-watch/cases/endurance-1915.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">堅忍號</span>（Endurance）</a><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
+<li class="sermon-line"><a href="world-watch/cases/exxon-climate.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">埃克森與氣候</span>（ExxonMobil）</a><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
+<li class="sermon-line"><a href="world-watch/cases/truman-1980.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">杜魯門與聖海倫火山</span>（Truman）</a><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
+                    </ul>
+                </div>
+
+            </details>
+        <!-- WORLDWATCH:END -->
+        </section>
+
+
+
+        <!-- ================================== -->
         <!-- 6. CHURCH HOME & FULL ARCHIVE       -->
         <!-- ================================== -->
 
@@ -743,7 +791,7 @@
 
                 <summary>
                     <svg class="icon" aria-hidden="true" data-tip="十架屋頂：教會大家庭 | A home with a cross — the church family"><use href="#icon-home"></use></svg>
-                    <span data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive"><span class="zh-lbl">5. 教會主頁與完整存檔</span> | <span class="en-lbl">Church Home &amp; Full Archive</span></span>
+                    <span data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive"><span class="zh-lbl">6. 教會主頁與完整存檔</span> | <span class="en-lbl">Church Home &amp; Full Archive</span></span>
                 </summary>
 
                 <div class="section-content">
