@@ -21,6 +21,14 @@
     --ember: #9c5024;
     --plum: #6b4a7b;
 
+    /* expanded 2026-09-23 panel palette: deep red, pink, teal green, navy blue, bright yellow, gold */
+    --deep-red: #a83a3a;
+    --pink: #b8467d;
+    --teal-green: #2f8f6f;
+    --navy-blue: #33559a;
+    --bright-yellow: #d9b32a;
+    --panel-gold: #b8863a;
+
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
 }
@@ -48,6 +56,14 @@ html {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+}
+
+/* 2026-09-23: section-header icons enlarged 5x (were "too tiny to be seen") and given a soft glow
+   so they read as a deliberate visual anchor for each panel rather than a small utility glyph. */
+.study-card > details > summary .icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
 }
 
 
@@ -408,32 +424,32 @@ body::before {
 
 
 .preview-item.preaching .preview-icon {
-    background: linear-gradient(135deg, #6b3416, var(--ember));
+    background: linear-gradient(135deg, #5c3e12, var(--panel-gold));
 }
 
 
 .preview-item.biblical .preview-icon {
-    background: linear-gradient(135deg, #294f53, var(--teal));
+    background: linear-gradient(135deg, #173d30, var(--teal-green));
 }
 
 
 .preview-item.truths .preview-icon {
-    background: linear-gradient(135deg, #643b47, var(--wine));
+    background: linear-gradient(135deg, #3d1414, var(--deep-red));
 }
 
 
 .preview-item.words .preview-icon {
-    background: linear-gradient(135deg, #5e522d, var(--olive));
+    background: linear-gradient(135deg, #3d1a2c, var(--pink));
 }
 
 
 .preview-item.graphics .preview-icon {
-    background: linear-gradient(135deg, #3d4968, var(--blue));
+    background: linear-gradient(135deg, #3d1a2c, var(--pink));
 }
 
 
 .preview-item.worldwatch .preview-icon {
-    background: linear-gradient(135deg, #26334a, var(--blue));
+    background: linear-gradient(135deg, #12203d, var(--navy-blue));
 }
 
 
@@ -443,7 +459,7 @@ body::before {
 
 
 .preview-item.external .preview-icon {
-    background: linear-gradient(135deg, #3d2a45, var(--plum));
+    background: linear-gradient(135deg, #4a3b10, var(--bright-yellow));
 }
 
 
@@ -576,43 +592,43 @@ main {
 
 .preaching > details > summary {
     background:
-        linear-gradient(135deg, #6b3416, var(--ember));
+        linear-gradient(135deg, #5c3e12, var(--panel-gold));
 }
 
 
 .biblical > details > summary {
     background:
-        linear-gradient(135deg, #294f53, var(--teal));
+        linear-gradient(135deg, #173d30, var(--teal-green));
 }
 
 
 .truths > details > summary {
     background:
-        linear-gradient(135deg, #643b47, var(--wine));
+        linear-gradient(135deg, #3d1414, var(--deep-red));
 }
 
 
 .words > details > summary {
     background:
-        linear-gradient(135deg, #5e522d, var(--olive));
+        linear-gradient(135deg, #3d1a2c, var(--pink));
 }
 
 
 .graphics > details > summary {
     background:
-        linear-gradient(135deg, #3d4968, var(--blue));
+        linear-gradient(135deg, #3d1a2c, var(--pink));
 }
 
 
 .churchhome > details > summary {
     background:
-        linear-gradient(135deg, #3d2a45, var(--plum));
+        linear-gradient(135deg, #4a3b10, var(--bright-yellow));
 }
 
 
 .worldwatch > details > summary {
     background:
-        linear-gradient(135deg, #26334a, var(--blue));
+        linear-gradient(135deg, #12203d, var(--navy-blue));
 }
 
 
