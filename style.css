@@ -431,6 +431,18 @@ body::before {
 }
 
 
+/* 2026-09-24: the Biblical Truths lion badge is a raster image (his own logo), not a line-art
+   svg glyph like the other five tiles — full opacity (not the 0.32 used for the line icons) and
+   object-fit so the circular cutout isn't stretched. */
+.icon-img {
+    object-fit: contain;
+}
+
+.preview-item .icon-img {
+    opacity: 1;
+}
+
+
 .preview-item.preaching .preview-icon {
     background: linear-gradient(135deg, #5c3e12, var(--panel-gold));
 }
