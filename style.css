@@ -508,6 +508,84 @@ body::before {
 
 
 /* =========================================
+   SITE SEARCH (2026-09-23)
+   ========================================= */
+
+.site-search {
+    max-width: 680px;
+    margin: 26px auto 36px;
+    padding: 0 4px;
+}
+
+.site-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--surface);
+    border: 1px solid rgba(176, 138, 74, 0.45);
+    border-radius: 999px;
+
+    padding: 10px 18px;
+
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+.site-search-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--gold-dark);
+    flex-shrink: 0;
+}
+
+.site-search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 0.98rem;
+    color: var(--ink);
+}
+
+.site-search-input::placeholder {
+    color: var(--muted);
+}
+
+.site-search-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.site-search-clear {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 4px 6px;
+}
+
+.site-search-clear:hover {
+    color: var(--gold-dark);
+}
+
+.site-search-status {
+    margin: 8px 4px 0;
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: center;
+    min-height: 1.2em;
+}
+
+.search-hide {
+    display: none !important;
+}
+
+
+/* =========================================
    SECTION CARDS
    ========================================= */
 
@@ -1274,14 +1352,17 @@ p {
 }
 
 .verse-art {
-    width: 128px;
-    height: 128px;
+    /* 2026-09-24: doubled from 128px (viewBox stays 200x200, so this also doubles the apparent
+       stroke weight — matches the enlarged/bold panel-icon treatment without hand-editing every
+       path's stroke-width) */
+    width: 256px;
+    height: 256px;
     color: var(--gold-dark);
 }
 
-.verse-cross .verse-art { color: #7b4956; }
-.verse-lamp .verse-art { color: #756631; }
-.verse-crown .verse-art { color: #4a587b; }
+.verse-cross .verse-art { color: var(--deep-red); }
+.verse-lamp .verse-art { color: var(--teal-green); }
+.verse-crown .verse-art { color: var(--bright-yellow); }
 
 .verse-text {
     display: flex;
@@ -1293,7 +1374,7 @@ p {
     font-size: 1.34rem;
     line-height: 1.6;
     font-weight: 700;
-    color: var(--ink);
+    color: var(--navy-blue);
 }
 
 .verse-ref {
