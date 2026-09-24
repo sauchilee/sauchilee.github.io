@@ -580,7 +580,8 @@ body::before {
     min-height: 1.2em;
 }
 
-.search-hide {
+.search-hide,
+.domain-hide {
     display: none !important;
 }
 
@@ -1177,6 +1178,45 @@ main {
 .sort-btn.active {
     color: white;
     background: linear-gradient(135deg, #6b3416, var(--ember));
+    border-color: transparent;
+}
+
+
+/* World Watch domain-filter chips (2026-09-24) — same pill language as .sort-btn, multi-select */
+.domain-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.domain-chip {
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    color: var(--gold-dark);
+
+    background: var(--surface);
+
+    border: 1px solid rgba(176, 138, 74, 0.4);
+    border-radius: 20px;
+
+    padding: 4px 12px;
+
+    cursor: pointer;
+
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.domain-chip:hover {
+    border-color: var(--gold-dark);
+}
+
+.domain-chip.active {
+    color: white;
+    background: linear-gradient(135deg, #12203d, var(--navy-blue));
     border-color: transparent;
 }
 
