@@ -1043,13 +1043,17 @@
             return m ? +m[0] : 0;
         };
         var wwLabel = function (li) {
-            var t = li.querySelector('.zh-term');
-            return t ? t.textContent : li.textContent;
+            // The button says "A-Z", so sort by the case's English name (the parenthetical text,
+            // e.g. "Hansen" from "（Hansen 1988）") — sorting by the Chinese zh-term instead was the
+            // actual bug here: localeCompare on Chinese text doesn't produce a Latin-alphabet order,
+            // so a button labelled "A-Z" was silently sorting by something else entirely.
+            var m = li.textContent.match(/[（(]([^）)]+)[）)]/);
+            return m ? m[1] : li.textContent;
         };
         var sortWW = function (mode) {
             var rows = Array.prototype.slice.call(wwList.children).filter(function (li) { return li.tagName === 'LI'; });
             rows.sort(function (a, b) {
-                return mode === 'az' ? wwLabel(a).localeCompare(wwLabel(b), 'zh-Hant') : wwYear(b) - wwYear(a);
+                return mode === 'az' ? wwLabel(a).localeCompare(wwLabel(b)) : wwYear(b) - wwYear(a);
             });
             rows.forEach(function (li) { wwList.appendChild(li); });
         };
