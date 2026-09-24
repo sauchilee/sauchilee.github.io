@@ -1244,6 +1244,84 @@ p {
 
 
 /* =========================================
+   CLOSING VERSE INFOGRAPHICS (2026-09-23)
+   ========================================= */
+
+.closing-verses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+
+    margin-top: 40px;
+}
+
+.verse-card {
+    flex: 1 1 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+    padding: 30px 26px 26px;
+
+    text-align: center;
+
+    background: linear-gradient(to bottom, var(--surface), var(--surface-soft));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px var(--shadow);
+}
+
+.verse-art {
+    width: 128px;
+    height: 128px;
+    color: var(--gold-dark);
+}
+
+.verse-cross .verse-art { color: #7b4956; }
+.verse-lamp .verse-art { color: #756631; }
+.verse-crown .verse-art { color: #4a587b; }
+
+.verse-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.verse-cuv {
+    font-size: 1.34rem;
+    line-height: 1.6;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.verse-ref {
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--gold-dark);
+}
+
+.verse-ylt {
+    font-size: 0.98rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.verse-ylt-lbl {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--gold-dark);
+}
+
+@media (max-width: 700px) {
+    .verse-card { flex: 1 1 100%; }
+}
+
+
+/* =========================================
    FOOTER
    ========================================= */
 
