@@ -29,6 +29,11 @@
     --bright-yellow: #d9b32a;
     --panel-gold: #b8863a;
 
+    /* closing-infographic accent colours (2026-09-24) — more saturated than the panel palette
+       above on purpose, since these sit on the light paper background rather than a dark card */
+    --bright-red: #e0342a;
+    --bright-green: #21a349;
+
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
 }
@@ -1381,7 +1386,9 @@ p {
 
     text-align: center;
 
-    background: linear-gradient(to bottom, var(--surface), var(--surface-soft));
+    /* 2026-09-24: darkened one step (was surface->surface-soft) for more contrast against the
+       new bright per-card accent colours */
+    background: linear-gradient(to bottom, var(--surface-soft), var(--paper-deep));
     border: 1px solid var(--line);
     border-radius: 16px;
     box-shadow: 0 6px 18px var(--shadow);
@@ -1396,9 +1403,12 @@ p {
     color: var(--gold-dark);
 }
 
-.verse-cross .verse-art { color: var(--deep-red); }
-.verse-lamp .verse-art { color: var(--teal-green); }
-.verse-crown .verse-art { color: var(--bright-yellow); }
+/* 2026-09-24: each card's icon and its Chinese verse text now share one consistent colour
+   (was: icon per-card, text a single shared navy for all three) — his call, "bright red...
+   not just the icon, but the font... consistent color" */
+.verse-cross .verse-art, .verse-cross .verse-cuv { color: var(--bright-red); }
+.verse-lamp .verse-art, .verse-lamp .verse-cuv { color: var(--bright-green); }
+.verse-crown .verse-art, .verse-crown .verse-cuv { color: var(--bright-yellow); }
 
 .verse-text {
     display: flex;
@@ -1407,10 +1417,14 @@ p {
 }
 
 .verse-cuv {
-    font-size: 1.34rem;
-    line-height: 1.6;
+    /* Calligraphy-style font (2026-09-24, matching a calendar-page photo he sent). "cwTeXKai"
+       is NOT a real Google Fonts family (confirmed: the API 400s on it) -- using Ma Shan Zheng
+       instead, verified by direct glyph check that it actually covers this text's Traditional
+       characters (see the 2026-09-24 verification note) rather than assuming coverage. */
+    font-family: "Ma Shan Zheng", "Noto Serif TC", serif;
+    font-size: 2.68rem;
+    line-height: 1.5;
     font-weight: 700;
-    color: var(--navy-blue);
 }
 
 .verse-ref {
