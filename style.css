@@ -33,6 +33,7 @@
        above on purpose, since these sit on the light paper background rather than a dark card */
     --bright-red: #e0342a;
     --bright-green: #21a349;
+    --bright-purple: #7d3fa8;
 
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
@@ -1408,7 +1409,7 @@ p {
    not just the icon, but the font... consistent color" */
 .verse-cross .verse-art, .verse-cross .verse-cuv { color: var(--bright-red); }
 .verse-lamp .verse-art, .verse-lamp .verse-cuv { color: var(--bright-green); }
-.verse-crown .verse-art, .verse-crown .verse-cuv { color: var(--bright-yellow); }
+.verse-crown .verse-art, .verse-crown .verse-cuv { color: var(--bright-purple); }
 
 .verse-text {
     display: flex;
@@ -1417,14 +1418,39 @@ p {
 }
 
 .verse-cuv {
-    /* Calligraphy-style font (2026-09-24, matching a calendar-page photo he sent). "cwTeXKai"
-       is NOT a real Google Fonts family (confirmed: the API 400s on it) -- using Ma Shan Zheng
-       instead, verified by direct glyph check that it actually covers this text's Traditional
-       characters (see the 2026-09-24 verification note) rather than assuming coverage. */
-    font-family: "Ma Shan Zheng", "Noto Serif TC", serif;
+    /* Calligraphy-style font (2026-09-24, matching a calendar-page photo he sent), chosen for
+       CONSISTENCY across every character, not just closest style match (his explicit priority
+       after spotting some characters rendering in a visibly different fallback font). Checked
+       exact glyph coverage of every unique character in this text against a font's real cmap
+       table (fontTools), not assumed or eyeballed:
+         - Ma Shan Zheng / Liu Jian Mao Cao / Zhi Mang Xing / Long Cang / ZCOOL XiaoWei: all 5
+           "brush calligraphy" Simplified-Chinese-market Google Fonts are missing the exact same
+           20 Traditional-only characters (愛/爱, 說/说, 這/这, 願/愿, etc.) — Google's own
+           subsetting for these fonts excludes the Traditional repertoire entirely, not a random
+           gap, so no amount of retrying a similar font fixes it.
+         - Shippori Mincho / Shippori Antique: 100% coverage but render as plain Mincho/serif,
+           not calligraphic at all -- technically "consistent" but not "close" to the requested
+           style in any real sense.
+         - Klee One (Japanese "handwriting" style, Kanji repertoire overlapping heavily with
+           Traditional Chinese): 74/76 covered, genuinely brush/handwritten in character. Only
+           two characters in this whole text fall back (眾 in the crown card, 腳 in the lamp
+           card) -- accepted as the best real tradeoff between style and consistency, flagged
+           here rather than silently left for a future session to rediscover.
+       "cwTeXKai" (an earlier attempt) is NOT a real Google Fonts family -- confirmed the API
+       404s/400s on it, don't reuse that name. */
+    font-family: "Klee One", "Noto Serif TC", serif;
     font-size: 2.68rem;
     line-height: 1.5;
     font-weight: 700;
+}
+
+/* The 2 characters (of 76 total) Klee One doesn't cover -- 眾/腳, both Traditional-only forms
+   with a distinct Simplified codepoint the font's subset excludes. Explicitly styled to the
+   next-closest brush-adjacent font (Shippori Mincho, not the plainer default Noto Serif TC
+   fallback) so they blend in as much as realistically achievable rather than looking like a
+   generic tofu-style font-substitution accident. */
+.cuv-fallback-glyph {
+    font-family: "Shippori Mincho", "Noto Serif TC", serif;
 }
 
 .verse-ref {
