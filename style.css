@@ -1409,9 +1409,27 @@ p {
    not just the icon, but the font... consistent color" */
 /* 2026-09-24: the King's two comings — donkey (first coming) and white horse (second coming),
    under a full-width Mark 1:15 banner */
-.verse-donkey .verse-art, .verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--bright-green); }
-.verse-horse .verse-art, .verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--bright-purple); }
+.verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--bright-green); }
+.verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--bright-purple); }
 .verse-banner .verse-cuv { color: var(--bright-red); }
+
+/* 2026-09-24: lifelike pictures (his own images, cropped) instead of line drawings */
+.verse-photo {
+    display: block;
+
+    width: 100%;
+    max-width: 420px;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 16px var(--shadow);
+}
+
+.verse-donkey .verse-photo { object-position: center top; }
+.verse-horse .verse-photo { object-position: 30% center; }
 
 .verse-banner {
     flex: 1 1 100%;
