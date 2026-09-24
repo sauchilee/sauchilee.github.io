@@ -1300,16 +1300,12 @@ main {
 }
 
 
-/* domain tag word on a World Watch case (no matrix/grid shown publicly — just a plain label) */
+/* Domain tag word on a World Watch case. Hidden 2026-09-24 (his call, "make it more concise" —
+   redundant now that the domain-filter chips above the list already show/group by this) but kept
+   in the DOM, not removed from the markup: the chips' own domain list and the free-text search
+   both still read this element's text, so hiding rather than deleting keeps both working. */
 .domain-tag {
-    display: inline-block;
-
-    margin-left: 8px;
-
-    font-size: 0.76rem;
-    font-style: italic;
-
-    color: var(--muted);
+    display: none;
 }
 
 
