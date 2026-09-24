@@ -1413,7 +1413,7 @@ p {
    under a full-width Mark 1:15 banner */
 .verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--blood-red); }
 .verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--card-navy); }
-.verse-banner .verse-cuv { color: var(--bright-red); }
+.verse-banner .verse-cuv { color: #111; }   /* Mark 1:15 (top) and John 3:16 (bottom) banners in black */
 
 /* 2026-09-24: lifelike pictures (his own images, cropped) instead of line drawings */
 .verse-photo {
