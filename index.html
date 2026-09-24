@@ -25,11 +25,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&family=Klee+One&family=Shippori+Mincho&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&family=Klee+One&family=Shippori+Mincho&family=Noto+Serif+Hebrew:wght@500&display=swap"
           rel="stylesheet">
 
     <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=24">
+    <link rel="stylesheet" href="style.css?v=28">
 </head>
 
 
@@ -256,18 +256,21 @@
             <span class="line"></span>
         </div>
 
-        <p class="subtitle">
-            <span class="zh-lbl">證道信息、聖經研究、世界觀察與互動式資源。</span>
-            <br>
-            <span class="en-lbl">Sermons, biblical studies, World Watches, and interactive resources.</span>
-        </p>
+        <!-- Hero description = the site's theme verse, Psalm 119:105, in four versions (2026-09-24) -->
+        <figure class="hero-verse" aria-label="Psalm 119:105 in Hebrew, English, YLT and Chinese CUV">
+            <p class="hv-line hv-he" lang="he" dir="rtl">נֵר־לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי׃</p>
+            <p class="hv-line hv-zh" lang="zh-Hant">你的話是我腳前的燈，是我路上的光。</p>
+            <p class="hv-line hv-en">Thy word is a lamp unto my feet, and a light unto my path.<span class="hv-lbl">KJV</span></p>
+            <p class="hv-line hv-ylt">A lamp to my foot [is] Thy word, and a light to my path.<span class="hv-lbl">YLT</span></p>
+            <figcaption class="hv-ref">詩篇 119:105　Psalm 119:105 <span class="hv-src">希伯來文 Hebrew · 和合本 CUV · KJV · YLT</span></figcaption>
+        </figure>
 
         <nav class="hero-preview" aria-label="Section overview">
 
             <a class="preview-item truths" href="#section-truths" data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?">
                 <span class="preview-label-zh">聖經真理</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="火焰：真理照明之光 | A flame — truth that illuminates"><use href="#icon-flame"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="本站徽記：敞開的聖經發出真理之光 | This site's own emblem — the open Bible shining with truth"><use href="#icon-hero"></use></svg>
                 </span>
                 <span class="preview-label-en">Biblical Truths</span>
             </a>
@@ -280,7 +283,7 @@
                 <span class="preview-label-en">Preaching Series</span>
             </a>
 
-            <a class="preview-item biblical" href="#section-biblical" data-tip="書卷研究：希伯來書 | Book studies: Hebrews">
+            <a class="preview-item biblical" href="#section-biblical" data-tip="按聖經神學分類（律法、先知、聖卷；福音、書信、啟示）；書卷研究：希伯來書 | Grouped by biblical theology (Law, Prophets, Writings; Gospels, Epistles, Revelation); book studies: Hebrews">
                 <span class="preview-label-zh">聖經書卷研究</span>
                 <span class="preview-icon">
                     <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book"></use></svg>
@@ -288,7 +291,7 @@
                 <span class="preview-label-en">Biblical Studies</span>
             </a>
 
-            <a class="preview-item words" href="#section-words" data-tip="2項：靈・魂・體、悔改——原文字詞與互動圖表 | 2 items: Spirit Soul &amp; Body, Repent — original words and interactive graphics">
+            <a class="preview-item words" href="#section-words" data-tip="按系統神學十大範疇分類；2項：靈・魂・體、悔改 | By the 10 domains of systematic theology; 2 items: Spirit Soul &amp; Body, Repent">
                 <span class="preview-label-zh">字詞與主題研究圖表</span>
                 <span class="preview-icon">
                     <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search"></use></svg>
@@ -349,7 +352,7 @@
             <details>
 
                 <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="火焰：真理照明之光 | A flame — truth that illuminates"><use href="#icon-flame"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="本站徽記：敞開的聖經發出真理之光 | This site's own emblem — the open Bible shining with truth"><use href="#icon-hero"></use></svg>
                     <span data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?"><span class="zh-lbl">1. 聖經真理</span> | <span class="en-lbl">Biblical Truths</span></span>
                 </summary>
 
@@ -552,177 +555,312 @@
 
                 <summary>
                     <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book"></use></svg>
-                    <span data-tip="書卷研究：希伯來書 | Book studies: Hebrews"><span class="zh-lbl">3. 聖經書卷研究</span> | <span class="en-lbl">Biblical Studies</span></span>
+                    <span data-tip="按聖經神學分類（律法、先知、聖卷；福音、書信、啟示）；書卷研究：希伯來書 | Grouped by biblical theology (Law, Prophets, Writings; Gospels, Epistles, Revelation); book studies: Hebrews"><span class="zh-lbl">3. 聖經書卷研究</span> | <span class="en-lbl">Biblical Studies</span></span>
                 </summary>
 
                 <div class="section-content">
 
-                    <ul class="book-list">
+                    <!-- Grouped by biblical theology (2026-09-24): the Hebrew canon's own three-fold order that
+                         Jesus used (Luke 24:44 — the Law, the Prophets, the Psalms/Writings) for the promise,
+                         then the New Testament's fulfilment. A book chip is highlighted once it has a study;
+                         add the study's nested <details> inside that group, like Hebrews below. -->
+                    <p class="theme-intro"><span class="zh-lbl">按聖經神學分類：舊約是「應許」（律法、先知、聖卷——路 24:44），新約是「應驗」。</span><br><span class="en-lbl">Grouped by biblical theology: the Old Testament as promise (Law, Prophets, Writings — Luke 24:44), the New Testament as fulfilment.</span></p>
 
-
-                        
-
-
-                        
-
-
-                        <!-- =================== -->
-                        <!-- HEBREWS             -->
-                        <!-- =================== -->
+                    <p class="bt-testament ot"><span class="zh-lbl">舊約：應許</span> | <span class="en-lbl">Old Testament — Promise</span></p>
+                    <ul class="book-list bt-groups">
 
                         <li>
-
-                            <details class="nested nt">
-
-                                <summary>
-                                    <span data-tip="希伯來書概論、希伯來書摘要 | Introduction and summary of Hebrews"><span class="zh-lbl">希伯來書</span> | <span class="en-lbl">Hebrews</span></span>
-                                </summary>
-
-
-                                <ul class="sermon-list">
-
-
-                                    <!-- Hebrews Introduction -->
-
-                                    <li class="sermon-line">
-                                        <a href="hebrews/希伯來書概論.pdf" target="_blank" class="sermon-link" data-tip="希伯來書概論（PDF）| Introduction to Hebrews (PDF)">Introduction to Hebrews | 希伯來書概論</a>
-                                    </li>
-
-
-                                    <!-- Hebrews Summary -->
-
-                                    <li class="sermon-line">
-                                        <a href="hebrews/希伯來書摘要.pdf" target="_blank" class="sermon-link" data-tip="希伯來書摘要（PDF）| Summary of Hebrews (PDF)">Summary of Hebrews | 希伯來書摘要</a>
-                                    </li>
-
-
-                                    <!--
-                                    ==================================
-                                    FUTURE EXPANDABLE SUBLIST EXAMPLE
-                                    ==================================
-
-                                    When you have many Hebrews resources,
-                                    you can add something like this:
-
-
-                                    <li>
-
-                                        <details class="nested">
-
-                                            <summary>
-                                                Chapter Studies
-                                                | 分章研經
-                                            </summary>
-
-                                            <ul>
-
-
-                                                <li>
-
-                                                    <details class="nested">
-
-                                                        <summary>
-                                                            Hebrews 1
-                                                            | 希伯來書第一章
-                                                        </summary>
-
-                                                        <ul>
-
-                                                            <li>
-                                                                Resource 1
-                                                                | 資料一
-                                                            </li>
-
-                                                            <li>
-                                                                Resource 2
-                                                                | 資料二
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </details>
-
-                                                </li>
-
-
-                                                <li>
-
-                                                    <details class="nested">
-
-                                                        <summary>
-                                                            Hebrews 2
-                                                            | 希伯來書第二章
-                                                        </summary>
-
-                                                        <ul>
-
-                                                            <li>
-                                                                Resource 1
-                                                                | 資料一
-                                                            </li>
-
-                                                        </ul>
-
-                                                    </details>
-
-                                                </li>
-
-
-                                            </ul>
-
-                                        </details>
-
-                                    </li>
-
-
-                                    <li>
-
-                                        <details class="nested">
-
-                                            <summary>
-                                                Theological Themes
-                                                | 神學主題
-                                            </summary>
-
-                                            <ul>
-
-                                                <li>
-                                                    Christology
-                                                    | 基督論
-                                                </li>
-
-                                                <li>
-                                                    Priesthood
-                                                    | 祭司職分
-                                                </li>
-
-                                                <li>
-                                                    Covenant
-                                                    | 聖約
-                                                </li>
-
-                                            </ul>
-
-                                        </details>
-
-                                    </li>
-
-                                    END FUTURE EXAMPLE
-                                    -->
-
-
-                                </ul>
-
+                            <details class="nested ot bt-group">
+                                <summary><span class="zh-lbl">律法書</span> | <span class="en-lbl">The Law (Torah)</span> <span class="dom-term">創造、揀選與立約 · Creation, election &amp; covenant</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="律法書 書卷 books">
+                                    <span class="theme-chip">創世記</span>
+                                    <span class="theme-chip">出埃及記</span>
+                                    <span class="theme-chip">利未記</span>
+                                    <span class="theme-chip">民數記</span>
+                                    <span class="theme-chip">申命記</span>
+                                </div>
                             </details>
-
                         </li>
 
+                        <li>
+                            <details class="nested ot bt-group">
+                                <summary><span class="zh-lbl">前先知書</span> | <span class="en-lbl">Former Prophets</span> <span class="dom-term">應許之地與王國 · The land &amp; the kingdom</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="前先知書 書卷 books">
+                                    <span class="theme-chip">約書亞記</span>
+                                    <span class="theme-chip">士師記</span>
+                                    <span class="theme-chip">撒母耳記上</span>
+                                    <span class="theme-chip">撒母耳記下</span>
+                                    <span class="theme-chip">列王紀上</span>
+                                    <span class="theme-chip">列王紀下</span>
+                                </div>
+                            </details>
+                        </li>
 
-                        
+                        <li>
+                            <details class="nested ot bt-group">
+                                <summary><span class="zh-lbl">後先知書</span> | <span class="en-lbl">Latter Prophets</span> <span class="dom-term">審判、被擄與新約的應許 · Judgment, exile &amp; the promised new covenant</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="後先知書 書卷 books">
+                                    <span class="theme-chip">以賽亞書</span>
+                                    <span class="theme-chip">耶利米書</span>
+                                    <span class="theme-chip">以西結書</span>
+                                    <span class="theme-chip">何西阿書</span>
+                                    <span class="theme-chip">約珥書</span>
+                                    <span class="theme-chip">阿摩司書</span>
+                                    <span class="theme-chip">俄巴底亞書</span>
+                                    <span class="theme-chip">約拿書</span>
+                                    <span class="theme-chip">彌迦書</span>
+                                    <span class="theme-chip">那鴻書</span>
+                                    <span class="theme-chip">哈巴谷書</span>
+                                    <span class="theme-chip">西番雅書</span>
+                                    <span class="theme-chip">哈該書</span>
+                                    <span class="theme-chip">撒迦利亞書</span>
+                                    <span class="theme-chip">瑪拉基書</span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested ot bt-group">
+                                <summary><span class="zh-lbl">聖卷</span> | <span class="en-lbl">The Writings</span> <span class="dom-term">敬拜、智慧與歸回 · Worship, wisdom &amp; return</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="聖卷 書卷 books">
+                                    <span class="theme-chip">詩篇</span>
+                                    <span class="theme-chip">約伯記</span>
+                                    <span class="theme-chip">箴言</span>
+                                    <span class="theme-chip">路得記</span>
+                                    <span class="theme-chip">雅歌</span>
+                                    <span class="theme-chip">傳道書</span>
+                                    <span class="theme-chip">耶利米哀歌</span>
+                                    <span class="theme-chip">以斯帖記</span>
+                                    <span class="theme-chip">但以理書</span>
+                                    <span class="theme-chip">以斯拉記</span>
+                                    <span class="theme-chip">尼希米記</span>
+                                    <span class="theme-chip">歷代志上</span>
+                                    <span class="theme-chip">歷代志下</span>
+                                </div>
+                            </details>
+                        </li>
+
+                    </ul>
+
+                    <p class="bt-testament nt"><span class="zh-lbl">新約：應驗</span> | <span class="en-lbl">New Testament — Fulfilment</span></p>
+                    <ul class="book-list bt-groups">
+
+                        <li>
+                            <details class="nested nt bt-group">
+                                <summary><span class="zh-lbl">福音書</span> | <span class="en-lbl">The Gospels</span> <span class="dom-term">君王來了：應許的實現 · The King has come — the promise fulfilled</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="福音書 書卷 books">
+                                    <span class="theme-chip">馬太福音</span>
+                                    <span class="theme-chip">馬可福音</span>
+                                    <span class="theme-chip">路加福音</span>
+                                    <span class="theme-chip">約翰福音</span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested nt bt-group">
+                                <summary><span class="zh-lbl">使徒行傳</span> | <span class="en-lbl">Acts</span> <span class="dom-term">國度擴展到地極 · The kingdom spreads to the ends of the earth</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="使徒行傳 書卷 books">
+                                    <span class="theme-chip">使徒行傳</span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested nt bt-group">
+                                <summary><span class="zh-lbl">保羅書信</span> | <span class="en-lbl">Pauline Epistles</span> <span class="dom-term">在基督裡的新生命與教會 · New life in Christ &amp; the church</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="保羅書信 書卷 books">
+                                    <span class="theme-chip">羅馬書</span>
+                                    <span class="theme-chip">哥林多前書</span>
+                                    <span class="theme-chip">哥林多後書</span>
+                                    <span class="theme-chip">加拉太書</span>
+                                    <span class="theme-chip">以弗所書</span>
+                                    <span class="theme-chip">腓立比書</span>
+                                    <span class="theme-chip">歌羅西書</span>
+                                    <span class="theme-chip">帖撒羅尼迦前書</span>
+                                    <span class="theme-chip">帖撒羅尼迦後書</span>
+                                    <span class="theme-chip">提摩太前書</span>
+                                    <span class="theme-chip">提摩太後書</span>
+                                    <span class="theme-chip">提多書</span>
+                                    <span class="theme-chip">腓利門書</span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested nt bt-group">
+                                <summary><span class="zh-lbl">普通書信</span> | <span class="en-lbl">General Epistles</span> <span class="dom-term">客旅的盼望與堅忍 · Pilgrims holding fast in hope</span><span class="class-count">1</span></summary>
+                                <div class="theme-chips" aria-label="普通書信 書卷 books">
+                                    <span class="theme-chip has-study">希伯來書</span>
+                                    <span class="theme-chip">雅各書</span>
+                                    <span class="theme-chip">彼得前書</span>
+                                    <span class="theme-chip">彼得後書</span>
+                                    <span class="theme-chip">約翰一書</span>
+                                    <span class="theme-chip">約翰二書</span>
+                                    <span class="theme-chip">約翰三書</span>
+                                    <span class="theme-chip">猶大書</span>
+                                </div>
+                                <ul class="book-list">
+
+                                    <li>
+
+                                        <details class="nested nt">
+
+                                            <summary>
+                                                <span data-tip="希伯來書概論、希伯來書摘要 | Introduction and summary of Hebrews"><span class="zh-lbl">希伯來書</span> | <span class="en-lbl">Hebrews</span></span>
+                                            </summary>
 
 
-                        
+                                            <ul class="sermon-list">
 
+
+                                                <!-- Hebrews Introduction -->
+
+                                                <li class="sermon-line">
+                                                    <a href="hebrews/希伯來書概論.pdf" target="_blank" class="sermon-link" data-tip="希伯來書概論（PDF）| Introduction to Hebrews (PDF)">Introduction to Hebrews | 希伯來書概論</a>
+                                                </li>
+
+
+                                                <!-- Hebrews Summary -->
+
+                                                <li class="sermon-line">
+                                                    <a href="hebrews/希伯來書摘要.pdf" target="_blank" class="sermon-link" data-tip="希伯來書摘要（PDF）| Summary of Hebrews (PDF)">Summary of Hebrews | 希伯來書摘要</a>
+                                                </li>
+
+
+                                                <!--
+                                                ==================================
+                                                FUTURE EXPANDABLE SUBLIST EXAMPLE
+                                                ==================================
+
+                                                When you have many Hebrews resources,
+                                                you can add something like this:
+
+
+                                                <li>
+
+                                                    <details class="nested">
+
+                                                        <summary>
+                                                            Chapter Studies
+                                                            | 分章研經
+                                                        </summary>
+
+                                                        <ul>
+
+
+                                                            <li>
+
+                                                                <details class="nested">
+
+                                                                    <summary>
+                                                                        Hebrews 1
+                                                                        | 希伯來書第一章
+                                                                    </summary>
+
+                                                                    <ul>
+
+                                                                        <li>
+                                                                            Resource 1
+                                                                            | 資料一
+                                                                        </li>
+
+                                                                        <li>
+                                                                            Resource 2
+                                                                            | 資料二
+                                                                        </li>
+
+                                                                    </ul>
+
+                                                                </details>
+
+                                                            </li>
+
+
+                                                            <li>
+
+                                                                <details class="nested">
+
+                                                                    <summary>
+                                                                        Hebrews 2
+                                                                        | 希伯來書第二章
+                                                                    </summary>
+
+                                                                    <ul>
+
+                                                                        <li>
+                                                                            Resource 1
+                                                                            | 資料一
+                                                                        </li>
+
+                                                                    </ul>
+
+                                                                </details>
+
+                                                            </li>
+
+
+                                                        </ul>
+
+                                                    </details>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <details class="nested">
+
+                                                        <summary>
+                                                            Theological Themes
+                                                            | 神學主題
+                                                        </summary>
+
+                                                        <ul>
+
+                                                            <li>
+                                                                Christology
+                                                                | 基督論
+                                                            </li>
+
+                                                            <li>
+                                                                Priesthood
+                                                                | 祭司職分
+                                                            </li>
+
+                                                            <li>
+                                                                Covenant
+                                                                | 聖約
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </details>
+
+                                                </li>
+
+                                                END FUTURE EXAMPLE
+                                                -->
+
+
+                                            </ul>
+
+                                        </details>
+
+                                    </li>
+
+                                </ul>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested nt bt-group">
+                                <summary><span class="zh-lbl">啟示錄</span> | <span class="en-lbl">Revelation</span> <span class="dom-term">萬物更新 · All things made new</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="啟示錄 書卷 books">
+                                    <span class="theme-chip">啟示錄</span>
+                                </div>
+                            </details>
+                        </li>
 
                     </ul>
 
@@ -746,21 +884,160 @@
 
                 <summary>
                     <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search"></use></svg>
-                    <span data-tip="2項：靈・魂・體、悔改——原文字詞與互動圖表 | 2 items: Spirit Soul &amp; Body, Repent — original words and interactive graphics"><span class="zh-lbl">4. 字詞與主題研究圖表</span> | <span class="en-lbl">Word &amp; Theme Studies and Graphics</span></span>
+                    <span data-tip="按系統神學十大範疇分類；2項：靈・魂・體、悔改 | By the 10 domains of systematic theology; 2 items: Spirit Soul &amp; Body, Repent"><span class="zh-lbl">4. 字詞與主題研究圖表</span> | <span class="en-lbl">Word &amp; Theme Studies and Graphics</span></span>
                 </summary>
 
                 <div class="section-content">
 
-                    <ul class="sermon-list">
+                    <!-- Organised by systematic theology (2026-09-24): 10 doctrinal domains, each with its
+                         categories. A category chip is highlighted once it has a study; add a study as a
+                         .sermon-line under its domain, with a .cat-tag naming the category. -->
+                    <p class="theme-intro"><span class="zh-lbl">按系統神學分類：十大教義範疇，每個範疇下再分類別。可連結到將來的講道。</span><br><span class="en-lbl">Organised by systematic theology: ten doctrinal domains, each with its categories — ready to link into future sermons.</span></p>
 
-                        <!-- Spirit, Soul & Body (interactive diagram + word study) -->
-                        <li class="sermon-line">
-                            <a href="words/spirit-soul-body/index.html" target="_blank" class="sermon-link" data-tip="靈、魂、體的原文字詞（希伯來文、希臘文）與互動圖：舊約與新約經文對照 | The Hebrew and Greek words for spirit, soul and body, with an interactive diagram and Old and New Testament passages"><span class="zh-lbl">靈魂體</span> | <span class="en-lbl">Spirit, Soul &amp; Body</span></a>
+                    <ul class="book-list theme-domains">
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">1</span><span class="zh-lbl">神論</span> | <span class="en-lbl">God</span> <span class="dom-term">Theology Proper</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="神論 類別 categories">
+                                    <span class="theme-chip">神的存在 <span class="en">Existence of God</span></span>
+                                    <span class="theme-chip">神的屬性 <span class="en">Attributes</span></span>
+                                    <span class="theme-chip">三位一體 <span class="en">Trinity</span></span>
+                                    <span class="theme-chip">神的名字 <span class="en">Names of God</span></span>
+                                    <span class="theme-chip">創造 <span class="en">Creation</span></span>
+                                    <span class="theme-chip">護理 <span class="en">Providence</span></span>
+                                    <span class="theme-chip">敬畏神 <span class="en">Fear of God</span></span>
+                                </div>
+                            </details>
                         </li>
 
-                        <!-- Repent / μετανοέω (word study: distribution chart + verse popups) -->
-                        <li class="sermon-line">
-                            <a href="words/repent-metanoeo/index.html" target="_blank" class="sermon-link" data-tip="「悔改」（μετανοέω）在新約中的分佈：按書卷點按查看和合本經文原文，並標出兩種中文譯法 | Repent (μετανοέω) distribution across the New Testament: click a book to see the CUV verses, with its two Chinese renderings marked"><span class="zh-lbl">悔改</span> | <span class="en-lbl">Repent (μετανοέω)</span></a>
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">2</span><span class="zh-lbl">基督論</span> | <span class="en-lbl">Jesus Christ</span> <span class="dom-term">Christology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="基督論 類別 categories">
+                                    <span class="theme-chip">基督的神性 <span class="en">Deity of Christ</span></span>
+                                    <span class="theme-chip">道成肉身 <span class="en">Incarnation</span></span>
+                                    <span class="theme-chip">先知、祭司、君王 <span class="en">Prophet, Priest &amp; King</span></span>
+                                    <span class="theme-chip">贖罪 <span class="en">Atonement</span></span>
+                                    <span class="theme-chip">復活 <span class="en">Resurrection</span></span>
+                                    <span class="theme-chip">升天與代求 <span class="en">Ascension &amp; Intercession</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">3</span><span class="zh-lbl">聖靈論</span> | <span class="en-lbl">The Holy Spirit</span> <span class="dom-term">Pneumatology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="聖靈論 類別 categories">
+                                    <span class="theme-chip">聖靈的位格 <span class="en">Person of the Spirit</span></span>
+                                    <span class="theme-chip">內住與印記 <span class="en">Indwelling &amp; Seal</span></span>
+                                    <span class="theme-chip">被聖靈充滿 <span class="en">Filling</span></span>
+                                    <span class="theme-chip">屬靈恩賜 <span class="en">Spiritual Gifts</span></span>
+                                    <span class="theme-chip">聖靈的果子 <span class="en">Fruit of the Spirit</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">4</span><span class="zh-lbl">人論</span> | <span class="en-lbl">Man</span> <span class="dom-term">Anthropology</span><span class="class-count">1</span></summary>
+                                <div class="theme-chips" aria-label="人論 類別 categories">
+                                    <span class="theme-chip">神的形像 <span class="en">Image of God</span></span>
+                                    <span class="theme-chip has-study">靈、魂、體 <span class="en">Spirit, Soul &amp; Body</span></span>
+                                    <span class="theme-chip">心 <span class="en">Heart</span></span>
+                                    <span class="theme-chip">良心 <span class="en">Conscience</span></span>
+                                    <span class="theme-chip">男女與婚姻 <span class="en">Male, Female &amp; Marriage</span></span>
+                                </div>
+                                <ul class="sermon-list">
+                                    <li class="sermon-line"><span class="cat-tag">靈、魂、體 Spirit, Soul &amp; Body</span> <a href="words/spirit-soul-body/index.html" target="_blank" class="sermon-link" data-tip="靈、魂、體的原文字詞（希伯來文、希臘文）與互動圖：舊約與新約經文對照 | The Hebrew and Greek words for spirit, soul and body, with an interactive diagram and Old and New Testament passages"><span class="zh-lbl">靈魂體</span> | <span class="en-lbl">Spirit, Soul &amp; Body</span></a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">5</span><span class="zh-lbl">罪論</span> | <span class="en-lbl">Sin</span> <span class="dom-term">Hamartiology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="罪論 類別 categories">
+                                    <span class="theme-chip">罪的本質 <span class="en">Nature of Sin</span></span>
+                                    <span class="theme-chip">墮落與原罪 <span class="en">Fall &amp; Original Sin</span></span>
+                                    <span class="theme-chip">試探 <span class="en">Temptation</span></span>
+                                    <span class="theme-chip">罪的後果 <span class="en">Consequences of Sin</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">6</span><span class="zh-lbl">救恩論</span> | <span class="en-lbl">Salvation</span> <span class="dom-term">Soteriology</span><span class="class-count">1</span></summary>
+                                <div class="theme-chips" aria-label="救恩論 類別 categories">
+                                    <span class="theme-chip">揀選與呼召 <span class="en">Election &amp; Calling</span></span>
+                                    <span class="theme-chip">重生 <span class="en">Regeneration</span></span>
+                                    <span class="theme-chip has-study">悔改 <span class="en">Repentance</span></span>
+                                    <span class="theme-chip">信心 <span class="en">Faith</span></span>
+                                    <span class="theme-chip">稱義 <span class="en">Justification</span></span>
+                                    <span class="theme-chip">兒子名分 <span class="en">Adoption</span></span>
+                                    <span class="theme-chip">成聖 <span class="en">Sanctification</span></span>
+                                    <span class="theme-chip">恆忍 <span class="en">Perseverance</span></span>
+                                    <span class="theme-chip">得榮 <span class="en">Glorification</span></span>
+                                </div>
+                                <ul class="sermon-list">
+                                    <li class="sermon-line"><span class="cat-tag">悔改 Repentance</span> <a href="words/repent-metanoeo/index.html" target="_blank" class="sermon-link" data-tip="「悔改」（μετανοέω）在新約中的分佈：按書卷點按查看和合本經文原文，並標出兩種中文譯法 | Repent (μετανοέω) distribution across the New Testament: click a book to see the CUV verses, with its two Chinese renderings marked"><span class="zh-lbl">悔改</span> | <span class="en-lbl">Repent (μετανοέω)</span></a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">7</span><span class="zh-lbl">教會論</span> | <span class="en-lbl">The Church</span> <span class="dom-term">Ecclesiology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="教會論 類別 categories">
+                                    <span class="theme-chip">教會的本質 <span class="en">Nature of the Church</span></span>
+                                    <span class="theme-chip">合一 <span class="en">Unity</span></span>
+                                    <span class="theme-chip">洗禮與聖餐 <span class="en">Baptism &amp; the Lord's Supper</span></span>
+                                    <span class="theme-chip">職分與治理 <span class="en">Offices &amp; Order</span></span>
+                                    <span class="theme-chip">敬拜 <span class="en">Worship</span></span>
+                                    <span class="theme-chip">使命與宣教 <span class="en">Mission</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">8</span><span class="zh-lbl">末世論</span> | <span class="en-lbl">Last Things</span> <span class="dom-term">Eschatology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="末世論 類別 categories">
+                                    <span class="theme-chip">死亡與居間狀態 <span class="en">Death &amp; the Intermediate State</span></span>
+                                    <span class="theme-chip">基督再來 <span class="en">Second Coming</span></span>
+                                    <span class="theme-chip">身體復活 <span class="en">Resurrection of the Body</span></span>
+                                    <span class="theme-chip">最後審判 <span class="en">Final Judgment</span></span>
+                                    <span class="theme-chip">神的國 <span class="en">Kingdom of God</span></span>
+                                    <span class="theme-chip">新天新地 <span class="en">New Heavens &amp; New Earth</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">9</span><span class="zh-lbl">聖經論</span> | <span class="en-lbl">Scripture</span> <span class="dom-term">Bibliology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="聖經論 類別 categories">
+                                    <span class="theme-chip">啟示 <span class="en">Revelation</span></span>
+                                    <span class="theme-chip">默示 <span class="en">Inspiration</span></span>
+                                    <span class="theme-chip">無誤 <span class="en">Inerrancy</span></span>
+                                    <span class="theme-chip">正典 <span class="en">Canon</span></span>
+                                    <span class="theme-chip">光照 <span class="en">Illumination</span></span>
+                                    <span class="theme-chip">充足 <span class="en">Sufficiency</span></span>
+                                </div>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details class="nested theme-domain">
+                                <summary><span class="dom-no">10</span><span class="zh-lbl">天使論</span> | <span class="en-lbl">Angels &amp; the Spirit World</span> <span class="dom-term">Angelology</span><span class="class-count empty">0</span></summary>
+                                <div class="theme-chips" aria-label="天使論 類別 categories">
+                                    <span class="theme-chip">天使 <span class="en">Angels</span></span>
+                                    <span class="theme-chip">撒但 <span class="en">Satan</span></span>
+                                    <span class="theme-chip">鬼魔 <span class="en">Demons</span></span>
+                                    <span class="theme-chip">屬靈爭戰 <span class="en">Spiritual Warfare</span></span>
+                                </div>
+                            </details>
                         </li>
 
                     </ul>
@@ -793,6 +1070,12 @@
 <li class="sermon-line"><a href="world-watch/cases/endurance-1915.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">堅忍號</span>（Endurance 1915）</a><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
 <li class="sermon-line"><a href="world-watch/cases/exxon-climate.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">埃克森與氣候</span>（ExxonMobil 2019）</a><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
 <li class="sermon-line"><a href="world-watch/cases/truman-1980.html" target="_blank" class="sermon-link" data-tip="已在希伯來書講道包中使用 | Already used in the Hebrews sermon package"><span class="zh-term">杜魯門與聖海倫火山</span>（Truman 1980）</a><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
+<li class="sermon-line"><a href="world-watch/cases/tilly-smith-2004.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">蒂莉・史密斯與南亞海嘯</span>（Tilly Smith 2004）</a><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
+<li class="sermon-line"><a href="world-watch/cases/explorer1-1958.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">探索者一號與范艾倫輻射帶</span>（Explorer 1 1958）</a><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
+<li class="sermon-line"><a href="world-watch/cases/eisenhower-1961.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">艾森豪告別演說</span>（Eisenhower 1961）</a><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
+<li class="sermon-line"><a href="world-watch/cases/two-man-rule-1962.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">兩人規則</span>（Two-Man Rule 1962）</a><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
+<li class="sermon-line"><a href="world-watch/cases/suez-1956.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">蘇伊士運河危機</span>（Suez 1956）</a><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
+<li class="sermon-line"><a href="world-watch/cases/six-day-war-1967.html" target="_blank" class="sermon-link" data-tip="尚未用於講道，可連結到未來的講道 | Not yet used — ready to link into a future sermon"><span class="zh-term">六日戰爭</span>（Six-Day War 1967）</a><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
                     </ul>
                 </div>
 
@@ -844,78 +1127,40 @@
     <!-- CLOSING VERSE INFOGRAPHICS              -->
     <!-- ====================================== -->
 
-    <section class="closing-verses" aria-label="Closing verses">
+    <!-- The King's two comings (2026-09-24): Mark 1:15 as the heading, then the humble King on a
+         donkey (first coming) and the King of kings on a white horse (second coming). -->
+    <section class="closing-verses" aria-label="Closing verses: the King's two comings">
 
-        <div class="verse-card verse-cross">
-            <svg class="verse-art" viewBox="0 0 200 200" aria-hidden="true">
-                <g stroke="currentColor" fill="none" stroke-linecap="round">
-                    <g stroke-width="3" opacity="0.5">
-                        <line x1="100" y1="10" x2="100" y2="34"/>
-                        <line x1="60" y1="20" x2="74" y2="40"/>
-                        <line x1="140" y1="20" x2="126" y2="40"/>
-                        <line x1="30" y1="46" x2="52" y2="54"/>
-                        <line x1="170" y1="46" x2="148" y2="54"/>
-                    </g>
-                    <path d="M20 172 Q60 120 100 112 Q140 120 180 172 Z" stroke-width="6" opacity="0.6"/>
-                    <g stroke-width="9.6">
-                        <line x1="100" y1="58" x2="100" y2="150"/>
-                        <line x1="76" y1="86" x2="124" y2="86"/>
-                    </g>
-                </g>
-            </svg>
+        <div class="verse-banner">
+            <p class="verse-cuv">「日期滿了，神的國近了。你們當悔改，信福音！」</p>
+            <p class="verse-ref">馬可福音 1:15　Mark 1:15</p>
+            <p class="verse-ylt">“The time hath been fulfilled, and the reign of God hath come nigh, reform ye, and believe in the good news.” <span class="verse-ylt-lbl">— YLT</span></p>
+        </div>
+
+        <div class="verse-card verse-donkey">
+            <p class="verse-title"><span class="zh">謙卑的君王</span><span class="en">The Humble King · 第一次來臨 First Coming</span></p>
+            <img class="verse-photo" src="assets/jesus-donkey.jpg" alt="耶穌騎着驢進耶路撒冷，眾人手拿棕樹枝 | Jesus riding a donkey into Jerusalem, the crowd waving palm branches" loading="lazy">
             <div class="verse-text">
-                <p class="verse-cuv">「神愛世人，甚至將他的獨生子賜給他們，叫一切信他的，不至滅亡，反得永生。」</p>
-                <p class="verse-ref">約翰福音 3:16　John 3:16</p>
-                <p class="verse-ylt">“for God did so love the world, that His Son — the only begotten — He gave, that every one who is believing in him may not perish, but may have life age-during.” <span class="verse-ylt-lbl">— YLT</span></p>
+                <p class="verse-cuv">「要對錫安的居民說：看<span class="cuv-fallback-glyph">哪</span>，你的王來到你這裡，是溫柔的，又騎着驢，就是騎着驢駒子。」</p>
+                <p class="verse-ref">馬太福音 21:5（亞 9:9）　Matthew 21:5 (Zech 9:9)</p>
+                <p class="verse-ylt">“Say ye to the daughter of Zion, Lo, thy king doth come to thee, meek, and sitting upon an ass, and a colt, a foal of a beast of burden.” <span class="verse-ylt-lbl">— YLT</span></p>
             </div>
         </div>
 
-        <div class="verse-card verse-lamp">
-            <svg class="verse-art" viewBox="0 0 200 200" aria-hidden="true">
-                <g stroke="currentColor" fill="none" stroke-linecap="round">
-                    <g stroke-width="3" opacity="0.5">
-                        <line x1="100" y1="16" x2="100" y2="42"/>
-                        <line x1="66" y1="26" x2="80" y2="48"/>
-                        <line x1="134" y1="26" x2="120" y2="48"/>
-                        <line x1="42" y1="52" x2="62" y2="60"/>
-                        <line x1="158" y1="52" x2="138" y2="60"/>
-                    </g>
-                    <path d="M52 150 L52 78 Q100 62 100 78 L100 150 Z" stroke-width="6" opacity="0.7"/>
-                    <path d="M148 150 L148 78 Q100 62 100 78 L100 150 Z" stroke-width="6" opacity="0.7"/>
-                    <line x1="100" y1="78" x2="100" y2="150" stroke-width="4.5" opacity="0.5"/>
-                    <line x1="58" y1="96" x2="92" y2="92" stroke-width="3" opacity="0.45"/>
-                    <line x1="58" y1="114" x2="92" y2="112" stroke-width="3" opacity="0.45"/>
-                    <line x1="58" y1="132" x2="92" y2="132" stroke-width="3" opacity="0.45"/>
-                    <line x1="108" y1="92" x2="142" y2="96" stroke-width="3" opacity="0.45"/>
-                    <line x1="108" y1="112" x2="142" y2="114" stroke-width="3" opacity="0.45"/>
-                    <line x1="108" y1="132" x2="142" y2="132" stroke-width="3" opacity="0.45"/>
-                </g>
-            </svg>
+        <div class="verse-card verse-horse">
+            <p class="verse-title"><span class="zh">萬王之王、萬主之主</span><span class="en">King of kings and Lord of lords · 再來 Second Coming</span></p>
+            <img class="verse-photo" src="assets/jesus-white-horse.jpg" alt="耶穌戴着冠冕騎白馬，天開了 | Jesus crowned, riding a white horse as heaven opens" loading="lazy">
             <div class="verse-text">
-                <p class="verse-cuv">「你的話是我<span class="cuv-fallback-glyph">腳</span>前的燈，是我路上的光。」</p>
-                <p class="verse-ref">詩篇 119:105　Psalm 119:105</p>
-                <p class="verse-ylt">“A lamp to my foot [is] Thy word, and a light to my path.” <span class="verse-ylt-lbl">— YLT</span></p>
+                <p class="verse-cuv">「我觀看，見天開了。有一匹白馬，騎在馬上的稱為誠信真實，他審判、爭戰都按着公義。」……「在他衣服和大腿上有名寫着說：萬王之王，萬主之主。」</p>
+                <p class="verse-ref">啟示錄 19:11, 16　Revelation 19:11, 16</p>
+                <p class="verse-ylt">“And I saw the heaven opened, and lo, a white horse, and he who is sitting upon it is called Faithful and True, and in righteousness doth he judge and war” … “and he hath upon the garment and upon his thigh the name written, ‘King of kings, and Lord of lords.’” <span class="verse-ylt-lbl">— YLT</span></p>
             </div>
         </div>
 
-        <div class="verse-card verse-crown">
-            <svg class="verse-art" viewBox="0 0 200 200" aria-hidden="true">
-                <g stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M100 18 L106 34 L122 22 L116 44 L134 40 L122 58 L142 62 L124 76" stroke-width="4.2" opacity="0.55"/>
-                    <path d="M100 18 L94 34 L78 22 L84 44 L66 40 L78 58 L58 62 L76 76" stroke-width="4.2" opacity="0.55"/>
-                    <path d="M52 132 L60 92 L82 112 L100 84 L118 112 L140 92 L148 132 Z" stroke-width="7.2"/>
-                    <line x1="52" y1="132" x2="148" y2="132" stroke-width="7.2"/>
-                    <circle cx="100" cy="113" r="4" stroke-width="4.8"/>
-                    <circle cx="76" cy="121" r="3" stroke-width="4.8"/>
-                    <circle cx="124" cy="121" r="3" stroke-width="4.8"/>
-                    <path d="M40 150 Q100 166 160 150" stroke-width="4.8" opacity="0.7"/>
-                </g>
-            </svg>
-            <div class="verse-text">
-                <p class="verse-cuv">「我耶穌差遣我的使者為<span class="cuv-fallback-glyph">眾</span>教會將這些事向你們證明。我是大衛的根，又是他的後裔。我是明亮的晨星。」……「證明這事的說：『是了，我必快來！』阿們！主耶穌啊，我願你來！」</p>
-                <p class="verse-ref">啟示錄 22:16, 20　Revelation 22:16, 20</p>
-                <p class="verse-ylt">“I, Jesus did send my messenger to testify to you these things concerning the assemblies; I am the root and the offspring of David, the bright and morning star!” … “Yes, I come quickly! Amen! Yes, be coming, Lord Jesus!” <span class="verse-ylt-lbl">— YLT</span></p>
-            </div>
+        <div class="verse-banner verse-banner-bottom">
+            <p class="verse-cuv">「神愛世人，甚至將他的獨生子賜給他們，叫一切信他的，不至滅亡，反得永生。」</p>
+            <p class="verse-ref">約翰福音 3:16　John 3:16</p>
+            <p class="verse-ylt">“for God did so love the world, that His Son — the only begotten — He gave, that every one who is believing in him may not perish, but may have life age-during.” <span class="verse-ylt-lbl">— YLT</span></p>
         </div>
 
     </section>
@@ -1155,7 +1400,8 @@
 
             section.querySelectorAll('details').forEach(function (d) {
                 var dLines = d.querySelectorAll('.sermon-line');
-                if (dLines.length === 0) return;
+                // Category-only groups (no studies yet) have nothing to match: hide them while searching.
+                if (dLines.length === 0) { d.classList.toggle('search-hide', !!q); return; }
                 var dVisible = Array.prototype.some.call(dLines, isVisible);
                 d.classList.toggle('search-hide', !dVisible);
                 if (q) { if (dVisible) d.setAttribute('open', ''); else d.removeAttribute('open'); }

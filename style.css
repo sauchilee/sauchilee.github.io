@@ -34,6 +34,8 @@
     --bright-red: #e0342a;
     --bright-green: #21a349;
     --bright-purple: #7d3fa8;
+    --blood-red: #8a0303;       /* donkey card text (2026-09-24) */
+    --card-navy: #14306e;       /* white-horse card text (2026-09-24) */
 
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
@@ -1407,9 +1409,72 @@ p {
 /* 2026-09-24: each card's icon and its Chinese verse text now share one consistent colour
    (was: icon per-card, text a single shared navy for all three) — his call, "bright red...
    not just the icon, but the font... consistent color" */
-.verse-cross .verse-art, .verse-cross .verse-cuv { color: var(--bright-red); }
-.verse-lamp .verse-art, .verse-lamp .verse-cuv { color: var(--bright-green); }
-.verse-crown .verse-art, .verse-crown .verse-cuv { color: var(--bright-purple); }
+/* 2026-09-24: the King's two comings — donkey (first coming) and white horse (second coming),
+   under a full-width Mark 1:15 banner */
+.verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--blood-red); }
+.verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--card-navy); }
+.verse-banner .verse-cuv { color: #111; }   /* Mark 1:15 (top) and John 3:16 (bottom) banners in black */
+
+/* 2026-09-24: lifelike pictures (his own images, cropped) instead of line drawings */
+.verse-photo {
+    display: block;
+
+    width: 100%;
+    max-width: 420px;
+    height: 400px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 16px var(--shadow);
+}
+
+.verse-donkey .verse-photo { height: auto; object-fit: contain; }
+.verse-horse .verse-photo { object-position: 30% center; }
+
+.verse-banner {
+    flex: 1 1 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    padding: 22px 26px;
+
+    text-align: center;
+
+    background: linear-gradient(to bottom, var(--surface-soft), var(--paper-deep));
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px var(--shadow);
+}
+
+.verse-banner p { margin: 0; }
+
+.verse-title {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.verse-title .zh {
+    font-family: "Klee One", "Noto Serif TC", serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.verse-title .en {
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--gold-dark);
+}
 
 .verse-text {
     display: flex;
@@ -1768,4 +1833,196 @@ footer {
     border-bottom: none;
 
     padding: 9px 10px;
+}
+
+
+/* =========================================
+   HERO THEME VERSE — Psalm 119:105 in four versions (2026-09-24)
+   ========================================= */
+
+.hero-verse {
+    position: relative;
+
+    max-width: 640px;
+    margin: 22px auto 0;
+    padding: 0;
+
+    color: #f4ead8;
+}
+
+.hero-verse .hv-line {
+    margin: 0 0 6px;
+}
+
+.hv-he {
+    font-family: "Noto Serif Hebrew", "SBL Hebrew", "Times New Roman", serif;
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: #ecd7a4;
+}
+
+.hv-zh {
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.32rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.hv-en,
+.hv-ylt {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.hv-ylt {
+    font-style: italic;
+    color: rgba(244, 234, 216, 0.85);
+}
+
+.hv-lbl {
+    display: inline-block;
+    margin-left: 8px;
+
+    font-style: normal;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+
+    color: #ecd7a4;
+    border: 1px solid rgba(236, 215, 164, 0.5);
+    border-radius: 4px;
+    padding: 0 5px;
+
+    vertical-align: middle;
+}
+
+.hv-ref {
+    margin-top: 10px;
+
+    font-family: "Cinzel", Georgia, "Noto Serif TC", serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    color: #ecd7a4;
+}
+
+.hv-src {
+    display: block;
+
+    font-family: Georgia, "Noto Serif TC", serif;
+    font-size: 0.74rem;
+    font-weight: 400;
+
+    color: rgba(244, 234, 216, 0.7);
+}
+
+
+/* =========================================
+   WORD & THEME STUDIES (systematic theology) and
+   BIBLICAL STUDIES (biblical theology) — 2026-09-24
+   ========================================= */
+
+.theme-intro {
+    margin: 4px 0 10px;
+
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.bt-testament {
+    margin: 16px 0 2px;
+
+    font-family: "Cinzel", Georgia, "Noto Serif TC", serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.bt-testament.ot { color: #30395a; }
+.bt-testament.nt { color: var(--gold-dark); }
+
+.theme-domain > summary,
+.bt-group > summary {
+    flex-wrap: wrap;
+}
+
+.dom-no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 1.6em;
+    height: 1.6em;
+
+    font-size: 0.8rem;
+
+    color: var(--surface);
+    background: var(--gold-dark);
+    border-radius: 50%;
+}
+
+.dom-term {
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: italic;
+
+    color: var(--muted);
+}
+
+.class-count.empty {
+    opacity: 0.45;
+}
+
+.theme-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    padding: 0 2px 12px 26px;
+}
+
+.theme-chip {
+    font-size: 0.82rem;
+
+    color: var(--muted);
+
+    background: rgba(176, 138, 74, 0.08);
+    border: 1px dashed rgba(176, 138, 74, 0.45);
+    border-radius: 999px;
+
+    padding: 1px 10px;
+}
+
+.theme-chip .en {
+    font-size: 0.74rem;
+    opacity: 0.8;
+}
+
+/* a category / book that already has a study */
+.theme-chip.has-study {
+    color: var(--surface);
+
+    background: var(--gold-dark);
+    border: 1px solid var(--gold-dark);
+
+    font-weight: 700;
+}
+
+.cat-tag {
+    display: inline-block;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    color: var(--gold-dark);
+
+    background: rgba(176, 138, 74, 0.14);
+    border-radius: 6px;
+    padding: 0 7px;
+}
+
+@media (max-width: 700px) {
+    .hv-he { font-size: 1.4rem; }
+    .hv-zh { font-size: 1rem; letter-spacing: 0; }
+    .theme-chips { padding-left: 8px; }
 }
