@@ -34,6 +34,8 @@
     --bright-red: #e0342a;
     --bright-green: #21a349;
     --bright-purple: #7d3fa8;
+    --blood-red: #8a0303;       /* donkey card text (2026-09-24) */
+    --card-navy: #14306e;       /* white-horse card text (2026-09-24) */
 
     --line: #d8c9ae;
     --shadow: rgba(65, 46, 26, 0.15);
@@ -1409,8 +1411,8 @@ p {
    not just the icon, but the font... consistent color" */
 /* 2026-09-24: the King's two comings — donkey (first coming) and white horse (second coming),
    under a full-width Mark 1:15 banner */
-.verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--bright-green); }
-.verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--bright-purple); }
+.verse-donkey .verse-cuv, .verse-donkey .verse-title .zh { color: var(--blood-red); }
+.verse-horse .verse-cuv, .verse-horse .verse-title .zh { color: var(--card-navy); }
 .verse-banner .verse-cuv { color: var(--bright-red); }
 
 /* 2026-09-24: lifelike pictures (his own images, cropped) instead of line drawings */
@@ -1428,7 +1430,7 @@ p {
     box-shadow: 0 6px 16px var(--shadow);
 }
 
-.verse-donkey .verse-photo { object-position: center top; }
+.verse-donkey .verse-photo { height: auto; object-fit: contain; }
 .verse-horse .verse-photo { object-position: 30% center; }
 
 .verse-banner {
