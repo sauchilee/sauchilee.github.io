@@ -1118,10 +1118,19 @@
         return hay;
     }
 
-    // A row counts as visible only once BOTH the free-text search and the World Watch domain
-    // chips (independent filters, combined with AND) agree it should show.
+    // A row counts as visible only once BOTH the free-text search and the domain-chip filters
+    // (independent filters, combined with AND) agree it should show.
     function isVisible(li) {
         return !li.classList.contains('search-hide') && !li.classList.contains('domain-hide');
+    }
+
+    // Used only to decide whether a category BANNER (the .study-card / nested <details> itself)
+    // collapses out of view. Deliberately ignores domain-hide (his call, 2026-09-25): a domain-chip
+    // filter narrowing a category down to zero visible cases should still leave that category's
+    // banner on screen, just with nothing listed under it -- only the free-text search is allowed
+    // to collapse the banner itself.
+    function isSearchVisible(li) {
+        return !li.classList.contains('search-hide');
     }
 
     function restoreOpenState() {
@@ -1135,7 +1144,7 @@
             var lines = section.querySelectorAll('.sermon-line');
             if (lines.length === 0) { section.classList.remove('search-hide'); return; }
 
-            var anyVisible = Array.prototype.some.call(lines, isVisible);
+            var anyVisible = Array.prototype.some.call(lines, isSearchVisible);
             section.classList.toggle('search-hide', !anyVisible);
 
             if (anyVisible && q) {
@@ -1153,7 +1162,7 @@
                 var dLines = d.querySelectorAll('.sermon-line');
                 // Category-only groups (no studies yet) have nothing to match: hide them while searching.
                 if (dLines.length === 0) { d.classList.toggle('search-hide', !!q); return; }
-                var dVisible = Array.prototype.some.call(dLines, isVisible);
+                var dVisible = Array.prototype.some.call(dLines, isSearchVisible);
                 d.classList.toggle('search-hide', !dVisible);
                 if (q) { if (dVisible) d.setAttribute('open', ''); else d.removeAttribute('open'); }
             });
