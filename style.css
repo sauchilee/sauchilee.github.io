@@ -511,14 +511,12 @@ body::before {
 
     padding: 10px 8px 8px;
 
-    /* 2026-09-25: his call -- label height should be a QUARTER of the icon's height (down from
-       half, which he found too large -- the longest labels, e.g. "字詞與主題研究圖表", wrapped
-       to 3-4 lines and collided with the en line below). Icon height is a fixed 46.5% of tile
-       width (62% fill of the tile's 4:3 box), so 1/4 of that is 11.625% of tile width -- cqw
-       (container-type set on .preview-item above) keeps this exact at any viewport. Verified via
-       direct measurement: at 11.625cqw the longest zh/en pair (words, external tiles) no longer
-       overlap (overlap became negative starting around 12cqw). */
-    font-size: 11.625cqw;
+    /* 2026-09-25: his call, in steps -- started at half the icon's height, found too large
+       (long labels wrapped 3-4 lines and collided with en below); dropped to a quarter
+       (11.625cqw), still "a little too large" -- settled at 80% of that (9.3cqw). Icon height
+       is a fixed 46.5% of tile width (62% fill of the tile's 4:3 box); cqw (container-type set
+       on .preview-item above) keeps the ratio exact at any viewport. */
+    font-size: 9.3cqw;
     font-weight: 700;
 
     line-height: 1.3;
@@ -541,8 +539,8 @@ body::before {
     padding: 8px 8px 10px;
 
     /* 2026-09-25: keeps the same size ratio to the zh line as before (secondary/translation
-       line), now expressed in cqw to match .preview-label-zh's container-relative sizing. */
-    font-size: 8.92cqw;
+       line). */
+    font-size: 7.14cqw;
     font-weight: 700;
 
     line-height: 1.3;
