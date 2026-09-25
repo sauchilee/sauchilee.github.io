@@ -446,14 +446,15 @@ body::before {
 /* 2026-09-25: his call -- the five svg line icons read visually smaller than the lion badge
    even at the same box (their glyphs have more internal padding in the viewBox), so scale
    them 1.2x relative to the base .icon size above to match the lion's apparent size, then
-   trimmed 80% along with everything else (74.4% * 0.8 = 59.52%). The lion itself (.icon-img,
-   an <img>) is the reference and is untouched -- this only targets the <svg class="icon"> tiles.
+   trimmed 80% along with everything else (74.4% * 0.8 = 59.52%), then trimmed again to 85%
+   of that (59.52% * 0.85 = 50.592%) -- the lion badge (.icon-img, an <img>) stays untouched
+   at the base .icon size (100%, his call) since this selector only targets <svg class="icon">.
    Stroke weight for these five is separately trimmed to 80% at the source -- see the
    icon-*-panel symbol defs in index.html (scoped duplicates so the shared/reused icon defs
    elsewhere on the page are untouched). */
 .preview-item svg.icon {
-    width: 59.52%;
-    height: 59.52%;
+    width: 50.592%;
+    height: 50.592%;
 }
 
 
