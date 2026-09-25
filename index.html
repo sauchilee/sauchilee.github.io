@@ -1494,10 +1494,17 @@
         });
     }
 
+    // Commit-on-blur alone missed most real searches: typing several different queries in a row
+    // without ever clicking away only saved whichever one happened to be in the box at the very
+    // end. Debounce a commit ~900ms after typing pauses too, so each distinct search a person
+    // actually stops to look at gets captured, not just the last one before they leave the box.
+    var histCommitTimer = null;
+
     input.addEventListener('focus', function () {
         if (!input.value.trim()) renderHistory();
     });
     input.addEventListener('blur', function () {
+        if (histCommitTimer) { clearTimeout(histCommitTimer); histCommitTimer = null; }
         if (input.value.trim()) addToHistory(input.value);
         setTimeout(hideHistory, 150); // delay so the history item's mousedown above still lands
     });
@@ -1505,6 +1512,11 @@
     input.addEventListener('input', function () {
         hideHistory();
         runSearch();
+        if (histCommitTimer) clearTimeout(histCommitTimer);
+        var q = input.value;
+        if (q.trim()) {
+            histCommitTimer = setTimeout(function () { addToHistory(q); histCommitTimer = null; }, 900);
+        }
     });
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { input.value = ''; runSearch(); input.blur(); }
