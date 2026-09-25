@@ -367,8 +367,11 @@ body::before {
 
     gap: 14px;
 
-    max-width: 680px;
-    margin: 34px auto 0;
+    /* 2026-09-25: fluid, fills the hero's full width like the rest of the page now does --
+       was capped at 680px, a narrow centered block that no longer matched the now-full-width
+       page around it. */
+    max-width: 100%;
+    margin: 34px 0 0;
 }
 
 .hero-preview .preview-item { grid-column: span 2; }
