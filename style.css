@@ -380,6 +380,12 @@ body::before {
 .preview-item {
     position: relative;
 
+    /* 2026-09-25: container query context so the labels below can size themselves as a fixed
+       ratio of THIS tile's own width (icon height is a fixed 46.5% of tile width -- 62% fill of
+       a 4:3 box -- so cqw units keep the label locked to "half the icon's height" at any tile
+       size, mobile through ultra-wide, without re-deriving a vw-based clamp each time). */
+    container-type: inline-size;
+
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -430,7 +436,19 @@ body::before {
     width: 62%;
     height: 62%;
 
-    opacity: 0.32;
+    /* 2026-09-25: full white, matching the crisp black-and-white Biblical Truths lion badge --
+       was 0.32, which made these five line icons look faint/washed-out next to it. */
+    opacity: 1;
+}
+
+
+/* 2026-09-25: his call -- the five svg line icons read visually smaller than the lion badge
+   even at the same 62% box (their glyphs have more internal padding in the viewBox), so scale
+   them 1.2x to match the lion's apparent size. The lion itself (.icon-img, an <img>) is the
+   reference and is untouched -- this only targets the <svg class="icon"> tiles. */
+.preview-item svg.icon {
+    width: 74.4%;
+    height: 74.4%;
 }
 
 
@@ -493,10 +511,14 @@ body::before {
 
     padding: 10px 8px 8px;
 
-    /* 2026-09-25: fluid, scales with the tile (which itself is now fluid/full-width) --
-       a fixed 0.86rem looked lost/tiny once the panels grew much wider than their old
-       680px-capped grid. */
-    font-size: clamp(0.86rem, 1.8vw, 1.5rem);
+    /* 2026-09-25: his call -- label height should be a QUARTER of the icon's height (down from
+       half, which he found too large -- the longest labels, e.g. "字詞與主題研究圖表", wrapped
+       to 3-4 lines and collided with the en line below). Icon height is a fixed 46.5% of tile
+       width (62% fill of the tile's 4:3 box), so 1/4 of that is 11.625% of tile width -- cqw
+       (container-type set on .preview-item above) keeps this exact at any viewport. Verified via
+       direct measurement: at 11.625cqw the longest zh/en pair (words, external tiles) no longer
+       overlap (overlap became negative starting around 12cqw). */
+    font-size: 11.625cqw;
     font-weight: 700;
 
     line-height: 1.3;
@@ -518,7 +540,9 @@ body::before {
 
     padding: 8px 8px 10px;
 
-    font-size: clamp(0.7rem, 1.3vw, 1.15rem);
+    /* 2026-09-25: keeps the same size ratio to the zh line as before (secondary/translation
+       line), now expressed in cqw to match .preview-label-zh's container-relative sizing. */
+    font-size: 8.92cqw;
     font-weight: 700;
 
     line-height: 1.3;
