@@ -1444,6 +1444,16 @@
         if (e.key === 'Escape') { input.value = ''; runSearch(); input.blur(); }
     });
     clearBtn.addEventListener('click', function () { input.value = ''; runSearch(); input.focus(); });
+
+    // Clicking a hero preview tile means "show me this category" — if an active search filter
+    // has that category hidden (zero matches), the #section-X anchor jump would silently land on
+    // a display:none element and look like nothing happened. Clear the filter first so the target
+    // section is guaranteed visible before the browser's own anchor-scroll runs.
+    document.querySelectorAll('.preview-item[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function () {
+            if (input.value.trim()) { input.value = ''; runSearch(); }
+        });
+    });
 })();
 </script>
 
