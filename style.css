@@ -433,8 +433,9 @@ body::before {
 
 
 .preview-item .icon {
-    width: 62%;
-    height: 62%;
+    /* 2026-09-25: his call -- all six icons trimmed to 80% of their prior size (was 62%). */
+    width: 49.6%;
+    height: 49.6%;
 
     /* 2026-09-25: full white, matching the crisp black-and-white Biblical Truths lion badge --
        was 0.32, which made these five line icons look faint/washed-out next to it. */
@@ -443,12 +444,16 @@ body::before {
 
 
 /* 2026-09-25: his call -- the five svg line icons read visually smaller than the lion badge
-   even at the same 62% box (their glyphs have more internal padding in the viewBox), so scale
-   them 1.2x to match the lion's apparent size. The lion itself (.icon-img, an <img>) is the
-   reference and is untouched -- this only targets the <svg class="icon"> tiles. */
+   even at the same box (their glyphs have more internal padding in the viewBox), so scale
+   them 1.2x relative to the base .icon size above to match the lion's apparent size, then
+   trimmed 80% along with everything else (74.4% * 0.8 = 59.52%). The lion itself (.icon-img,
+   an <img>) is the reference and is untouched -- this only targets the <svg class="icon"> tiles.
+   Stroke weight for these five is separately trimmed to 80% at the source -- see the
+   icon-*-panel symbol defs in index.html (scoped duplicates so the shared/reused icon defs
+   elsewhere on the page are untouched). */
 .preview-item svg.icon {
-    width: 74.4%;
-    height: 74.4%;
+    width: 59.52%;
+    height: 59.52%;
 }
 
 

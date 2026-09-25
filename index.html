@@ -29,7 +29,7 @@
           rel="stylesheet">
 
     <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=38">
+    <link rel="stylesheet" href="style.css?v=39">
 </head>
 
 
@@ -223,6 +223,61 @@
             </g>
         </symbol>
 
+        <!-- 2026-09-25: his call -- thinner strokes (80% of the originals' weight), scoped ONLY
+             to the six hero-preview panel icons, not the shared originals above which are reused
+             elsewhere on the page (section headers, site search icon). Same paths/viewBoxes as
+             icon-pulpit/book/search/globe/home, stroke-width values simply multiplied by 0.8. -->
+        <symbol id="icon-pulpit-panel" viewBox="0 0 24 24">
+            <g stroke="currentColor" stroke-width="1.04" stroke-linecap="round" opacity="0.85">
+                <line x1="12" y1="1" x2="12" y2="4.6"></line>
+                <line x1="7.3" y1="2.1" x2="9" y2="5.2"></line>
+                <line x1="16.7" y1="2.1" x2="15" y2="5.2"></line>
+                <line x1="3.6" y1="4.8" x2="6.3" y2="6.9"></line>
+                <line x1="20.4" y1="4.8" x2="17.7" y2="6.9"></line>
+            </g>
+            <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+                <path d="M12 11c-1.3-.9-2.9-1.4-4.6-1.4v5.3c1.7 0 3.3.5 4.6 1.4V11z"></path>
+                <path d="M12 11c1.3-.9 2.9-1.4 4.6-1.4v5.3c-1.7 0-3.3.5-4.6 1.4V11z"></path>
+            </g>
+            <path fill="none" stroke="currentColor" stroke-width="1.12" stroke-linejoin="round" stroke-linecap="round"
+                  d="M6 18.3h12l-1.8-2.2H7.8z"></path>
+            <line x1="12" y1="18.3" x2="12" y2="21.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
+            <line x1="8.6" y1="21.6" x2="15.4" y2="21.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
+        </symbol>
+
+        <symbol id="icon-book-panel" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.28" stroke-linejoin="round">
+                <path d="M12 6c-1.8-1.3-4-2-6.5-2C4 4 3 4.2 3 4.2v14.6s1-.3 2.5-.3c2.4 0 4.6.7 6.5 2V6z"></path>
+                <path d="M12 6c1.8-1.3 4-2 6.5-2 1.5 0 2.5.2 2.5.2v14.6s-1-.3-2.5-.3c-2.4 0-4.6.7-6.5 2V6z"></path>
+            </g>
+        </symbol>
+
+        <symbol id="icon-search-panel" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.36" stroke-linecap="round">
+                <circle cx="10.5" cy="10.5" r="6.5"></circle>
+                <line x1="15.4" y1="15.4" x2="21" y2="21"></line>
+            </g>
+        </symbol>
+
+        <symbol id="icon-globe-panel" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <path d="M4.5 7.5c2 1.3 5 2 7.5 2s5.5-.7 7.5-2"></path>
+                <path d="M4.5 16.5c2-1.3 5-2 7.5-2s5.5.7 7.5 2"></path>
+            </g>
+        </symbol>
+
+        <symbol id="icon-home-panel" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 11.5 12 4l8 7.5"></path>
+            <path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M6 10v9.5h12V10"></path>
+            <line x1="12" y1="14" x2="12" y2="19" stroke="currentColor" stroke-width="1.12" stroke-linecap="round"></line>
+            <line x1="9.3" y1="16.3" x2="14.7" y2="16.3" stroke="currentColor" stroke-width="1.12" stroke-linecap="round"></line>
+        </symbol>
+
     </defs>
 </svg>
 
@@ -269,7 +324,7 @@
             <a class="preview-item truths" href="#section-truths" data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?">
                 <span class="preview-label-zh">聖經真理</span>
                 <span class="preview-icon">
-                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督（啟 5:5）| This site's own emblem — a lion, for Christ the conquering King (Rev 5:5)">
+                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督；同一異象隨即顯明祂是被殺的羔羊——神的羔羊（啟 5:5-6）| This site's own emblem — a lion, for Christ the conquering King; the same vision instantly reveals Him as the slain Lamb — the Lamb of God (Rev 5:5-6)">
                 </span>
                 <span class="preview-label-en">Biblical Truths</span>
             </a>
@@ -277,7 +332,7 @@
             <a class="preview-item preaching" href="#section-preaching" data-tip="講道系列：以弗所書、馬太福音、詩篇、出埃及記、提摩太前書、哥林多前書、羅馬書、希伯來書、聖潔生活系列 | Sermon series: Ephesians, Matthew, Psalms, Exodus, 1 Timothy, 1 Corinthians, Romans, Hebrews, Holy Living">
                 <span class="preview-label-zh">講道系列</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="講臺：宣講神話語之處 | A pulpit — where God's Word is proclaimed"><use href="#icon-pulpit"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="講臺：宣講神話語之處 | A pulpit — where God's Word is proclaimed"><use href="#icon-pulpit-panel"></use></svg>
                 </span>
                 <span class="preview-label-en">Preaching Series</span>
             </a>
@@ -285,7 +340,7 @@
             <a class="preview-item biblical" href="#section-biblical" data-tip="按聖經神學分類（律法、先知、聖卷；福音、書信、啟示）；書卷研究：希伯來書 | Grouped by biblical theology (Law, Prophets, Writings; Gospels, Epistles, Revelation); book studies: Hebrews">
                 <span class="preview-label-zh">聖經書卷研究</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book-panel"></use></svg>
                 </span>
                 <span class="preview-label-en">Biblical Studies</span>
             </a>
@@ -293,7 +348,7 @@
             <a class="preview-item words" href="#section-words" data-tip="按系統神學十大範疇分類；2項：靈・魂・體、悔改 | By the 10 domains of systematic theology; 2 items: Spirit Soul &amp; Body, Repent">
                 <span class="preview-label-zh">字詞與主題研究圖表</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search-panel"></use></svg>
                 </span>
                 <span class="preview-label-en">Word &amp; Theme Studies and Graphics</span>
             </a>
@@ -301,7 +356,7 @@
             <a class="preview-item worldwatch" href="#section-worldwatch" data-tip="世界觀察：當代基督教倫理與世界觀，逐步建立中 | World Watches: contemporary Christian ethics and worldview, being built gradually">
                 <span class="preview-label-zh">世界觀察</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe-panel"></use></svg>
                 </span>
                 <span class="preview-label-en">World Watches</span>
             </a>
@@ -309,7 +364,7 @@
             <a class="preview-item external" href="#section-church-home" data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive">
                 <span class="preview-label-zh">教會主頁與完整存檔</span>
                 <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="十架屋頂：教會大家庭 | A home with a cross — the church family"><use href="#icon-home"></use></svg>
+                    <svg class="icon" aria-hidden="true" data-tip="十架屋頂：教會大家庭 | A home with a cross — the church family"><use href="#icon-home-panel"></use></svg>
                 </span>
                 <span class="preview-label-en">Church Home &amp; Full Archive</span>
             </a>
@@ -352,7 +407,7 @@
             <details>
 
                 <summary>
-                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督（啟 5:5）| This site's own emblem — a lion, for Christ the conquering King (Rev 5:5)">
+                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督；同一異象隨即顯明祂是被殺的羔羊——神的羔羊（啟 5:5-6）| This site's own emblem — a lion, for Christ the conquering King; the same vision instantly reveals Him as the slain Lamb — the Lamb of God (Rev 5:5-6)">
                     <span data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?"><span class="zh-lbl">1. 聖經真理</span> | <span class="en-lbl">Biblical Truths</span></span>
                 </summary>
 
