@@ -332,6 +332,7 @@
             <button type="button" id="siteSearchClear" class="site-search-clear" aria-label="Clear search" hidden>✕</button>
         </div>
         <p id="siteSearchStatus" class="site-search-status" aria-live="polite"></p>
+        <ul id="siteSearchHistory" class="site-search-history" hidden aria-label="Recent searches on this device"></ul>
     </div>
 
 
@@ -1441,7 +1442,70 @@
     // section-visibility bubble-up to re-run after they change .domain-hide on their own rows.
     window.__siteSearchRefresh = function () { updateSectionVisibility(input.value.trim()); };
 
-    input.addEventListener('input', runSearch);
+    // ---- Recent searches (2026-09-24) — this device/browser only, via localStorage. No backend:
+    // this is a fully static site, so there's no way to see what other visitors search for, and
+    // this history doesn't sync across his own devices either — each browser builds its own list. ----
+    var HIST_KEY = 'sauchilee_search_history';
+    var HIST_MAX = 10;
+    var histEl = document.getElementById('siteSearchHistory');
+
+    function loadHistory() {
+        try {
+            var raw = localStorage.getItem(HIST_KEY);
+            var arr = raw ? JSON.parse(raw) : [];
+            return Array.isArray(arr) ? arr : [];
+        } catch (e) { return []; }
+    }
+
+    function saveHistory(arr) {
+        try { localStorage.setItem(HIST_KEY, JSON.stringify(arr.slice(0, HIST_MAX))); } catch (e) { /* private window, storage blocked, etc — fine to no-op */ }
+    }
+
+    function addToHistory(q) {
+        q = q.trim();
+        if (!q) return;
+        var arr = loadHistory().filter(function (x) { return x.toLowerCase() !== q.toLowerCase(); });
+        arr.unshift(q);
+        saveHistory(arr);
+    }
+
+    function renderHistory() {
+        if (!histEl) return;
+        var arr = loadHistory();
+        if (!arr.length) { histEl.hidden = true; histEl.innerHTML = ''; return; }
+        histEl.innerHTML = arr.map(function (q) {
+            var esc = q.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            return '<li><button type="button" class="site-search-history-item" data-q="' + esc + '">' + esc + '</button></li>';
+        }).join('');
+        histEl.hidden = false;
+    }
+
+    function hideHistory() { if (histEl) histEl.hidden = true; }
+
+    if (histEl) {
+        histEl.addEventListener('mousedown', function (e) {
+            // mousedown (not click) so this fires before the input's own blur hides the list
+            var btn = e.target.closest('.site-search-history-item');
+            if (!btn) return;
+            input.value = btn.getAttribute('data-q');
+            runSearch();
+            addToHistory(input.value);
+            hideHistory();
+        });
+    }
+
+    input.addEventListener('focus', function () {
+        if (!input.value.trim()) renderHistory();
+    });
+    input.addEventListener('blur', function () {
+        if (input.value.trim()) addToHistory(input.value);
+        setTimeout(hideHistory, 150); // delay so the history item's mousedown above still lands
+    });
+
+    input.addEventListener('input', function () {
+        hideHistory();
+        runSearch();
+    });
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { input.value = ''; runSearch(); input.blur(); }
     });

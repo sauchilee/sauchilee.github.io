@@ -532,6 +532,7 @@ body::before {
    ========================================= */
 
 .site-search {
+    position: relative;
     max-width: 680px;
     margin: 26px auto 36px;
     padding: 0 4px;
@@ -598,6 +599,46 @@ body::before {
     color: var(--muted);
     text-align: center;
     min-height: 1.2em;
+}
+
+/* Recent searches (2026-09-24) — this device only, via localStorage; see the JS block's own
+   comment for why there's no cross-device sync or visitor-level tracking. */
+.site-search-history {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: calc(100% + 4px);
+    z-index: 6;
+
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+
+    background: var(--surface);
+    border: 1px solid rgba(176, 138, 74, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px var(--shadow);
+}
+
+.site-search-history-item {
+    display: block;
+    width: 100%;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    color: var(--ink);
+
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.site-search-history-item:hover {
+    background: var(--surface-soft);
+    color: var(--gold-dark);
 }
 
 .search-hide,
