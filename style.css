@@ -569,39 +569,45 @@ body::before {
    on the page (top-level categories AND their nested sub-categories) between fully expanded
    and fully collapsed. Emphasis on the collapse side -- previously he had to close each open
    category by hand. */
-/* 2026-09-25: his call -- sticks to the top of the viewport once scrolled past, so ALL and
-   search stay reachable without scrolling back up on a long, fully-expanded page. Full-bleed
-   bar (the 50vw trick, independent of .page-container's own padding, which differs between
-   desktop/mobile) so it reads as a proper toolbar rather than a box floating mid-panel --
-   first attempt (a narrow 680px-max box) looked like it was clipping into whatever section
-   header happened to be scrolled underneath it. */
+/* 2026-09-25: went through two placements. First: a sticky full-bleed top bar (so ALL/search
+   stayed reachable without scrolling back up) -- he then found the top-only placement
+   inconvenient on a long, fully-expanded page and asked for it moved to the right side of the
+   screen instead, "the most obvious place" since that space sits empty, as a vertical strip
+   (ALL above search, stacked) rather than a horizontal bar. Fixed (not sticky) so it stays put
+   regardless of scroll position. Desktop only -- see the mobile override below, which reverts
+   to the original horizontal top bar since a wide screen is exactly what this needs and a
+   phone doesn't have the side room. */
 .site-search-row {
-    position: sticky;
-    top: 0;
-    left: 50%;
-    z-index: 5;
-    width: 100vw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: -50vw;
+    position: fixed;
+    top: 50%;
+    right: 18px;
+    z-index: 50;
+    transform: translateY(-50%);
 
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
 
-    padding: 14px 20px;
+    width: 190px;
+    padding: 14px;
 
     background: rgba(255, 250, 241, 0.97);
-    box-shadow: 0 4px 14px var(--shadow);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px var(--shadow);
 }
 
 .site-search-row .site-search {
-    flex: 1;
+    flex: none;
     min-width: 0;
-    max-width: 680px;
+    max-width: none;
     margin: 0;
     padding: 0;
+}
+
+.site-search-row .site-search-box {
+    flex-wrap: wrap;
 }
 
 .all-toggle-btn {
@@ -633,6 +639,37 @@ body::before {
 .all-toggle-btn[aria-pressed="true"] {
     background: var(--gold-dark);
     color: #fff;
+}
+
+/* Mobile: back to the original horizontal top bar -- a phone has no spare side margin for a
+   fixed right-side panel, and a fixed element at this width would just sit on top of content. */
+@media (max-width: 900px) {
+    .site-search-row {
+        position: sticky;
+        top: 0;
+        left: 50%;
+        right: auto;
+        transform: none;
+        z-index: 5;
+        width: 100vw;
+        margin: 20px 0 20px -50vw;
+
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+
+        border: none;
+        border-radius: 0;
+    }
+
+    .site-search-row .site-search {
+        flex: 1;
+        max-width: 680px;
+    }
+
+    .site-search-row .site-search-box {
+        flex-wrap: nowrap;
+    }
 }
 
 .site-search {
