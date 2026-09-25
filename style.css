@@ -1455,6 +1455,14 @@ main {
 }
 
 
+/* 2026-09-25: Biblical Studies' simplified flat list (see index.html) wants its book-name tag
+   always visible, unlike .bk-tag's default (hidden except in the book-sort "mode-book" toggle
+   context used elsewhere on the site). */
+#section-biblical .bk-tag {
+    display: inline-block;
+}
+
+
 .nested > summary {
     cursor: pointer;
 
