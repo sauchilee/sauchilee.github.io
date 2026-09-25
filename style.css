@@ -1569,15 +1569,23 @@ p {
 }
 
 .verse-title .zh {
-    font-family: "Klee One", "Noto Serif TC", serif;
-    font-size: 2.2rem;
+    /* 2026-09-25: his call -- same title font as the hero panel labels (Biblical Truths,
+       Preaching Series, World Watches, etc.), which just inherit the body's default serif
+       stack rather than a special display face. Was "Klee One" (a softer, handwriting-style
+       face); this reads as a proper bold title now, matching the rest of the site. */
+    /* 2026-09-25: his call -- 2x the prior size (2.2rem -> 4.4rem; revised up from an initial
+       1.7x). */
+    font-family: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", "STSong", serif;
+    font-size: 4.4rem;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .verse-title .en {
-    font-family: "Cinzel", Georgia, serif;
-    font-size: 0.86rem;
+    /* 2026-09-25: same reasoning as .zh above -- was "Cinzel" (a decorative display face);
+       switched to the same body-serif stack the hero panel labels use; size doubled to match. */
+    font-family: Georgia, "Times New Roman", "Noto Serif TC", "Songti TC", "STSong", serif;
+    font-size: 1.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     color: var(--gold-dark);
