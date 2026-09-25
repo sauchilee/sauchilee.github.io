@@ -1551,21 +1551,17 @@ main {
 }
 
 
-/* 2026-09-25, his call, settled after three rounds: each World Watches case is a plain link
-   (back to that -- the intermediate "click to expand a preview" step was dropped) showing just
-   its title by default. The category-scoped ALL button (ww-all-btn, wired in index.html's
-   inline script) toggles .show-meta on the list, which reveals .ww-meta (year + which sermon
-   it's used in) inline on the same line. Clicking the case link always goes straight to the
-   full case page -- there's no separate expand step anymore. */
+/* 2026-09-25, his call, settled after four rounds: each World Watches case is a plain link,
+   and .ww-meta (year + which sermon it's used in, + that sermon's date) is now ALWAYS visible
+   on every line -- the earlier show/hide-behind-a-button version (toggled by a small
+   category-scoped ALL button) was confusing/easy to miss, so this drops the toggle entirely.
+   Also directly searchable this way -- textContent includes it either way, but visible text
+   is the clearer, less surprising default. Clicking the case link always goes straight to the
+   full case page. */
 .ww-meta {
-    display: none;
     margin-left: 6px;
     font-size: 0.86rem;
     color: var(--muted);
-}
-
-.ww-list.show-meta .ww-meta {
-    display: inline;
 }
 
 
