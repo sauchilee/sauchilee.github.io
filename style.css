@@ -1491,11 +1491,10 @@ p {
    first. These are text-dense, so they need to show in full (not cropped) and at real size for
    the baked-in text to stay legible -- a plain "cover"-cropped 420x400 box would slice off the
    side scripture panels and the bottom icon row. */
-/* percentage basis, not a fixed px value -- a fixed 440px was juuust wide enough that
-   440*2 + the 22px gap exceeded the actual ~894px container width, so flex-wrap silently
-   stacked them instead of the intended side-by-side layout (found via direct measurement,
-   not assumed). 45% reliably fits two side by side regardless of the container's exact width. */
-.verse-donkey, .verse-horse { flex: 1 1 45%; }
+/* 2026-09-25: full width each, stacked (Humble King above King of Kings, matching source
+   order) -- his call, so the info-dense infographics render as large/legible as possible
+   rather than sharing a row. (Was briefly 45% side-by-side; superseded.) */
+.verse-donkey, .verse-horse { flex: 1 1 100%; }
 
 .verse-infographic {
     max-width: 100%;
