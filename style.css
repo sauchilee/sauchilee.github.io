@@ -1670,6 +1670,18 @@ footer {
 }
 
 
+.site-credit {
+    margin-top: 14px;
+
+    font-size: 0.78rem;
+    opacity: 0.75;
+}
+
+.site-credit a {
+    color: inherit;
+}
+
+
 /* =========================================
    MOBILE
    ========================================= */
