@@ -1486,6 +1486,27 @@ p {
 .verse-donkey .verse-photo { height: auto; object-fit: contain; }
 .verse-horse .verse-photo { object-position: 30% center; }
 
+/* 2026-09-24: replaced the two lifelike photos with two full infographics (his own AI-generated
+   images — scripture, labels and icons baked into the image itself), side by side, humble King
+   first. These are text-dense, so they need to show in full (not cropped) and at real size for
+   the baked-in text to stay legible -- a plain "cover"-cropped 420x400 box would slice off the
+   side scripture panels and the bottom icon row. */
+/* percentage basis, not a fixed px value -- a fixed 440px was juuust wide enough that
+   440*2 + the 22px gap exceeded the actual ~894px container width, so flex-wrap silently
+   stacked them instead of the intended side-by-side layout (found via direct measurement,
+   not assumed). 45% reliably fits two side by side regardless of the container's exact width. */
+.verse-donkey, .verse-horse { flex: 1 1 45%; }
+
+.verse-infographic {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1536 / 1024;
+    object-fit: contain;
+    object-position: center;
+}
+.verse-donkey .verse-infographic, .verse-horse .verse-infographic { object-position: center; }
+
 .verse-banner {
     flex: 1 1 100%;
 
