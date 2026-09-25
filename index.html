@@ -29,7 +29,7 @@
           rel="stylesheet">
 
     <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=43">
+    <link rel="stylesheet" href="style.css?v=44">
 </head>
 
 
@@ -378,16 +378,21 @@
     <!-- SITE SEARCH                             -->
     <!-- ====================================== -->
 
-    <div class="site-search" id="siteSearch">
-        <div class="site-search-box">
-            <svg class="icon site-search-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
-            <input type="search" id="siteSearchInput" class="site-search-input" autocomplete="off"
-                   placeholder="搜尋詞語、書卷、主題… Search by word, book, or theme…"
-                   aria-label="Search all sermons and studies">
-            <button type="button" id="siteSearchClear" class="site-search-clear" aria-label="Clear search" hidden>✕</button>
+    <div class="site-search-row">
+        <button type="button" id="toggleAllBtn" class="all-toggle-btn" aria-pressed="false"
+                data-tip="展開／收合所有分類（含子分類）| Expand or collapse every category, including sub-categories">ALL</button>
+
+        <div class="site-search" id="siteSearch">
+            <div class="site-search-box">
+                <svg class="icon site-search-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+                <input type="search" id="siteSearchInput" class="site-search-input" autocomplete="off"
+                       placeholder="搜尋詞語、書卷、主題… Search by word, book, or theme…"
+                       aria-label="Search all sermons and studies">
+                <button type="button" id="siteSearchClear" class="site-search-clear" aria-label="Clear search" hidden>✕</button>
+            </div>
+            <p id="siteSearchStatus" class="site-search-status" aria-live="polite"></p>
+            <ul id="siteSearchHistory" class="site-search-history" hidden aria-label="Recent searches on this device"></ul>
         </div>
-        <p id="siteSearchStatus" class="site-search-status" aria-live="polite"></p>
-        <ul id="siteSearchHistory" class="site-search-history" hidden aria-label="Recent searches on this device"></ul>
     </div>
 
 
@@ -1408,6 +1413,21 @@
             wwList.parentNode.insertBefore(chipRow, wwList);
         }
     }
+
+    // ---- "ALL" button: expand every <details> (top-level + nested) / collapse them all back
+    // to zero, in one click each way (his call, 2026-09-25) ----
+    (function () {
+        var btn = document.getElementById('toggleAllBtn');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+            var all = Array.prototype.slice.call(document.querySelectorAll('main details'));
+            var everyOpen = all.every(function (d) { return d.hasAttribute('open'); });
+            all.forEach(function (d) {
+                if (everyOpen) d.removeAttribute('open'); else d.setAttribute('open', '');
+            });
+            btn.setAttribute('aria-pressed', everyOpen ? 'false' : 'true');
+        });
+    })();
 
     // ---- Global free-text search across every category panel ----
     var input = document.getElementById('siteSearchInput');
