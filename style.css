@@ -569,22 +569,38 @@ body::before {
    on the page (top-level categories AND their nested sub-categories) between fully expanded
    and fully collapsed. Emphasis on the collapse side -- previously he had to close each open
    category by hand. */
+/* 2026-09-25: his call -- sticks to the top of the viewport once scrolled past, so ALL and
+   search stay reachable without scrolling back up on a long, fully-expanded page. Full-bleed
+   bar (the 50vw trick, independent of .page-container's own padding, which differs between
+   desktop/mobile) so it reads as a proper toolbar rather than a box floating mid-panel --
+   first attempt (a narrow 680px-max box) looked like it was clipping into whatever section
+   header happened to be scrolled underneath it. */
 .site-search-row {
+    position: sticky;
+    top: 0;
+    left: 50%;
+    z-index: 5;
+    width: 100vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -50vw;
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 10px;
 
-    max-width: 680px;
-    margin: 26px auto 0;
-    padding: 0 4px;
+    padding: 14px 20px;
+
+    background: rgba(255, 250, 241, 0.97);
+    box-shadow: 0 4px 14px var(--shadow);
 }
 
 .site-search-row .site-search {
     flex: 1;
     min-width: 0;
-    margin: 0 0 36px;
-    max-width: none;
+    max-width: 680px;
+    margin: 0;
     padding: 0;
 }
 
@@ -1455,6 +1471,70 @@ main {
    both still read this element's text, so hiding rather than deleting keeps both working. */
 .domain-tag {
     display: none;
+}
+
+
+/* 2026-09-25: his call -- each World Watches case is now its own expandable item (was a flat
+   link), so clicking it reveals a short bilingual preview inline (reusing what was previously
+   only a hover tooltip) plus a link through to the full case page. Also picked up automatically
+   by the global ALL button, since it targets every `main details`. */
+.sermon-line.ww-case {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sermon-line.ww-case::before {
+    display: none;
+}
+
+.ww-details {
+    width: 100%;
+}
+
+.ww-details > summary {
+    cursor: pointer;
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 2px 0;
+}
+
+.ww-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.ww-details > summary::before {
+    content: "▸";
+    flex-shrink: 0;
+    color: var(--gold-dark);
+    transition: transform 0.2s ease;
+}
+
+.ww-details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.ww-preview {
+    padding: 8px 4px 4px 20px;
+}
+
+.ww-preview-zh {
+    margin: 0 0 2px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.ww-preview-en {
+    margin: 0 0 8px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.ww-more {
+    font-size: 0.86rem;
 }
 
 
