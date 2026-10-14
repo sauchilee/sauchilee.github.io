@@ -41,7 +41,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 .slide{position:relative}
 .zbtn{position:absolute;top:0;right:0;font-size:26px;font-weight:700;color:var(--navy);background:#fff;border:3px solid var(--navy);border-radius:40px;padding:8px 24px;cursor:pointer;font-family:"PingFang TC",sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:2}
 #bar #nb{width:auto;padding:0 16px;font-weight:700;font-size:24px;font-family:"PingFang TC",sans-serif}
-/* split view (2026-10-13): short note on the left third, the slide itself on the right two-thirds */
+/* split view (2026-10-13; sides swapped the same day, his ask): the slide itself on the left two-thirds, the short note on the right third */
 #view{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;transition:transform .35s ease;background:linear-gradient(180deg,#fffdf8 0%,var(--bg) 100%)}
 #stage.split{background:#e9e2d2}
 #stage.split #view{box-shadow:0 12px 40px rgba(0,0,0,.22)}
@@ -52,7 +52,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 #splitter:hover:before,#stage.dragging #splitter:before{opacity:1}
 #stage.split #splitter{display:block}
 #stage.split #help{display:none}
-#note{display:none;position:absolute;left:0;top:0;bottom:0;width:640px;z-index:16;background:linear-gradient(180deg,#0d2257 0%,#081638 100%);color:#fff;padding:22px 30px 24px;flex-direction:column}
+#note{display:none;position:absolute;right:0;top:0;bottom:0;width:640px;z-index:16;background:linear-gradient(180deg,#0d2257 0%,#081638 100%);color:#fff;padding:22px 30px 24px;flex-direction:column}
 #note.on{display:flex}
 #note.thin{padding:0}#note.thin > *{visibility:hidden}
 #note .nh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:30px;font-weight:700;border-bottom:2px solid rgba(233,196,106,.5);padding-bottom:14px}
@@ -225,7 +225,8 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 #suptext sup{color:var(--navy);font-size:.55em;margin:0 .1em;font-family:"PingFang TC",sans-serif}
 #supnote{font-size:24px;color:#5a4a2a;margin-top:10px}
 /* controls: bottom band, never over content */
-#bar{position:absolute;right:26px;bottom:20px;display:flex;align-items:center;gap:10px}
+#bar{position:absolute;right:26px;bottom:20px;display:flex;align-items:center;gap:10px;z-index:18}
+#stage.split.nobar #bar{display:none}
 #bar button{font-size:26px;width:58px;height:50px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;transition:opacity .4s}
 #count{font-size:22px;font-weight:700;color:var(--goldl);background:rgba(10,47,122,.85);border-radius:14px;padding:6px 16px;min-width:96px;text-align:center}
 #stage.idle #bar button{opacity:0}
@@ -369,15 +370,17 @@ const NW0 = 640; let NW = NW0; try { const v = localStorage.getItem('sbSplitW');
 function layoutSplit(){
   const on = stage.classList.contains('split'), sc = (1920 - NW) / 1920;
   $('#note').style.width = NW + 'px'; $('#note').classList.toggle('thin', NW < 160);
-  $('#splitter').style.left = Math.max(0, Math.min(1920 - 22, NW - 11)) + 'px';
-  $('#view').style.transform = !on ? '' : NW >= 1920 ? 'translate(1920px,540px) scale(0)' : `translate(${NW}px,${(1080 - 1080 * sc) / 2}px) scale(${sc})`;
+  $('#splitter').style.left = Math.max(0, Math.min(1920 - 22, 1920 - NW - 11)) + 'px';
+  $('#view').style.transform = !on ? '' : NW >= 1920 ? 'translate(0px,540px) scale(0)' : `translate(0px,${(1080 - 1080 * sc) / 2}px) scale(${sc})`;
+  // the controls ride with the slide (bottom-right of the slide column); hidden while the slide is too narrow for them
+  $('#bar').style.right = on ? (NW + 26) + 'px' : ''; stage.classList.toggle('nobar', on && NW > 1440);
 }
 function setNW(w, save){
   w = Math.max(0, Math.min(1920, w)); if (w < 40) w = 0; else if (w > 1880) w = 1920;
   NW = Math.round(w); layoutSplit(); if (noteOn() && NW >= 160) fillNote();   // refill: it may have been hidden at the edge while slides changed
   if (save) { try { localStorage.setItem('sbSplitW', NW); } catch(e){} }
 }
-function openNote(){            // split: note on the left, the slide shrinks into the rest; the note follows the slides
+function openNote(){            // split: the slide shrinks into the left, the note on the right; the note follows the slides
   closeSup(); closeZoom(); closeVid();
   if (NW < 160 || NW > 1800) NW = NW0;                // never reopen hidden at an edge
   $('#note').classList.add('on'); stage.classList.add('split'); layoutSplit(); fillNote();
@@ -385,7 +388,7 @@ function openNote(){            // split: note on the left, the slide shrinks in
 function closeNote(){ if (!noteOn()) return; $('#note').classList.remove('on'); stage.classList.remove('split'); layoutSplit(); reclaimFocus(); }
 const sp = $('#splitter'); let dragging = false, x0 = 0, lastTap = 0;
 sp.addEventListener('pointerdown', e => { dragging = true; x0 = e.clientX; sp.setPointerCapture(e.pointerId); stage.classList.add('dragging'); e.preventDefault(); });
-sp.addEventListener('pointermove', e => { if (!dragging) return; const r = stage.getBoundingClientRect(); setNW((e.clientX - r.left) * 1920 / r.width, false); });
+sp.addEventListener('pointermove', e => { if (!dragging) return; const r = stage.getBoundingClientRect(); setNW(1920 - (e.clientX - r.left) * 1920 / r.width, false); });
 const endDrag = e => {
   if (!dragging) return; dragging = false; stage.classList.remove('dragging');
   const tap = e && Math.abs(e.clientX - x0) < 4, now = Date.now();
@@ -452,7 +455,7 @@ document.addEventListener('keydown', e => {
   else if (k === 'b' || k === 'B' || k === '.') { e.preventDefault(); black.classList.add('on'); }
   else if (k === 'Escape') { e.preventDefault(); if (noteOn()) closeNote(); else if (zoomOn()) closeZoom(); else if (vidOn()) closeVid(); else if (supId) closeSup(); else if (document.fullscreenElement) document.exitFullscreen(); }
   else if (k === 's' || k === 'S') { e.preventDefault(); noteOn() ? closeNote() : openNote(); }
-  else if ((k === '[' || k === ']') && noteOn()) { e.preventDefault(); setNW(NW + (k === ']' ? 80 : -80), true); }
+  else if ((k === '[' || k === ']') && noteOn()) { e.preventDefault(); setNW(NW + (k === '[' ? 80 : -80), true); }   // [ ] move the divider left / right
   else if (k === 'z' || k === 'Z') { e.preventDefault(); zoomOn() ? closeZoom() : openZoom(); }
   else if ((k === 'v' || k === 'V') && S[cur].t === 'illus') { e.preventDefault(); vidOn() ? closeVid() : openVid(); }
   else if (/^[1-9]$/.test(k)) { const tg = slides[cur].querySelectorAll('.tag')[+k - 1]; if (tg) { e.preventDefault(); openSup(tg.dataset.tag); } }
