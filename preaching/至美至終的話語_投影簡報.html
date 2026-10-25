@@ -311,7 +311,7 @@ function slideHtml(st, idx){
     return `<div class="slide" data-zt="${esc(st.pt + ' ' + P[st.pt].zh + ' › ' + s[0])}">${ZB}${crumb(st.pt)}<div class="kw">${esc(s[0])}<span class="en">${esc(s[1])}</span></div><div class="tagline">${esc(s[2])}</div>` +
       `<div class="fitbox"><div class="fit" data-max="64" data-min="22">${rowsHtml(st.rows)}</div></div>` +
       (st.tags.length ? `<div class="tags">${st.tags.map((id, n) => { const t = D.tags[id]; return `<button class="tag ${t.k}" data-tag="${id}" title="按 ${n + 1}"><b>${t.k === 'cf' ? '參' : '出處'}</b>${esc(t.label)}</button>`; }).join('')}</div>` : '') + `</div>`; }
-  if (st.t === 'close') return `<div class="slide center"><div class="q">「${st.html}」</div><div class="qref">${esc(st.ref)}</div><div class="qen">How shall we escape if we neglect so great a salvation?</div>` +
+  if (st.t === 'close') return `<div class="slide center"><div class="q">「${st.html}」</div><div class="qref">${esc(st.ref)}</div><div class="qen">How shall we escape, if we neglect so great a salvation?</div>` +
     `<div class="two"><div><div class="who">未信者</div><div class="what">何處可逃？</div><div class="sub">回轉，接受</div></div><div><div class="who">信徒</div><div class="what">不只認識，天天倚靠</div><div class="sub">免得隨流</div></div></div>` +
     `<div class="heart">請在你自己內心的獨處中回答這個問題。</div></div>`;
 }
