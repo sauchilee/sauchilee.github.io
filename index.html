@@ -1,1320 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-Hant" translate="no">
 <head>
-    <meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<meta name="robots" content="noindex">
+<meta name="ls-public-cut" content="1">
+<title>燈臺 The Lampstand：十一枝 eleven branches</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet"><style>:root{--holy:#1c2340;--holy2:#2a1c33;--gold:#c9a227;--gold-l:#ecca63;--gold-d:#86652f;--paper:#f4ecdc;--surface:#fffaf1;--ink:#2d2924;--muted:#6f665b;--line:#d8c9ae;--zh:"Noto Serif TC","Songti TC","PMingLiU",serif;--en:"EB Garamond","Garamond","Times New Roman",serif}
+.v-r{font-style:normal;font-size:.88em;opacity:.82;font-family:inherit}.foot .ve{font-style:italic;font-family:var(--en)}.foot .vz,.foot .ve{margin:0 0 3px}
+.vr{cursor:help;border-bottom:1px dotted currentColor;white-space:nowrap}.vr:hover,.vr:focus{color:#FFE066;outline:none}
+.vtip{position:fixed;inset:2%;z-index:300;display:none;flex-direction:column;justify-content:center;align-items:center;gap:clamp(10px,1.4vw,26px);text-align:center;pointer-events:none;background:rgba(0,0,0,.3);padding:2vw}.vtip.on{display:flex}
+.vtip p{margin:0;max-width:92%;text-shadow:1.5px 0 #000,-1.5px 0 #000,0 1.5px #000,0 -1.5px #000,0 0 6px #000,0 0 12px #000,0 0 20px #000}.vtip .vh{color:#FFE066;font-size:clamp(20px,2.4vw,40px);font-family:var(--en)}.vtip .vz{color:#fff;font:600 clamp(30px,4.2vw,72px)/1.45 var(--zh)}.vtip .vn{color:#8FD8FF;font:italic clamp(26px,3.4vw,56px)/1.35 var(--en)}.vtip .vl{font-size:.42em;margin-left:.5em;color:#FFE066;font-style:normal;white-space:nowrap}
+.vtip-on .stand,.vtip-on .holy h1,.vtip-on .kg,.vtip-on .cards,.vtip-on .revv,.vtip-on .scrollv{opacity:.22}
+.vtip.vcard{inset:auto;left:0;top:0;width:max-content;align-items:stretch;justify-content:flex-start;text-align:left;gap:.32em;padding:.5em .75em;border-radius:10px;font-size:clamp(17px,1.25vw,27px)}.vtip.vcard.big{font-size:clamp(18px,1.75vw,34px)}
+.vtip.vcard p{max-width:none}.vtip.vcard .vh{font:600 1.18em/1.3 var(--zh);color:#fff}.vtip.vcard .vnum{color:#FFE066;font:600 1em var(--en)}.vtip.vcard .cz{color:#fff}.vtip.vcard .ce{color:#8FD8FF;font-family:var(--en);font-style:italic;font-weight:400}
+.vtip.vcard .vz{font:500 1em/1.45 var(--zh);color:#fff}.vtip.vcard .vn{font:italic 1em/1.35 var(--en);color:#8FD8FF}.vtip.vcard .vl{font-size:.62em}
+.vtip.vcard .vrf{font:600 .92em/1.3 var(--zh);color:#FFE066;margin-top:.35em}.vtip.vcard .vrf .ce,.vtip.vcard .vrf .cz{color:#FFE066;font-weight:600}.vtip.vcard .vp{font:400 .92em/1.45 var(--zh);margin-top:.15em}.vtip.vcard .vs{color:#FFE066}
+@media (max-width:460px){.vtip{background:rgba(8,8,20,.72)}.vtip.vcard.big{gap:.16em;padding:.4em .6em}.vtip.vcard.big .vrf{margin-top:.2em}}
+.vtip.vcard.touch{pointer-events:auto}.vtip.vcard .vgo{align-self:flex-start;margin-top:.2em;color:#FFE066;font:600 1em var(--zh);text-decoration:underline;text-underline-offset:3px;padding:.2em 0}
+.standw{position:relative;width:min(100%,1100px);margin:14px auto 0}
+.scrollv{display:flex;align-items:center;justify-content:center;gap:clamp(8px,1vw,18px);margin:6px auto 0;text-align:left;color:#efe2c2;font-size:clamp(14px,1vw,20px);line-height:1.4;max-width:100%}
+.scrollv p{margin:0}.scrollv .ve{font-family:var(--en);font-style:italic;color:#d9cba6}.scrollsvg{flex:none;display:block;width:clamp(44px,3.2vw,68px);height:auto}.scrollv .v-r{white-space:nowrap}
+.revv{margin:3px auto 0;max-width:min(100%,1400px);color:#efe2c2;font-size:clamp(14px,min(1vw,1.9vh),20px);line-height:1.4}.revv p{margin:0}.revv .ve{font-family:var(--en);font-style:italic;color:#d9cba6}.revv .v-r{white-space:nowrap}
+.scrollt{min-width:0;max-width:1180px}.scrollp+.scrollp{margin-top:.45em}@media (max-width:460px){.scrollv{align-items:flex-start}.scrollsvg{margin-top:.25em}}
+.standw[data-view]{width:min(100%,1500px,calc(82vh * 1.158))}
+.stand{display:block;width:100%;overflow:hidden;outline:none;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.stand.zoomed{touch-action:none}.stand.dragging{cursor:grabbing}
+.stand.three{transition:none;overflow:visible}
+.stand .arm{fill:none;stroke:var(--gold);stroke-width:8;stroke-linecap:round;opacity:.92}
+.stand .arm.off{stroke-dasharray:12 9;opacity:.45}
+.stand .arm.dark{opacity:.4}
+.stand .arm.hl{stroke:var(--gold-l);opacity:1}
+.stand .arm:not(.dark),.stand .shaft{cursor:pointer}.stand .knop,.stand .collar,.stand .base{outline:none}
+.stand .knop:focus-visible ellipse,.stand .collar:focus-visible ellipse,.stand .base:focus-visible path{stroke:#fff;stroke-width:3}
+.stand .shaft{stroke:#b8922a;stroke-width:12;stroke-linecap:round}
+.stand .kn-zh{font-family:var(--zh);font-size:22px;font-weight:700;fill:#3d2b0c;text-anchor:middle}
+.stand .kn-en{font-family:var(--en);font-style:italic;font-size:14px;fill:#4d3912;text-anchor:middle}
+.stand .co-zh{font-family:var(--zh);font-size:15px;font-weight:700;fill:#2d1f06;text-anchor:middle}
+.stand .ba-zh{font-family:var(--zh);font-size:25px;font-weight:700;fill:#2d1f06;text-anchor:middle;letter-spacing:.08em}
+.stand .ba-en{font-family:var(--en);font-style:italic;font-size:16px;fill:#3d2b0c;text-anchor:middle}
+.stand .lamp{cursor:pointer;text-decoration:none}.stand .lamp.dark{cursor:default;outline:none}
+.stand .hit{fill:transparent}
+.stand .lz{font-family:var(--zh);font-size:25px;font-weight:600;fill:#f1e4c4;text-anchor:middle}
+.stand .le{font-family:var(--en);font-style:italic;font-size:18px;fill:#e8d9b4;text-anchor:middle}
+.stand .lamp.off .lz,.stand .lamp.off .le{fill:#b6aa92}
+.stand .cup{fill:url(#gG);stroke:#7a5a14;stroke-width:1.5}
+.stand .ln{font-family:var(--en);font-size:27px;font-weight:600;fill:#2d1f06;text-anchor:middle}
+.stand .wick{stroke:#8e8064;stroke-width:4;stroke-linecap:round}
+.stand .fl{transform-box:fill-box;transform-origin:50% 90%}
+.stand .lamp:hover .fl,.stand .lamp:focus-visible .fl{filter:brightness(1.18) drop-shadow(0 0 10px #ffc233)}
+.stand .lamp:hover .lz,.stand .lamp:focus-visible .lz{fill:#fff}
+.stand .lamp:focus-visible{outline:none}.stand .lamp:focus-visible .cup{stroke:#fff;stroke-width:3}
+.stand .xl{fill:none;stroke:#ffe066;opacity:.75;pointer-events:none}
+.stand .xn{font-family:var(--en);font-size:17px;fill:#ffe066;text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:#1c2340;stroke-width:4px}
+@media (prefers-reduced-motion:no-preference){
+ .stand .lamp.lit .fl{animation:kindle .9s ease-out both;animation-delay:calc(var(--k,0)*.22s + .2s)}
+ @keyframes kindle{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}}
+.lsctl{display:flex;justify-content:flex-end;gap:4px;margin-bottom:2px;position:relative;z-index:2}
+.lsctl button{font:600 17px/1 var(--en);min-width:36px;height:36px;border-radius:8px;border:1px solid rgba(236,202,99,.55);background:rgba(28,35,64,.72);color:#ecca63;cursor:pointer;padding:0 6px}
+.lsctl button:hover{background:rgba(236,202,99,.2)}.lsctl button[aria-pressed=true]{background:#ecca63;color:#1c2340}
+.lskey{max-width:1240px;margin:6px auto 0;text-align:left;font-size:15px;line-height:1.35;color:#e9dcb8}
+.lskey summary{cursor:pointer;color:#ecca63;text-align:center;font-size:15px}
+.lskey ul{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px 18px}
+.lskey li{display:flex;gap:8px;align-items:flex-start;min-width:0}.lskey .ksym{flex:none;width:30px;height:30px}
+.lskey [lang=en]{font-family:var(--en)}
+.kg{display:none;gap:6px;max-width:760px;margin:6px auto 0;padding:0 0 18px}
+.kg-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr);gap:6px;align-items:stretch}
+.kg-b,.kg-k{min-width:0;text-align:center;overflow-wrap:anywhere}
+.kg-b{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;padding:6px 4px;border-radius:10px;border:1px solid rgba(236,202,99,.28);color:#f1e4c4;min-height:58px}
+.kg-b.lit{border-color:rgba(236,202,99,.6);background:rgba(236,202,99,.07)}
+.kg-b:not(.lit){color:#b6aa92;border-style:dashed}
+.kg-b:hover{background:rgba(236,202,99,.16)}
+.kg-n{font-family:var(--en);font-weight:600;color:var(--gold-l);font-size:15px;line-height:1}
+.kg-zh{font-size:17px;font-weight:600;line-height:1.3}.kg-en{font-size:14px;font-style:italic;line-height:1.2;color:#cdbf9c;font-family:var(--en)}
+.kg-x{font-size:12px;line-height:1.2;color:#cdbf9c;font-family:var(--en)}
+.kg-k{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3d2b0c;background:radial-gradient(ellipse at 38% 32%,#fff2b8,#b08a2a);border-radius:999px;padding:4px 8px}
+.kg-kz{font-weight:700;font-size:16px;line-height:1.3}.kg-ke{font-style:italic;font-size:13px;line-height:1.2;font-family:var(--en)}
+.kg-co{background:#b8922a}.kg-ba{border-radius:8px}.kg-shaft,.kg-base{}
+@media (max-width:760px){
+ .kg{display:grid}
+ .standw .stand{margin-top:-11%}
+ .stand .lname{display:none}.stand .kn-en,.stand .ba-en,.stand .co-zh{display:none}
+ .stand .kn-zh{font-size:26px;transform:translateY(9px)}.stand .ba-zh{font-size:30px;transform:translateY(12px)}.stand .ln{font-size:40px}
+ .lsctl{justify-content:center}
+ .lskey ul{grid-template-columns:1fr}
+}
+@media (max-width:460px){.kg-zh{font-size:15.5px}.kg-en{font-size:12.5px}.kg-kz{font-size:14.5px}.kg-ke{font-size:11.5px}}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <!-- Page is intentionally bilingual (Chinese + English) — never auto-translate it -->
-    <meta name="google" content="notranslate">
-
-    <meta name="description"
-          content="Sermons, bilingual (English / Chinese) Bible study resources, book studies, World Watches case studies, and interactive materials.">
-
-    <meta property="og:title" content="講道系列、聖經研究與世界觀察 | Preaching Series, Biblical Studies &amp; World Watches">
-    <meta property="og:description"
-          content="Sermons, bilingual Bible study resources, book studies, World Watches case studies, and interactive materials.">
-    <meta property="og:type" content="website">
-
-    <title>講道系列、聖經研究與世界觀察 | Preaching Series, Biblical Studies &amp; World Watches</title>
-
-    <link rel="icon" type="image/svg+xml"
-          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%233c2e23'/%3E%3Cpath d='M12 6.2c-1.8-1.3-4-2-6.5-2v14.6c2.4 0 4.6.7 6.5 2V6.2z' fill='none' stroke='%23ecd7a4' stroke-width='1.3'/%3E%3Cpath d='M12 6.2c1.8-1.3 4-2 6.5-2v14.6c-2.4 0-4.6.7-6.5 2V6.2z' fill='none' stroke='%23ecd7a4' stroke-width='1.3'/%3E%3C/svg%3E">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&family=Klee+One&family=Shippori+Mincho&family=Noto+Serif+Hebrew:wght@500&display=swap"
-          rel="stylesheet">
-
-    <!-- Connect to the newest stylesheet -->
-    <link rel="stylesheet" href="style.css?v=50">
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:rgb(10,16,36);color:#f6ecd4;font-family:var(--zh);line-height:1.5}[lang=en]{font-family:var(--en)}
+a:focus-visible{outline:3px solid var(--gold-l);outline-offset:3px;border-radius:4px}
+.holy.titlep{position:relative;flex:1 0 auto;display:flex;flex-direction:column;align-items:center;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .04 0 0 0 -.012'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse farthest-corner at var(--gx,50%) var(--gy,48%),rgb(38,52,100) 0%,rgb(38,51,99) 8%,rgb(36,50,96) 17%,rgb(34,47,91) 25%,rgb(31,43,84) 33%,rgb(28,39,76) 42%,rgb(24,34,68) 50%,rgb(20,29,60) 58%,rgb(17,25,52) 67%,rgb(14,21,45) 75%,rgb(12,18,40) 83%,rgb(10,17,37) 92%,rgb(10,16,36) 100%);color:#f6ecd4;padding:0 18px;text-align:center}
+.holy.titlep::after{content:"";display:block;flex:none;align-self:stretch;height:9px;margin:auto -18px 0;background:linear-gradient(180deg,#34508f 0 3px,#6b3f7a 3px 6px,#a3263a 6px 9px)}
+.titlep .langtop.dark{align-self:stretch;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:4px 8px;padding:6px 0 0;margin:0 -8px}
+.titlep .motto{margin:0 auto;max-width:44em;font-size:clamp(14px,min(1vw,1.9vh),20px);color:#efe2c2;line-height:1.45}.titlep .motto span[lang=en]{display:block;font-family:var(--en);font-style:italic;color:#cdbf9c}.titlep .motto small{display:block;font-size:.84em;color:#cdbf9c}.titlep .motto small .vr{display:inline;font-family:inherit;font-style:normal;color:inherit}.titlep .motto small .vr:hover,.titlep .motto small .vr:focus{color:#FFE066}
+.titlep h1{margin:6px 0 0;font-weight:700;font-size:clamp(30px,min(3.4vw,5.2vh),60px);line-height:1.08;color:var(--gold-l)}.titlep h1 .h1-en{display:block;font-family:var(--en);font-style:italic;font-weight:400;font-size:.46em;color:#e9dcb8;margin-top:2px}
+.titlep .standw[data-view]{width:min(100%,1500px,calc((100vh - var(--titlechrome,calc(222px + 5vh)))*1.206));min-width:min(100%,300px);margin:2px auto 0}
+.titlep .lsctl{position:absolute;right:0;bottom:calc(100% + var(--revh,0px) + 3px);margin:0}
+.holy.titlep svg.stand .glow{fill:url(#fW);filter:none;opacity:1}
+.titlep .quiet{display:inline-block;margin:6px 0 10px;font-size:clamp(15px,.95vw,19px);color:#cdbf9c;text-decoration:none;border-bottom:1px solid rgba(236,202,99,.45);line-height:1.5}.titlep .quiet:hover,.titlep .quiet:focus{color:#FFE066;border-bottom-color:#FFE066}.titlep .quiet [lang=en]{font-style:italic}
+@media (max-width:760px){.holy.titlep{padding:0 8px}.holy.titlep::after{margin-left:-8px;margin-right:-8px}.titlep .standw[data-view]{width:100%}.titlep .langtop.dark{margin:0;justify-content:center}.titlep .lsctl{position:relative;right:auto;bottom:auto;margin-bottom:2px}}
+</style>
 </head>
-
-
-<body>
-
-<!-- ====================================== -->
-<!-- ICON SPRITE (hidden, referenced by <use>) -->
-<!-- ====================================== -->
-<svg class="icon-sprite" aria-hidden="true" focusable="false">
-    <defs>
-
-        <symbol id="icon-hero" viewBox="0 0 48 48">
-            <g stroke="currentColor" stroke-width="1" opacity="0.55">
-                <line x1="24" y1="2" x2="24" y2="10"></line>
-                <line x1="24" y1="38" x2="24" y2="46"></line>
-                <line x1="2" y1="24" x2="10" y2="24"></line>
-                <line x1="38" y1="24" x2="46" y2="24"></line>
-                <line x1="8" y1="8" x2="13.5" y2="13.5"></line>
-                <line x1="34.5" y1="34.5" x2="40" y2="40"></line>
-                <line x1="40" y1="8" x2="34.5" y2="13.5"></line>
-                <line x1="13.5" y1="34.5" x2="8" y2="40"></line>
-            </g>
-            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
-                <path d="M24 16c-3-2.2-7-3.4-11-3.4-1.6 0-2.6.2-2.6.2v18s1.6-.4 4-.4c4 0 7.2 1.3 9.6 3.2V16z"></path>
-                <path d="M24 16c3-2.2 7-3.4 11-3.4 1.6 0 2.6.2 2.6.2v18s-1.6-.4-4-.4c-4 0-7.2 1.3-9.6 3.2V16z"></path>
-            </g>
-        </symbol>
-
-        <symbol id="icon-pulpit" viewBox="0 0 24 24">
-            <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity="0.85">
-                <line x1="12" y1="1" x2="12" y2="4.6"></line>
-                <line x1="7.3" y1="2.1" x2="9" y2="5.2"></line>
-                <line x1="16.7" y1="2.1" x2="15" y2="5.2"></line>
-                <line x1="3.6" y1="4.8" x2="6.3" y2="6.9"></line>
-                <line x1="20.4" y1="4.8" x2="17.7" y2="6.9"></line>
-            </g>
-            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
-                <path d="M12 11c-1.3-.9-2.9-1.4-4.6-1.4v5.3c1.7 0 3.3.5 4.6 1.4V11z"></path>
-                <path d="M12 11c1.3-.9 2.9-1.4 4.6-1.4v5.3c-1.7 0-3.3.5-4.6 1.4V11z"></path>
-            </g>
-            <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"
-                  d="M6 18.3h12l-1.8-2.2H7.8z"></path>
-            <line x1="12" y1="18.3" x2="12" y2="21.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <line x1="8.6" y1="21.6" x2="15.4" y2="21.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-        </symbol>
-
-        <symbol id="icon-book" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
-                <path d="M12 6c-1.8-1.3-4-2-6.5-2C4 4 3 4.2 3 4.2v14.6s1-.3 2.5-.3c2.4 0 4.6.7 6.5 2V6z"></path>
-                <path d="M12 6c1.8-1.3 4-2 6.5-2 1.5 0 2.5.2 2.5.2v14.6s-1-.3-2.5-.3c-2.4 0-4.6.7-6.5 2V6z"></path>
-            </g>
-        </symbol>
-
-        <symbol id="icon-flame" viewBox="0 0 24 24">
-            <path fill="currentColor"
-                  d="M12 2c1 3-3 4-3 7.5A3.5 3.5 0 0 0 12 13a3.5 3.5 0 0 0 3-5.3C16 9 17 10.5 17 13a5 5 0 1 1-10 0c0-4 3-5 5-11z"></path>
-        </symbol>
-
-        <symbol id="icon-search" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-                <circle cx="10.5" cy="10.5" r="6.5"></circle>
-                <line x1="15.4" y1="15.4" x2="21" y2="21"></line>
-            </g>
-        </symbol>
-
-        <symbol id="icon-graph" viewBox="0 0 24 24">
-            <g stroke="currentColor" stroke-width="1.5">
-                <line x1="6.7" y1="16.7" x2="10.6" y2="8.6"></line>
-                <line x1="13.4" y1="8.3" x2="17.4" y2="13.5"></line>
-            </g>
-            <g fill="currentColor">
-                <circle cx="5" cy="18" r="2.1"></circle>
-                <circle cx="12" cy="7" r="2.1"></circle>
-                <circle cx="19" cy="15" r="2.1"></circle>
-            </g>
-        </symbol>
-
-        <symbol id="icon-harp" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  d="M5 21V9C5 5 8 2 12 2c1.4 0 2 .8 2 2"></path>
-            <line x1="5" y1="21" x2="8" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <g stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.8">
-                <line x1="7" y1="19" x2="13.2" y2="4"></line>
-                <line x1="7" y1="16" x2="12.4" y2="4.6"></line>
-                <line x1="7" y1="13" x2="11.6" y2="5.4"></line>
-                <line x1="7" y1="10" x2="10.8" y2="6.2"></line>
-            </g>
-        </symbol>
-
-        <symbol id="icon-unity-rings" viewBox="0 0 24 24">
-            <circle cx="9" cy="12" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-            <circle cx="15" cy="12" r="6.2" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-        </symbol>
-
-        <symbol id="icon-jar" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  d="M10 3h4v2.2c3 1 4.5 4 4.5 7.3 0 5-2.5 8-6.5 8s-6.5-3-6.5-8c0-3.3 1.5-6.3 4.5-7.3V3z"></path>
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  d="M8.3 6.8c-1.5 0.7-2.3 2-2.3 2M15.7 6.8c1.5 0.7 2.3 2 2.3 2"></path>
-        </symbol>
-
-        <symbol id="icon-chalice" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  d="M6 3h12c0 5-2.5 8-6 8s-6-3-6-8z"></path>
-            <line x1="12" y1="11" x2="12" y2="18" stroke="currentColor" stroke-width="1.5"></line>
-            <line x1="7.5" y1="21" x2="16.5" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  d="M9 21c0-1.8 1.3-3 3-3s3 1.2 3 3"></path>
-        </symbol>
-
-        <symbol id="icon-dawn" viewBox="0 0 24 24">
-            <line x1="2" y1="16" x2="22" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <path d="M5 16a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-            <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
-                <line x1="12" y1="2" x2="12" y2="5"></line>
-                <line x1="4.5" y1="6.5" x2="6.5" y2="8.5"></line>
-                <line x1="19.5" y1="6.5" x2="17.5" y2="8.5"></line>
-            </g>
-        </symbol>
-
-        <symbol id="icon-burning-bush" viewBox="0 0 24 24">
-            <path fill="currentColor" opacity="0.9"
-                  d="M9 4c.6 1.8-1.5 2.4-1.5 4.5A2.5 2.5 0 0 0 10 11a2.5 2.5 0 0 0 2-3.2c.7 1 1.2 1.9 1.2 3.2a3.5 3.5 0 1 1-7 0c0-2.8 2-3.5 2.8-7z"></path>
-            <path fill="currentColor" opacity="0.65"
-                  d="M16 8c.5 1.5-1.2 2-1.2 3.6a2 2 0 0 0 2 2 2 2 0 0 0 1.6-2.6c.6.8 1 1.5 1 2.6a2.8 2.8 0 1 1-5.6 0c0-2.2 1.6-2.8 2.2-5.6z"></path>
-            <path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
-                  d="M12 14.5V19M9 21h6"></path>
-        </symbol>
-
-        <symbol id="icon-pillar" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="3" x2="19" y2="3"></line>
-                <line x1="6.5" y1="3" x2="6.5" y2="19"></line>
-                <line x1="17.5" y1="3" x2="17.5" y2="19"></line>
-                <line x1="4" y1="19" x2="20" y2="19"></line>
-                <line x1="4" y1="21.5" x2="20" y2="21.5"></line>
-            </g>
-            <g stroke="currentColor" stroke-width="1" opacity="0.7">
-                <line x1="9" y1="5.5" x2="9" y2="16.5"></line>
-                <line x1="12" y1="5.5" x2="12" y2="16.5"></line>
-                <line x1="15" y1="5.5" x2="15" y2="16.5"></line>
-            </g>
-        </symbol>
-
-        <symbol id="icon-oil-lamp" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 14c0-3 2-5 5-5h6c3 0 5 2 5 5s-2 4-5 4H9c-3 0-5-1-5-4z"></path>
-            <line x1="20" y1="13" x2="22" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <path fill="currentColor" d="M11.3 5.3c.4 1.1-.9 1.6-.9 2.8a1.6 1.6 0 0 0 3.2 0c0-1.8-1.5-3-2.3-2.8z"></path>
-            <line x1="9" y1="18" x2="9" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-            <line x1="14" y1="18" x2="14" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line>
-        </symbol>
-
-        <symbol id="icon-home" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 11.5 12 4l8 7.5"></path>
-            <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  d="M6 10v9.5h12V10"></path>
-            <line x1="12" y1="14" x2="12" y2="19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-            <line x1="9.3" y1="16.3" x2="14.7" y2="16.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-        </symbol>
-
-        <symbol id="icon-globe" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <path d="M4.5 7.5c2 1.3 5 2 7.5 2s5.5-.7 7.5-2"></path>
-                <path d="M4.5 16.5c2-1.3 5-2 7.5-2s5.5.7 7.5 2"></path>
-            </g>
-        </symbol>
-
-        <symbol id="icon-laurel" viewBox="0 0 30 70">
-            <path fill="none" stroke="currentColor" stroke-width="1.3"
-                  stroke-linecap="round"
-                  d="M15 68 C 12 50, 18 34, 12 18 C 9 10, 13 4, 15 2"></path>
-            <g fill="currentColor" opacity="0.9">
-                <ellipse cx="9" cy="58" rx="5" ry="2.6" transform="rotate(-35 9 58)"></ellipse>
-                <ellipse cx="19" cy="50" rx="5" ry="2.6" transform="rotate(35 19 50)"></ellipse>
-                <ellipse cx="8" cy="40" rx="5" ry="2.6" transform="rotate(-35 8 40)"></ellipse>
-                <ellipse cx="18" cy="32" rx="5" ry="2.6" transform="rotate(35 18 32)"></ellipse>
-                <ellipse cx="9" cy="22" rx="4.5" ry="2.3" transform="rotate(-35 9 22)"></ellipse>
-                <ellipse cx="17" cy="15" rx="4.2" ry="2.1" transform="rotate(35 17 15)"></ellipse>
-            </g>
-        </symbol>
-
-        <symbol id="icon-corner" viewBox="0 0 40 40">
-            <g fill="none" stroke="currentColor" stroke-width="1.2">
-                <path d="M2 16 V2 H16"></path>
-                <path d="M2 9 C 10 9, 9 1, 17 1"></path>
-            </g>
-        </symbol>
-
-        <!-- 2026-09-25: his call -- thinner strokes (80% of the originals' weight), scoped ONLY
-             to the six hero-preview panel icons, not the shared originals above which are reused
-             elsewhere on the page (section headers, site search icon). Same paths/viewBoxes as
-             icon-pulpit/book/search/globe/home, stroke-width values simply multiplied by 0.8. -->
-        <symbol id="icon-pulpit-panel" viewBox="0 0 24 24">
-            <g stroke="currentColor" stroke-width="1.04" stroke-linecap="round" opacity="0.85">
-                <line x1="12" y1="1" x2="12" y2="4.6"></line>
-                <line x1="7.3" y1="2.1" x2="9" y2="5.2"></line>
-                <line x1="16.7" y1="2.1" x2="15" y2="5.2"></line>
-                <line x1="3.6" y1="4.8" x2="6.3" y2="6.9"></line>
-                <line x1="20.4" y1="4.8" x2="17.7" y2="6.9"></line>
-            </g>
-            <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
-                <path d="M12 11c-1.3-.9-2.9-1.4-4.6-1.4v5.3c1.7 0 3.3.5 4.6 1.4V11z"></path>
-                <path d="M12 11c1.3-.9 2.9-1.4 4.6-1.4v5.3c-1.7 0-3.3.5-4.6 1.4V11z"></path>
-            </g>
-            <path fill="none" stroke="currentColor" stroke-width="1.12" stroke-linejoin="round" stroke-linecap="round"
-                  d="M6 18.3h12l-1.8-2.2H7.8z"></path>
-            <line x1="12" y1="18.3" x2="12" y2="21.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
-            <line x1="8.6" y1="21.6" x2="15.4" y2="21.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></line>
-        </symbol>
-
-        <symbol id="icon-book-panel" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.28" stroke-linejoin="round">
-                <path d="M12 6c-1.8-1.3-4-2-6.5-2C4 4 3 4.2 3 4.2v14.6s1-.3 2.5-.3c2.4 0 4.6.7 6.5 2V6z"></path>
-                <path d="M12 6c1.8-1.3 4-2 6.5-2 1.5 0 2.5.2 2.5.2v14.6s-1-.3-2.5-.3c-2.4 0-4.6.7-6.5 2V6z"></path>
-            </g>
-        </symbol>
-
-        <symbol id="icon-search-panel" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.36" stroke-linecap="round">
-                <circle cx="10.5" cy="10.5" r="6.5"></circle>
-                <line x1="15.4" y1="15.4" x2="21" y2="21"></line>
-            </g>
-        </symbol>
-
-        <symbol id="icon-globe-panel" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-                <circle cx="12" cy="12" r="9"></circle>
-                <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <path d="M4.5 7.5c2 1.3 5 2 7.5 2s5.5-.7 7.5-2"></path>
-                <path d="M4.5 16.5c2-1.3 5-2 7.5-2s5.5.7 7.5 2"></path>
-            </g>
-        </symbol>
-
-        <symbol id="icon-home-panel" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 11.5 12 4l8 7.5"></path>
-            <path fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"
-                  d="M6 10v9.5h12V10"></path>
-            <line x1="12" y1="14" x2="12" y2="19" stroke="currentColor" stroke-width="1.12" stroke-linecap="round"></line>
-            <line x1="9.3" y1="16.3" x2="14.7" y2="16.3" stroke="currentColor" stroke-width="1.12" stroke-linecap="round"></line>
-        </symbol>
-
-    </defs>
-</svg>
-
-<div class="page-container">
-
-
-    <!-- ====================================== -->
-    <!-- HEADER                                 -->
-    <!-- ====================================== -->
-
-    <header class="hero">
-
-        <svg class="icon hero-corner corner-tl" aria-hidden="true"><use href="#icon-corner"></use></svg>
-        <svg class="icon hero-corner corner-tr" aria-hidden="true"><use href="#icon-corner"></use></svg>
-        <svg class="icon hero-corner corner-bl" aria-hidden="true"><use href="#icon-corner"></use></svg>
-        <svg class="icon hero-corner corner-br" aria-hidden="true"><use href="#icon-corner"></use></svg>
-
-        <div class="hero-emblem">
-            <svg class="icon laurel" aria-hidden="true"><use href="#icon-laurel"></use></svg>
-            <svg class="icon hero-symbol" aria-hidden="true"><use href="#icon-hero"></use></svg>
-            <svg class="icon laurel laurel-flip" aria-hidden="true"><use href="#icon-laurel"></use></svg>
-        </div>
-
-        <h1><span class="line-item">聖經真理</span><br><span class="line-item">講道系列</span><br><span class="line-item">與</span><br><span class="line-item">世界觀察</span></h1>
-
-        <h2><span class="line-item">Biblical Truth</span><br><span class="line-item">Preaching Series</span><br><span class="line-item">&amp;</span><br><span class="line-item">World Watches</span></h2>
-
-        <div class="hero-divider" aria-hidden="true">
-            <span class="line"></span>
-            <span class="diamond">◆</span>
-            <span class="line"></span>
-        </div>
-
-        <!-- Hero description = the site's theme verse, Psalm 119:105, in three versions (2026-09-24) -->
-        <figure class="hero-verse" aria-label="Psalm 119:105 in Hebrew, Chinese CUV and YLT">
-            <p class="hv-line hv-he" lang="he" dir="rtl">נֵר־לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי׃</p>
-            <p class="hv-line hv-zh" lang="zh-Hant">你的話是我腳前的燈，是我路上的光。</p>
-            <p class="hv-line hv-ylt">A lamp to my foot [is] Thy word, and a light to my path.<span class="hv-lbl">YLT</span></p>
-            <figcaption class="hv-ref">詩篇 119:105　Psalm 119:105 <span class="hv-src">希伯來文 Hebrew · 和合本 CUV · YLT</span></figcaption>
-        </figure>
-
-        <nav class="hero-preview" aria-label="Section overview">
-
-            <a class="preview-item truths" href="#section-truths" data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?">
-                <span class="preview-label-zh">聖經真理</span>
-                <span class="preview-icon">
-                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督；同一異象隨即顯明祂是被殺的羔羊——神的羔羊（啟 5:5-6）| This site's own emblem — a lion, for Christ the conquering King; the same vision instantly reveals Him as the slain Lamb — the Lamb of God (Rev 5:5-6)">
-                </span>
-                <span class="preview-label-en">Biblical Truths</span>
-            </a>
-
-            <a class="preview-item preaching" href="#section-preaching" data-tip="講道系列：以弗所書、馬太福音、詩篇、出埃及記、提摩太前書、哥林多前書、羅馬書、希伯來書、聖潔生活系列 | Sermon series: Ephesians, Matthew, Psalms, Exodus, 1 Timothy, 1 Corinthians, Romans, Hebrews, Holy Living">
-                <span class="preview-label-zh">講道系列</span>
-                <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="講臺：宣講神話語之處 | A pulpit — where God's Word is proclaimed"><use href="#icon-pulpit-panel"></use></svg>
-                </span>
-                <span class="preview-label-en">Preaching Series</span>
-            </a>
-
-            <a class="preview-item biblical" href="#section-biblical" data-tip="按聖經神學分類（律法、先知、聖卷；福音、書信、啟示）；書卷研究：希伯來書 | Grouped by biblical theology (Law, Prophets, Writings; Gospels, Epistles, Revelation); book studies: Hebrews">
-                <span class="preview-label-zh">聖經書卷研究</span>
-                <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book-panel"></use></svg>
-                </span>
-                <span class="preview-label-en">Biblical Studies</span>
-            </a>
-
-            <a class="preview-item words" href="#section-words" data-tip="按系統神學十大範疇分類；2項：靈・魂・體、悔改 | By the 10 domains of systematic theology; 2 items: Spirit Soul &amp; Body, Repent">
-                <span class="preview-label-zh">字詞與主題研究圖表</span>
-                <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search-panel"></use></svg>
-                </span>
-                <span class="preview-label-en">Word &amp; Theme Studies and Graphics</span>
-            </a>
-
-            <a class="preview-item worldwatch" href="#section-worldwatch" data-tip="世界觀察：當代基督教倫理與世界觀，逐步建立中 | World Watches: contemporary Christian ethics and worldview, being built gradually">
-                <span class="preview-label-zh">世界觀察</span>
-                <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe-panel"></use></svg>
-                </span>
-                <span class="preview-label-en">World Watches</span>
-            </a>
-
-            <a class="preview-item external" href="#section-church-home" data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive">
-                <span class="preview-label-zh">教會主頁與完整存檔</span>
-                <span class="preview-icon">
-                    <svg class="icon" aria-hidden="true" data-tip="十架屋頂：教會大家庭 | A home with a cross — the church family"><use href="#icon-home-panel"></use></svg>
-                </span>
-                <span class="preview-label-en">Church Home &amp; Full Archive</span>
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- ====================================== -->
-    <!-- SITE SEARCH                             -->
-    <!-- ====================================== -->
-
-    <div class="site-search-row">
-        <button type="button" id="toggleAllBtn" class="all-toggle-btn" aria-pressed="false"
-                data-tip="展開／收合所有分類（含子分類）| Expand or collapse every category, including sub-categories">ALL</button>
-
-        <div class="site-search" id="siteSearch">
-            <div class="site-search-box">
-                <svg class="icon site-search-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
-                <input type="search" id="siteSearchInput" class="site-search-input" autocomplete="off"
-                       placeholder="搜尋詞語、書卷、主題… Search by word, book, or theme…"
-                       aria-label="Search all sermons and studies">
-                <button type="button" id="siteSearchClear" class="site-search-clear" aria-label="Clear search" hidden>✕</button>
-            </div>
-            <p id="siteSearchStatus" class="site-search-status" aria-live="polite"></p>
-            <ul id="siteSearchHistory" class="site-search-history" hidden aria-label="Recent searches on this device"></ul>
-        </div>
-    </div>
-
-
-    <!-- ====================================== -->
-    <!-- MAIN CONTENT                           -->
-    <!-- ====================================== -->
-
-    <main>
-
-
-        <!-- ================================== -->
-        <!-- 1. BIBLICAL TRUTHS                 -->
-        <!-- ================================== -->
-
-        <section class="study-card truths" id="section-truths">
-
-            <details>
-
-                <summary>
-                    <img class="icon icon-img" src="assets/icon-lion-biblical-truths.png" alt="" data-tip="本站徽記：獅子，代表得勝的君王基督；同一異象隨即顯明祂是被殺的羔羊——神的羔羊（啟 5:5-6）| This site's own emblem — a lion, for Christ the conquering King; the same vision instantly reveals Him as the slain Lamb — the Lamb of God (Rev 5:5-6)">
-                    <span data-tip="1篇：耶穌真的從死裡復活了嗎？ | 1 study: Did Jesus really rise from the dead?"><span class="zh-lbl">1. 聖經真理</span> | <span class="en-lbl">Biblical Truths</span></span>
-                </summary>
-
-                <div class="section-content">
-
-                    <ul class="sermon-list">
-
-                        <!-- The Resurrection of Jesus (topical) -->
-                        <li class="sermon-line">
-                            <a href="preaching/耶稣真的从死里复活了吗_讲章PPT.pptx" target="_blank" class="sermon-link" data-tip="十項公認的歷史事實，以及復活帶來的改變 | Ten generally accepted historical facts, and the changes the resurrection brought about">耶穌真的從死裡復活了嗎？</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </details>
-
-        </section>
-
-
-        <!-- 2. PREACHING                       -->
-        <!-- ================================== -->
-
-        <section class="study-card preaching" id="section-preaching">
-
-            <details open>
-
-                <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="講臺：宣講神話語之處 | A pulpit — where God's Word is proclaimed"><use href="#icon-pulpit"></use></svg>
-                    <span data-tip="講道系列：以弗所書、馬太福音、詩篇、出埃及記、提摩太前書、哥林多前書、羅馬書、希伯來書、聖潔生活系列 | Sermon series: Ephesians, Matthew, Psalms, Exodus, 1 Timothy, 1 Corinthians, Romans, Hebrews, Holy Living"><span class="zh-lbl">2. 講道系列</span> | <span class="en-lbl">Preaching Series</span></span>
-                </summary>
-
-                <div class="section-content">
-
-                    <details class="nested class-group" id="class-faith">
-
-                        <summary data-tip="信仰與生活：希伯來書 3:1–4:13（11/15）、希伯來書 2:5–18（10/25）、希伯來書 1:1–2:4（10/18）、希伯來書概覽（9/27）、羅馬書概覽（9/20）、以弗所書（9/13）、馬太福音（8/30）、詩篇 120 與 121（8/9、8/2）| Faith and living: Hebrews 3:1–4:13 (11/15), Hebrews 2:5–18 (10/25), Hebrews 1:1–2:4 (10/18), the Hebrews overview (9/27), the Romans overview (9/20), Ephesians (9/13), Matthew (8/30), Psalms 120 and 121 (8/9, 8/2)"><span class="zh-lbl">信仰與生活系列</span> | <span class="en-lbl">Faith &amp; Living Series</span><span class="class-count">9</span></summary>
-
-                        <div class="sort-toggle" role="group" aria-label="Sort Faith and Living sermons">
-                            <button type="button" class="sort-btn active" data-sort="date">按日期 Date</button>
-                            <button type="button" class="sort-btn" data-sort="book">按經卷 Book Order</button>
-                        </div>
-
-                        <ul class="sermon-list">
-
-                                <li class="sermon-line" data-book="58" data-seq="4">
-                                                                    <span class="bk-tag" data-tip="希伯來書 | Hebrews">希伯來書</span>
-                                                                    <span class="sermon-date">11/15/2026</span>
-                                                                    <a href="preaching/從安息中活出來_投影簡報.html" target="_blank" class="sermon-link" data-tip="希伯來書系列第 3 篇（3:1–4:13）的投影片：怎樣歇了自己的工，倚靠基督而活？三點：作神的家、不可硬着心、進入安息；經文放大、講道筆記、全書位置圖、討論問題和例證，最後附上聖徒詩歌 474〈領我，大哉，主耶和華〉，全在一個網頁裡；下載後不用網路也能使用 | Hebrews series, sermon 3 (3:1–4:13): how do we rest from our own works and live by Christ? Three points: we are his house, do not harden your hearts, enter his rest; full-screen scripture, sermon notes, the whole-book map, a discussion question, the illustration and, at the end, hymn 474 (Guide Me, O Thou Great Jehovah), all in one page; download it and it works offline">從安息中活出來——希伯來書 3:1–4:13</a>
-                                                                    <a href="preaching/從安息中活出來_投影簡報.html" download="從安息中活出來_投影簡報.html" class="file-tag" data-tip="下載到自己的電腦（約 2 MB）；之後雙擊用 Chrome 或 Safari 打開，不需要網路也能放映 | Download to your computer (about 2 MB); afterwards double-click it to open in Chrome or Safari — it works without internet">⬇ 下載</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="58" data-seq="3">
-                                                                    <span class="bk-tag" data-tip="希伯來書 | Hebrews">希伯來書</span>
-                                                                    <span class="sermon-date">10/25/2026</span>
-                                                                    <a href="preaching/真正的人_投影簡報.html" target="_blank" class="sermon-link" data-tip="希伯來書系列第 2 篇（2:5–18）的投影片：神的兒子為什麼要成為人？三點：奪回產業、歸為一家、釋放扶持；經文放大、講道筆記、全書位置圖、討論問題和例證短片，最後附上詩歌〈因著信〉的簡譜（盧永亨 曲詞 · 角聲使團），全在一個網頁裡；下載後不用網路也能使用 | Hebrews series, sermon 2 (2:5–18): why did the Son of God become man? Three points: to recapture our lost destiny, to recover our lost unity, to release and restore us; full-screen scripture, sermon notes, the whole-book map, a discussion question, the illustration clip and, at the end, the song 因著信 Because of Faith in numbered notation (簡譜; words and music: 盧永亨, 角聲使團), all in one page; download it and it works offline">真正的人——希伯來書 2:5–18</a>
-                                                                    <a href="preaching/真正的人_投影簡報.html" download="真正的人_投影簡報.html" class="file-tag" data-tip="下載到自己的電腦（約 11 MB）；之後雙擊用 Chrome 或 Safari 打開，不需要網路也能放映 | Download to your computer (about 11 MB); afterwards double-click it to open in Chrome or Safari — it works without internet">⬇ 下載</a>
-                                                                    <a href="preaching/希伯來書2章5節至18節_信息錄影.html" target="_blank" class="file-tag" data-tip="完整證道錄影（約 59 分鐘，79 MB），可觀看或下載 | Full sermon recording (about 59 minutes, 79 MB), watch online or download">信息</a>
-                                                                    <a href="preaching/希伯來書2章5節至18節_信息錄影.html#audio" target="_blank" class="file-tag" data-tip="只有聲音的證道錄音（約 59 分鐘，57 MB），可在線收聽或下載 | Sound-only sermon recording (about 59 minutes, 57 MB), listen online or download">錄音</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="58" data-seq="2">
-                                                                    <span class="bk-tag" data-tip="希伯來書 | Hebrews">希伯來書</span>
-                                                                    <span class="sermon-date">10/18/2026</span>
-                                                                    <a href="preaching/至美至終的話語_投影簡報.html" target="_blank" class="sermon-link" data-tip="希伯來書系列第 1 篇（1:1–2:4）的投影片：經文放大、講道筆記、全書位置圖、第一個警戒的例證短片、最後附上聖徒詩歌 373〈祂的臉面祂的天使常看見〉，全在一個網頁裡；下載後不用網路也能使用 | Hebrews series, sermon 1 (1:1–2:4): the slides with full-screen scripture, sermon notes, the whole-book map, the warning-1 illustration clip and, at the end, hymn 373 (His Angels His Countenance Always Behold), all in one page; download it and it works offline">至美至終的話語——希伯來書 1:1–2:4</a>
-                                                                    <a href="preaching/至美至終的話語_投影簡報.html" download="至美至終的話語_投影簡報.html" class="file-tag" data-tip="下載到自己的電腦（約 14 MB）；之後雙擊用 Chrome 或 Safari 打開，不需要網路也能放映 | Download to your computer (about 14 MB); afterwards double-click it to open in Chrome or Safari — it works without internet">⬇ 下載</a>
-                                                                    <a href="preaching/希伯來書1章1節至2章4節_信息錄影.html" target="_blank" class="file-tag" data-tip="完整證道錄影（約 50 分鐘，68 MB），可觀看或下載 | Full sermon recording (about 50 minutes, 68 MB), watch online or download">信息</a>
-                                                                    <a href="preaching/希伯來書1章1節至2章4節_信息錄影.html#audio" target="_blank" class="file-tag" data-tip="只有聲音的證道錄音（約 50 分鐘，48 MB），可在線收聽或下載 | Sound-only sermon recording (about 50 minutes, 48 MB), listen online or download">錄音</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="58" data-seq="1">
-                                                                        <span class="bk-tag" data-tip="希伯來書 | Hebrews">希伯來書</span>
-                                                                        <span class="sermon-date">09/27/2026</span>
-                                                                        <a href="preaching/希伯來書講道包_單檔.html" target="_blank" class="sermon-link" data-tip="講道包：投影片、信息短片、五個警戒生活例證，全在一個網頁裡；下載後不用網路也能使用 | The sermon package: slides, message video and the five warnings' life illustrations, all in one page; download it and it works offline">更美的中保，更美的信、望、愛 —— 給過渡的人：希伯來書概覽</a>
-                                                                        <a href="preaching/希伯來書講道包_單檔.html" download="希伯來書講道包_單檔.html" class="file-tag" data-tip="下載到自己的電腦（約 75 MB）；之後雙擊用 Chrome 或 Safari 打開，不需要網路也能放映 | Download to your computer (about 75 MB); afterwards double-click it to open in Chrome or Safari — it works without internet">⬇ 下載</a>
-                                                                        <a href="preaching/希伯來書概覽_信息錄影.html" target="_blank" class="file-tag" data-tip="完整證道錄影（約 47 分鐘，93 MB），可觀看或下載 | Full sermon recording (about 47 minutes, 93 MB), watch online or download">信息</a>
-                                                                        <a href="preaching/希伯來書概覽_信息錄影.html#audio" target="_blank" class="file-tag" data-tip="只有聲音的證道錄音（約 47 分鐘，46 MB），可在線收聽或下載 | Sound-only sermon recording (about 47 minutes, 46 MB), listen online or download">錄音</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="45" data-seq="1">
-                                                                        <span class="bk-tag" data-tip="羅馬書 | Romans">羅馬書</span>
-                                                                        <span class="sermon-date">09/20/2026</span>
-                                                                        <a href="preaching/从罪到恩，由死而生_讲道包.html" target="_blank" class="sermon-link" data-tip="講道包：投影片、信息短片、講章大綱、互動伴讀頁、復活講章，全在一個網頁裡；下載後不用網路也能使用 | The sermon package: slides, message video, outline, companion page and the resurrection sermon in one page; download it and it works offline">從罪到恩，由死而生——羅馬書概覽</a>
-                                                                        <a href="preaching/从罪到恩，由死而生_讲道包.html" download="从罪到恩，由死而生_讲道包.html" class="file-tag" data-tip="下載到自己的電腦（約 32 MB）；之後雙擊用 Chrome 或 Safari 打開，不需要網路也能放映 | Download to your computer (about 32 MB); afterwards double-click it to open in Chrome or Safari — it works without internet">⬇ 下載</a>
-                                                                        <a href="preaching/羅馬書概覽_信息錄影.html" target="_blank" class="file-tag" data-tip="完整證道錄影（約 48 分鐘，93 MB），可觀看或下載 | Full sermon recording (about 48 minutes, 93 MB), watch online or download">信息</a>
-                                                                        <a href="preaching/羅馬書概覽_信息錄影.html#audio" target="_blank" class="file-tag" data-tip="只有聲音的證道錄音（約 48 分鐘，46 MB），可在線收聽或下載 | Sound-only sermon recording (about 48 minutes, 46 MB), listen online or download">錄音</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="49" data-seq="1">
-                                                                        <span class="bk-tag" data-tip="以弗所書 | Ephesians">以弗所書</span>
-                                                                        <span class="sermon-date">09/13/2026</span>
-                                                                        <a href="preaching/以弗所書四章_行事為人與蒙召的恩相稱_講章PPT.pptx" target="_blank" class="sermon-link" data-tip="以弗所書 4:1, 12, 24；5:18">行事為人，與蒙召的恩相稱－合一與建造・更新・被聖靈充滿</a>
-                                                                        <a href="preaching/以弗所書四章_信息錄影.html" target="_blank" class="file-tag" data-tip="完整證道錄影（約 50 分鐘，68 MB），可觀看或下載 | Full sermon recording (about 50 minutes, 68 MB), watch online or download">信息</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="40" data-seq="1">
-                                                                        <span class="bk-tag" data-tip="馬太福音 | Matthew">馬太福音</span>
-                                                                        <span class="sermon-date">08/30/2026</span>
-                                                                        <a href="preaching/信_主耶穌基督血所立的新約_講章PPT.pptx" target="_blank" class="sermon-link" data-tip="馬太福音 26:26-30">信：主耶穌基督血所立的新約</a>
-                                                                    </li>
-
-                                <li class="sermon-line" data-book="19" data-seq="1">
-                                                                                                        <span class="bk-tag" data-tip="詩篇 | Psalms">詩篇</span>
-                                                                        <span class="sermon-date">08/09/2026</span>
-                                                                                                        <a href="https://drive.google.com/file/d/18O5MVLO1TsxLPhAoQmzQKn2Hbc7TbEd0/view" target="_blank" class="sermon-link" data-tip="詩篇120教學視頻 | Psalm 120 teaching video">Psalm 120 | 詩篇 120</a>
-                                                                                                        <a href="https://drive.google.com/file/d/18O5MVLO1TsxLPhAoQmzQKn2Hbc7TbEd0/view" target="_blank" class="file-tag" data-tip="教學視頻，在新分頁播放 | The teaching video (opens in a new tab)">信息</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="19" data-seq="2">
-                                                                                                        <span class="bk-tag" data-tip="詩篇 | Psalms">詩篇</span>
-                                                                        <span class="sermon-date">08/02/2026</span>
-                                                                                                        <a href="https://drive.google.com/file/d/1n43gUnA20ZCtRbmdyZVsULQ35IRircmp/view" target="_blank" class="sermon-link" data-tip="詩篇121教學視頻 | Psalm 121 teaching video">Psalm 121 | 詩篇 121</a>
-                                                                                                        <a href="https://drive.google.com/file/d/1n43gUnA20ZCtRbmdyZVsULQ35IRircmp/view" target="_blank" class="file-tag" data-tip="教學視頻，在新分頁播放 | The teaching video (opens in a new tab)">信息</a>
-                                                                                                    </li>
-
-                        </ul>
-
-                    </details>
-
-                    <details class="nested class-group" id="class-holy">
-
-                        <summary data-tip="聖潔生活系列：敬畏神、被聖靈充滿、抵擋魔鬼 | Holy Living series: fear of God, filled with the Spirit, resisting the devil"><span class="zh-lbl">聖潔生活系列</span> | <span class="en-lbl">Holy Living Series</span><span class="class-count">3</span></summary>
-
-                        <ul class="sermon-list">
-
-                                <li class="sermon-line">
-                                                                                                        <span class="sermon-date">10/27/2024</span>
-                                                                                                        <a href="preaching/抵擋魔鬼.pptx" target="_blank" class="sermon-link" data-tip="聖潔生活系列 | Holy Living Series">抵擋魔鬼</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line">
-                                                                                                        <span class="sermon-date">09/08/2024</span>
-                                                                                                        <a href="preaching/被聖靈充滿.pptx" target="_blank" class="sermon-link" data-tip="聖潔生活系列 | Holy Living Series">被聖靈充滿</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line">
-                                                                                                        <span class="sermon-date">08/04/2024</span>
-                                                                                                        <a href="preaching/敬畏神.pptx" target="_blank" class="sermon-link" data-tip="聖潔生活系列 | Holy Living Series">敬畏神</a>
-                                                                                                    </li>
-
-                        </ul>
-
-                    </details>
-
-                    <details class="nested class-group" id="class-other">
-
-                        <summary data-tip="其他講道與教學視頻（依日期排列）| Other sermons and teaching videos, newest first"><span class="zh-lbl">其他系列</span> | <span class="en-lbl">Other Series</span><span class="class-count">9</span></summary>
-
-                        <div class="sort-toggle" role="group" aria-label="Sort other sermons">
-                            <button type="button" class="sort-btn active" data-sort="date">按日期 Date</button>
-                            <button type="button" class="sort-btn" data-sort="book">按經卷 Book Order</button>
-                        </div>
-
-                        <ul class="sermon-list">
-
-                                <li class="sermon-line" data-book="54" data-seq="2">
-                                <span class="bk-tag" data-tip="提摩太前書 | 1 Timothy">提摩太前書</span>
-                                                                                                        <span class="sermon-date">05/31/2026</span>
-                                                                                                        <a href="preaching/提摩太前書三章15-16節_神的家與敬虔的奧秘.pptx" target="_blank" class="sermon-link" data-tip="提摩太前書 3:15-16">神的家與敬虔的奧祕</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="54" data-seq="1">
-                                <span class="bk-tag" data-tip="提摩太前書 | 1 Timothy">提摩太前書</span>
-                                                                                                        <span class="sermon-date">05/24/2026</span>
-                                                                                                        <a href="preaching/提摩太前書二章1-8節_為萬人禱告.pptx" target="_blank" class="sermon-link" data-tip="提摩太前書 2:1-8">為萬人禱告</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="46" data-seq="1">
-                                <span class="bk-tag" data-tip="哥林多前書 | 1 Corinthians">哥林多前書</span>
-                                                                                                        <span class="sermon-date">04/05/2026 · Easter / Resurrection Sunday</span>
-                                                                                                        <a href="preaching/身體復活的應許與大能_講章PPT.pdf" target="_blank" class="sermon-link" data-tip="哥林多前書 15章">身體復活的應許與大能</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="49" data-seq="2">
-                                <span class="bk-tag" data-tip="以弗所書 | Ephesians">以弗所書</span>
-                                                                                                        <span class="sermon-date">03/15/2026</span>
-                                                                                                        <a href="preaching/以弗所書四章7-10節_蒙召與蒙恩.pdf" target="_blank" class="sermon-link" data-tip="以弗所書 4:7-10">蒙召與蒙恩</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="49" data-seq="1">
-                                <span class="bk-tag" data-tip="以弗所書 | Ephesians">以弗所書</span>
-                                                                                                        <span class="sermon-date">03/08/2026</span>
-                                                                                                        <a href="preaching/以弗所書四章1-6節_行事為人與蒙召相稱_合一.pdf" target="_blank" class="sermon-link" data-tip="以弗所書 4:1-6">行事為人與蒙召相稱－合一</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="2" data-seq="4">
-                                <span class="bk-tag" data-tip="出埃及記 | Exodus">出埃及記</span>
-                                                                                                        <span class="sermon-date">03/30/2025</span>
-                                                                                                        <a href="preaching/出埃及記_審判與分別.ppt" target="_blank" class="sermon-link" data-tip="出埃及記 7-11章">審判與分別</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="2" data-seq="3">
-                                <span class="bk-tag" data-tip="出埃及記 | Exodus">出埃及記</span>
-                                                                                                        <span class="sermon-date">03/23/2025</span>
-                                                                                                        <a href="preaching/出埃及記五至六章_爭戰與順服.ppt" target="_blank" class="sermon-link" data-tip="出埃及記 5-6章">爭戰與順服</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="2" data-seq="2">
-                                <span class="bk-tag" data-tip="出埃及記 | Exodus">出埃及記</span>
-                                                                                                        <span class="sermon-date">03/16/2025</span>
-                                                                                                        <a href="preaching/出埃及記四章_呼召與相信.ppt" target="_blank" class="sermon-link" data-tip="出埃及記 4章">呼召與相信</a>
-                                                                                                    </li>
-
-                                <li class="sermon-line" data-book="2" data-seq="1">
-                                <span class="bk-tag" data-tip="出埃及記 | Exodus">出埃及記</span>
-                                                                                                        <span class="sermon-date">03/02/2025</span>
-                                                                                                        <a href="preaching/出埃及記一至三章_苦難與榮耀.ppt" target="_blank" class="sermon-link" data-tip="出埃及記 1-3章">苦難與榮耀</a>
-                                                                                                    </li>
-
-                            </ul>
-
-                    </details>
-
-                </div>
-
-            </details>
-
-        </section>
-
-
-        <!-- ================================== -->
-        <!-- 3. BIBLICAL STUDIES                -->
-        <!-- ================================== -->
-
-        <section class="study-card biblical" id="section-biblical">
-
-            <details>
-
-                <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="展開的書卷：研經之意 | An open book — Scripture opened for study"><use href="#icon-book"></use></svg>
-                    <span data-tip="按聖經神學分類（律法、先知、聖卷；福音、書信、啟示）；書卷研究：希伯來書 | Grouped by biblical theology (Law, Prophets, Writings; Gospels, Epistles, Revelation); book studies: Hebrews"><span class="zh-lbl">3. 聖經書卷研究</span> | <span class="en-lbl">Biblical Studies</span></span>
-                </summary>
-
-                <div class="section-content">
-
-                    <!-- Simplified 2026-09-25 (his call): was the full 9-section/every-book taxonomy shown
-                         at all times (mostly empty placeholder chips) -- now shows only books that actually
-                         have a study, flat, like World Watches. The full 9-section taxonomy (4 OT + 5 NT,
-                         per Luke 24:44's own three-fold order for the OT) is still here, just moved into the
-                         domain-chip row's hover tooltips + used for filtering, not rendered as empty groups. -->
-                    <p class="theme-intro"><span class="zh-lbl">按聖經神學分類：舊約是「應許」（律法、先知、聖卷——路 24:44），新約是「應驗」。</span><br><span class="en-lbl">Grouped by biblical theology: the Old Testament as promise (Law, Prophets, Writings — Luke 24:44), the New Testament as fulfilment.</span></p>
-
-                    <div class="domain-chip-row bt-chip-row" role="group" aria-label="Filter by biblical theology section">
-                        <button type="button" class="domain-chip" data-domain="律法書" data-tip="律法書 The Law (Torah) | 創造、揀選與立約 Creation, election &amp; covenant">律法書 The Law</button>
-                        <button type="button" class="domain-chip" data-domain="前先知書" data-tip="前先知書 Former Prophets | 應許之地與王國 The land &amp; the kingdom">前先知書 Former Prophets</button>
-                        <button type="button" class="domain-chip" data-domain="後先知書" data-tip="後先知書 Latter Prophets | 審判、被擄與新約的應許 Judgment, exile &amp; the promised new covenant">後先知書 Latter Prophets</button>
-                        <button type="button" class="domain-chip" data-domain="聖卷" data-tip="聖卷 The Writings | 敬拜、智慧與歸回 Worship, wisdom &amp; return">聖卷 The Writings</button>
-                        <button type="button" class="domain-chip" data-domain="福音書" data-tip="福音書 The Gospels | 君王來了：應許的實現 The King has come — the promise fulfilled">福音書 The Gospels</button>
-                        <button type="button" class="domain-chip" data-domain="使徒行傳" data-tip="使徒行傳 Acts | 國度擴展到地極 The kingdom spreads to the ends of the earth">使徒行傳 Acts</button>
-                        <button type="button" class="domain-chip" data-domain="保羅書信" data-tip="保羅書信 Pauline Epistles | 在基督裡的新生命與教會 New life in Christ &amp; the church">保羅書信 Pauline Epistles</button>
-                        <button type="button" class="domain-chip" data-domain="普通書信" data-tip="普通書信 General Epistles | 客旅的盼望與堅忍 Pilgrims holding fast in hope">普通書信 General Epistles</button>
-                        <button type="button" class="domain-chip" data-domain="啟示錄" data-tip="啟示錄 Revelation | 萬物更新 All things made new">啟示錄 Revelation</button>
-                    </div>
-
-                    <ul class="sermon-list bt-list">
-
-                        <li class="sermon-line" data-domain="普通書信">
-                            <span class="bk-tag" data-tip="普通書信 | General Epistles">希伯來書</span>
-                            <a href="hebrews/希伯來書概論.pdf" target="_blank" class="sermon-link" data-tip="希伯來書概論（PDF）| Introduction to Hebrews (PDF)">Introduction to Hebrews | 希伯來書概論</a>
-                        </li>
-
-                        <li class="sermon-line" data-domain="普通書信">
-                            <span class="bk-tag" data-tip="普通書信 | General Epistles">希伯來書</span>
-                            <a href="hebrews/希伯來書摘要.pdf" target="_blank" class="sermon-link" data-tip="希伯來書摘要（PDF）| Summary of Hebrews (PDF)">Summary of Hebrews | 希伯來書摘要</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </details>
-
-        </section>
-
-
-        <!-- ================================== -->
-
-
-        <!-- ================================== -->
-        <!-- 4. WORD STUDIES & INTERACTIVE GRAPHICS -->
-        <!-- ================================== -->
-
-        <section class="study-card words" id="section-words">
-
-            <details>
-
-                <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="放大鏡：細察經文字詞 | A magnifying glass — searching the text closely"><use href="#icon-search"></use></svg>
-                    <span data-tip="按系統神學十大範疇分類；2項：靈・魂・體、悔改 | By the 10 domains of systematic theology; 2 items: Spirit Soul &amp; Body, Repent"><span class="zh-lbl">4. 字詞與主題研究圖表</span> | <span class="en-lbl">Word &amp; Theme Studies and Graphics</span></span>
-                </summary>
-
-                <div class="section-content">
-
-                    <!-- Simplified 2026-09-25 (his call): was the full 10-domain taxonomy shown at all
-                         times (mostly empty placeholder chips) -- now shows only items that actually have a
-                         study, flat, like World Watches. The full 10-domain taxonomy is still here, just moved
-                         into the domain-chip row's hover tooltips + used for filtering, not rendered as empty
-                         groups. -->
-                    <p class="theme-intro"><span class="zh-lbl">按系統神學分類：十大教義範疇，每個範疇下再分類別。可連結到將來的講道。</span><br><span class="en-lbl">Organised by systematic theology: ten doctrinal domains, each with its categories — ready to link into future sermons.</span></p>
-
-                    <div class="domain-chip-row" role="group" aria-label="Filter by systematic theology domain">
-                        <button type="button" class="domain-chip" data-domain="神論" data-tip="1. 神論 Theology Proper | 神的存在、屬性、三位一體、名字、創造、護理、敬畏神">1 神論 God</button>
-                        <button type="button" class="domain-chip" data-domain="基督論" data-tip="2. 基督論 Christology | 基督的神性、道成肉身、先知祭司君王、贖罪、復活、升天與代求">2 基督論 Jesus Christ</button>
-                        <button type="button" class="domain-chip" data-domain="聖靈論" data-tip="3. 聖靈論 Pneumatology | 聖靈的位格、內住與印記、被聖靈充滿、屬靈恩賜、聖靈的果子">3 聖靈論 The Holy Spirit</button>
-                        <button type="button" class="domain-chip" data-domain="人論" data-tip="4. 人論 Anthropology | 神的形像、靈魂體、心、良心、男女與婚姻">4 人論 Man</button>
-                        <button type="button" class="domain-chip" data-domain="罪論" data-tip="5. 罪論 Hamartiology | 罪的本質、墮落與原罪、試探、罪的後果">5 罪論 Sin</button>
-                        <button type="button" class="domain-chip" data-domain="救恩論" data-tip="6. 救恩論 Soteriology | 揀選與呼召、重生、悔改、信心、稱義、兒子名分、成聖、恆忍、得榮">6 救恩論 Salvation</button>
-                        <button type="button" class="domain-chip" data-domain="教會論" data-tip="7. 教會論 Ecclesiology | 教會的本質、合一、洗禮與聖餐、職分與治理、敬拜、使命與宣教">7 教會論 The Church</button>
-                        <button type="button" class="domain-chip" data-domain="末世論" data-tip="8. 末世論 Eschatology | 死亡與居間狀態、基督再來、身體復活、最後審判、神的國、新天新地">8 末世論 Last Things</button>
-                        <button type="button" class="domain-chip" data-domain="聖經論" data-tip="9. 聖經論 Bibliology | 啟示、默示、無誤、正典、光照、充足">9 聖經論 Scripture</button>
-                        <button type="button" class="domain-chip" data-domain="天使論" data-tip="10. 天使論 Angelology | 天使、撒但、鬼魔、屬靈爭戰">10 天使論 Angels</button>
-                    </div>
-
-                    <ul class="sermon-list ts-list">
-
-                        <li class="sermon-line" data-domain="人論">
-                            <span class="cat-tag">靈、魂、體 Spirit, Soul &amp; Body</span>
-                            <a href="words/spirit-soul-body/index.html" target="_blank" class="sermon-link" data-tip="靈、魂、體的原文字詞（希伯來文、希臘文）與互動圖：舊約與新約經文對照 | The Hebrew and Greek words for spirit, soul and body, with an interactive diagram and Old and New Testament passages"><span class="zh-lbl">靈魂體</span> | <span class="en-lbl">Spirit, Soul &amp; Body</span></a>
-                        </li>
-
-                        <li class="sermon-line" data-domain="救恩論">
-                            <span class="cat-tag">悔改 Repentance</span>
-                            <a href="words/repent-metanoeo/index.html" target="_blank" class="sermon-link" data-tip="「悔改」（μετανοέω）在新約中的分佈：按書卷點按查看和合本經文原文，並標出兩種中文譯法；取自馬太福音總覽講道的字詞研究 | Repent (μετανοέω) distribution across the New Testament: click a book to see the CUV verses, with its two Chinese renderings marked; from the Matthew Overview sermon's word study"><span class="zh-lbl">悔改</span> | <span class="en-lbl">Repent (μετανοέω)</span></a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </details>
-
-        </section>
-
-
-        <!-- ================================== -->
-        <!-- WORLD WATCH (draft 5x5x5 matrix)    -->
-        <!-- Regenerate with: python3 ~/Documents/GitHub/world-watch/tools/build_site_section.py -->
-        <!-- ================================== -->
-
-        <section class="study-card worldwatch" id="section-worldwatch">
-        <!-- WORLDWATCH:START -->
-<details open>
-
-                <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="地球：從真實世界看見神的作為 | A globe — seeing God's hand in the real world"><use href="#icon-globe"></use></svg>
-                    <span data-tip="世界觀察：當代基督教倫理與世界觀，逐步建立中 | World Watches: contemporary Christian ethics and worldview, being built gradually"><span class="zh-lbl">5. 世界觀察</span> | <span class="en-lbl">World Watches</span></span>
-                </summary>
-
-                <div class="section-content">
-                    <ul class="sermon-list ww-list">
-                    <li class="sermon-line ww-case"><a href="world-watch/cases/hansen-1988.html" target="_blank" class="sermon-link"><span class="zh-term">氣候暖化警報</span>（Hansen 1988）</a><span class="ww-meta">用於希伯來書概覽 Hebrews Overview, 2026-09-27</span><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/titan-2023.html" target="_blank" class="sermon-link"><span class="zh-term">泰坦號潛水器</span>（Titan 2023）</a><span class="ww-meta">用於希伯來書概覽 Hebrews Overview, 2026-09-27</span><span class="domain-tag">工作、財富、公義與社會 Work, Wealth, Justice &amp; Society</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/endurance-1915.html" target="_blank" class="sermon-link"><span class="zh-term">堅忍號</span>（Endurance 1915）</a><span class="ww-meta">用於希伯來書概覽 Hebrews Overview, 2026-09-27</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/exxon-climate.html" target="_blank" class="sermon-link"><span class="zh-term">埃克森與氣候</span>（ExxonMobil 2019）</a><span class="ww-meta">用於希伯來書概覽 Hebrews Overview, 2026-09-27</span><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/truman-1980.html" target="_blank" class="sermon-link"><span class="zh-term">杜魯門與聖海倫火山</span>（Truman 1980）</a><span class="ww-meta">用於希伯來書概覽 Hebrews Overview, 2026-09-27</span><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/tilly-smith-2004.html" target="_blank" class="sermon-link"><span class="zh-term">蒂莉・史密斯與南亞海嘯</span>（Tilly Smith 2004）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/explorer1-1958.html" target="_blank" class="sermon-link"><span class="zh-term">探索者一號與范艾倫輻射帶</span>（Explorer 1 1958）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">創造、科學、環境與宇宙 Creation, Science, Environment &amp; the Cosmos</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/eisenhower-1961.html" target="_blank" class="sermon-link"><span class="zh-term">艾森豪告別演說</span>（Eisenhower 1961）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/two-man-rule-1962.html" target="_blank" class="sermon-link"><span class="zh-term">兩人規則</span>（Two-Man Rule 1962）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">科技、知識、權力與安全 Technology, Knowledge, Power &amp; Security</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/suez-1956.html" target="_blank" class="sermon-link"><span class="zh-term">蘇伊士運河危機</span>（Suez 1956）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/six-day-war-1967.html" target="_blank" class="sermon-link"><span class="zh-term">六日戰爭</span>（Six-Day War 1967）</a><span class="ww-meta">用於馬太福音總覽 Matthew Overview, 2026-11-08</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/volkswagen-emissions-scandal.html" target="_blank" class="sermon-link"><span class="zh-term">大眾汽車排放門</span>（Volkswagen 2015）</a><span class="ww-meta">用於羅馬書概覽 Romans Overview, 2026-09-20</span><span class="domain-tag">工作、財富、公義與社會 Work, Wealth, Justice &amp; Society</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/john-newton.html" target="_blank" class="sermon-link"><span class="zh-term">約翰・牛頓與奇異恩典</span>（John Newton）</a><span class="ww-meta">用於羅馬書概覽 Romans Overview, 2026-09-20</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/dunkirk-evacuation.html" target="_blank" class="sermon-link"><span class="zh-term">敦克爾克大撤退</span>（Dunkirk 1940）</a><span class="ww-meta">用於羅馬書概覽 Romans Overview, 2026-09-20</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-<li class="sermon-line ww-case"><a href="world-watch/cases/cajun-navy.html" target="_blank" class="sermon-link"><span class="zh-term">卡津海軍</span>（Cajun Navy 2005）</a><span class="ww-meta">用於羅馬書概覽 Romans Overview, 2026-09-20</span><span class="domain-tag">品格、群體、衝突與基督徒見證 Character, Community, Conflict &amp; Christian Witness</span></li>
-                    </ul>
-                </div>
-
-            </details>
-        <!-- WORLDWATCH:END -->
-        </section>
-
-
-
-        <!-- ================================== -->
-        <!-- 6. CHURCH HOME & FULL ARCHIVE       -->
-        <!-- ================================== -->
-
-        <section class="study-card churchhome" id="section-church-home">
-
-            <details>
-
-                <summary>
-                    <svg class="icon" aria-hidden="true" data-tip="十架屋頂：教會大家庭 | A home with a cross — the church family"><use href="#icon-home"></use></svg>
-                    <span data-tip="教會主頁與完整存檔 | Church homepage &amp; full archive"><span class="zh-lbl">6. 教會主頁與完整存檔</span> | <span class="en-lbl">Church Home &amp; Full Archive</span></span>
-                </summary>
-
-                <div class="section-content">
-
-                    <p>
-                        Visit the church's main WordPress site for the full history of notices, photos, and past
-                        content going back to 2016.
-                        <br>
-                        歡迎瀏覽教會的主網站，查閱歷年公告、照片與完整存檔內容（可追溯至 2016 年）。
-                    </p>
-
-                    <p>
-                        <a href="https://pcccweb.wordpress.com/" target="_blank" rel="noopener" class="file-tag">
-                            pcccweb.wordpress.com
-                        </a>
-                    </p>
-
-                </div>
-
-            </details>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- ====================================== -->
-    <!-- CLOSING VERSE INFOGRAPHICS              -->
-    <!-- ====================================== -->
-
-    <!-- The King's two comings (2026-09-24): Mark 1:15 as the heading, then the humble King on a
-         donkey (first coming) and the King of kings on a white horse (second coming). -->
-    <section class="closing-verses" aria-label="Closing verses: the King's two comings">
-
-        <div class="verse-banner">
-            <p class="verse-cuv">「日期滿了，神的國近了。你們當悔改，信福音！」</p>
-            <p class="verse-ref">馬可福音 1:15　Mark 1:15</p>
-            <p class="verse-ylt">“The time is fulfilled, and the kingdom of God is at hand: repent ye, and believe in the gospel.” <span class="verse-ylt-lbl">— ASV</span></p>
-        </div>
-
-        <div class="verse-card verse-donkey">
-            <p class="verse-title"><span class="zh">謙卑的君王</span><span class="en">The Humble King · 第一次來臨 First Coming</span></p>
-            <img class="verse-photo verse-infographic" src="assets/jesus-humble-king-infographic.jpg" alt="謙卑的君王：耶穌騎驢進耶路撒冷（太 21:5；亞 9:9）| The Humble King: The Triumphal Entry, Jesus on the donkey (Matt 21:5; Zech 9:9)" loading="lazy">
-            <div class="verse-text">
-                <p class="verse-cuv">「要對錫安的居民說：看<span class="cuv-fallback-glyph">哪</span>，你的王來到你這裏，是溫柔的，又騎着驢，就是騎着驢駒子。」</p>
-                <p class="verse-ref">馬太福音 21:5（亞 9:9）　Matthew 21:5 (Zech 9:9)</p>
-                <p class="verse-ylt">“Tell ye the daughter of Zion, Behold, thy King cometh unto thee, Meek, and riding upon an ass, And upon a colt the foal of an ass.” <span class="verse-ylt-lbl">— ASV</span></p>
-            </div>
-        </div>
-
-        <div class="verse-card verse-horse">
-            <p class="verse-title"><span class="zh">萬王之王、萬主之主</span><span class="en">King of kings and Lord of lords · 再來 Second Coming</span></p>
-            <img class="verse-photo verse-infographic" src="assets/jesus-king-of-kings-infographic.jpg" alt="萬王之王、萬主之主：耶穌騎白馬再來（啟 19:11, 16）| King of Kings and Lord of Lords: Jesus on the white horse, Second Coming (Rev 19:11, 16)" loading="lazy">
-            <div class="verse-text">
-                <p class="verse-cuv">「我觀看，見天開了。有一匹白馬，騎在馬上的稱為誠信真實，他審判，爭戰，都按着公義。」……「在他衣服和大腿上有名寫着說：『萬王之王，萬主之主。』」</p>
-                <p class="verse-ref">啟示錄 19:11, 16　Revelation 19:11, 16</p>
-                <p class="verse-ylt">“And I saw the heaven opened; and behold, a white horse, and he that sat thereon called Faithful and True; and in righteousness he doth judge and make war” … “and he hath on his garment and on his thigh a name written, KING OF KINGS, AND LORD OF LORDS.” <span class="verse-ylt-lbl">— ASV</span></p>
-            </div>
-        </div>
-
-        <div class="verse-banner verse-banner-bottom">
-            <p class="verse-cuv">「神愛世人，甚至將他的獨生子賜給他們，叫一切信他的，不至滅亡，反得永生。」</p>
-            <p class="verse-ref">約翰福音 3:16　John 3:16</p>
-            <p class="verse-ylt">“For God so loved the world, that he gave his only begotten Son, that whosoever believeth on him should not perish, but have eternal life.” <span class="verse-ylt-lbl">— ASV</span></p>
-        </div>
-
-    </section>
-
-
-    <!-- ====================================== -->
-    <!-- FOOTER                                 -->
-    <!-- ====================================== -->
-
-    <footer>
-
-        <p>
-            願主耶穌的恩惠常與眾聖徒同在。阿們！　啟示錄 22:21
-            <br>
-            The grace of our Lord Jesus Christ is with you all. Amen. — Revelation 22:21 (YLT)
-        </p>
-
-        <p class="site-credit">
-            This webpage is developed and maintained by Stephen Sauchi Lee 李守智 at <a href="https://github.com/sauchilee" target="_blank" rel="noopener">github.com/sauchilee</a>.
-            Please send your comments and questions to <a href="mailto:sauchilee@gmail.com">sauchilee@gmail.com</a>
-        </p>
-
-    </footer>
-
-
-</div>
-
-<script>
-/* Preaching panel: each list is one flat column of sermons. Default = newest first.
-   The Faith & Living and Other Series lists also have two buttons: by date (newest first) or by book (Bible order, passages in order within a book). */
-(function () {
-    function ts(li) { var e = li.querySelector('.sermon-date'), m = e && e.textContent.match(/(\d{2})\/(\d{2})\/(\d{4})/); return m ? new Date(+m[3], +m[1] - 1, +m[2]).getTime() : 0; }
-    function sortList(ul, mode) {
-        var rows = Array.prototype.slice.call(ul.children).filter(function (li) { return li.tagName === 'LI'; });
-        rows.sort(function (x, y) {
-            if (mode === 'book') {
-                var bx = +x.getAttribute('data-book') || 999, by = +y.getAttribute('data-book') || 999;
-                if (bx !== by) return bx - by;
-                var sx = +x.getAttribute('data-seq') || 0, sy = +y.getAttribute('data-seq') || 0;
-                if (sx !== sy) return sx - sy;
-            }
-            return ts(y) - ts(x);
-        });
-        rows.forEach(function (li) { ul.appendChild(li); });
-        ul.classList.toggle('mode-book', mode === 'book');
-    }
-    Array.prototype.forEach.call(document.querySelectorAll('#section-preaching .sermon-list'), function (ul) { sortList(ul, 'date'); });
-    ['class-faith', 'class-other'].forEach(function (gid) {
-        var group = document.getElementById(gid);
-        if (!group) return;
-        var ul = group.querySelector('.sermon-list'), btns = group.querySelectorAll('.sort-btn');
-        Array.prototype.forEach.call(btns, function (b) {
-            b.addEventListener('click', function () {
-                Array.prototype.forEach.call(btns, function (x) { x.classList.remove('active'); });
-                b.classList.add('active');
-                sortList(ul, b.getAttribute('data-sort'));
-            });
-        });
-    });
+<body id="top">
+<script>(function(m){var t=m[location.hash.slice(1)];if(t)location.replace(t)})({"section-preaching": "v.html#i9ee97a219f", "class-faith": "v.html#i9ee97a219f", "class-holy": "v.html#i9ee97a219f", "class-other": "v.html#i9ee97a219f", "section-church-home": "v.html#i9ee97a219f", "section-truths": "v.html#ic38303dbb5", "section-biblical": "v.html#icdac8cba51", "section-words": "v.html#ic52d1cf364", "section-worldwatch": "v.html#if7f623b9fc"});</script>
+<header class="holy titlep"><div class="langtop dark"><div class="langsw" id="langsw" aria-label="語言 Language"></div></div><p class="motto intent ontop">使萬民作主耶穌基督的門徒，成全聖徒，牧養神的群羊，等候君王再來<span lang="en">Discipling the nations for the Lord Jesus Christ, building up the saints, shepherding God’s people, waiting for the return of the King</span><small><span class="vr" tabindex="0" data-zh="18 耶穌進前來，對他們說：「天上地下所有的權柄都賜給我了。 19 所以，你們要去，使萬民作我的門徒，奉父、子、聖靈的名給他們施洗〔或作：給他們施洗，歸於父、子、聖靈的名〕。 20 凡我所吩咐你們的，都教訓他們遵守，我就常與你們同在，直到世界的末了。" data-en="18 And Jesus came and spake unto them, saying, All power is given unto me in heaven and in earth. 19 Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Ghost: 20 Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.">太 Matt 28:18-20</span>；<span class="vr" tabindex="0" data-zh="12 為要成全聖徒，各盡其職，建立基督的身體， 13 直等到我們眾人在真道上同歸於一，認識神的兒子，得以長大成人，滿有基督長成的身量， 14 使我們不再作小孩子，中了人的詭計和欺騙的法術，被一切異教之風搖動，飄來飄去，就隨從各樣的異端； 15 惟用愛心說誠實話，凡事長進，連於元首基督， 16 全身都靠他聯絡得合式，百節各按各職，照着各體的功用彼此相助，便叫身體漸漸增長，在愛中建立自己。" data-en="12 For the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ: 13 Till we all come in the unity of the faith, and of the knowledge of the Son of God, unto a perfect man, unto the measure of the stature of the fulness of Christ: 14 That we henceforth be no more children, tossed to and fro, and carried about with every wind of doctrine, by the sleight of men, and cunning craftiness, whereby they lie in wait to deceive; 15 But speaking the truth in love, may grow up into him in all things, which is the head, even Christ: 16 From whom the whole body fitly joined together and compacted by that which every joint supplieth, according to the effectual working in the measure of every part, maketh increase of the body unto the edifying of itself in love.">弗 Eph 4:12-16</span>；<span class="vr" tabindex="0" data-zh="2 務要牧養在你們中間神的群羊，按着神旨意照管他們；不是出於勉強，乃是出於甘心；也不是因為貪財，乃是出於樂意； 3 也不是轄制所託付你們的，乃是作群羊的榜樣。" data-en="2 Feed the flock of God which is among you, taking the oversight thereof, not by constraint, but willingly; not for filthy lucre, but of a ready mind; 3 Neither as being lords over God’s heritage, but being ensamples to the flock.">彼前 1 Pet 5:2-3</span>；<span class="vr" tabindex="0" data-zh="等候他兒子從天降臨，就是他從死裏復活的，那位救我們脫離將來忿怒的耶穌。" data-en="And to wait for his Son from heaven, whom he raised from the dead, even Jesus, which delivered us from the wrath to come.">帖前 1 Thess 1:10</span>；<span class="vr" tabindex="0" data-zh="在他衣服和大腿上有名寫着說：「萬王之王，萬主之主。」" data-en="And he hath on his vesture and on his thigh a name written, KING OF KINGS, AND LORD OF LORDS.">啟 Rev 19:16</span></small></p><h1>燈臺<span class="h1-en" lang="en">The Lampstand</span></h1><div class="revv"><p class="vz">燈臺中間有一位好像人子……七燈臺就是七個教會。<span class="v-r">（啟示錄 <span class="vr" tabindex="0" data-h="啟示錄 Revelation 1:13" data-zh="燈臺中間有一位好像人子，身穿長衣，直垂到腳，胸間束着金帶。" data-en="And in the midst of the seven candlesticks one like unto the Son of man, clothed with a garment down to the foot, and girt about the paps with a golden girdle.">1:13</span>；<span class="vr" tabindex="0" data-h="啟示錄 Revelation 1:20" data-zh="論到你所看見、在我右手中的七星和七個金燈臺的奧祕，那七星就是七個教會的使者，七燈臺就是七個教會。」" data-en="The mystery of the seven stars which thou sawest in my right hand, and the seven golden candlesticks. The seven stars are the angels of the seven churches: and the seven candlesticks which thou sawest are the seven churches.">1:20</span>；參 <span class="vr" tabindex="0" data-h="啟示錄 Revelation 2:1" data-zh="「你要寫信給以弗所教會的使者，說：『那右手拿着七星、在七個金燈臺中間行走的，說：" data-en="Unto the angel of the church of Ephesus write; These things saith he that holdeth the seven stars in his right hand, who walketh in the midst of the seven golden candlesticks;">2:1</span> 和合本）</span></p><p class="ve" lang="en">And in the midst of the seven candlesticks one like unto the Son of man … the seven candlesticks which thou sawest are the seven churches.<span class="v-r"> (Revelation <span class="vr" tabindex="0" data-h="啟示錄 Revelation 1:13" data-zh="燈臺中間有一位好像人子，身穿長衣，直垂到腳，胸間束着金帶。" data-en="And in the midst of the seven candlesticks one like unto the Son of man, clothed with a garment down to the foot, and girt about the paps with a golden girdle.">1:13</span>; <span class="vr" tabindex="0" data-h="啟示錄 Revelation 1:20" data-zh="論到你所看見、在我右手中的七星和七個金燈臺的奧祕，那七星就是七個教會的使者，七燈臺就是七個教會。」" data-en="The mystery of the seven stars which thou sawest in my right hand, and the seven golden candlesticks. The seven stars are the angels of the seven churches: and the seven candlesticks which thou sawest are the seven churches.">1:20</span>; cf. <span class="vr" tabindex="0" data-h="啟示錄 Revelation 2:1" data-zh="「你要寫信給以弗所教會的使者，說：『那右手拿着七星、在七個金燈臺中間行走的，說：" data-en="Unto the angel of the church of Ephesus write; These things saith he that holdeth the seven stars in his right hand, who walketh in the midst of the seven golden candlesticks;">2:1</span>, KJV)</span></p></div><div class="standw" data-view="public"><div class="lsctl" role="group" aria-label="放大縮小 Zoom"><button type="button" data-z="in" title="放大 Zoom in (+)" aria-label="放大 Zoom in">＋</button><button type="button" data-z="out" title="縮小 Zoom out (-)" aria-label="縮小 Zoom out">－</button><button type="button" data-z="reset" title="還原 Reset (0)" aria-label="還原 Reset">⟲</button><button type="button" data-z="3d" title="立體 3D: drag to turn" aria-label="立體 3D">3D</button></div><svg class="stand" data-view="public" viewBox="0 0 1100 912" role="group" aria-label="燈臺 The Lampstand: 十一枝 eleven branches on four knops, on the base, The Lord Jesus Christ, the Cornerstone"><defs><radialGradient id="gF" cx="50%" cy="72%" r="65%"><stop offset="0" stop-color="#fff7cf"/><stop offset=".5" stop-color="#ffc233"/><stop offset="1" stop-color="#e8590c"/></radialGradient><linearGradient id="gG" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ecca63"/><stop offset="1" stop-color="#a8841c"/></linearGradient><radialGradient id="gK" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff2b8"/><stop offset="1" stop-color="#b08a2a"/></radialGradient><radialGradient id="fW"><stop offset="0" stop-color="#ffe6b0" stop-opacity=".09"/><stop offset=".55" stop-color="#ffe6b0" stop-opacity=".045"/><stop offset="1" stop-color="#ffe6b0" stop-opacity="0"/></radialGradient><filter id="fB" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter></defs><g id="lsz"><ellipse class="glow" cx="550" cy="224" rx="490" ry="80" fill="#ffd34d" opacity=".16" filter="url(#fB)"/><g class="arms"><path class="arm" data-part="arm" data-n="2" data-sx="550" data-sy="392" data-sw="1" d="M550,392 A100,100 0 0 1 450,292"/><path class="arm" data-part="arm" data-n="3" data-sx="550" data-sy="392" data-sw="0" d="M550,392 A100,100 0 0 0 650,292"/><path class="arm" data-part="arm" data-n="4" data-sx="550" data-sy="492" data-sw="1" d="M550,492 A200,200 0 0 1 350,292"/><path class="arm dark" data-part="arm" data-n="5" data-sx="550" data-sy="492" data-sw="0" d="M550,492 A200,200 0 0 0 750,292"/><path class="arm dark" data-part="arm" data-n="6" data-sx="550" data-sy="592" data-sw="1" d="M550,592 A300,300 0 0 1 250,292"/><path class="arm dark" data-part="arm" data-n="7" data-sx="550" data-sy="592" data-sw="0" d="M550,592 A300,300 0 0 0 850,292"/><path class="arm" data-part="arm" data-n="8" data-sx="550" data-sy="692" data-sw="1" d="M550,692 A400,400 0 0 1 150,292"/><path class="arm dark" data-part="arm" data-n="9" data-sx="550" data-sy="692" data-sw="0" d="M550,692 A400,400 0 0 0 950,292"/><path class="arm dark" data-part="arm" data-n="10" data-sx="550" data-sy="792" data-sw="1" d="M550,792 A500,500 0 0 1 50,292"/><path class="arm dark" data-part="arm" data-n="11" data-sx="550" data-sy="792" data-sw="0" d="M550,792 A500,500 0 0 0 1050,292"/></g><path class="shaft" data-part="shaft" d="M550,288 L550,828"/><g class="knop" data-mark="knop" data-part="knop" data-k="1" tabindex="0" aria-label="神的道 The Word of God"><ellipse cx="550" cy="392" rx="102" ry="34" fill="url(#gK)"/><text class="kn-zh" x="550" y="391">神的道</text><text class="kn-en" x="550" y="412">The Word of God</text></g><g class="knop" data-mark="knop" data-part="knop" data-k="2" tabindex="0" aria-label="宣講與經歷 Proclaimed and Experienced"><ellipse cx="550" cy="492" rx="102" ry="34" fill="url(#gK)"/><text class="kn-zh" x="550" y="491">宣講與經歷</text><text class="kn-en" x="550" y="512">Proclaimed and Experienced</text></g><g class="knop" data-mark="knop" data-part="knop" data-k="3" tabindex="0" aria-label="在教會中 In the Church"><ellipse cx="550" cy="592" rx="102" ry="34" fill="url(#gK)"/><text class="kn-zh" x="550" y="591">在教會中</text><text class="kn-en" x="550" y="612">In the Church</text></g><g class="knop" data-mark="knop" data-part="knop" data-k="4" tabindex="0" aria-label="在世上 In the World"><ellipse cx="550" cy="692" rx="102" ry="34" fill="url(#gK)"/><text class="kn-zh" x="550" y="691">在世上</text><text class="kn-en" x="550" y="712">In the World</text></g><g class="collar" data-mark="collar" data-part="collar" tabindex="0" aria-label="看見與珍藏 Seen and Treasured"><ellipse cx="550" cy="792" rx="96" ry="19" fill="url(#gG)"/><text class="co-zh" data-z="看見與珍藏" data-e="Seen and Treasured" x="550" y="798">看見與珍藏 Seen and Treasured</text></g><g class="base" data-mark="base" data-part="base" tabindex="0" aria-label="主耶穌基督 房角石 The Lord Jesus Christ, the Cornerstone"><path d="M454,828 L646,828 L756,902 L344,902 Z" fill="url(#gG)"/><text class="ba-zh" x="550" y="863">主耶穌基督 房角石</text><text class="ba-en" x="550" y="892">The Lord Jesus Christ, the Cornerstone</text></g><g id="lsx"></g><a class="lamp lit" href="v.html#ic52d1cf364" data-part="lamp" data-n="1" style="--c:#c0841a" data-x="550" data-y="292" aria-label="1 原文研究 Original Languages"><rect class="hit" x="500" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="550" y="44">原</text><text class="lz" x="550" y="73">文</text><text class="lz" x="550" y="102">研</text><text class="lz" x="550" y="131">究</text><text class="le" x="550" y="154">Original</text><text class="le" x="550" y="175">Languages</text></g><path class="fl" d="M550,190 C567,214 565,238 550,242 C535,238 533,214 550,190 Z" fill="url(#gF)"/><path class="cup" d="M520,254 Q550,304 580,254 Q550,266 520,254 Z"/><text class="ln" x="550" y="279">1</text></a><a class="lamp lit" href="v.html#icdac8cba51" data-part="lamp" data-n="2" style="--c:#3f51b5" data-x="450" data-y="292" aria-label="2 六十六卷 The 66 Books"><rect class="hit" x="400" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="450" y="44">六</text><text class="lz" x="450" y="73">十</text><text class="lz" x="450" y="102">六</text><text class="lz" x="450" y="131">卷</text><text class="le" x="450" y="154">The 66</text><text class="le" x="450" y="175">Books</text></g><path class="fl" d="M450,190 C467,214 465,238 450,242 C435,238 433,214 450,190 Z" fill="url(#gF)"/><path class="cup" d="M420,254 Q450,304 480,254 Q450,266 420,254 Z"/><text class="ln" x="450" y="279">2</text></a><a class="lamp lit" href="v.html#ic38303dbb5" data-part="lamp" data-n="3" style="--c:#b03a2e" data-x="650" data-y="292" aria-label="3 聖經真理 Bible Truths"><rect class="hit" x="600" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="650" y="44">聖</text><text class="lz" x="650" y="73">經</text><text class="lz" x="650" y="102">真</text><text class="lz" x="650" y="131">理</text><text class="le" x="650" y="154">Bible</text><text class="le" x="650" y="175">Truths</text></g><path class="fl" d="M650,190 C667,214 665,238 650,242 C635,238 633,214 650,190 Z" fill="url(#gF)"/><path class="cup" d="M620,254 Q650,304 680,254 Q650,266 620,254 Z"/><text class="ln" x="650" y="279">3</text></a><a class="lamp lit" href="v.html#i9ee97a219f" data-part="lamp" data-n="4" style="--c:#2f7fd8" data-x="350" data-y="292" aria-label="4 講道 Sermons"><rect class="hit" x="300" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="350" y="44">講</text><text class="lz" x="350" y="73">道</text><text class="le l1" x="350" y="154">Sermons</text></g><path class="fl" d="M350,190 C367,214 365,238 350,242 C335,238 333,214 350,190 Z" fill="url(#gF)"/><path class="cup" d="M320,254 Q350,304 380,254 Q350,266 320,254 Z"/><text class="ln" x="350" y="279">4</text></a><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="5" style="--c:#d81b60" data-x="750" data-y="292" aria-label="5 聖詩 Hymns"><rect class="hit" x="700" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="750" y="44">聖</text><text class="lz" x="750" y="73">詩</text><text class="le l1" x="750" y="154">Hymns</text></g><path class="wick" d="M750,222 L750,240"/><path class="cup" d="M720,254 Q750,304 780,254 Q750,266 720,254 Z"/><text class="ln" x="750" y="279">5</text></g><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="6" style="--c:#7a5230" data-x="250" data-y="292" aria-label="6 教會歷史 Church History"><rect class="hit" x="200" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="250" y="44">教</text><text class="lz" x="250" y="73">會</text><text class="lz" x="250" y="102">歷</text><text class="lz" x="250" y="131">史</text><text class="le" x="250" y="154">Church</text><text class="le" x="250" y="175">History</text></g><path class="wick" d="M250,222 L250,240"/><path class="cup" d="M220,254 Q250,304 280,254 Q250,266 220,254 Z"/><text class="ln" x="250" y="279">6</text></g><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="7" style="--c:#6b8e23" data-x="850" data-y="292" aria-label="7 聖經倫理 Biblical Ethics"><rect class="hit" x="800" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="850" y="44">聖</text><text class="lz" x="850" y="73">經</text><text class="lz" x="850" y="102">倫</text><text class="lz" x="850" y="131">理</text><text class="le" x="850" y="154">Biblical</text><text class="le" x="850" y="175">Ethics</text></g><path class="wick" d="M850,222 L850,240"/><path class="cup" d="M820,254 Q850,304 880,254 Q850,266 820,254 Z"/><text class="ln" x="850" y="279">7</text></g><a class="lamp lit" href="v.html#if7f623b9fc" data-part="lamp" data-n="8" style="--c:#00a3a3" data-x="150" data-y="292" aria-label="8 世界觀察 World Watch"><rect class="hit" x="100" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="150" y="44">世</text><text class="lz" x="150" y="73">界</text><text class="lz" x="150" y="102">觀</text><text class="lz" x="150" y="131">察</text><text class="le" x="150" y="154">World</text><text class="le" x="150" y="175">Watch</text></g><path class="fl" d="M150,190 C167,214 165,238 150,242 C135,238 133,214 150,190 Z" fill="url(#gF)"/><path class="cup" d="M120,254 Q150,304 180,254 Q150,266 120,254 Z"/><text class="ln" x="150" y="279">8</text></a><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="9" style="--c:#607d8b" data-x="950" data-y="292" aria-label="9 世界宗教與哲學 World Religions and Philosophies"><rect class="hit" x="900" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="965" y="44">世</text><text class="lz" x="965" y="73">界</text><text class="lz" x="965" y="102">宗</text><text class="lz" x="965" y="131">教</text><text class="lz" x="935" y="44">與</text><text class="lz" x="935" y="73">哲</text><text class="lz" x="935" y="102">學</text><text class="le" x="950" y="154">World Religions</text><text class="le" x="950" y="175">and Philosophies</text></g><path class="wick" d="M950,222 L950,240"/><path class="cup" d="M920,254 Q950,304 980,254 Q950,266 920,254 Z"/><text class="ln" x="950" y="279">9</text></g><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="10" style="--c:#8e5bd0" data-x="50" data-y="292" aria-label="10 視覺化 Visualization"><rect class="hit" x="0" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="50" y="44">視</text><text class="lz" x="50" y="73">覺</text><text class="lz" x="50" y="102">化</text><text class="le l1" x="50" y="154">Visualization</text></g><path class="wick" d="M50,222 L50,240"/><path class="cup" d="M20,254 Q50,304 80,254 Q50,266 20,254 Z"/><text class="ln" x="50" y="279">10</text></g><g class="lamp off dark" tabindex="0" role="group" data-part="lamp" data-n="11" style="--c:#2e9e5b" data-x="1050" data-y="292" aria-label="11 藏書 Library"><rect class="hit" x="1000" y="12" width="100" height="292" rx="12"/><g class="lname"><text class="lz" x="1050" y="44">藏</text><text class="lz" x="1050" y="73">書</text><text class="le l1" x="1050" y="154">Library</text></g><path class="wick" d="M1050,222 L1050,240"/><path class="cup" d="M1020,254 Q1050,304 1080,254 Q1050,266 1020,254 Z"/><text class="ln" x="1050" y="279">11</text></g></g></svg></div><div class="scrollv" id="scrollv"><svg class="scrollsvg" viewBox="0 0 72 44" role="img" aria-label="書卷 A scroll"><g fill="none" stroke="#ecca63" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 H54 V38 H18 Z" fill="#ecca63" fill-opacity=".1"/><path d="M24 15 H48 M24 22 H48 M24 29 H42" stroke-opacity=".62"/><rect x="8" y="3" width="10" height="38" rx="5" fill="#ecca63" fill-opacity=".24"/><rect x="54" y="3" width="10" height="38" rx="5" fill="#ecca63" fill-opacity=".24"/><path d="M13 3 V.8 M13 41 V43.2 M59 3 V.8 M59 41 V43.2"/></g></svg><div class="scrollt"><div class="scrollp"><p class="vz">你的話是我腳前的燈，是我路上的光。<span class="v-r">（詩篇 119:105 和合本）</span></p><p class="ve " lang="en">Thy word is a lamp unto my feet, and a light unto my path.<span class="v-r"> (Psalm 119:105, KJV)</span></p></div><div class="scrollp"><p class="vz">然而，人未曾信他，怎能求他呢？未曾聽見他，怎能信他呢？沒有傳道的，怎能聽見呢？若沒有奉差遣，怎能傳道呢？如經上所記：「報福音、傳喜信的人，他們的腳蹤何等佳美。」<span class="v-r">（羅馬書 10:14-15 和合本）</span></p><p class="ve " lang="en">How then shall they call on him in whom they have not believed? and how shall they believe in him of whom they have not heard? and how shall they hear without a preacher? And how shall they preach, except they be sent? as it is written, How beautiful are the feet of them that preach the gospel of peace, and bring glad tidings of good things!<span class="v-r"> (Romans 10:14-15, KJV)</span></p></div></div></div><a class="quiet" href="overview.html">總覽 <span lang="en">Overview</span> →</a></header>
+<script type="application/json" id="brdata">{"1": {"zh": "原文研究", "en": "Original Languages", "zrole": "幹，也是根：詞彙、文法、片語、主題，一點一畫（太 5:18）。每條枝子都從原文長出來。", "erole": "The shaft and the root: words, grammar, phrases and themes, every jot and tittle (Matt 5:18). Every branch grows out of the original words.", "parts": [{"z": "詞彙", "e": "Vocabulary"}]}, "2": {"zh": "六十六卷", "en": "The 66 Books", "zrole": "逐卷讀聖經。", "erole": "The Bible read book by book.", "parts": [{"z": "書卷", "e": "Books"}]}, "3": {"zh": "聖經真理", "en": "Bible Truths", "zrole": "逐條讀聖經：歷代教會共同承認的一百條真理。", "erole": "The Bible read truth by truth: the hundred truths the whole church confesses.", "parts": [{"z": "課程", "e": "Lessons"}]}, "4": {"zh": "講道", "en": "Sermons", "zrole": "講出來的道。", "erole": "The Word preached.", "parts": [{"z": "講道系列", "e": "Preaching Series"}, {"z": "教會主頁與完整存檔", "e": "Church Home & Full Archive"}]}, "5": {"zh": "聖詩", "en": "Hymns", "zrole": "唱出來的道：兩千年的聖詩。", "erole": "The Word sung: two thousand years of hymns.", "parts": []}, "6": {"zh": "教會歷史", "en": "Church History", "zrole": "傳下來的道：教會兩千年。", "erole": "The Word handed down through two thousand years of the church.", "parts": []}, "7": {"zh": "聖經倫理", "en": "Biblical Ethics", "zrole": "遵行的道：以十誡為綱。", "erole": "The Word obeyed in daily life, set out along the Ten Commandments.", "parts": []}, "8": {"zh": "世界觀察", "en": "World Watch", "zrole": "在世界中看見的道：一個個真實的事例。", "erole": "The Word seen in the world: real, named cases.", "parts": [{"z": "人物", "e": "Personalities"}, {"z": "國家與帝國", "e": "Nations and empires"}, {"z": "議題", "e": "Issues"}, {"z": "全球變化", "e": "Global change"}, {"z": "事件", "e": "Events"}, {"z": "創造與科學", "e": "Creation and science"}]}, "9": {"zh": "世界宗教與哲學", "en": "World Religions and Philosophies", "zrole": "與世界的宗教和哲學對照的道。", "erole": "The Word set beside the religions and philosophies of the world.", "parts": []}, "10": {"zh": "視覺化", "en": "Visualization", "zrole": "畫出來的道：圖表、聖經圓圖、地圖，同一個引擎，織入每一枝。", "erole": "The Word drawn: the charts, the Bible circles, the maps; one engine, woven into every branch.", "parts": []}, "11": {"zh": "藏書", "en": "Library", "zrole": "依主題分類的書目與簡介。", "erole": "Books and references by topic.", "parts": []}, "_knops": {"1": {"zh": "神的道", "en": "The Word of God"}, "2": {"zh": "宣講與經歷", "en": "Proclaimed and Experienced"}, "3": {"zh": "在教會中", "en": "In the Church"}, "4": {"zh": "在世上", "en": "In the World"}}, "_line": {"zh": "靠聖靈運行", "en": "Energized by the Holy Spirit", "zref": "林前 12:11；帖前 2:13", "eref": "1 Cor 12:11; 1 Thess 2:13"}, "_collar": {"zh": "看見與珍藏", "en": "Seen and Treasured", "z": "托著最下面的兩枝：看見，10 視覺化；珍藏，11 藏書", "e": "It carries the lowest pair: seen, 10 Visualization; treasured, 11 Library", "verses": [{"ref": "Ps 119:18", "zref": "詩篇 119:18", "eref": "Psalm 119:18", "zh": "求你開我的眼睛，使我看出你律法中的奇妙。", "kjv": "Open thou mine eyes, that I may behold wondrous things out of thy law."}, {"ref": "Ps 119:11", "zref": "詩篇 119:11", "eref": "Psalm 119:11", "zh": "我將你的話藏在心裏，免得我得罪你。", "kjv": "Thy word have I hid in mine heart, that I might not sin against thee."}]}, "_base": {"zh": "主耶穌基督 房角石", "en": "The Lord Jesus Christ, the Cornerstone", "verses": [{"ref": "1 Cor 3:11", "zref": "哥林多前書 3:11", "eref": "1 Corinthians 3:11", "zh": "因為那已經立好的根基就是耶穌基督，此外沒有人能立別的根基。", "kjv": "For other foundation can no man lay than that is laid, which is Jesus Christ."}, {"ref": "Eph 2:20", "zref": "以弗所書 2:20", "eref": "Ephesians 2:20", "zh": "並且被建造在使徒和先知的根基上，有基督耶穌自己為房角石，", "kjv": "And are built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone;"}, {"ref": "Matt 7:25", "zref": "馬太福音 7:25", "eref": "Matthew 7:25", "zh": "雨淋，水沖，風吹，撞着那房子，房子總不倒塌，因為根基立在磐石上。", "kjv": "And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock."}]}}</script>
+<script src="s.js"></script>
+<script>LS.langHome();
+(function(){
+ var sv=document.querySelector('svg.stand'); if(!sv) return;
+ var wr=sv.parentNode, W=sv.querySelector('#lsz'), X=sv.querySelector('#lsx');
+ var B={}; try{B=JSON.parse(document.getElementById('brdata').textContent)}catch(e){}
+ var LINKS=B._links||null, vb=sv.viewBox.baseVal, Z={k:1,x:0,y:0}, MIN=.5, MAX=8, moved={}, three=false, rx=0, ry=0;
+ var lamps=[].slice.call(sv.querySelectorAll('.lamp')), byN={}; lamps.forEach(function(a){byN[a.dataset.n]=a});
+ lamps.forEach(function(a){var n=+a.dataset.n; a.style.setProperty('--k', n===1?0:Math.ceil(n/2));});
+ function apply(){W.setAttribute('transform','translate('+Z.x+' '+Z.y+') scale('+Z.k+')'); sv.classList.toggle('zoomed',Z.k>1.001)}
+ function pt(e){var r=sv.getBoundingClientRect(); return {x:(e.clientX-r.left)*vb.width/r.width,y:(e.clientY-r.top)*vb.height/r.height}}
+ function zoomAt(f,p){var k=Math.min(MAX,Math.max(MIN,Z.k*f)); f=k/Z.k; Z.x=p.x-(p.x-Z.x)*f; Z.y=p.y-(p.y-Z.y)*f; Z.k=k; apply()}
+ function mid(){return {x:vb.width/2,y:vb.height/2}}
+ function pos(a){var n=a.dataset.n,m=moved[n]||{dx:0,dy:0}; return {x:+a.dataset.x+m.dx,y:+a.dataset.y+m.dy}}
+ function placeLamp(a){var n=a.dataset.n,m=moved[n]; a.setAttribute('transform',m?'translate('+m.dx+' '+m.dy+')':'');
+  var arm=sv.querySelector('.arm[data-n="'+n+'"]'); if(arm){var p=pos(a),sx=+arm.dataset.sx,sy=+arm.dataset.sy;
+   arm.setAttribute('d','M'+sx+','+sy+' A'+Math.max(1,Math.abs(p.x-sx))+','+Math.max(1,Math.abs(p.y-sy))+' 0 0 '+arm.dataset.sw+' '+p.x+','+p.y)}}
+ function hl(n){sv.querySelectorAll('.arm').forEach(function(p){p.classList.toggle('hl',n!=null&&p.dataset.n==n)})}
+ function show(n){hl(n); links(n)}
+ function clear(){hl(null); X.innerHTML=''}
+ function links(n){X.innerHTML=''; if(!LINKS||!LINKS[n]) return; var a=byN[n]; if(!a) return; var p=pos(a),h='';
+  Object.keys(LINKS[n]).forEach(function(m){var o=byN[m],c=LINKS[n][m]; if(!o||!c) return; var q=pos(o),my=Math.min(p.y,q.y)-40-Math.abs(p.x-q.x)*.18;
+   h+='<path class="xl" stroke-width="'+(1+Math.log10(c+1)*1.4).toFixed(1)+'" d="M'+p.x+','+(p.y-30)+' Q'+((p.x+q.x)/2)+','+my+' '+q.x+','+(q.y-30)+'"/>';
+   h+='<text class="xn" x="'+(q.x)+'" y="'+(q.y-36)+'">'+c+'</text>'});
+  X.innerHTML=h}
+ lamps.forEach(function(a){a.addEventListener('mouseleave',function(){if(!D)clear()}); a.addEventListener('blur',clear)});
+ // wheel: at scale 1 a downward wheel (and an upward wheel away from the top of the page) leaves the page scrolling
+ sv.addEventListener('wheel',function(e){var up=e.deltaY<0; if(Z.k<=1.001&&(!up||window.scrollY>60)) return; e.preventDefault(); zoomAt(up?1.18:1/1.18,pt(e))},{passive:false});
+ // drag: a lamp moves with its arm and shows its links; the background moves the whole drawing; in 3D a drag turns it. A plain click still opens.
+ var D=null, GUARD=false;
+ sv.addEventListener('pointerdown',function(e){if(e.button) return; var a=e.target.closest&&e.target.closest('.lamp');
+  D={a:a,sx:e.clientX,sy:e.clientY,p:pt(e),x0:Z.x,y0:Z.y,rx0:rx,ry0:ry,m0:a?(moved[a.dataset.n]||{dx:0,dy:0}):null,live:false,id:e.pointerId}});
+ window.addEventListener('pointermove',function(e){if(!D||e.pointerId!==D.id) return; var dx=e.clientX-D.sx,dy=e.clientY-D.sy;
+  if(!D.live&&Math.abs(dx)+Math.abs(dy)<6) return; D.live=true; GUARD=true; sv.classList.add('dragging');
+  if(three){ry=D.ry0+dx*.4; rx=D.rx0-dy*.25; turn(); return}
+  var p=pt(e);
+  if(D.a){var n=D.a.dataset.n; moved[n]={dx:D.m0.dx+(p.x-D.p.x)/Z.k,dy:D.m0.dy+(p.y-D.p.y)/Z.k}; placeLamp(D.a); show(n)}
+  else {Z.x=D.x0+p.x-D.p.x; Z.y=D.y0+p.y-D.p.y; apply()}});
+ function up(){if(!D) return; var was=D.live; D=null; sv.classList.remove('dragging'); if(was) setTimeout(function(){GUARD=false},0)}
+ window.addEventListener('pointerup',up); window.addEventListener('pointercancel',up);
+ sv.addEventListener('click',function(e){if(GUARD){e.preventDefault();e.stopPropagation();GUARD=false}},true);
+ sv.addEventListener('dragstart',function(e){e.preventDefault()});
+ function turn(){sv.style.transform=three?'perspective(1800px) rotateX('+rx+'deg) rotateY('+ry+'deg)':''}
+ function reset(){Z={k:1,x:0,y:0}; apply(); moved={}; lamps.forEach(placeLamp); three=false; rx=ry=0; sv.classList.remove('three'); turn();
+  var b3=wr.querySelector('[data-z="3d"]'); if(b3)b3.setAttribute('aria-pressed','false'); clear()}
+ wr.querySelectorAll('[data-z]').forEach(function(b){b.addEventListener('click',function(){var z=b.dataset.z;
+  if(z==='in') zoomAt(1.3,mid()); else if(z==='out') zoomAt(1/1.3,mid()); else if(z==='reset') reset();
+  else {three=!three; sv.classList.toggle('three',three); b.setAttribute('aria-pressed',three?'true':'false'); if(three&&!ry)ry=-24; turn()}})});
+ var over=false; sv.addEventListener('mouseenter',function(){over=true}); sv.addEventListener('mouseleave',function(){over=false});
+ document.addEventListener('keydown',function(e){var t=document.activeElement; if(t&&/INPUT|TEXTAREA|SELECT/.test(t.tagName)) return;
+  if(!over&&!(t&&sv.contains(t))) return; var s=60/Z.k, k=e.key;
+  if(k==='+'||k==='=') zoomAt(1.2,mid()); else if(k==='-'||k==='_') zoomAt(1/1.2,mid()); else if(k==='0') reset();
+  else if(k==='ArrowLeft'){Z.x+=s;apply()} else if(k==='ArrowRight'){Z.x-=s;apply()} else if(k==='ArrowUp'){Z.y+=s;apply()} else if(k==='ArrowDown'){Z.y-=s;apply()} else return;
+  e.preventDefault()});
+ window.LSENG={state:function(){return {k:Z.k,x:Z.x,y:Z.y,moved:Object.keys(moved).length,three:three,rx:rx,ry:ry}},reset:reset,zoomAt:zoomAt,hl:hl};
 })();
+(function(){var tip=null;function line(c,t,l,en){var p=document.createElement('p');p.className=c;if(en)p.lang='en';p.textContent=t;if(l){var s=document.createElement('span');s.className='vl';s.textContent=l;p.appendChild(s)}return p}
+ function show(e){if(!tip){tip=document.createElement('div');tip.className='vtip';tip.setAttribute('aria-hidden','true');document.body.appendChild(tip)}
+  var lg=(window.LS&&LS.lang)?LS.lang():'ze',z=line('vz',e.dataset.zh,'和合本'),n=line('vn',e.dataset.en,'KJV',1);tip.textContent='';tip.appendChild(line('vh',e.dataset.h||e.textContent));
+  (lg==='zh'?[z]:lg==='en'?[n]:lg==='ez'?[n,z]:[z,n]).forEach(function(p){tip.appendChild(p)});tip.classList.add('on');document.documentElement.classList.add('vtip-on');
+  var sc=1;while(tip.scrollHeight>tip.clientHeight+1&&sc>.4){sc-=.06;[z,n].forEach(function(p){p.style.fontSize='';p.style.fontSize=(parseFloat(getComputedStyle(p).fontSize)*sc)+'px'})}}
+ function hide(){if(tip)tip.classList.remove('on');document.documentElement.classList.remove('vtip-on')}
+ document.querySelectorAll('.vr').forEach(function(e){e.addEventListener('mouseenter',function(){show(e)});e.addEventListener('mouseleave',hide);e.addEventListener('focus',function(){show(e)});e.addEventListener('blur',hide)})})();
+// THE TITLE FITS ONE SCREEN (his word 4 Nov 08:08; test TITLESIMPLE at several window sizes): what stands around the drawing is measured, not guessed, and the drawing takes the rest
+(function(){var t=document.querySelector('.titlep'),w=t&&t.querySelector('.standw'),q=t&&t.querySelector('.quiet'),v=t&&t.querySelector('.revv'),sv=t&&t.querySelector('svg.stand');if(!w||!q)return;
+ function fit(){var h=q.getBoundingClientRect().bottom+scrollY+(parseFloat(getComputedStyle(q).marginBottom)||0)+9-w.getBoundingClientRect().height,de=document.documentElement;de.style.setProperty('--titlechrome',Math.ceil(h+1)+'px');
+  var a=w.getBoundingClientRect(),o=t.getBoundingClientRect(),sh=sv&&sv.clientHeight||a.width*.829;t.style.setProperty('--gx',Math.round(a.left+a.width/2-o.left)+'px');t.style.setProperty('--gy',Math.round(a.bottom-sh/2-o.top)+'px');if(v)de.style.setProperty('--revh',Math.round(a.top-v.getBoundingClientRect().top)+'px')}
+ fit();addEventListener('resize',fit);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);if(window.ResizeObserver){var ro=new ResizeObserver(fit);ro.observe(t.querySelector('.scrollv')||q);if(v)ro.observe(v)}})();
+// THE CARDS (his word 4 Nov 08:10): the same look as the verse above (.vtip, .vz, .vn, .vl), standing BESIDE the part, never over it, inside the window. A mouse: hover shows, a click goes in. A phone: the first tap shows, the card holds a plain link in, the second tap goes in. No native title.
+(function(){var sv=document.querySelector('svg.stand'),D={};if(!sv)return;try{D=JSON.parse(document.getElementById('brdata').textContent)}catch(x){}
+ var cd=null,cur=null,lastT='mouse',tapped=null,byN={},parts=[].slice.call(sv.querySelectorAll('.lamp,.knop,.collar,.base'));
+ sv.querySelectorAll('.lamp').forEach(function(a){byN[a.dataset.n]=a});
+ function mode(){return (window.LS&&LS.lang)?LS.lang():'ze'}
+ function both(z,e){var m=mode(),a=[];if(z&&(m!=='en'||!e))a.push([z,0]);if(e&&(m!=='zh'||!z))a.push([e,1]);if(m==='ez')a.reverse();return a}
+ function el(tag,c,t,en){var x=document.createElement(tag);if(c)x.className=c;if(t!=null)x.textContent=t;if(en)x.lang='en';return x}
+ function line(c,num,z,e){var h=el('p',c);if(num!=null)h.appendChild(el('b','vnum',num+' '));both(z,e).forEach(function(x,i){if(i)h.appendChild(document.createTextNode(' '));h.appendChild(el('span',x[1]?'ce':'cz',x[0],x[1]))});return h}
+ function rows(o,z,e){both(z,e).forEach(function(x){o.appendChild(el('p',x[1]?'vn':'vz',x[0],x[1]))})}
+ function quoted(c,vs){(vs||[]).forEach(function(v){c.appendChild(line('vrf',null,v.zref,v.eref));both(v.zh,v.kjv).forEach(function(x){var r=el('p',x[1]?'vn':'vz',x[0],x[1]);r.appendChild(el('span','vl',x[1]?'KJV':'和合本'));c.appendChild(r)})})}
+ function build(p,touch){var c=el('div','vtip vcard on'+(touch?' touch':''));c.setAttribute('role','tooltip');var kind=p.dataset.part;
+  if(kind==='lamp'){var b=D[p.dataset.n];if(!b)return null;c.appendChild(line('vh',p.dataset.n,b.zh,b.en));rows(c,b.zrole,b.erole);
+   if(b.parts&&b.parts.length){var q=el('p','vp');b.parts.forEach(function(y,i){if(i)q.appendChild(el('span','vs',' · '));both(y.z,y.e).forEach(function(x,j){if(j)q.appendChild(document.createTextNode(' '));q.appendChild(el('span',x[1]?'ce':'cz',x[0],x[1]))})});c.appendChild(q)}
+   var h=p.getAttribute('href');if(touch&&h){var g=el('a','vgo',{zh:'進入 →',en:'Enter →',ze:'進入 Enter →',ez:'Enter 進入 →'}[mode()]);g.href=h;c.appendChild(g)}}
+  else if(kind==='knop'){var k=(D._knops||{})[p.dataset.k]||{},l=D._line||{};c.appendChild(line('vh',null,k.zh,k.en));rows(c,l.zh,l.en);c.appendChild(line('vrf',null,l.zref,l.eref))}
+  else if(kind==='collar'){var o=D._collar||{};c.classList.add('big');c.appendChild(line('vh',null,o.zh,o.en));rows(c,o.z,o.e);quoted(c,o.verses)}
+  else if(kind==='base'){var a=D._base||{};c.classList.add('big');c.appendChild(line('vh',null,a.zh,a.en));quoted(c,a.verses)}
+  else return null;return c}
+ function box(r){return {l:r.left,t:r.top,r:r.right,b:r.bottom}}
+ function ov(a,b){var w=Math.min(a.r,b.r)-Math.max(a.l,b.l),h=Math.min(a.b,b.b)-Math.max(a.t,b.t);return w>0&&h>0?w*h:0}
+ function armPts(p){if(p.dataset.part!=='lamp')return [];var n=p.dataset.n,a=n==='1'?sv.querySelector('.shaft'):sv.querySelector('.arm[data-n="'+n+'"]'),o=[];if(!a)return o;var L,M;try{L=a.getTotalLength();M=a.getScreenCTM()}catch(x){return o}if(!M)return o;for(var i=0;i<=16;i++){var q=a.getPointAtLength(L*i/16);o.push({x:M.a*q.x+M.c*q.y+M.e,y:M.b*q.x+M.d*q.y+M.f})}return o}
+ // the place: never over the part (a gap kept), inside the window; among the places left, the least over the other parts and the part's own arm, the nearest, at the largest size
+ function place(c,p){var W=document.documentElement.clientWidth,H=innerHeight,m=6,g=8,R=p.getBoundingClientRect(),P={l:Math.max(R.left,0),t:Math.max(R.top,0),r:Math.min(R.right,W),b:Math.min(R.bottom,H)};if(P.r<=P.l||P.b<=P.t)return false;
+  var Z={l:P.l-g,t:P.t-g,r:P.r+g,b:P.b+g},others=parts.filter(function(x){return x!==p}).concat([].slice.call(document.querySelectorAll('.titlep h1,.titlep .motto,.revv,.titlep .lsctl,.scrollv,.quiet'))).map(function(x){return box(x.getBoundingClientRect())}),pts=armPts(p),big=c.classList.contains('big'),fs=parseFloat(getComputedStyle(c).fontSize),
+   side=Math.max(W-P.r-g-m,P.l-g-m),ws=big?[Math.min(W-12,1180),Math.min(W-12,800),side>=560?side:560,Math.min(W-12,560)]:[Math.min(W-12,640),Math.min(W-12,460)],best=null;
+  for(var sc=1;sc>=.5;sc-=.08){c.style.fontSize=(fs*sc)+'px';
+   ws.forEach(function(w){c.style.maxWidth=w+'px';var cw=c.offsetWidth,ch=c.offsetHeight,xs=[P.r+g,P.l-g-cw,(P.l+P.r-cw)/2,P.l,P.r-cw,m,W-m-cw],ys=[P.b+g,P.t-g-ch,(P.t+P.b-ch)/2,P.t,P.b-ch,m,H-m-ch];
+    xs.forEach(function(x){ys.forEach(function(y){if(x<m-.5||y<m-.5||x+cw>W-m+.5||y+ch>H-m+.5)return;var C={l:x,t:y,r:x+cw,b:y+ch};if(ov(C,Z)>0)return;var o=0;others.forEach(function(r){o+=ov(C,r)});o/=cw*ch;var A=0;pts.forEach(function(q){if(q.x>=x&&q.x<=x+cw&&q.y>=y&&q.y<=y+ch)A++});
+     var d=Math.max(P.l-C.r,C.l-P.r,0)+Math.max(P.t-C.b,C.t-P.b,0),s=o+.04*A+.12*d/(W+H)+(big?.8:.25)*(1-sc);if(!best||s<best.s)best={s:s,o:o,x:x,y:y,sc:sc,w:w}})})});
+   if(best&&(best.o<.002||fs*(sc-.08)<(big?15:13)))break}     // a card stays readable (his word: "large"): under this size only when no place was found at all
+  if(!best)return false;c.style.fontSize=(fs*best.sc)+'px';c.style.maxWidth=best.w+'px';c.style.left=best.x+'px';c.style.top=best.y+'px';return true}
+ function hl(n){if(window.LSENG&&LSENG.hl&&!sv.classList.contains('dragging'))LSENG.hl(n)}
+ function close(){if(cd){cd.remove();cd=null;hl(null)}cur=null;tapped=null}
+ function open(p,touch){if(cur===p&&cd&&(!touch||cd.classList.contains('touch')))return;if(cd){cd.remove();cd=null}var c=build(p,touch);if(!c){cur=null;return}document.body.appendChild(c);if(!place(c,p)){c.remove();cur=null;return}cd=c;cur=p;hl(p.dataset.part==='lamp'?p.dataset.n:null)}
+ function partOf(t){var p=t&&t.closest&&t.closest('[data-part]');if(!p||!sv.contains(p))return null;if(p.dataset.part==='shaft')return byN['1']||null;if(p.dataset.part==='arm')return byN[p.dataset.n]||null;return p}
+ sv.addEventListener('pointerover',function(e){if(e.pointerType!=='mouse'||e.buttons)return;var p=partOf(e.target);if(p)open(p);else close()});
+ sv.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')close()});
+ sv.addEventListener('focusin',function(e){var p=partOf(e.target);if(p&&e.target.matches(':focus-visible'))open(p)});
+ sv.addEventListener('focusout',function(){if(cd&&!cd.classList.contains('touch'))close()});
+ window.addEventListener('pointermove',function(){if(cd&&sv.classList.contains('dragging'))close()});
+ sv.addEventListener('wheel',close,{passive:true});window.addEventListener('scroll',close,{passive:true});window.addEventListener('resize',close);
+ document.addEventListener('keydown',function(e){lastT='mouse';if(e.key==='Escape'||/^(\+|=|-|_|0|Arrow)/.test(e.key))close()});
+ document.addEventListener('pointerdown',function(e){if(!cd||cd.contains(e.target))return;var p=partOf(e.target);if(p&&p===cur)return;close()});
+ sv.addEventListener('pointerdown',function(e){lastT=e.pointerType||'mouse'},true);
+ sv.addEventListener('click',function(e){if(e.defaultPrevented)return;var a=e.target.closest&&e.target.closest('[data-part]'),p=partOf(e.target),go=p&&p.getAttribute('href');
+  if(lastT==='touch'){if(!p)return;var key=p.dataset.part+(p.dataset.n||p.dataset.k||'');if(tapped===key){if(go&&a!==p)location.href=go;return}
+   e.preventDefault();e.stopPropagation();open(p,true);tapped=cd?key:null;return}
+  if(go&&a&&a!==p)location.href=go},true)})();
 </script>
-
-<script>
-(function () {
-    var tip = document.createElement('div');
-    tip.className = 'global-tooltip';
-    document.body.appendChild(tip);
-
-    function positionTip(el) {
-        var rect = el.getBoundingClientRect();
-        var tipRect = tip.getBoundingClientRect();
-
-        var left = rect.left + rect.width / 2 - tipRect.width / 2;
-        left = Math.max(8, Math.min(left, window.innerWidth - tipRect.width - 8));
-
-        var top = rect.top - tipRect.height - 8;
-        if (top < 8) {
-            top = rect.bottom + 8;
-        }
-
-        tip.style.left = left + 'px';
-        tip.style.top = top + 'px';
-    }
-
-    function showTip(el) {
-        var text = el.getAttribute('data-tip');
-        if (!text) return;
-        tip.textContent = text;
-        tip.classList.add('visible');
-        positionTip(el);
-    }
-
-    function hideTip() {
-        tip.classList.remove('visible');
-    }
-
-    document.querySelectorAll('[data-tip]').forEach(function (el) {
-        el.addEventListener('mouseenter', function () { showTip(el); });
-        el.addEventListener('mouseleave', hideTip);
-        el.addEventListener('focus', function () { showTip(el); });
-        el.addEventListener('blur', hideTip);
-    });
-})();
-</script>
-
-<script>
-/* Site-wide search (2026-09-23) + World Watch sort tabs and domain-filter chips (2026-09-24).
-   The World Watch controls are injected here (not hand-written into index.html) because that
-   panel's markup is auto-regenerated by tools/build_site_section.py between the WORLDWATCH:START/END
-   markers — anything hand-added inside that block would be wiped on the next regeneration. Injecting
-   it at runtime means it survives regeneration automatically, since it only depends on the stable
-   .section-content > ul.sermon-list structure the generator always produces. */
-(function () {
-
-    // ---- World Watch: Year / A-Z sort ----
-    var wwContent = document.querySelector('#section-worldwatch .section-content');
-    var wwList = wwContent && wwContent.querySelector('ul.sermon-list');
-    if (wwList) {
-        // 2026-09-25, his call, settled after four rounds: dropped the category-scoped ALL
-        // button that used to toggle year+sermon info -- that's now always visible on every
-        // line (see .ww-meta in style.css), so there's nothing left for a toggle to do here.
-
-        var toggle = document.createElement('div');
-        toggle.className = 'sort-toggle';
-        toggle.setAttribute('role', 'group');
-        toggle.setAttribute('aria-label', 'Sort World Watches cases');
-        toggle.innerHTML =
-            '<button type="button" class="sort-btn active" data-sort="year">按年份 Year</button>' +
-            '<button type="button" class="sort-btn" data-sort="az">按字母 A–Z</button>';
-        wwList.parentNode.insertBefore(toggle, wwList);
-
-        var wwYear = function (li) {
-            var m = li.textContent.match(/\d{4}/);
-            return m ? +m[0] : 0;
-        };
-        var wwLabel = function (li) {
-            // The button says "A-Z", so sort by the case's English name (the parenthetical text,
-            // e.g. "Hansen" from "（Hansen 1988）") — sorting by the Chinese zh-term instead was the
-            // actual bug here: localeCompare on Chinese text doesn't produce a Latin-alphabet order,
-            // so a button labelled "A-Z" was silently sorting by something else entirely.
-            var m = li.textContent.match(/[（(]([^）)]+)[）)]/);
-            return m ? m[1] : li.textContent;
-        };
-        var sortWW = function (mode) {
-            var rows = Array.prototype.slice.call(wwList.children).filter(function (li) { return li.tagName === 'LI'; });
-            rows.sort(function (a, b) {
-                return mode === 'az' ? wwLabel(a).localeCompare(wwLabel(b)) : wwYear(b) - wwYear(a);
-            });
-            rows.forEach(function (li) { wwList.appendChild(li); });
-        };
-        Array.prototype.forEach.call(toggle.querySelectorAll('.sort-btn'), function (b) {
-            b.addEventListener('click', function () {
-                Array.prototype.forEach.call(toggle.querySelectorAll('.sort-btn'), function (x) { x.classList.remove('active'); });
-                b.classList.add('active');
-                sortWW(b.getAttribute('data-sort'));
-            });
-        });
-        sortWW('year');
-
-        // ---- World Watch: domain-tag filter chips ----
-        // Reads distinct domain categories straight from each case's own .domain-tag text, so this
-        // stays correct automatically as more cases (and domains) get added by the generator.
-        var domains = [];
-        Array.prototype.forEach.call(wwList.querySelectorAll('.domain-tag'), function (el) {
-            var t = el.textContent.trim();
-            if (t && domains.indexOf(t) === -1) domains.push(t);
-        });
-        if (domains.length > 1) {
-            var chipRow = document.createElement('div');
-            chipRow.className = 'domain-chip-row';
-            chipRow.setAttribute('role', 'group');
-            chipRow.setAttribute('aria-label', 'Filter World Watches cases by domain');
-            domains.forEach(function (d) {
-                var chip = document.createElement('button');
-                chip.type = 'button';
-                chip.className = 'domain-chip';
-                chip.textContent = d;
-                chip.dataset.domain = d;
-                chip.addEventListener('click', function () {
-                    chip.classList.toggle('active');
-                    Array.prototype.forEach.call(wwList.children, function (li) {
-                        if (li.tagName !== 'LI') return;
-                        var tag = li.querySelector('.domain-tag');
-                        var active = chipRow.querySelectorAll('.domain-chip.active');
-                        if (active.length === 0) { li.classList.remove('domain-hide'); return; }
-                        var activeDomains = Array.prototype.map.call(active, function (c) { return c.dataset.domain; });
-                        var d2 = tag ? tag.textContent.trim() : '';
-                        li.classList.toggle('domain-hide', activeDomains.indexOf(d2) === -1);
-                    });
-                    if (typeof window.__siteSearchRefresh === 'function') window.__siteSearchRefresh();
-                });
-                chipRow.appendChild(chip);
-            });
-            wwList.parentNode.insertBefore(chipRow, wwList);
-        }
-    }
-
-    // ---- Biblical Studies & Word/Theme Studies: static domain-chip filtering (2026-09-25,
-    // his call: simplified both sections the same way as World Watches -- show only items that
-    // actually have a study, flat, with the full taxonomy's chips always shown (unlike World
-    // Watches' chips, which are only built from domains actually present) so the full 9-section
-    // / 10-domain structure stays visible even where nothing is filed under it yet. Each item
-    // carries data-domain; clicking a chip filters by exact match against that. ----
-    ['section-biblical', 'section-words'].forEach(function (sectionId) {
-        var section = document.getElementById(sectionId);
-        if (!section) return;
-        var list = section.querySelector('.section-content > ul.sermon-list');
-        var chipRow = section.querySelector('.domain-chip-row');
-        if (!list || !chipRow) return;
-        Array.prototype.forEach.call(chipRow.querySelectorAll('.domain-chip'), function (chip) {
-            chip.addEventListener('click', function () {
-                chip.classList.toggle('active');
-                var active = chipRow.querySelectorAll('.domain-chip.active');
-                Array.prototype.forEach.call(list.children, function (li) {
-                    if (li.tagName !== 'LI') return;
-                    if (active.length === 0) { li.classList.remove('domain-hide'); return; }
-                    var activeDomains = Array.prototype.map.call(active, function (c) { return c.dataset.domain; });
-                    li.classList.toggle('domain-hide', activeDomains.indexOf(li.dataset.domain) === -1);
-                });
-                if (typeof window.__siteSearchRefresh === 'function') window.__siteSearchRefresh();
-            });
-        });
-    });
-
-    // ---- "ALL" button (top-level): expand every top-level category + their nested
-    // sub-categories. ----
-    (function () {
-        var btn = document.getElementById('toggleAllBtn');
-        if (!btn) return;
-        btn.addEventListener('click', function () {
-            var all = Array.prototype.slice.call(document.querySelectorAll('main details'));
-            var everyOpen = all.every(function (d) { return d.hasAttribute('open'); });
-            all.forEach(function (d) {
-                if (everyOpen) d.removeAttribute('open'); else d.setAttribute('open', '');
-            });
-            btn.setAttribute('aria-pressed', everyOpen ? 'false' : 'true');
-            if (!everyOpen) {
-                // 2026-09-25, his catch: expanding (the "100%" state) needs to be a genuine
-                // fresh start -- a domain-chip filter left active anywhere on the page (World
-                // Watches, Biblical Studies, or Word/Theme Studies) was surviving the ALL
-                // button's collapse/expand cycle, leaving some items hidden ("totally gone")
-                // even though their <details> had reopened. Clearing every active chip +
-                // domain-hide class site-wide fixes that.
-                document.querySelectorAll('.domain-chip.active').forEach(function (c) { c.classList.remove('active'); });
-                document.querySelectorAll('.domain-hide').forEach(function (el) { el.classList.remove('domain-hide'); });
-                if (typeof window.__siteSearchRefresh === 'function') window.__siteSearchRefresh();
-            }
-        });
-    })();
-
-    // ---- Global free-text search across every category panel ----
-    var input = document.getElementById('siteSearchInput');
-    var clearBtn = document.getElementById('siteSearchClear');
-    var status = document.getElementById('siteSearchStatus');
-    if (!input) return;
-
-    var items = Array.prototype.slice.call(document.querySelectorAll('main .sermon-line'));
-    var openState = new WeakMap();
-    document.querySelectorAll('main details').forEach(function (d) { openState.set(d, d.hasAttribute('open')); });
-
-    function haystack(li) {
-        if (li.__hay) return li.__hay;
-        // Deliberately does NOT pull in any ancestor group's summary/tooltip: group tooltips
-        // are aggregate summaries covering every child at once (e.g. "信仰與生活" lists Hebrews,
-        // Romans, Ephesians, Matthew and Psalms all in one string) -- including that text would
-        // make every sibling match every other sibling's book name. If an item needs to be
-        // findable by a name that isn't in its own visible text, add that name to the item's
-        // OWN data-tip instead (see the Repent word study's "Matthew" fix, 2026-09-24) rather
-        // than widening this function's scope again.
-        var parts = [li.textContent];
-        li.querySelectorAll('[data-tip]').forEach(function (el) { parts.push(el.getAttribute('data-tip') || ''); });
-        var hay = parts.join(' ').toLowerCase();
-        li.__hay = hay;
-        return hay;
-    }
-
-    // A row counts as visible only once BOTH the free-text search and the domain-chip filters
-    // (independent filters, combined with AND) agree it should show.
-    function isVisible(li) {
-        return !li.classList.contains('search-hide') && !li.classList.contains('domain-hide');
-    }
-
-    // Used only to decide whether a category BANNER (the .study-card / nested <details> itself)
-    // collapses out of view. Deliberately ignores domain-hide (his call, 2026-09-25): a domain-chip
-    // filter narrowing a category down to zero visible cases should still leave that category's
-    // banner on screen, just with nothing listed under it -- only the free-text search is allowed
-    // to collapse the banner itself.
-    function isSearchVisible(li) {
-        return !li.classList.contains('search-hide');
-    }
-
-    function restoreOpenState() {
-        document.querySelectorAll('main details').forEach(function (d) {
-            if (openState.get(d)) d.setAttribute('open', ''); else d.removeAttribute('open');
-        });
-    }
-
-    function updateSectionVisibility(q) {
-        document.querySelectorAll('main .study-card').forEach(function (section) {
-            var lines = section.querySelectorAll('.sermon-line');
-            if (lines.length === 0) { section.classList.remove('search-hide'); return; }
-
-            var anyVisible = Array.prototype.some.call(lines, isSearchVisible);
-            section.classList.toggle('search-hide', !anyVisible);
-
-            if (anyVisible && q) {
-                var topDetails = section.querySelector(':scope > details');
-                if (topDetails) topDetails.setAttribute('open', '');
-            }
-
-            section.querySelectorAll('details').forEach(function (d) {
-                // A case's own inline-preview <details> (World Watches, 2026-09-25) isn't a
-                // category group -- it's the leaf item itself, and its parent .sermon-line <li>
-                // already gets shown/hidden by the match logic above. Skip it here, or the
-                // "empty category, hide while searching" rule below would wrongly hide every
-                // matching case's expand toggle during a search.
-                if (d.classList.contains('ww-details')) return;
-                var dLines = d.querySelectorAll('.sermon-line');
-                // Category-only groups (no studies yet) have nothing to match: hide them while searching.
-                if (dLines.length === 0) { d.classList.toggle('search-hide', !!q); return; }
-                var dVisible = Array.prototype.some.call(dLines, isSearchVisible);
-                d.classList.toggle('search-hide', !dVisible);
-                if (q) { if (dVisible) d.setAttribute('open', ''); else d.removeAttribute('open'); }
-            });
-        });
-    }
-
-    function runSearch() {
-        var q = input.value.trim().toLowerCase();
-        clearBtn.hidden = !q;
-
-        if (!q) {
-            items.forEach(function (li) { li.classList.remove('search-hide'); });
-            document.querySelectorAll('main .search-hide').forEach(function (el) { el.classList.remove('search-hide'); });
-            restoreOpenState();
-            updateSectionVisibility('');
-            status.textContent = '';
-            return;
-        }
-
-        var matchCount = 0;
-        items.forEach(function (li) {
-            var hit = haystack(li).indexOf(q) !== -1;
-            li.classList.toggle('search-hide', !hit);
-            if (hit && !li.classList.contains('domain-hide')) matchCount++;
-        });
-
-        updateSectionVisibility(q);
-
-        status.textContent = matchCount === 0
-            ? '沒有符合的項目 No matches found'
-            : matchCount + ' 項符合 ' + matchCount + ' match' + (matchCount === 1 ? '' : 'es');
-    }
-
-    // Exposed so the World Watch domain chips (defined earlier in this same script) can ask the
-    // section-visibility bubble-up to re-run after they change .domain-hide on their own rows.
-    window.__siteSearchRefresh = function () { updateSectionVisibility(input.value.trim()); };
-
-    // ---- Recent searches (2026-09-24) — this device/browser only, via localStorage. No backend:
-    // this is a fully static site, so there's no way to see what other visitors search for, and
-    // this history doesn't sync across his own devices either — each browser builds its own list. ----
-    var HIST_KEY = 'sauchilee_search_history';
-    var HIST_MAX = 20;
-    var histEl = document.getElementById('siteSearchHistory');
-
-    function loadHistory() {
-        try {
-            var raw = localStorage.getItem(HIST_KEY);
-            var arr = raw ? JSON.parse(raw) : [];
-            return Array.isArray(arr) ? arr : [];
-        } catch (e) { return []; }
-    }
-
-    function saveHistory(arr) {
-        try { localStorage.setItem(HIST_KEY, JSON.stringify(arr.slice(0, HIST_MAX))); } catch (e) { /* private window, storage blocked, etc — fine to no-op */ }
-    }
-
-    function addToHistory(q) {
-        q = q.trim();
-        if (!q) return;
-        var arr = loadHistory().filter(function (x) { return x.toLowerCase() !== q.toLowerCase(); });
-        arr.unshift(q);
-        saveHistory(arr);
-    }
-
-    function renderHistory() {
-        if (!histEl) return;
-        var arr = loadHistory();
-        if (!arr.length) { histEl.hidden = true; histEl.innerHTML = ''; return; }
-        histEl.innerHTML = arr.map(function (q) {
-            var esc = q.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-            return '<li><button type="button" class="site-search-history-item" data-q="' + esc + '">' + esc + '</button></li>';
-        }).join('');
-        histEl.hidden = false;
-    }
-
-    function hideHistory() { if (histEl) histEl.hidden = true; }
-
-    if (histEl) {
-        histEl.addEventListener('mousedown', function (e) {
-            // mousedown (not click) so this fires before the input's own blur hides the list
-            var btn = e.target.closest('.site-search-history-item');
-            if (!btn) return;
-            input.value = btn.getAttribute('data-q');
-            runSearch();
-            addToHistory(input.value);
-            hideHistory();
-        });
-    }
-
-    // Commit-on-blur alone missed most real searches: typing several different queries in a row
-    // without ever clicking away only saved whichever one happened to be in the box at the very
-    // end. Debounce a commit ~900ms after typing pauses too, so each distinct search a person
-    // actually stops to look at gets captured, not just the last one before they leave the box.
-    var histCommitTimer = null;
-
-    input.addEventListener('focus', function () {
-        if (!input.value.trim()) renderHistory();
-    });
-    input.addEventListener('blur', function () {
-        if (histCommitTimer) { clearTimeout(histCommitTimer); histCommitTimer = null; }
-        if (input.value.trim()) addToHistory(input.value);
-        setTimeout(hideHistory, 150); // delay so the history item's mousedown above still lands
-    });
-
-    input.addEventListener('input', function () {
-        hideHistory();
-        runSearch();
-        if (histCommitTimer) clearTimeout(histCommitTimer);
-        var q = input.value;
-        if (q.trim()) {
-            histCommitTimer = setTimeout(function () { addToHistory(q); histCommitTimer = null; }, 900);
-        }
-    });
-    input.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') { input.value = ''; runSearch(); input.blur(); }
-    });
-    clearBtn.addEventListener('click', function () { input.value = ''; runSearch(); input.focus(); });
-
-    // Clicking a hero preview tile means "show me this category" — if an active search filter
-    // has that category hidden (zero matches), the #section-X anchor jump would silently land on
-    // a display:none element and look like nothing happened. Clear the filter first so the target
-    // section is guaranteed visible before the browser's own anchor-scroll runs.
-    document.querySelectorAll('.preview-item[href^="#"]').forEach(function (a) {
-        a.addEventListener('click', function () {
-            if (input.value.trim()) { input.value = ''; runSearch(); }
-        });
-    });
-})();
-</script>
-
 </body>
-
 </html>
