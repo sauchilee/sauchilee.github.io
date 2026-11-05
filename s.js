@@ -120,3 +120,9 @@ LS.viewer=function(){var M=document.getElementById('M');LS.langInit();LS.pairs(d
  M.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var h=a.getAttribute('href').slice(1);if(/^i[0-9a-f]{10}/.test(h))return;
   e.preventDefault();var t=document.getElementById(decodeURIComponent(h));if(t)t.scrollIntoView()});
  LS.search(document.getElementById('q'),document.getElementById('qr'),'')};
+// the small free counter (job viewers; his word 5 Nov 09:30: "You can add a small free counter to the public page"). No cookie: only which of the three pages, and whether this browser is new today. Never a test browser, never localhost.
+(function(){try{var q=location.search;if(/[?&]nocount=1/.test(q))localStorage.setItem('ls-nocount','1');if(/[?&]nocount=0/.test(q))localStorage.removeItem('ls-nocount');
+if(navigator.webdriver||/HeadlessChrome/.test(navigator.userAgent)||location.protocol!=='https:'||localStorage.getItem('ls-nocount')||!navigator.sendBeacon)return;
+var f=location.pathname.split('/').pop(),p=(!f||f==='index.html')?'home':f==='overview.html'?'overview':f==='v.html'?'viewer':'';if(!p)return;
+var d=new Date(Date.now()-288e5).toISOString().slice(0,10),v=0;if(localStorage.getItem('ls-seen')!==d){localStorage.setItem('ls-seen',d);v=1}
+navigator.sendBeacon('https://ls-count.lampstand.workers.dev/hit?p='+p+'&v='+v)}catch(e){}})();
