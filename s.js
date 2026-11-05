@@ -81,7 +81,7 @@ LS.langHome=function(){var mode=LS.langPage();document.querySelectorAll('.card .
  LS.collar()};
 LS.viewer=function(){var M=document.getElementById('M');LS.langInit();LS.pairs(document.querySelector('.vt'),LS.lang());
  var P=document.getElementById('pills');
- P.innerHTML=Object.keys(LS.B).map(function(n){var b=LS.B[n],t=n+' '+b.zh+' '+b.en;return b.id?'<a href="#i'+b.id+'" data-b="'+n+'" style="--c:'+b.col+'" title="'+t+'">'+n+'</a>':'<span class="dk" title="'+t+'">'+n+'</span>'}).join('');
+ P.innerHTML=Object.keys(LS.B).map(function(n){var b=LS.B[n],t=n+' '+b.zh+' '+b.en;var nm='<span class="bn"><span class="bz">'+b.zh+'</span><span class="be">'+b.en+'</span></span>';return b.id?'<a href="#i'+b.id+'" data-b="'+n+'" style="--c:'+b.col+'" title="'+t+'"><b>'+n+'</b>'+nm+'</a>':'<span class="dk" title="'+t+'"><b>'+n+'</b>'+nm+'</span>'}).join('');
  function acr(el){var n=+el.dataset.b;var b=LS.B[n];if(!b){el.innerHTML='<a href="index.html">↑ 燈臺 The Lampstand</a>';return}var o=[];
   if(b.partner)o.push(['同一球的另一枝 The other branch on this knop',b.partner]);if(n!==1)o.push(['幹，也是根 The shaft and root',1]);if(n!==10)o.push(['織入每一枝 Woven into every branch',10]);
   var d=el.closest('details');o=o.filter(function(a){return (LS.B[a[1]]||{}).id});if(d&&!o.length){d.hidden=true;return}el.innerHTML=o.filter(function(a,i){return o.findIndex(function(z){return z[1]===a[1]})===i}).map(function(a){var x=LS.B[a[1]];return '<a href="#i'+x.id+'" title="'+a[0]+'"><span class="ch" style="--c:'+x.col+'">'+a[1]+'</span>'+x.zh+' '+x.en+'</a>'}).join('')}
