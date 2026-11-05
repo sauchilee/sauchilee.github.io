@@ -364,7 +364,17 @@ function openSup(id){
   $('#sup .rf').textContent = t.ref; $('#suptext').innerHTML = t.html; $('#supnote').textContent = t.note || '';
   $('#sup').classList.add('on');
   slides[cur].querySelectorAll('.tag').forEach(b => b.classList.toggle('open', b.dataset.tag === id));
-  fitEl($('#supbox'), $('#suptext'), 60, 22);
+  placeSup(); fitEl($('#supbox'), $('#suptext'), 60, 22);
+}
+/* the frame stands just above this slide's verse buttons, so each stays in reach and a click swaps the verse (his words 5 Nov 08:47-08:48); measured at each opening, slides differ */
+function placeSup(){
+  const f = $('#sup'), R = $('#right'), bs = [...slides[cur].querySelectorAll('.tag')].map(c => c.getBoundingClientRect());
+  f.style.top = f.style.bottom = f.style.maxHeight = '';
+  if (!bs.length) return;
+  const a = R.getBoundingClientRect(), z = a.height / R.offsetHeight || 1, H = R.offsetHeight;
+  const up = (Math.min(...bs.map(b => b.top)) - a.top) / z, down = (a.bottom - Math.max(...bs.map(b => b.bottom))) / z, gap = 14;
+  if (up >= down) { f.style.bottom = (H - up + gap) + 'px'; f.style.maxHeight = Math.min(.72 * H, up - gap - 16) + 'px'; }
+  else { f.style.top = (H - down + gap) + 'px'; f.style.bottom = 'auto'; f.style.maxHeight = Math.min(.72 * H, down - gap - 96) + 'px'; }
 }
 function closeSup(){
   supId = null; $('#sup').classList.remove('on');
