@@ -49,8 +49,9 @@ LS.flipT=function(t,mode){var m=/^((?:↪ *)?(?:[0-9][0-9][0-9][0-9]-[0-9][0-9]-
  var bar=/^([^|㐀-鿿]+) [|] ([^|]*[㐀-鿿][^|]*)$/.exec(m[2]);if(bar)return m[1]+(mode==='zh'?bar[2]:mode==='en'?bar[1]:mode==='ez'?bar[1]+' '+bar[2]:bar[2]+' '+bar[1]);
  return m[1]+m[2].split(/( - | – | — | · )/).map(function(seg,i){if(i%2)return seg;
   var tail='',p=/ *(?:[(（][^()（）]*[)）]|[.][a-zA-Z0-9]{1,5}) *$/.exec(seg);if(p&&p.index>0){tail=p[0];seg=seg.slice(0,p.index)}
-  var zh=[],la=[];seg.split(/([㐀-鿿豈-﫿　-〿・＀-￯]+(?: +[㐀-鿿豈-﫿　-〿・＀-￯]+)*)/).forEach(function(r,j){r=r.trim();if(r)(j%2?zh:la).push(r)});
+  var zh=[],la=[],parts=seg.split(/([㐀-鿿豈-﫿　-〿・＀-￯]+(?: +[㐀-鿿豈-﫿　-〿・＀-￯]+)*)/);parts.forEach(function(r,j){r=r.trim();if(r)(j%2?zh:la).push(r)});
   if(!zh.length||!la.length||!/[A-Za-z]/.test(la.join('')))return seg+tail;
+  var pre=parts[0].trim();if(pre&&!/ /.test(pre)&&la.length>1){var rest=la.slice(1);zh=[pre].concat(zh);la=rest[0].indexOf(pre)===0?rest:[pre].concat(rest)}   // 5 Nov 14:4x (my mistake): "YouTube 頻道 YouTube channels" showed as 頻道 alone in 中文 and he could not find it: a one-word name before the Chinese belongs to both languages
   return (mode==='zh'?zh:mode==='en'?la:mode==='ez'?la.concat(zh):zh.concat(la)).join(' ')+tail}).join('')};
 LS.pairs=function(root,mode){if(!root||mode==='ze')return;root.querySelectorAll('[lang=en]').forEach(function(x){if(x.closest('.lgskip'))return;
  var br=null,p=x.previousSibling,z=null;while(p&&p.nodeType===3&&!p.nodeValue.trim())p=p.previousSibling;if(p&&p.nodeName==='BR'){br=p;p=p.previousSibling}
