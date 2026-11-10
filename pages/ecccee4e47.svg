@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="1514" viewBox="0 0 680 1514" role="img" aria-label="today 今日 — by book">
+<style>
+.t{font:600 15px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.s{font:12px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#52514e}
+.l{font:13px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.v{font:12px system-ui,-apple-system,sans-serif;fill:#52514e;font-variant-numeric:tabular-nums}
+.b{fill:#2a78d6}.g{stroke:#e1e0d9;stroke-width:1}.a{stroke:#c3c2b7;stroke-width:1}.bg{fill:#fcfcfb}
+@media (prefers-color-scheme:dark){.t,.l{fill:#f0efec}.s,.v{fill:#c3c2b7}.b{fill:#3987e5}.g{stroke:#2c2c2a}.a{stroke:#383835}.bg{fill:#1a1a19}}
+</style>
+<rect class="bg" x="0" y="0" width="680" height="1514" rx="8"/>
+<text class="t" x="14" y="26">today 今日 — by book</text>
+<text class="s" x="14" y="62">Hebrew day יוֹם: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="72" x2="190" y2="813"/>
+<text class="l" x="182" y="86.0" text-anchor="end">Gen</text>
+<rect class="b" x="190" y="74" width="69.1" height="15" rx="3"/>
+<text class="v" x="265.1" y="85.5">52.9 (152)</text>
+<text class="l" x="182" y="105.0" text-anchor="end">Exod</text>
+<rect class="b" x="190" y="93" width="63.3" height="15" rx="3"/>
+<text class="v" x="259.3" y="104.5">48.4 (115)</text>
+<text class="l" x="182" y="124.0" text-anchor="end">Lev</text>
+<rect class="b" x="190" y="112" width="86.4" height="15" rx="3"/>
+<text class="v" x="282.4" y="123.5">66.1 (113)</text>
+<text class="l" x="182" y="143.0" text-anchor="end">Num</text>
+<rect class="b" x="190" y="131" width="68.2" height="15" rx="3"/>
+<text class="v" x="264.2" y="142.5">52.2 (121)</text>
+<text class="l" x="182" y="162.0" text-anchor="end">Deut ★</text>
+<rect class="b" x="190" y="150" width="108.4" height="15" rx="3"/>
+<text class="v" x="304.4" y="161.5">83.0 (167)</text>
+<text class="l" x="182" y="181.0" text-anchor="end">Josh</text>
+<rect class="b" x="190" y="169" width="70.2" height="15" rx="3"/>
+<text class="v" x="266.2" y="180.5">53.7 (78)</text>
+<text class="l" x="182" y="200.0" text-anchor="end">Judg</text>
+<rect class="b" x="190" y="188" width="69.6" height="15" rx="3"/>
+<text class="v" x="265.6" y="199.5">53.2 (75)</text>
+<text class="l" x="182" y="219.0" text-anchor="end">Ruth</text>
+<rect class="b" x="190" y="207" width="58.0" height="15" rx="3"/>
+<text class="v" x="254.0" y="218.5">44.4 (8)</text>
+<text class="l" x="182" y="238.0" text-anchor="end">1 Sam ★</text>
+<rect class="b" x="190" y="226" width="103.5" height="15" rx="3"/>
+<text class="v" x="299.5" y="237.5">79.2 (150)</text>
+<text class="l" x="182" y="257.0" text-anchor="end">2 Sam</text>
+<rect class="b" x="190" y="245" width="62.8" height="15" rx="3"/>
+<text class="v" x="258.8" y="256.5">48.0 (75)</text>
+<text class="l" x="182" y="276.0" text-anchor="end">1 Kgs</text>
+<rect class="b" x="190" y="264" width="69.9" height="15" rx="3"/>
+<text class="v" x="265.9" y="275.5">53.5 (100)</text>
+<text class="l" x="182" y="295.0" text-anchor="end">2 Kgs</text>
+<rect class="b" x="190" y="283" width="59.6" height="15" rx="3"/>
+<text class="v" x="255.6" y="294.5">45.6 (79)</text>
+<text class="l" x="182" y="314.0" text-anchor="end">1 Chr</text>
+<rect class="b" x="190" y="302" width="34.4" height="15" rx="3"/>
+<text class="v" x="230.4" y="313.5">26.4 (41)</text>
+<text class="l" x="182" y="333.0" text-anchor="end">2 Chr</text>
+<rect class="b" x="190" y="321" width="49.6" height="15" rx="3"/>
+<text class="v" x="245.6" y="332.5">38.0 (75)</text>
+<text class="l" x="182" y="352.0" text-anchor="end">Ezra</text>
+<rect class="b" x="190" y="340" width="52.1" height="15" rx="3"/>
+<text class="v" x="248.1" y="351.5">39.9 (21)</text>
+<text class="l" x="182" y="371.0" text-anchor="end">Neh</text>
+<rect class="b" x="190" y="359" width="100.0" height="15" rx="3"/>
+<text class="v" x="296.0" y="370.5">76.5 (60)</text>
+<text class="l" x="182" y="390.0" text-anchor="end">Esth ★</text>
+<rect class="b" x="190" y="378" width="149.9" height="15" rx="3"/>
+<text class="v" x="345.9" y="389.5">114.7 (53)</text>
+<text class="l" x="182" y="409.0" text-anchor="end">Job</text>
+<rect class="b" x="190" y="397" width="70.7" height="15" rx="3"/>
+<text class="v" x="266.7" y="408.5">54.1 (59)</text>
+<text class="l" x="182" y="428.0" text-anchor="end">Ps</text>
+<rect class="b" x="190" y="416" width="59.2" height="15" rx="3"/>
+<text class="v" x="255.2" y="427.5">45.3 (115)</text>
+<text class="l" x="182" y="447.0" text-anchor="end">Prov</text>
+<rect class="b" x="190" y="435" width="47.2" height="15" rx="3"/>
+<text class="v" x="243.2" y="446.5">36.1 (32)</text>
+<text class="l" x="182" y="466.0" text-anchor="end">Eccl</text>
+<rect class="b" x="190" y="454" width="83.3" height="15" rx="3"/>
+<text class="v" x="279.3" y="465.5">63.8 (27)</text>
+<text class="l" x="182" y="485.0" text-anchor="end">Song</text>
+<rect class="b" x="190" y="473" width="38.8" height="15" rx="3"/>
+<text class="v" x="234.8" y="484.5">29.7 (5)</text>
+<text class="l" x="182" y="504.0" text-anchor="end">Isa</text>
+<rect class="b" x="190" y="492" width="68.4" height="15" rx="3"/>
+<text class="v" x="264.4" y="503.5">52.3 (120)</text>
+<text class="l" x="182" y="523.0" text-anchor="end">Jer</text>
+<rect class="b" x="190" y="511" width="60.2" height="15" rx="3"/>
+<text class="v" x="256.2" y="522.5">46.1 (137)</text>
+<text class="l" x="182" y="542.0" text-anchor="end">Lam</text>
+<rect class="b" x="190" y="530" width="127.6" height="15" rx="3"/>
+<text class="v" x="323.6" y="541.5">97.7 (19)</text>
+<text class="l" x="182" y="561.0" text-anchor="end">Ezek</text>
+<rect class="b" x="190" y="549" width="53.9" height="15" rx="3"/>
+<text class="v" x="249.9" y="560.5">41.2 (108)</text>
+<text class="l" x="182" y="580.0" text-anchor="end">Dan</text>
+<rect class="b" x="190" y="568" width="37.2" height="15" rx="3"/>
+<text class="v" x="233.2" y="579.5">28.5 (23)</text>
+<text class="l" x="182" y="599.0" text-anchor="end">Hos</text>
+<rect class="b" x="190" y="587" width="116.3" height="15" rx="3"/>
+<text class="v" x="312.3" y="598.5">89.0 (28)</text>
+<text class="l" x="182" y="618.0" text-anchor="end">Joel</text>
+<rect class="b" x="190" y="606" width="128.9" height="15" rx="3"/>
+<text class="v" x="324.9" y="617.5">98.6 (13)</text>
+<text class="l" x="182" y="637.0" text-anchor="end">Amos</text>
+<rect class="b" x="190" y="625" width="103.4" height="15" rx="3"/>
+<text class="v" x="299.4" y="636.5">79.1 (22)</text>
+<text class="l" x="182" y="656.0" text-anchor="end">Obad ★</text>
+<rect class="b" x="190" y="644" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="655.5">306.1 (12)</text>
+<text class="l" x="182" y="675.0" text-anchor="end">Jonah</text>
+<rect class="b" x="190" y="663" width="53.1" height="15" rx="3"/>
+<text class="v" x="249.1" y="674.5">40.6 (4)</text>
+<text class="l" x="182" y="694.0" text-anchor="end">Mic</text>
+<rect class="b" x="190" y="682" width="96.5" height="15" rx="3"/>
+<text class="v" x="292.5" y="693.5">73.9 (14)</text>
+<text class="l" x="182" y="713.0" text-anchor="end">Nah</text>
+<rect class="b" x="190" y="701" width="70.1" height="15" rx="3"/>
+<text class="v" x="266.1" y="712.5">53.6 (4)</text>
+<text class="l" x="182" y="732.0" text-anchor="end">Hab</text>
+<rect class="b" x="190" y="720" width="29.1" height="15" rx="3"/>
+<text class="v" x="225.1" y="731.5">22.3 (2)</text>
+<text class="l" x="182" y="751.0" text-anchor="end">Zeph ★</text>
+<rect class="b" x="190" y="739" width="264.6" height="15" rx="3"/>
+<text class="v" x="460.6" y="750.5">202.5 (21)</text>
+<text class="l" x="182" y="770.0" text-anchor="end">Hag</text>
+<rect class="b" x="190" y="758" width="119.2" height="15" rx="3"/>
+<text class="v" x="315.2" y="769.5">91.2 (8)</text>
+<text class="l" x="182" y="789.0" text-anchor="end">Zech</text>
+<rect class="b" x="190" y="777" width="116.9" height="15" rx="3"/>
+<text class="v" x="312.9" y="788.5">89.5 (40)</text>
+<text class="l" x="182" y="808.0" text-anchor="end">Mal</text>
+<rect class="b" x="190" y="796" width="88.1" height="15" rx="3"/>
+<text class="v" x="284.1" y="807.5">67.4 (8)</text>
+<text class="s" x="14" y="843">Greek today σήμερον: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="853" x2="190" y2="1005"/>
+<text class="l" x="182" y="867.0" text-anchor="end">Matt</text>
+<rect class="b" x="190" y="855" width="108.0" height="15" rx="3"/>
+<text class="v" x="304.0" y="866.5">4.4 (8)</text>
+<text class="l" x="182" y="886.0" text-anchor="end">Mark</text>
+<rect class="b" x="190" y="874" width="21.8" height="15" rx="3"/>
+<text class="v" x="217.8" y="885.5">0.9 (1)</text>
+<text class="l" x="182" y="905.0" text-anchor="end">Luke</text>
+<rect class="b" x="190" y="893" width="139.9" height="15" rx="3"/>
+<text class="v" x="335.9" y="904.5">5.7 (11)</text>
+<text class="l" x="182" y="924.0" text-anchor="end">Acts</text>
+<rect class="b" x="190" y="912" width="120.9" height="15" rx="3"/>
+<text class="v" x="316.9" y="923.5">4.9 (9)</text>
+<text class="l" x="182" y="943.0" text-anchor="end">Rom</text>
+<rect class="b" x="190" y="931" width="34.9" height="15" rx="3"/>
+<text class="v" x="230.9" y="942.5">1.4 (1)</text>
+<text class="l" x="182" y="962.0" text-anchor="end">2 Cor</text>
+<rect class="b" x="190" y="950" width="110.7" height="15" rx="3"/>
+<text class="v" x="306.7" y="961.5">4.5 (2)</text>
+<text class="l" x="182" y="981.0" text-anchor="end">Heb ★</text>
+<rect class="b" x="190" y="969" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="980.5">16.1 (8)</text>
+<text class="l" x="182" y="1000.0" text-anchor="end">Jas</text>
+<rect class="b" x="190" y="988" width="141.9" height="15" rx="3"/>
+<text class="v" x="337.9" y="999.5">5.7 (1)</text>
+<text class="s" x="14" y="1035">Greek day ἡμέρα: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="1045" x2="190" y2="1482"/>
+<text class="l" x="182" y="1059.0" text-anchor="end">Matt</text>
+<rect class="b" x="190" y="1047" width="89.9" height="15" rx="3"/>
+<text class="v" x="285.9" y="1058.5">24.5 (45)</text>
+<text class="l" x="182" y="1078.0" text-anchor="end">Mark</text>
+<rect class="b" x="190" y="1066" width="87.5" height="15" rx="3"/>
+<text class="v" x="283.5" y="1077.5">23.9 (27)</text>
+<text class="l" x="182" y="1097.0" text-anchor="end">Luke ★</text>
+<rect class="b" x="190" y="1085" width="156.1" height="15" rx="3"/>
+<text class="v" x="352.1" y="1096.5">42.6 (83)</text>
+<text class="l" x="182" y="1116.0" text-anchor="end">John</text>
+<rect class="b" x="190" y="1104" width="72.6" height="15" rx="3"/>
+<text class="v" x="268.6" y="1115.5">19.8 (31)</text>
+<text class="l" x="182" y="1135.0" text-anchor="end">Acts ★</text>
+<rect class="b" x="190" y="1123" width="186.6" height="15" rx="3"/>
+<text class="v" x="382.6" y="1134.5">51.0 (94)</text>
+<text class="l" x="182" y="1154.0" text-anchor="end">Rom</text>
+<rect class="b" x="190" y="1142" width="56.7" height="15" rx="3"/>
+<text class="v" x="252.7" y="1153.5">15.5 (11)</text>
+<text class="l" x="182" y="1173.0" text-anchor="end">1 Cor</text>
+<rect class="b" x="190" y="1161" width="37.5" height="15" rx="3"/>
+<text class="v" x="233.5" y="1172.5">10.2 (7)</text>
+<text class="l" x="182" y="1192.0" text-anchor="end">2 Cor</text>
+<rect class="b" x="190" y="1180" width="57.3" height="15" rx="3"/>
+<text class="v" x="253.3" y="1191.5">15.6 (7)</text>
+<text class="l" x="182" y="1211.0" text-anchor="end">Gal</text>
+<rect class="b" x="190" y="1199" width="32.9" height="15" rx="3"/>
+<text class="v" x="228.9" y="1210.5">9.0 (2)</text>
+<text class="l" x="182" y="1230.0" text-anchor="end">Eph</text>
+<rect class="b" x="190" y="1218" width="45.4" height="15" rx="3"/>
+<text class="v" x="241.4" y="1229.5">12.4 (3)</text>
+<text class="l" x="182" y="1249.0" text-anchor="end">Phil</text>
+<rect class="b" x="190" y="1237" width="89.9" height="15" rx="3"/>
+<text class="v" x="285.9" y="1248.5">24.6 (4)</text>
+<text class="l" x="182" y="1268.0" text-anchor="end">Col</text>
+<rect class="b" x="190" y="1256" width="46.3" height="15" rx="3"/>
+<text class="v" x="242.3" y="1267.5">12.6 (2)</text>
+<text class="l" x="182" y="1287.0" text-anchor="end">1 Thess</text>
+<rect class="b" x="190" y="1275" width="148.4" height="15" rx="3"/>
+<text class="v" x="344.4" y="1286.5">40.5 (6)</text>
+<text class="l" x="182" y="1306.0" text-anchor="end">2 Thess</text>
+<rect class="b" x="190" y="1294" width="133.5" height="15" rx="3"/>
+<text class="v" x="329.5" y="1305.5">36.5 (3)</text>
+<text class="l" x="182" y="1325.0" text-anchor="end">1 Tim</text>
+<rect class="b" x="190" y="1313" width="23.0" height="15" rx="3"/>
+<text class="v" x="219.0" y="1324.5">6.3 (1)</text>
+<text class="l" x="182" y="1344.0" text-anchor="end">2 Tim</text>
+<rect class="b" x="190" y="1332" width="148.0" height="15" rx="3"/>
+<text class="v" x="344.0" y="1343.5">40.4 (5)</text>
+<text class="l" x="182" y="1363.0" text-anchor="end">Heb</text>
+<rect class="b" x="190" y="1351" width="133.1" height="15" rx="3"/>
+<text class="v" x="329.1" y="1362.5">36.3 (18)</text>
+<text class="l" x="182" y="1382.0" text-anchor="end">Jas</text>
+<rect class="b" x="190" y="1370" width="42.0" height="15" rx="3"/>
+<text class="v" x="238.0" y="1381.5">11.5 (2)</text>
+<text class="l" x="182" y="1401.0" text-anchor="end">1 Pet</text>
+<rect class="b" x="190" y="1389" width="65.5" height="15" rx="3"/>
+<text class="v" x="261.5" y="1400.5">17.9 (3)</text>
+<text class="l" x="182" y="1420.0" text-anchor="end">2 Pet ★</text>
+<rect class="b" x="190" y="1408" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="1419.5">109.2 (12)</text>
+<text class="l" x="182" y="1439.0" text-anchor="end">1 John</text>
+<rect class="b" x="190" y="1427" width="17.1" height="15" rx="3"/>
+<text class="v" x="213.1" y="1438.5">4.7 (1)</text>
+<text class="l" x="182" y="1458.0" text-anchor="end">Jude</text>
+<rect class="b" x="190" y="1446" width="80.0" height="15" rx="3"/>
+<text class="v" x="276.0" y="1457.5">21.8 (1)</text>
+<text class="l" x="182" y="1477.0" text-anchor="end">Rev</text>
+<rect class="b" x="190" y="1465" width="78.1" height="15" rx="3"/>
+<text class="v" x="274.1" y="1476.5">21.3 (21)</text>
+<text class="s" x="14" y="1504">★ = significantly more than the book size predicts (log-likelihood, p &lt; 0.001). Number in brackets = count.</text>
+</svg>

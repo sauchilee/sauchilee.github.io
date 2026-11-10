@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="355" viewBox="0 0 680 355" role="img" aria-label="archangel Michael 天使長、米迦勒 — by book">
+<style>
+.t{font:600 15px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.s{font:12px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#52514e}
+.l{font:13px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.v{font:12px system-ui,-apple-system,sans-serif;fill:#52514e;font-variant-numeric:tabular-nums}
+.b{fill:#2a78d6}.g{stroke:#e1e0d9;stroke-width:1}.a{stroke:#c3c2b7;stroke-width:1}.bg{fill:#fcfcfb}
+@media (prefers-color-scheme:dark){.t,.l{fill:#f0efec}.s,.v{fill:#c3c2b7}.b{fill:#3987e5}.g{stroke:#2c2c2a}.a{stroke:#383835}.bg{fill:#1a1a19}}
+</style>
+<rect class="bg" x="0" y="0" width="680" height="355" rx="8"/>
+<text class="t" x="14" y="26">archangel Michael 天使長、米迦勒 — by book</text>
+<text class="s" x="14" y="62">Hebrew Michael מִיכָאֵל: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="72" x2="190" y2="167"/>
+<text class="l" x="182" y="86.0" text-anchor="end">Num</text>
+<rect class="b" x="190" y="74" width="38.2" height="15" rx="3"/>
+<text class="v" x="234.2" y="85.5">0.4 (1)</text>
+<text class="l" x="182" y="105.0" text-anchor="end">1 Chr ★</text>
+<rect class="b" x="190" y="93" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="104.5">4.5 (7)</text>
+<text class="l" x="182" y="124.0" text-anchor="end">2 Chr</text>
+<rect class="b" x="190" y="112" width="45.3" height="15" rx="3"/>
+<text class="v" x="241.3" y="123.5">0.5 (1)</text>
+<text class="l" x="182" y="143.0" text-anchor="end">Ezra</text>
+<rect class="b" x="190" y="131" width="168.9" height="15" rx="3"/>
+<text class="v" x="364.9" y="142.5">1.9 (1)</text>
+<text class="l" x="182" y="162.0" text-anchor="end">Dan</text>
+<rect class="b" x="190" y="150" width="330.7" height="15" rx="3"/>
+<text class="v" x="526.7" y="161.5">3.7 (3)</text>
+<text class="s" x="14" y="197">Greek Michael Μιχαήλ: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="207" x2="190" y2="245"/>
+<text class="l" x="182" y="221.0" text-anchor="end">Jude</text>
+<rect class="b" x="190" y="209" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="220.5">21.8 (1)</text>
+<text class="l" x="182" y="240.0" text-anchor="end">Rev</text>
+<rect class="b" x="190" y="228" width="18.7" height="15" rx="3"/>
+<text class="v" x="214.7" y="239.5">1.0 (1)</text>
+<text class="s" x="14" y="275">Greek archangel ἀρχάγγελος: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="285" x2="190" y2="323"/>
+<text class="l" x="182" y="299.0" text-anchor="end">1 Thess</text>
+<rect class="b" x="190" y="287" width="123.7" height="15" rx="3"/>
+<text class="v" x="319.7" y="298.5">6.8 (1)</text>
+<text class="l" x="182" y="318.0" text-anchor="end">Jude</text>
+<rect class="b" x="190" y="306" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="317.5">21.8 (1)</text>
+<text class="s" x="14" y="345">★ = significantly more than the book size predicts (log-likelihood, p &lt; 0.001). Number in brackets = count.</text>
+</svg>

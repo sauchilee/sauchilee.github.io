@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="317" viewBox="0 0 680 317" role="img" aria-label="sons of God 神的眾子 — by book">
+<style>
+.t{font:600 15px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.s{font:12px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#52514e}
+.l{font:13px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.v{font:12px system-ui,-apple-system,sans-serif;fill:#52514e;font-variant-numeric:tabular-nums}
+.b{fill:#2a78d6}.g{stroke:#e1e0d9;stroke-width:1}.a{stroke:#c3c2b7;stroke-width:1}.bg{fill:#fcfcfb}
+@media (prefers-color-scheme:dark){.t,.l{fill:#f0efec}.s,.v{fill:#c3c2b7}.b{fill:#3987e5}.g{stroke:#2c2c2a}.a{stroke:#383835}.bg{fill:#1a1a19}}
+</style>
+<rect class="bg" x="0" y="0" width="680" height="317" rx="8"/>
+<text class="t" x="14" y="26">sons of God 神的眾子 — by book</text>
+<text class="s" x="14" y="62">sons-of-God Aramaic בַּר: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="72" x2="190" y2="110"/>
+<text class="l" x="182" y="86.0" text-anchor="end">Ezra ★</text>
+<rect class="b" x="190" y="74" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="85.5">7.6 (4)</text>
+<text class="l" x="182" y="105.0" text-anchor="end">Dan ★</text>
+<rect class="b" x="190" y="93" width="261.4" height="15" rx="3"/>
+<text class="v" x="457.4" y="104.5">5.0 (4)</text>
+<text class="s" x="14" y="140">Hebrew Nephilim נְפִיל: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="150" x2="190" y2="188"/>
+<text class="l" x="182" y="164.0" text-anchor="end">Gen</text>
+<rect class="b" x="190" y="152" width="162.8" height="15" rx="3"/>
+<text class="v" x="358.8" y="163.5">0.3 (1)</text>
+<text class="l" x="182" y="183.0" text-anchor="end">Num</text>
+<rect class="b" x="190" y="171" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="182.5">0.9 (2)</text>
+<text class="s" x="14" y="218">Greek adoption υἱοθεσία: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="228" x2="190" y2="285"/>
+<text class="l" x="182" y="242.0" text-anchor="end">Rom ★</text>
+<rect class="b" x="190" y="230" width="376.8" height="15" rx="3"/>
+<text class="v" x="572.8" y="241.5">4.2 (3)</text>
+<text class="l" x="182" y="261.0" text-anchor="end">Gal</text>
+<rect class="b" x="190" y="249" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="260.5">4.5 (1)</text>
+<text class="l" x="182" y="280.0" text-anchor="end">Eph</text>
+<rect class="b" x="190" y="268" width="368.7" height="15" rx="3"/>
+<text class="v" x="564.8" y="279.5">4.1 (1)</text>
+<text class="s" x="14" y="307">★ = significantly more than the book size predicts (log-likelihood, p &lt; 0.001). Number in brackets = count.</text>
+</svg>

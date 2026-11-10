@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="1478" viewBox="0 0 680 1478" role="img" aria-label="rest 安息 — by book">
+<style>
+.t{font:600 15px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.s{font:12px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#52514e}
+.l{font:13px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.v{font:12px system-ui,-apple-system,sans-serif;fill:#52514e;font-variant-numeric:tabular-nums}
+.b{fill:#2a78d6}.g{stroke:#e1e0d9;stroke-width:1}.a{stroke:#c3c2b7;stroke-width:1}.bg{fill:#fcfcfb}
+@media (prefers-color-scheme:dark){.t,.l{fill:#f0efec}.s,.v{fill:#c3c2b7}.b{fill:#3987e5}.g{stroke:#2c2c2a}.a{stroke:#383835}.bg{fill:#1a1a19}}
+</style>
+<rect class="bg" x="0" y="0" width="680" height="1478" rx="8"/>
+<text class="t" x="14" y="26">rest 安息 — by book</text>
+<text class="s" x="14" y="62">Hebrew rest נוח: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="72" x2="190" y2="585"/>
+<text class="l" x="182" y="86.0" text-anchor="end">Gen</text>
+<rect class="b" x="190" y="74" width="25.1" height="15" rx="3"/>
+<text class="v" x="221.1" y="85.5">0.7 (2)</text>
+<text class="l" x="182" y="105.0" text-anchor="end">Exod</text>
+<rect class="b" x="190" y="93" width="75.7" height="15" rx="3"/>
+<text class="v" x="271.7" y="104.5">2.1 (5)</text>
+<text class="l" x="182" y="124.0" text-anchor="end">Num</text>
+<rect class="b" x="190" y="112" width="62.1" height="15" rx="3"/>
+<text class="v" x="258.1" y="123.5">1.7 (4)</text>
+<text class="l" x="182" y="143.0" text-anchor="end">Deut</text>
+<rect class="b" x="190" y="131" width="89.0" height="15" rx="3"/>
+<text class="v" x="285.0" y="142.5">2.5 (5)</text>
+<text class="l" x="182" y="162.0" text-anchor="end">Josh</text>
+<rect class="b" x="190" y="150" width="148.2" height="15" rx="3"/>
+<text class="v" x="344.2" y="161.5">4.1 (6)</text>
+<text class="l" x="182" y="181.0" text-anchor="end">Judg</text>
+<rect class="b" x="190" y="169" width="25.5" height="15" rx="3"/>
+<text class="v" x="221.5" y="180.5">0.7 (1)</text>
+<text class="l" x="182" y="200.0" text-anchor="end">Ruth</text>
+<rect class="b" x="190" y="188" width="199.1" height="15" rx="3"/>
+<text class="v" x="395.1" y="199.5">5.5 (1)</text>
+<text class="l" x="182" y="219.0" text-anchor="end">1 Sam</text>
+<rect class="b" x="190" y="207" width="19.0" height="15" rx="3"/>
+<text class="v" x="215.0" y="218.5">0.5 (1)</text>
+<text class="l" x="182" y="238.0" text-anchor="end">2 Sam</text>
+<rect class="b" x="190" y="226" width="114.8" height="15" rx="3"/>
+<text class="v" x="310.8" y="237.5">3.2 (5)</text>
+<text class="l" x="182" y="257.0" text-anchor="end">1 Kgs</text>
+<rect class="b" x="190" y="245" width="38.4" height="15" rx="3"/>
+<text class="v" x="234.4" y="256.5">1.1 (2)</text>
+<text class="l" x="182" y="276.0" text-anchor="end">2 Kgs</text>
+<rect class="b" x="190" y="264" width="20.8" height="15" rx="3"/>
+<text class="v" x="216.8" y="275.5">0.6 (1)</text>
+<text class="l" x="182" y="295.0" text-anchor="end">1 Chr</text>
+<rect class="b" x="190" y="283" width="115.2" height="15" rx="3"/>
+<text class="v" x="311.2" y="294.5">3.2 (5)</text>
+<text class="l" x="182" y="314.0" text-anchor="end">2 Chr</text>
+<rect class="b" x="190" y="302" width="72.5" height="15" rx="3"/>
+<text class="v" x="268.5" y="313.5">2.0 (4)</text>
+<text class="l" x="182" y="333.0" text-anchor="end">Neh</text>
+<rect class="b" x="190" y="321" width="45.9" height="15" rx="3"/>
+<text class="v" x="241.9" y="332.5">1.3 (1)</text>
+<text class="l" x="182" y="352.0" text-anchor="end">Esth</text>
+<rect class="b" x="190" y="340" width="232.8" height="15" rx="3"/>
+<text class="v" x="428.8" y="351.5">6.5 (3)</text>
+<text class="l" x="182" y="371.0" text-anchor="end">Job</text>
+<rect class="b" x="190" y="359" width="98.7" height="15" rx="3"/>
+<text class="v" x="294.7" y="370.5">2.8 (3)</text>
+<text class="l" x="182" y="390.0" text-anchor="end">Ps</text>
+<rect class="b" x="190" y="378" width="84.7" height="15" rx="3"/>
+<text class="v" x="280.7" y="389.5">2.4 (6)</text>
+<text class="l" x="182" y="409.0" text-anchor="end">Prov</text>
+<rect class="b" x="190" y="397" width="121.6" height="15" rx="3"/>
+<text class="v" x="317.6" y="408.5">3.4 (3)</text>
+<text class="l" x="182" y="428.0" text-anchor="end">Eccl</text>
+<rect class="b" x="190" y="416" width="84.7" height="15" rx="3"/>
+<text class="v" x="280.7" y="427.5">2.4 (1)</text>
+<text class="l" x="182" y="447.0" text-anchor="end">Isa ★</text>
+<rect class="b" x="190" y="435" width="234.6" height="15" rx="3"/>
+<text class="v" x="430.6" y="446.5">6.5 (15)</text>
+<text class="l" x="182" y="466.0" text-anchor="end">Jer</text>
+<rect class="b" x="190" y="454" width="24.0" height="15" rx="3"/>
+<text class="v" x="220.0" y="465.5">0.7 (2)</text>
+<text class="l" x="182" y="485.0" text-anchor="end">Lam</text>
+<rect class="b" x="190" y="473" width="184.4" height="15" rx="3"/>
+<text class="v" x="380.4" y="484.5">5.1 (1)</text>
+<text class="l" x="182" y="504.0" text-anchor="end">Ezek</text>
+<rect class="b" x="190" y="492" width="95.8" height="15" rx="3"/>
+<text class="v" x="291.8" y="503.5">2.7 (7)</text>
+<text class="l" x="182" y="523.0" text-anchor="end">Dan</text>
+<rect class="b" x="190" y="511" width="44.5" height="15" rx="3"/>
+<text class="v" x="240.5" y="522.5">1.2 (1)</text>
+<text class="l" x="182" y="542.0" text-anchor="end">Mic</text>
+<rect class="b" x="190" y="530" width="189.4" height="15" rx="3"/>
+<text class="v" x="385.4" y="541.5">5.3 (1)</text>
+<text class="l" x="182" y="561.0" text-anchor="end">Hab</text>
+<rect class="b" x="190" y="549" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="560.5">11.2 (1)</text>
+<text class="l" x="182" y="580.0" text-anchor="end">Zech</text>
+<rect class="b" x="190" y="568" width="160.4" height="15" rx="3"/>
+<text class="v" x="356.4" y="579.5">4.5 (2)</text>
+<text class="s" x="14" y="615">Hebrew Sabbath שׁבת: rate per 10,000 words, books where it stands (OT)</text>
+<line class="a" x1="190" y1="625" x2="190" y2="1024"/>
+<text class="l" x="182" y="639.0" text-anchor="end">Gen</text>
+<rect class="b" x="190" y="627" width="20.4" height="15" rx="3"/>
+<text class="v" x="216.4" y="638.5">1.0 (3)</text>
+<text class="l" x="182" y="658.0" text-anchor="end">Exod ★</text>
+<rect class="b" x="190" y="646" width="181.6" height="15" rx="3"/>
+<text class="v" x="377.6" y="657.5">9.3 (22)</text>
+<text class="l" x="182" y="677.0" text-anchor="end">Lev ★</text>
+<rect class="b" x="190" y="665" width="366.9" height="15" rx="3"/>
+<text class="v" x="562.9" y="676.5">18.7 (32)</text>
+<text class="l" x="182" y="696.0" text-anchor="end">Num</text>
+<rect class="b" x="190" y="684" width="33.9" height="15" rx="3"/>
+<text class="v" x="229.9" y="695.5">1.7 (4)</text>
+<text class="l" x="182" y="715.0" text-anchor="end">Deut</text>
+<rect class="b" x="190" y="703" width="39.0" height="15" rx="3"/>
+<text class="v" x="235.0" y="714.5">2.0 (4)</text>
+<text class="l" x="182" y="734.0" text-anchor="end">Josh</text>
+<rect class="b" x="190" y="722" width="27.1" height="15" rx="3"/>
+<text class="v" x="223.1" y="733.5">1.4 (2)</text>
+<text class="l" x="182" y="753.0" text-anchor="end">Ruth</text>
+<rect class="b" x="190" y="741" width="108.8" height="15" rx="3"/>
+<text class="v" x="304.8" y="752.5">5.5 (1)</text>
+<text class="l" x="182" y="772.0" text-anchor="end">2 Kgs</text>
+<rect class="b" x="190" y="760" width="90.6" height="15" rx="3"/>
+<text class="v" x="286.6" y="771.5">4.6 (8)</text>
+<text class="l" x="182" y="791.0" text-anchor="end">1 Chr</text>
+<rect class="b" x="190" y="779" width="37.8" height="15" rx="3"/>
+<text class="v" x="233.8" y="790.5">1.9 (3)</text>
+<text class="l" x="182" y="810.0" text-anchor="end">2 Chr</text>
+<rect class="b" x="190" y="798" width="89.2" height="15" rx="3"/>
+<text class="v" x="285.2" y="809.5">4.5 (9)</text>
+<text class="l" x="182" y="829.0" text-anchor="end">Neh ★</text>
+<rect class="b" x="190" y="817" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="828.5">20.4 (16)</text>
+<text class="l" x="182" y="848.0" text-anchor="end">Job</text>
+<rect class="b" x="190" y="836" width="18.0" height="15" rx="3"/>
+<text class="v" x="214.0" y="847.5">0.9 (1)</text>
+<text class="l" x="182" y="867.0" text-anchor="end">Ps</text>
+<rect class="b" x="190" y="855" width="38.6" height="15" rx="3"/>
+<text class="v" x="234.6" y="866.5">2.0 (5)</text>
+<text class="l" x="182" y="886.0" text-anchor="end">Prov</text>
+<rect class="b" x="190" y="874" width="44.3" height="15" rx="3"/>
+<text class="v" x="240.3" y="885.5">2.3 (2)</text>
+<text class="l" x="182" y="905.0" text-anchor="end">Isa</text>
+<rect class="b" x="190" y="893" width="153.9" height="15" rx="3"/>
+<text class="v" x="349.9" y="904.5">7.8 (18)</text>
+<text class="l" x="182" y="924.0" text-anchor="end">Jer</text>
+<rect class="b" x="190" y="912" width="85.7" height="15" rx="3"/>
+<text class="v" x="281.7" y="923.5">4.4 (13)</text>
+<text class="l" x="182" y="943.0" text-anchor="end">Lam</text>
+<rect class="b" x="190" y="931" width="302.4" height="15" rx="3"/>
+<text class="v" x="498.4" y="942.5">15.4 (3)</text>
+<text class="l" x="182" y="962.0" text-anchor="end">Ezek ★</text>
+<rect class="b" x="190" y="950" width="209.6" height="15" rx="3"/>
+<text class="v" x="405.6" y="961.5">10.7 (28)</text>
+<text class="l" x="182" y="981.0" text-anchor="end">Dan</text>
+<rect class="b" x="190" y="969" width="48.6" height="15" rx="3"/>
+<text class="v" x="244.6" y="980.5">2.5 (2)</text>
+<text class="l" x="182" y="1000.0" text-anchor="end">Hos</text>
+<rect class="b" x="190" y="988" width="249.2" height="15" rx="3"/>
+<text class="v" x="445.2" y="999.5">12.7 (4)</text>
+<text class="l" x="182" y="1019.0" text-anchor="end">Amos</text>
+<rect class="b" x="190" y="1007" width="141.0" height="15" rx="3"/>
+<text class="v" x="337.0" y="1018.5">7.2 (2)</text>
+<text class="s" x="14" y="1054">Greek rest παυ-: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="1064" x2="190" y2="1254"/>
+<text class="l" x="182" y="1078.0" text-anchor="end">Matt</text>
+<rect class="b" x="190" y="1066" width="14.6" height="15" rx="3"/>
+<text class="v" x="210.6" y="1077.5">2.2 (4)</text>
+<text class="l" x="182" y="1097.0" text-anchor="end">Mark</text>
+<rect class="b" x="190" y="1085" width="11.9" height="15" rx="3"/>
+<text class="v" x="207.9" y="1096.5">1.8 (2)</text>
+<text class="l" x="182" y="1116.0" text-anchor="end">Luke</text>
+<rect class="b" x="190" y="1104" width="6.9" height="15" rx="3"/>
+<text class="v" x="202.9" y="1115.5">1.0 (2)</text>
+<text class="l" x="182" y="1135.0" text-anchor="end">Acts</text>
+<rect class="b" x="190" y="1123" width="7.2" height="15" rx="3"/>
+<text class="v" x="203.2" y="1134.5">1.1 (2)</text>
+<text class="l" x="182" y="1154.0" text-anchor="end">1 Cor</text>
+<rect class="b" x="190" y="1142" width="9.8" height="15" rx="3"/>
+<text class="v" x="205.8" y="1153.5">1.5 (1)</text>
+<text class="l" x="182" y="1173.0" text-anchor="end">2 Cor</text>
+<rect class="b" x="190" y="1161" width="14.9" height="15" rx="3"/>
+<text class="v" x="210.9" y="1172.5">2.2 (1)</text>
+<text class="l" x="182" y="1192.0" text-anchor="end">Phlm</text>
+<rect class="b" x="190" y="1180" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="1191.5">59.7 (2)</text>
+<text class="l" x="182" y="1211.0" text-anchor="end">Heb ★</text>
+<rect class="b" x="190" y="1199" width="148.8" height="15" rx="3"/>
+<text class="v" x="344.8" y="1210.5">22.2 (11)</text>
+<text class="l" x="182" y="1230.0" text-anchor="end">1 Pet</text>
+<rect class="b" x="190" y="1218" width="39.9" height="15" rx="3"/>
+<text class="v" x="235.9" y="1229.5">6.0 (1)</text>
+<text class="l" x="182" y="1249.0" text-anchor="end">Rev</text>
+<rect class="b" x="190" y="1237" width="27.2" height="15" rx="3"/>
+<text class="v" x="223.2" y="1248.5">4.1 (4)</text>
+<text class="s" x="14" y="1284">Greek Sabbath σαββατ-: rate per 10,000 words, books where it stands (NT)</text>
+<line class="a" x1="190" y1="1294" x2="190" y2="1446"/>
+<text class="l" x="182" y="1308.0" text-anchor="end">Matt</text>
+<rect class="b" x="190" y="1296" width="226.0" height="15" rx="3"/>
+<text class="v" x="422.0" y="1307.5">6.0 (11)</text>
+<text class="l" x="182" y="1327.0" text-anchor="end">Mark</text>
+<rect class="b" x="190" y="1315" width="400.0" height="15" rx="3"/>
+<text class="v" x="596.0" y="1326.5">10.6 (12)</text>
+<text class="l" x="182" y="1346.0" text-anchor="end">Luke</text>
+<rect class="b" x="190" y="1334" width="386.8" height="15" rx="3"/>
+<text class="v" x="582.8" y="1345.5">10.3 (20)</text>
+<text class="l" x="182" y="1365.0" text-anchor="end">John</text>
+<rect class="b" x="190" y="1353" width="313.0" height="15" rx="3"/>
+<text class="v" x="509.0" y="1364.5">8.3 (13)</text>
+<text class="l" x="182" y="1384.0" text-anchor="end">Acts</text>
+<rect class="b" x="190" y="1372" width="204.1" height="15" rx="3"/>
+<text class="v" x="400.1" y="1383.5">5.4 (10)</text>
+<text class="l" x="182" y="1403.0" text-anchor="end">1 Cor</text>
+<rect class="b" x="190" y="1391" width="55.0" height="15" rx="3"/>
+<text class="v" x="251.0" y="1402.5">1.5 (1)</text>
+<text class="l" x="182" y="1422.0" text-anchor="end">Col</text>
+<rect class="b" x="190" y="1410" width="238.0" height="15" rx="3"/>
+<text class="v" x="434.0" y="1421.5">6.3 (1)</text>
+<text class="l" x="182" y="1441.0" text-anchor="end">Heb</text>
+<rect class="b" x="190" y="1429" width="76.1" height="15" rx="3"/>
+<text class="v" x="272.1" y="1440.5">2.0 (1)</text>
+<text class="s" x="14" y="1468">★ = significantly more than the book size predicts (log-likelihood, p &lt; 0.001). Number in brackets = count.</text>
+</svg>

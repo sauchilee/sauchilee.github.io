@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="864" viewBox="0 0 680 864" role="img" aria-label="cherubim 基路伯 — by section">
+<style>
+.t{font:600 15px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.s{font:12px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#52514e}
+.l{font:13px system-ui,-apple-system,'PingFang TC',sans-serif;fill:#0b0b0b}
+.v{font:12px system-ui,-apple-system,sans-serif;fill:#52514e;font-variant-numeric:tabular-nums}
+.b{fill:#2a78d6}.g{stroke:#e1e0d9;stroke-width:1}.a{stroke:#c3c2b7;stroke-width:1}.bg{fill:#fcfcfb}
+@media (prefers-color-scheme:dark){.t,.l{fill:#f0efec}.s,.v{fill:#c3c2b7}.b{fill:#3987e5}.g{stroke:#2c2c2a}.a{stroke:#383835}.bg{fill:#1a1a19}}
+</style>
+<rect class="bg" x="0" y="0" width="680" height="864" rx="8"/>
+<text class="t" x="14" y="26">cherubim 基路伯 — by section</text>
+<text class="s" x="14" y="62">Hebrew cherub כְּרוּב (OT): rate per 10,000 words</text>
+<line class="a" x1="190" y1="72" x2="190" y2="192"/>
+<text class="l" x="182" y="88.5" text-anchor="end">Law</text>
+<rect class="b" x="190" y="74" width="186.7" height="20" rx="3"/>
+<text class="v" x="382.7" y="88.0">1.7 (19)</text>
+<text class="l" x="182" y="112.5" text-anchor="end">History</text>
+<rect class="b" x="190" y="98" width="266.7" height="20" rx="3"/>
+<text class="v" x="462.7" y="112.0">2.4 (37)</text>
+<text class="l" x="182" y="136.5" text-anchor="end">Wisdom and Poetry</text>
+<rect class="b" x="190" y="122" width="65.6" height="20" rx="3"/>
+<text class="v" x="261.6" y="136.0">0.6 (3)</text>
+<text class="l" x="182" y="160.5" text-anchor="end">Major Prophets</text>
+<rect class="b" x="190" y="146" width="400.0" height="20" rx="3"/>
+<text class="v" x="596.0" y="160.0">3.6 (32)</text>
+<text class="l" x="182" y="184.5" text-anchor="end">Minor Prophets</text>
+<text class="v" x="196.0" y="184.0">0.0 (0)</text>
+<text class="s" x="14" y="222">Hebrew place name Cherub כְּרוּב (OT): rate per 10,000 words</text>
+<line class="a" x1="190" y1="232" x2="190" y2="352"/>
+<text class="l" x="182" y="248.5" text-anchor="end">Law</text>
+<text class="v" x="196.0" y="248.0">0.0 (0)</text>
+<text class="l" x="182" y="272.5" text-anchor="end">History</text>
+<rect class="b" x="190" y="258" width="400.0" height="20" rx="3"/>
+<text class="v" x="596.0" y="272.0">0.1 (2)</text>
+<text class="l" x="182" y="296.5" text-anchor="end">Wisdom and Poetry</text>
+<text class="v" x="196.0" y="296.0">0.0 (0)</text>
+<text class="l" x="182" y="320.5" text-anchor="end">Major Prophets</text>
+<text class="v" x="196.0" y="320.0">0.0 (0)</text>
+<text class="l" x="182" y="344.5" text-anchor="end">Minor Prophets</text>
+<text class="v" x="196.0" y="344.0">0.0 (0)</text>
+<text class="s" x="14" y="382">Greek cherubim χερουβίμ (NT): rate per 10,000 words</text>
+<line class="a" x1="190" y1="392" x2="190" y2="512"/>
+<text class="l" x="182" y="408.5" text-anchor="end">Gospels</text>
+<text class="v" x="196.0" y="408.0">0.0 (0)</text>
+<text class="l" x="182" y="432.5" text-anchor="end">Acts</text>
+<text class="v" x="196.0" y="432.0">0.0 (0)</text>
+<text class="l" x="182" y="456.5" text-anchor="end">Paul&#x27;s letters</text>
+<text class="v" x="196.0" y="456.0">0.0 (0)</text>
+<text class="l" x="182" y="480.5" text-anchor="end">Hebrews and the General letters</text>
+<rect class="b" x="190" y="466" width="400.0" height="20" rx="3"/>
+<text class="v" x="596.0" y="480.0">0.8 (1)</text>
+<text class="l" x="182" y="504.5" text-anchor="end">Revelation</text>
+<text class="v" x="196.0" y="504.0">0.0 (0)</text>
+<text class="s" x="14" y="542">Hebrew mercy seat כַּפֹּרֶת (OT): rate per 10,000 words</text>
+<line class="a" x1="190" y1="552" x2="190" y2="672"/>
+<text class="l" x="182" y="568.5" text-anchor="end">Law ★</text>
+<rect class="b" x="190" y="554" width="400.0" height="20" rx="3"/>
+<text class="v" x="596.0" y="568.0">2.3 (26)</text>
+<text class="l" x="182" y="592.5" text-anchor="end">History</text>
+<rect class="b" x="190" y="578" width="10.4" height="20" rx="3"/>
+<text class="v" x="206.4" y="592.0">0.1 (1)</text>
+<text class="l" x="182" y="616.5" text-anchor="end">Wisdom and Poetry</text>
+<text class="v" x="196.0" y="616.0">0.0 (0)</text>
+<text class="l" x="182" y="640.5" text-anchor="end">Major Prophets</text>
+<text class="v" x="196.0" y="640.0">0.0 (0)</text>
+<text class="l" x="182" y="664.5" text-anchor="end">Minor Prophets</text>
+<text class="v" x="196.0" y="664.0">0.0 (0)</text>
+<text class="s" x="14" y="702">Greek ἱλαστήριον (NT): rate per 10,000 words</text>
+<line class="a" x1="190" y1="712" x2="190" y2="832"/>
+<text class="l" x="182" y="728.5" text-anchor="end">Gospels</text>
+<text class="v" x="196.0" y="728.0">0.0 (0)</text>
+<text class="l" x="182" y="752.5" text-anchor="end">Acts</text>
+<text class="v" x="196.0" y="752.0">0.0 (0)</text>
+<text class="l" x="182" y="776.5" text-anchor="end">Paul&#x27;s letters</text>
+<rect class="b" x="190" y="762" width="155.0" height="20" rx="3"/>
+<text class="v" x="351.0" y="776.0">0.3 (1)</text>
+<text class="l" x="182" y="800.5" text-anchor="end">Hebrews and the General letters</text>
+<rect class="b" x="190" y="786" width="400.0" height="20" rx="3"/>
+<text class="v" x="596.0" y="800.0">0.8 (1)</text>
+<text class="l" x="182" y="824.5" text-anchor="end">Revelation</text>
+<text class="v" x="196.0" y="824.0">0.0 (0)</text>
+<text class="s" x="14" y="854">★ = significantly over-represented (p &lt; 0.001). Number in brackets = count.</text>
+</svg>

@@ -15,7 +15,23 @@ LS.hist={K:'ls.searchHistory',MAX:500,
   var e={q:q,t:now,c:c};if(n!=null)e.n=n;if(keep)e.f=1;a.unshift(e);this.put(a)},
  del:function(q){var l=q.toLowerCase();this.put(this.get().filter(function(x){return x.q.toLowerCase()!==l}))},
  clear:function(){try{localStorage.removeItem(this.K)}catch(e){}}};
-LS.search=function(box,res,prefix){if(!box)return;var t=null,ts=null,last={q:'',n:null},MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+LS.mic=function(inp){var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR||!inp||inp.dataset.mic)return;inp.dataset.mic='1';inp.classList.add('ha');if(!document.getElementById('micss')){var ss=document.createElement('style');ss.id='micss';ss.textContent='.micw{position:relative;display:block;width:100%}.lsf .micw{display:inline-block;width:auto}.micw>input[type=search].ha{padding-right:66px}.lsf .micw>input[type=search].ha{padding-right:56px}.micb{position:absolute;top:50%;right:4px;transform:translateY(-50%);display:flex;gap:1px;align-items:center;color:var(--ink,var(--fg,#5c5240))}.srch .micb{color:#5c5240}.micb button.mic,.micb button.micl{border:0;background:transparent;color:inherit;font:inherit;font-size:12px;line-height:1;padding:2px 3px;border-radius:6px;cursor:pointer;display:flex;align-items:center}.micb button.mic:hover,.micb button.micl:hover{background:rgba(120,100,60,.18)}.micb button.mic.on{color:#fff;background:#b3261e}';document.head.appendChild(ss)}
+ var w=document.createElement('span'),bar=document.createElement('span'),b=document.createElement('button'),c=document.createElement('button'),r=null,on=false;w.className='micw';bar.className='micb';b.type=c.type='button';b.className='mic';c.className='micl';
+ b.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg>';
+ b.title='語音搜尋 Voice search';b.setAttribute('aria-label','語音搜尋 Voice search');b.setAttribute('aria-pressed','false');
+ function ml(){var s='';try{s=localStorage.getItem('ls-mic')||''}catch(e){}if(s)return s;var l=LS.lang();return l==='en'||l==='ez'?'en':'zh'}
+ function lab(){var m=ml();c.textContent=m==='en'?'EN':'中';c.title=(m==='en'?'用英語說 Speak English':'用國語說 Speak Mandarin')+'（點一下切換 click to switch）';c.setAttribute('aria-label',c.title)}
+ function set(v){on=v;b.classList.toggle('on',v);b.setAttribute('aria-pressed',v?'true':'false')}
+ function stop(){if(r){try{r.stop()}catch(e){}}}
+ c.addEventListener('click',function(){var m=ml()==='en'?'zh':'en';try{localStorage.setItem('ls-mic',m)}catch(e){}lab()});
+ b.addEventListener('click',function(){if(on){stop();return}var n=new SR();r=n;n.lang=ml()==='en'?'en-US':'zh-TW';n.interimResults=true;n.continuous=false;n.maxAlternatives=1;
+  n.onresult=function(ev){var t='';for(var i=0;i<ev.results.length;i++)t+=ev.results[i][0].transcript;inp.value=t.replace(/[。，！？.,!?]+$/,'').trim();inp.dispatchEvent(new Event('input',{bubbles:true}))};
+  n.onerror=function(ev){if(ev.error==='not-allowed'||ev.error==='service-not-allowed'){b.title='麥克風未獲允許，請在瀏覽器設定中開啟 Microphone not allowed: turn it on in the browser'}else if(ev.error==='no-speech'){b.title='沒有聽到聲音，請再試一次 Nothing heard: try again'}else{b.title='語音搜尋暫時無法使用 Voice search is not available right now'}set(false)};
+  n.onend=function(){set(false);if(r===n)r=null;if(window.matchMedia&&matchMedia('(hover:hover)').matches)inp.focus()};
+  inp.value='';inp.dispatchEvent(new Event('input',{bubbles:true}));b.title='語音搜尋 Voice search';set(true);try{n.start()}catch(x){set(false)}});
+ inp.addEventListener('keydown',function(e){if(e.key==='Escape'&&on)stop()});
+ inp.parentNode.insertBefore(w,inp);w.appendChild(inp);bar.appendChild(b);bar.appendChild(c);w.appendChild(bar);lab()};
+LS.search=function(box,res,prefix){if(!box)return;LS.mic(box);var t=null,ts=null,last={q:'',n:null},MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
  function when(v){var d=new Date(v);return d.getDate()+' '+MON[d.getMonth()]+(d.getFullYear()!==new Date().getFullYear()?' '+d.getFullYear():'')}
  function row(x){return '<div class="qh" data-q="'+esc(x.q)+'"><button type="button" class="qhw">'+esc(x.q)+'</button><span class="qhm">'+((x.c||1)>1?x.c+'× · ':'')+when(x.t)+(x.n!=null?' · '+x.n+' 項':'')+'</span><button type="button" class="qhx" title="刪除 Remove" aria-label="刪除 Remove '+esc(x.q)+'">×</button></div>'}
@@ -110,7 +126,7 @@ LS.viewer=function(){var M=document.getElementById('M');LS.langInit();(function(
    if(!big)return;
    function go(){var q=inp.value.trim().toLowerCase(),any=Object.keys(on).some(function(k){return on[k]}),n=0;
     li.forEach(function(e){var s=e.dataset.s,a0=e.querySelector('a'),tx=(e.textContent+' '+(a0&&a0.dataset.t0||'')).toLowerCase(),m=(!q||tx.indexOf(q)>=0)&&(!any||(s&&on[s]));e.hidden=!m;if(m)n++});f.querySelector('.n').textContent=n+' / '+li.length}
-   inp.addEventListener('input',go);f.querySelectorAll('button[data-s]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.s;on[k]=!on[k];b.setAttribute('aria-pressed',on[k]?'true':'false');go()})})})}
+   LS.mic(inp);inp.addEventListener('input',go);f.querySelectorAll('button[data-s]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.s;on[k]=!on[k];b.setAttribute('aria-pressed',on[k]?'true':'false');go()})})})}
  function show(it,id,anc){if(!it){M.innerHTML='<h1>找不到 Not found</h1><p><a class="lsh" href="index.html" title="燈臺 The Lampstand" aria-label="燈臺 The Lampstand"></a></p>';document.title='找不到 Not found';return}
   M.innerHTML=it.h;M.dataset.b=it.b;document.title=it.t+' · 燈臺';M.querySelectorAll('.acr').forEach(acr);lists();(function(md){var fi=M.querySelector('.lsf input');if(fi)fi.placeholder=LS.flipT(fi.placeholder,md);M.querySelectorAll('.lsf,.cr,.topopen,.role').forEach(function(r){LS.pairs(r,md)})})(LS.lang());
   P.querySelectorAll('a').forEach(function(a){a.classList.toggle('on',+a.dataset.b===it.b)});
