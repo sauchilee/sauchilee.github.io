@@ -11,17 +11,17 @@
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:"PingFang TC","Heiti TC","Noto Sans TC",sans-serif}
 #stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:linear-gradient(180deg,#fffdf8 0%,var(--bg) 100%);overflow:hidden}
-#left{position:absolute;left:0;top:0;bottom:0;width:560px;padding:44px 30px 30px 38px;background:#fffdf8;border-right:4px solid var(--gold);display:flex;flex-direction:column}
-#right{position:absolute;left:560px;right:0;top:0;bottom:0;padding:50px 70px 100px 70px}
+#left{position:absolute;left:0;top:0;bottom:0;width:var(--lw,560px);padding:44px 30px 30px 38px;background:#fffdf8;border-right:4px solid var(--gold);display:flex;flex-direction:column}
+#right{position:absolute;left:var(--lw,560px);right:0;top:0;bottom:0;padding:50px 70px 100px 70px}
 #slides{height:100%}
 #stage.wide #left{display:none}#stage.wide #right{left:0}
 .tri{display:inline-flex;width:58px;height:52px;flex:none;background:var(--gold);clip-path:polygon(50% 0,100% 100%,0 100%);align-items:flex-end;justify-content:center;padding-bottom:5px;color:#111;font-weight:800;font-family:Georgia,serif;font-size:24px}
 .tri.sm{width:40px;height:36px;font-size:17px;padding-bottom:3px}
 .tri.lg{width:96px;height:86px;font-size:38px;padding-bottom:8px}
 /* left column: running outline */
-.tk-head{font-size:34px;font-weight:800;color:var(--navy);letter-spacing:.06em;line-height:1.25}
-.tk-head small{display:block;font-size:22px;font-weight:normal;color:var(--muted);letter-spacing:0;margin-top:6px}
-.tk-head .th{display:inline-block;margin-top:10px;background:var(--navy);color:#fff;font-size:22px;font-weight:600;border-radius:8px;padding:4px 12px;letter-spacing:.04em}
+.tk-head{font-size:calc(34px * var(--lz,1));font-weight:800;color:var(--navy);letter-spacing:.06em;line-height:1.25}
+.tk-head small{display:block;font-size:calc(22px * var(--lz,1));font-weight:normal;color:var(--muted);letter-spacing:0;margin-top:6px}
+.tk-head .th{display:inline-block;margin-top:10px;background:var(--navy);color:#fff;font-size:calc(22px * var(--lz,1));font-weight:600;border-radius:8px;padding:4px 12px;letter-spacing:.04em}
 #tk{margin-top:22px;flex:1;overflow:hidden}
 .tk-pt{display:none;align-items:center;gap:12px;font-size:calc(32px * var(--tkz,1));font-weight:800;color:var(--navy);margin:calc(16px * var(--tkz,1)) 0 calc(4px * var(--tkz,1));cursor:pointer;border-radius:10px;padding:calc(4px * var(--tkz,1)) 8px}
 .tk-pt small{font-size:calc(20px * var(--tkz,1));font-weight:normal;color:var(--muted);margin-left:2px}
@@ -232,7 +232,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 .ill3s .k3{font-size:30px;color:var(--goldl)}.ill3s .t3{font-size:50px;line-height:1.3;margin:20px 0 46px}.ill3s .v3{font-size:46px;line-height:1.45}.ill3s .r3{font-size:30px;color:#cfd8e6;margin-top:14px}
 .ill3s .ichips{left:1300px;top:auto;bottom:70px}
 .slide.hy{position:absolute;inset:0;background:#000 center top/auto calc(100% - 66px) no-repeat}   /* the hymn image stays clear of the control bar */
-.ichips{position:absolute;left:560px;top:34px;display:flex;gap:16px}
+.ichips{position:absolute;left:var(--lw,560px);top:34px;display:flex;gap:16px}
 .ichips button{font-size:28px;border:3px solid var(--goldl);border-radius:40px;padding:8px 26px;cursor:pointer;background:rgba(255,253,248,.95);color:var(--navy);font-weight:700;font-family:"PingFang TC",sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.35)}
 .ichips .vchip{background:var(--red);color:#fff;border-color:#fff}
 .ilchip{position:absolute;left:1305px;top:28px;width:570px;height:96px;border-radius:50px;cursor:pointer}.ilchip:hover{box-shadow:0 0 0 4px var(--goldl)}
@@ -279,8 +279,8 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 #bar button{font-size:26px;width:58px;height:50px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;transition:opacity .4s}
 #count{font-size:22px;font-weight:700;color:var(--goldl);background:rgba(10,47,122,.85);border-radius:14px;padding:6px 16px;min-width:96px;text-align:center}
 #stage.idle #bar button{opacity:0}
-#help{position:absolute;left:630px;bottom:28px;font-size:17px;color:var(--muted);transition:opacity .4s}
-#ckey{position:absolute;left:630px;bottom:4px;font-size:13px;color:var(--muted);transition:opacity .4s;display:flex;align-items:center;gap:8px;white-space:nowrap}#ckey:empty{display:none}#ckey .ck{color:#fff;border-radius:20px;padding:0 10px;line-height:1.45;font-family:"PingFang TC",sans-serif}#ckey .sep{margin:0 2px}#ckey .ck0{color:var(--muted);opacity:.7;padding:0 4px}   /* job chiplabels: the colour key under the help line */
+#help{position:absolute;left:calc(var(--lw,560px) + 70px);bottom:28px;font-size:17px;color:var(--muted);transition:opacity .4s}
+#ckey{position:absolute;left:calc(var(--lw,560px) + 70px);bottom:4px;font-size:13px;color:var(--muted);transition:opacity .4s;display:flex;align-items:center;gap:8px;white-space:nowrap}#ckey:empty{display:none}#ckey .ck{color:#fff;border-radius:20px;padding:0 10px;line-height:1.45;font-family:"PingFang TC",sans-serif}#ckey .sep{margin:0 2px}#ckey .ck0{color:var(--muted);opacity:.7;padding:0 4px}   /* job chiplabels: the colour key under the help line */
 .tag.hy{background:#0c1570}#sup .sh .k.hy{background:#0c1570}#ntext .nrefs .k.hy{background:#0c1570}   /* job chiplabels: 聖詩, the fifth kind (its buttons: job hymnchip) */
 .tag.vd{background:#556b2f}#sup .sh .k.vd{background:#556b2f}#ntext .nrefs .k.vd{background:#556b2f}   /* job sermonbil: 版本異文, the sixth kind (scripts/vd_chip.py) */
 #suptext .vdt{border-collapse:collapse;width:100%;margin:0 0 .3em;font-size:.82em;line-height:1.4}#suptext .vdt th{font-size:.72em;letter-spacing:.05em;text-align:left;padding:.1em .4em;border-bottom:2px solid rgba(255,255,255,.5)}#suptext .vdt td{vertical-align:top;padding:.25em .4em;width:33%}#suptext .vdt td+td,#suptext .vdt th+th{border-left:1px solid rgba(255,255,255,.5)}#suptext .vdt td+td{font-family:Georgia,"Times New Roman",serif}#suptext .vdx{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;font-style:italic}#suptext .vdp{font-weight:700;margin:.15em 0 .25em}#suptext .vdl{margin:0;padding-left:1.1em;font-size:.74em;line-height:1.45}#suptext .vdl li{margin:.12em 0}#suptext .vdl ol{margin:.05em 0 .1em;padding-left:1.3em}#suptext .vdl a{text-decoration:underline}#suptext .vdg{margin:0 0 .3em;font-size:.8em;line-height:1.35}#suptext .vdg div{margin:.04em 0}#suptext .vdg b{font-size:.74em;font-weight:700;margin-right:.5em}#suptext .vdg span{font-family:"SBL Greek","Gentium Plus","Times New Roman",serif}#ztext .vdt{border-collapse:collapse;width:100%;margin:0 0 .3em;font-size:.82em;line-height:1.4}#ztext .vdt th{font-size:.72em;letter-spacing:.05em;text-align:left;padding:.1em .4em;border-bottom:2px solid rgba(255,255,255,.5)}#ztext .vdt td{vertical-align:top;padding:.25em .4em;width:33%}#ztext .vdt td+td,#ztext .vdt th+th{border-left:1px solid rgba(255,255,255,.5)}#ztext .vdt td+td{font-family:Georgia,"Times New Roman",serif}#ztext .vdx{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;font-style:italic}#ztext .vdp{font-weight:700;margin:.15em 0 .25em}#ztext .vdl{margin:0;padding-left:1.1em;font-size:.74em;line-height:1.45}#ztext .vdl li{margin:.12em 0}#ztext .vdl ol{margin:.05em 0 .1em;padding-left:1.3em}#ztext .vdl a{text-decoration:underline}#ztext .vdg{margin:0 0 .3em;font-size:.8em;line-height:1.35}#ztext .vdg div{margin:.04em 0}#ztext .vdg b{font-size:.74em;font-weight:700;margin-right:.5em}#ztext .vdg span{font-family:"SBL Greek","Gentium Plus","Times New Roman",serif}#ntext .vdt{border-collapse:collapse;width:100%;margin:0 0 .3em;font-size:.82em;line-height:1.4}#ntext .vdt th{font-size:.72em;letter-spacing:.05em;text-align:left;padding:.1em .4em;border-bottom:2px solid rgba(0,0,0,.22)}#ntext .vdt td{vertical-align:top;padding:.25em .4em;width:33%}#ntext .vdt td+td,#ntext .vdt th+th{border-left:1px solid rgba(0,0,0,.22)}#ntext .vdt td+td{font-family:Georgia,"Times New Roman",serif}#ntext .vdx{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;font-style:italic}#ntext .vdp{font-weight:700;margin:.15em 0 .25em}#ntext .vdl{margin:0;padding-left:1.1em;font-size:.74em;line-height:1.45}#ntext .vdl li{margin:.12em 0}#ntext .vdl ol{margin:.05em 0 .1em;padding-left:1.3em}#ntext .vdl a{text-decoration:underline}#ntext .vdg{margin:0 0 .3em;font-size:.8em;line-height:1.35}#ntext .vdg div{margin:.04em 0}#ntext .vdg b{font-size:.74em;font-weight:700;margin-right:.5em}#ntext .vdg span{font-family:"SBL Greek","Gentium Plus","Times New Roman",serif}
@@ -290,6 +290,31 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 
 #stage.idle #help,#stage.idle #ckey{opacity:0}
 #stage.wide #help,#stage.wide #ckey{left:70px}
+/* job colsplit (19 Nov): the gold line between the outline and the slide moves (same features as #splitter) */
+#colsplit{position:absolute;top:0;bottom:0;left:calc(var(--lw,560px) - 13px);width:22px;z-index:12;cursor:col-resize;touch-action:none}
+#colsplit:after{content:"⋮";position:absolute;left:0;top:50%;width:22px;height:64px;margin-top:-32px;border-radius:11px;background:var(--goldl);color:#0d2257;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;opacity:.45;transition:opacity .3s}
+#colsplit:hover:after,#stage.cdrag #colsplit:after{opacity:1}#stage.cdrag #left{border-right-color:var(--goldl)}
+#stage.idle:not(.cdrag) #colsplit:after{opacity:0}
+#stage.wide #colsplit,#stage.stack #colsplit{display:none}
+#stage.nocol #left{display:none}#stage.nocol #right{left:0}#stage.nocol #colsplit{left:0}
+#stage.stack .tk-head{--lz:1}
+/* job igzoom (19 Nov): the infographic magnifying glass */
+#igz{display:none;position:absolute;inset:0;z-index:17;background:rgba(6,10,24,.72)}#igz.on{display:block}
+#igz .igz-win{position:absolute;left:12px;top:12px;right:12px;bottom:12px;overflow:hidden;background:#111;border:4px solid #e9c46a;border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.6);cursor:zoom-out;touch-action:none}
+#igz .igz-pan{position:absolute;left:0;top:0;transform-origin:0 0;transition:transform .45s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+#igz.drag .igz-pan{transition:none}#igz.drag .igz-win{cursor:grabbing}
+#igz .igz-hl{position:absolute;border:solid #e9c46a;border-radius:10px;box-shadow:0 0 0 9000px rgba(8,12,30,.38);pointer-events:none;transition:left .45s,top .45s,width .45s,height .45s}
+#igz .igz-cap{position:absolute;left:30px;top:26px;max-width:62%;background:rgba(13,34,87,.9);color:#fff;border:2px solid #e9c46a;border-radius:14px;padding:8px 18px;font:600 30px/1.3 "PingFang TC","Heiti TC",sans-serif;pointer-events:none}
+#igz .igz-cap b{color:#e9c46a;margin-right:12px}#igz .igz-cap small{display:block;font-size:20px;color:#cfd6ea;font-weight:500}
+#igz .igz-map{position:absolute;right:30px;bottom:104px;border:2px solid #e9c46a;border-radius:8px;overflow:hidden;background:#111;box-shadow:0 6px 20px rgba(0,0,0,.5);cursor:pointer;opacity:.92}
+#igz .igz-map .igz-mpan{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+#igz .igz-mbox{position:absolute;border:3px solid #ffd54a;background:rgba(255,213,74,.18);box-shadow:0 0 0 2000px rgba(0,0,0,.35);pointer-events:none;transition:left .45s,top .45s,width .45s,height .45s}
+#igz .igz-x{position:absolute;right:26px;top:22px;width:64px;height:64px;border-radius:50%;border:2px solid #e9c46a;background:rgba(13,34,87,.9);color:#fff;font-size:36px;line-height:58px;text-align:center;cursor:pointer}
+#igz .igz-nav{position:absolute;top:50%;margin-top:-50px;width:64px;height:100px;border-radius:14px;border:2px solid #e9c46a;background:rgba(13,34,87,.75);color:#fff;font-size:52px;line-height:92px;text-align:center;cursor:pointer}
+#igz .igz-prev{left:26px}#igz .igz-next{right:26px}
+#igz .igz-hint{position:absolute;left:30px;bottom:26px;color:#e8e8ee;font:500 19px/1.4 "PingFang TC",sans-serif;background:rgba(0,0,0,.55);border-radius:10px;padding:5px 12px;pointer-events:none}
+#igz .igz-x,#igz .igz-nav,#igz .igz-hint{transition:opacity .3s}#stage.idle #igz .igz-x,#stage.idle #igz .igz-nav,#stage.idle #igz .igz-hint{opacity:0}
+.slide.fs .ig,.slide.fs .gsum,.slide.fs .fsimg{cursor:zoom-in}
 #black{display:none;position:fixed;inset:0;background:#000;z-index:50}
 #black.on{display:block}
 
@@ -440,7 +465,7 @@ function fitSlide(sl){ sl.querySelectorAll('.fit').forEach(f => fitEl(f.parentEl
 /* the outline on the left: every point and sub-point shown must fit (his word 14 Nov ~21:5x: C3 天天跟上聖靈 was cut off at the foot);
    it shrinks evenly, step by step, only as much as needed */
 function fitOutline(){
-  const t = $('#tk'); let z = 1; t.style.setProperty('--tkz', 1);
+  const t = $('#tk'); let z = stage.classList.contains('stack') ? 1 : (+getComputedStyle(stage).getPropertyValue('--lz') || 1); t.style.setProperty('--tkz', z);   // job colsplit: a wider outline column = larger type
   if (stage.classList.contains('stack')) return;
   while (t.scrollHeight > t.clientHeight + 1 && z > 0.55) { z = +(z - 0.03).toFixed(2); t.style.setProperty('--tkz', z); }
 }
@@ -449,7 +474,7 @@ function fitOutline(){
 let cur = 0;
 function go(i){
   if (i == null || isNaN(i)) return;
-  i = Math.max(0, Math.min(N - 1, i)); closeSup(); closeVid(); closeZoom(); hideTip(); cur = i;
+  i = Math.max(0, Math.min(N - 1, i)); closeSup(); closeVid(); closeZoom(); hideTip(); if (window.__igz) __igz.close(); cur = i;
   slides.forEach((s, k) => s.classList.toggle('on', k === i));
   stage.classList.toggle('wide', !!slides[i].dataset.wide);
   stage.classList.toggle('illon', S[i].t === 'illus' || S[i].t === 'hymn' || S[i].t === 'full');
@@ -649,9 +674,10 @@ document.addEventListener('click', e => {
   const rcb = e.target.closest('.rcbtn'); if (rcb) { const sl = rcb.closest('.slide'); const on = sl.classList.toggle('rcopen');   // 和合本修訂版 under the 和合本 (15 Nov)
     rcb.setAttribute('aria-expanded', on); rcb.querySelector('.rca').textContent = on ? '▴' : '▾'; fitSlide(sl); return; }
   const hvEl = e.target.closest('[data-hv]'); if (hvEl && !e.target.closest('#zoom')) { openHv(+hvEl.dataset.hv); return; }
-  if (e.target.closest('#bar, #sup, #vid, #zoom, #note, #splitter, #black, #tk [data-k], button, a, video')) return;
+  if (e.target.closest('#bar, #sup, #vid, #zoom, #note, #splitter, #colsplit, #igz, #black, #tk [data-k], button, a, video')) return;
   if (supId) { closeSup(); return; }
   if (e.button !== 0 || (getSelection && String(getSelection()).length)) return;
+  if (window.__igz && __igz.openAt(e)) return;          // job igzoom: a click on the infographic = the magnifying glass
   const r = $('#view').getBoundingClientRect();          // halves of the slide itself (it is smaller while the note is open)
   go(cur + (e.clientX < r.left + r.width / 2 ? -1 : 1));
 });
@@ -691,7 +717,7 @@ $('#next').addEventListener('click', e => { e.stopPropagation(); go(cur + 1); })
 $('#fsb').addEventListener('click', e => { e.stopPropagation(); toggleFS(); });
 let tx = null;
 stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive: true});
-stage.addEventListener('touchend', e => { if (tx == null) return; const dx = e.changedTouches[0].clientX - tx; tx = null; if (Math.abs(dx) > 60 && !supId) go(cur + (dx < 0 ? 1 : -1)); });
+stage.addEventListener('touchend', e => { if (tx == null) return; const dx = e.changedTouches[0].clientX - tx; tx = null; if (Math.abs(dx) > 60 && !supId && !(window.__igz && __igz.on())) go(cur + (dx < 0 ? 1 : -1)); });
 let idleT; function wake(){ stage.classList.remove('idle'); clearTimeout(idleT); idleT = setTimeout(() => stage.classList.add('idle'), 2500); }
 document.addEventListener('mousemove', wake); wake();
 
@@ -701,6 +727,188 @@ function scale(){   /* below the path row #lspath when a server adds one (his wo
   const s = Math.min(innerWidth / 1920, h / 1080);
   stage.style.transform = `translate(${(innerWidth - 1920 * s) / 2}px,${top + (h - 1080 * s) / 2}px) scale(${s})`;
 }
+/* job colsplit (his words 19 Nov ~12:2x): the gold line between the outline (left) and the slide (right) moves like the slide | notes
+   divider: drag = resize, double-click = back to 560, remembered; at the left edge the outline hides; each column's type fills its room */
+const LW0 = 560, LW_MAX = 1300; let LW = LW0; try { const v = localStorage.getItem('sbColW'); if (v !== null) LW = Math.max(0, Math.min(LW_MAX, +v)); } catch(e){}
+function setLW(w, save){
+  w = Math.max(0, Math.min(LW_MAX, w)); if (w < 60) w = 0;
+  LW = Math.round(w); stage.style.setProperty('--lw', LW + 'px'); stage.style.setProperty('--lz', Math.max(.7, Math.min(1.6, LW / LW0)).toFixed(3));
+  stage.classList.toggle('nocol', LW === 0);
+  fitSlide(slides[cur]); fitOutline();
+  if (save) { try { localStorage.setItem('sbColW', LW); } catch(e){} }
+}
+const cs = document.createElement('div'); cs.id = 'colsplit'; cs.title = '拖動：調整左右兩欄 · 雙擊：還原'; $('#view').appendChild(cs);
+let cdrag = false, cx0 = 0, cTap = 0;
+cs.addEventListener('pointerdown', e => { cdrag = true; cx0 = e.clientX; cs.setPointerCapture(e.pointerId); stage.classList.add('cdrag'); e.preventDefault(); e.stopPropagation(); });
+cs.addEventListener('pointermove', e => { if (!cdrag) return; const v = $('#view'), r = v.getBoundingClientRect(); setLW((e.clientX - r.left) * v.offsetWidth / r.width, false); });
+const cEnd = e => {
+  if (!cdrag) return; cdrag = false; stage.classList.remove('cdrag');
+  const tap = e && Math.abs(e.clientX - cx0) < 4, now = Date.now();
+  if (tap && now - cTap < 450) { cTap = 0; setLW(LW0, true); }          // double-tap / double-click on the line = back to the start
+  else { if (tap) cTap = now; setLW(LW, true); }
+};
+cs.addEventListener('pointerup', cEnd); cs.addEventListener('pointercancel', cEnd);
+cs.addEventListener('click', e => e.stopPropagation());
+setLW(LW, false);
+window.__colsplit = { set: setLW, get: () => LW };
+/* job igzoom (his words 19 Nov ~12:4x): the summary infographic as a magnifying glass for the back rows: a click on a panel opens it
+   near full screen, the rest of the picture dimmed around it, a small map shows where the glass stands, the caption names the panel */
+(function(){
+  const view = $('#view'), igz = document.createElement('div'); igz.id = 'igz';
+  igz.innerHTML = '<div class="igz-win"><div class="igz-pan"></div></div><div class="igz-cap"></div>' +
+    '<div class="igz-map"><div class="igz-mpan"></div><div class="igz-mbox"></div></div>' +
+    '<button class="igz-nav igz-prev" title="上一區 ←">‹</button><button class="igz-nav igz-next" title="下一區 →">›</button>' +
+    '<button class="igz-x" title="關閉 Esc">✕</button>' +
+    '<div class="igz-hint">← → 換區 · 點同一區或 Esc：回到整張 · 滾輪或 + −：放大縮小 · 拖動：移動 · 右下小圖：點一下到那裏</div>';
+  view.appendChild(igz);
+  const win = igz.querySelector('.igz-win'), pan = igz.querySelector('.igz-pan'), cap = igz.querySelector('.igz-cap'),
+        map = igz.querySelector('.igz-map'), mpan = igz.querySelector('.igz-mpan'), mbox = igz.querySelector('.igz-mbox');
+  const MW = 300, PAD = 36, SMAX = 3.0, SFREE = 2.4;
+  let sl = null, SW = 1920, SH = 1080, P = [], at = -1, s = 1, cx = 960, cy = 540, hl = null, moved = false;
+  const isOn = () => igz.classList.contains('on');
+  const txt = el => (el ? el.innerText || el.textContent || '' : '').replace(/\s+/g, ' ').trim();
+  const short = (t, n) => t.length > n ? t.slice(0, n) + '…' : t;
+  function boxOf(el, sr, k, tight){
+    let r = el.getBoundingClientRect();
+    if (tight) { const rg = document.createRange(); rg.selectNodeContents(el); const t = rg.getBoundingClientRect();
+      if (t.width > 4 && t.height > 4) { const l = Math.max(r.left, t.left - 14 * k), tp = Math.max(r.top, t.top - 14 * k);
+        r = { left: l, top: tp, width: Math.min(r.right, t.right + 14 * k) - l, height: Math.min(r.bottom, t.bottom + 14 * k) - tp }; } }
+    return { x: (r.left - sr.left) / k, y: (r.top - sr.top) / k, w: r.width / k, h: r.height / k };
+  }
+  function panels(slide){
+    const root = slide.querySelector('.ig, .gsum, img.fsimg'); if (!root) return [];
+    const sr = slide.getBoundingClientRect(), k = sr.width / slide.offsetWidth, R = boxOf(root, sr, k), A = R.w * R.h, out = [];
+    if (root.tagName === 'IMG') {        // a picture: a 3 x 3 grid of overlapping views
+      const fw = R.w / 2.2, fh = R.h / 2.2, V = ['上', '中', '下'], H = ['左', '中', '右'];
+      for (let j = 0; j < 3; j++) for (let i = 0; i < 3; i++) out.push({ x: R.x + (R.w - fw) * i / 2, y: R.y + (R.h - fh) * j / 2, w: fw, h: fh, lab: V[j] + H[i] });
+      out.root = R; return out;
+    }
+    const walk = el => {
+      for (const c of el.children) {
+        const b = boxOf(c, sr, k), a = b.w * b.h;
+        if (b.w < 4 || b.h < 4 || a < A * .008) continue;
+        if (c.tagName === 'THEAD') continue;                                   // the column heads become captions
+        if (c.tagName === 'TR' && b.w > R.w * .5) {                            // a wide table row: its cells, each named by row + column
+          const cells = [...c.children], lab0 = cells.find(x => x.classList.contains('k') || x.tagName === 'TH');
+          const tb = c.closest('table'), head = tb && tb.querySelector('thead tr');
+          cells.forEach((td, ci) => { if (td === lab0 || td.tagName === 'TH') return;
+            const bb = boxOf(td, sr, k); bb.lab = [txt(lab0), txt(head && head.children[ci])].filter(Boolean).join(' · '); out.push(bb); });
+          continue;
+        }
+        if (a > A * .17 && c.children.length && !/^(P|SPAN|B|SMALL|I|EM|STRONG)$/.test(c.tagName)) { walk(c); continue; }
+        const bb = boxOf(c, sr, k, true);
+        bb.lab = short(txt(c.querySelector('.igh, .arch, .igwh, h2, h3, caption, b')) || txt(c), 22); out.push(bb);
+      }
+    };
+    walk(root);
+    out.sort((p, q) => p.y - q.y);                                             // reading order: rows by overlap, then left to right
+    const rows = [];
+    for (const p of out) { const r = rows[rows.length - 1];
+      if (r && Math.min(p.y + p.h, r.b) - Math.max(p.y, r.t) > .4 * Math.min(p.h, r.b - r.t)) { r.ps.push(p); r.b = Math.max(r.b, p.y + p.h); }
+      else rows.push({ t: p.y, b: p.y + p.h, ps: [p] }); }
+    const res = rows.flatMap(r => r.ps.sort((p, q) => p.x - q.x)); res.root = R; return res;
+  }
+  function clone(slide){
+    const c = slide.cloneNode(true); c.removeAttribute('id'); c.querySelectorAll('[id]').forEach(x => x.removeAttribute('id'));
+    c.classList.add('on'); c.style.cssText = `position:absolute;left:0;top:0;width:${SW}px;height:${SH}px;display:flex`; return c;
+  }
+  function place(){
+    const W = win.clientWidth, H = win.clientHeight;
+    let tx = W / 2 - cx * s, ty = H / 2 - cy * s;
+    tx = SW * s > W ? Math.min(0, Math.max(W - SW * s, tx)) : (W - SW * s) / 2;
+    ty = SH * s > H ? Math.min(0, Math.max(H - SH * s, ty)) : (H - SH * s) / 2;
+    cx = (W / 2 - tx) / s; cy = (H / 2 - ty) / s;
+    pan.style.transform = `translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${s.toFixed(4)})`;
+    const p = P[at];
+    if (p) { hl.style.display = ''; Object.assign(hl.style, { left: p.x + 'px', top: p.y + 'px', width: p.w + 'px', height: p.h + 'px', borderWidth: (5 / s).toFixed(2) + 'px' }); }
+    else hl.style.display = 'none';
+    const m = MW / SW;
+    Object.assign(mbox.style, { left: (-tx / s * m) + 'px', top: (-ty / s * m) + 'px', width: (W / s * m) + 'px', height: (H / s * m) + 'px' });
+    const lab = (S[cur] && (S[cur].lab || '')) || '';
+    cap.innerHTML = (p ? `<b>${at + 1} / ${P.length}</b>${esc(p.lab || '')}` : `<b>放大 ×${s.toFixed(1)}</b>`) + (lab ? `<small>${esc(lab)}</small>` : '');
+    igz.dataset.at = at; igz.dataset.s = s.toFixed(3);
+  }
+  function show(i){
+    if (i < 0 || i >= P.length) { close(); return; }
+    at = i; const p = P[i], W = win.clientWidth, H = win.clientHeight;
+    s = Math.max(1, Math.min(SMAX, (W - 2 * PAD) / p.w, (H - 2 * PAD) / p.h)); cx = p.x + p.w / 2; cy = p.y + p.h / 2; place();
+  }
+  function free(x, y, sc){ at = -1; s = sc; cx = x; cy = y; place(); }
+  function hit(x, y){
+    let best = -1, ba = Infinity;
+    if (P.root && P.length === 9 && sl.querySelector('img.fsimg')) {          // the picture grid: the nearest view
+      P.forEach((p, i) => { const d = (p.x + p.w / 2 - x) ** 2 + (p.y + p.h / 2 - y) ** 2; if (d < ba) { ba = d; best = i; } }); return best; }
+    P.forEach((p, i) => { if (x >= p.x && x <= p.x + p.w && y >= p.y && y <= p.y + p.h && p.w * p.h < ba) { ba = p.w * p.h; best = i; } });
+    return best;
+  }
+  function open(slide, x, y){
+    sl = slide; SW = slide.offsetWidth; SH = slide.offsetHeight; P = panels(slide);
+    pan.innerHTML = ''; pan.style.width = SW + 'px'; pan.style.height = SH + 'px'; pan.appendChild(clone(slide));
+    hl = document.createElement('div'); hl.className = 'igz-hl'; pan.appendChild(hl);
+    const m = MW / SW; map.style.width = MW + 'px'; map.style.height = (SH * m) + 'px';
+    mpan.innerHTML = ''; mpan.style.width = SW + 'px'; mpan.style.height = SH + 'px'; mpan.style.transform = `scale(${m})`; mpan.appendChild(clone(slide));
+    igz.classList.add('on', 'drag'); at = -1; s = Math.min(win.clientWidth / SW, win.clientHeight / SH); cx = SW / 2; cy = SH / 2; place();   // the whole slide first,
+    void pan.offsetWidth; igz.classList.remove('drag');                                                                                    // then glide to the panel
+    const i = x == null ? 0 : hit(x, y);
+    if (i >= 0) show(i); else free(x, y, SFREE);
+  }
+  function close(){ if (!isOn()) return; igz.classList.remove('on', 'drag'); pan.innerHTML = ''; mpan.innerHTML = ''; at = -1; sl = null; if (typeof reclaimFocus === 'function') reclaimFocus(); }
+  function step(d){
+    if (at < 0) {            // from a free view: the panel nearest the centre, then on
+      let n = -1, bd = Infinity; P.forEach((p, i) => { const dd = (p.x + p.w / 2 - cx) ** 2 + (p.y + p.h / 2 - cy) ** 2; if (dd < bd) { bd = dd; n = i; } });
+      show(n < 0 ? (d > 0 ? 0 : P.length - 1) : n); return; }
+    show(at + d);
+  }
+  function zoomBy(f, px, py){
+    const W = win.clientWidth, H = win.clientHeight; if (px == null) { px = W / 2; py = H / 2; }
+    const tx = W / 2 - cx * s, ty = H / 2 - cy * s, sx = (px - tx) / s, sy = (py - ty) / s;
+    const ns = Math.max(Math.min(W / SW, H / SH), Math.min(5, s * f));
+    const ntx = px - sx * ns, nty = py - sy * ns; at = -1; s = ns; cx = (W / 2 - ntx) / s; cy = (H / 2 - nty) / s; place();
+  }
+  const local = e => { const r = win.getBoundingClientRect(), kk = r.width / win.clientWidth; return { x: (e.clientX - r.left) / kk, y: (e.clientY - r.top) / kk, kk }; };
+  const toSlide = q => { const W = win.clientWidth, H = win.clientHeight, tx = W / 2 - cx * s, ty = H / 2 - cy * s; return { x: (q.x - tx) / s, y: (q.y - ty) / s }; };
+  let dn = null;
+  win.addEventListener('pointerdown', e => { dn = { x: e.clientX, y: e.clientY, cx, cy }; moved = false; win.setPointerCapture(e.pointerId); e.stopPropagation(); });
+  win.addEventListener('pointermove', e => { if (!dn) return; const kk = local(e).kk, dx = (e.clientX - dn.x) / kk, dy = (e.clientY - dn.y) / kk;
+    if (!moved && Math.hypot(dx, dy) < 6) return; moved = true; igz.classList.add('drag'); at = -1; cx = dn.cx - dx / s; cy = dn.cy - dy / s; place(); });
+  const up = () => { dn = null; igz.classList.remove('drag'); };
+  win.addEventListener('pointerup', up); win.addEventListener('pointercancel', up);
+  win.addEventListener('click', e => { e.stopPropagation(); if (moved) { moved = false; return; }
+    const q = toSlide(local(e)), i = hit(q.x, q.y); if (i >= 0 && i !== at) show(i); else close(); });
+  win.addEventListener('wheel', e => { e.preventDefault(); e.stopPropagation(); const q = local(e); zoomBy(Math.exp(-e.deltaY * .0015), q.x, q.y); }, { passive: false });
+  map.addEventListener('click', e => { e.stopPropagation(); const r = map.getBoundingClientRect(), x = (e.clientX - r.left) / r.width * SW, y = (e.clientY - r.top) / r.height * SH;
+    const i = hit(x, y); if (i >= 0) show(i); else free(x, y, Math.max(2, s)); });
+  igz.querySelector('.igz-x').addEventListener('click', e => { e.stopPropagation(); close(); });
+  igz.querySelector('.igz-prev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+  igz.querySelector('.igz-next').addEventListener('click', e => { e.stopPropagation(); step(1); });
+  igz.addEventListener('click', e => { e.stopPropagation(); if (e.target === igz) close(); });
+  igz.addEventListener('pointerdown', e => e.stopPropagation());
+  document.addEventListener('keydown', e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key;
+    if (!isOn()) {          // Z on an infographic slide opens the glass on its first panel
+      if ((k === 'z' || k === 'Z') && slides[cur] && slides[cur].classList.contains('fs') && slides[cur].querySelector('.ig, .gsum, img.fsimg')) {
+        e.preventDefault(); e.stopImmediatePropagation(); open(slides[cur]); }
+      return; }
+    let used = true;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter', 'n', 'N'].includes(k)) step(1);
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace', 'p', 'P'].includes(k)) step(-1);
+    else if (k === 'Escape' || k === 'z' || k === 'Z') close();
+    else if (k === '+' || k === '=') zoomBy(1.25); else if (k === '-' || k === '_') zoomBy(.8);
+    else if (k === 'Home') show(0); else if (k === 'End') show(P.length - 1);
+    else used = false;
+    if (used) { e.preventDefault(); e.stopImmediatePropagation(); }
+  }, true);
+  window.__igz = {
+    on: isOn, close, show, step, zoomBy, panels: () => P.map(p => ({ x: p.x, y: p.y, w: p.w, h: p.h, lab: p.lab })), state: () => ({ at, s, cx, cy, n: P.length }),
+    openAt(e){       // a click on the slide: on the infographic = the glass at that place; elsewhere = no
+      const slide = slides[cur]; if (!slide || !slide.classList.contains('fs')) return false;
+      const root = slide.querySelector('.ig, .gsum, img.fsimg'); if (!root) return false;
+      const rr = root.getBoundingClientRect(); if (e.clientX < rr.left || e.clientX > rr.right || e.clientY < rr.top || e.clientY > rr.bottom) return false;
+      const sr = slide.getBoundingClientRect(), k = sr.width / slide.offsetWidth; open(slide, (e.clientX - sr.left) / k, (e.clientY - sr.top) / k); return true; },
+    open: i => { const slide = slides[cur]; if (!slide || !slide.classList.contains('fs')) return false; open(slide); if (i) show(i); return true; }
+  };
+})();
 addEventListener('resize', scale); scale();
 new MutationObserver(scale).observe(document.body, {childList: true});   // the path row arrives after load
 document.body.tabIndex = -1;
