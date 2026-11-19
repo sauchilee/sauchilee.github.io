@@ -31,20 +31,48 @@ LS.mic=function(inp){var SR=window.SpeechRecognition||window.webkitSpeechRecogni
   inp.value='';inp.dispatchEvent(new Event('input',{bubbles:true}));b.title='語音搜尋 Voice search';set(true);try{n.start()}catch(x){set(false)}});
  inp.addEventListener('keydown',function(e){if(e.key==='Escape'&&on)stop()});
  inp.parentNode.insertBefore(w,inp);w.appendChild(inp);bar.appendChild(b);bar.appendChild(c);w.appendChild(bar);lab()};
-LS.search=function(box,res,prefix){if(!box)return;LS.mic(box);var t=null,ts=null,last={q:'',n:null},MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+/* SUNDAY DATE SEARCH (his words 18 Nov ~20:1x: "if they type in that particular Sunday ... lead them to that Sunday's sermon directly ... You can even simplify it without the year";
+   "you can even use sermon date and put it in that search box as well"; "they allows them to put in the years too. But they can also not putting in the year. Both"):
+   11/22, 11-22, 2026-11-22, 11/22/2026, 22 Nov, Nov 22, November 22 2026, 11月22日, 2026年11月22日, 主日, Sunday, this Sunday -> the sermon of that date (branch 4 pages titled by date, the deck first) */
+LS.sun={MO:['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'],
+ next:function(){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+(7-d.getDay())%7);return d},
+ md:function(d){return (d.getMonth()+1)+'/'+d.getDate()},
+ parse:function(q){q=q.trim().toLowerCase().replace(/\s+/g,' ');var m,y=null,mo,da,me=this;
+  if(/^((本|這|这|下)?(個|个)?主日|(this |next )?sunday)$/.test(q)){var n=this.next();if(/^(下|next)/.test(q))n.setDate(n.getDate()+7);return {y:n.getFullYear(),m:n.getMonth()+1,d:n.getDate()}}
+  function mon(w){var i=me.MO.indexOf(w.slice(0,3));return i<0?0:i+1}
+  if((m=q.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/))){y=+m[1];mo=+m[2];da=+m[3]}
+  else if((m=q.match(/^(\d{1,2})[-\/.](\d{1,2})(?:[-\/.](\d{2}|\d{4}))?$/))){mo=+m[1];da=+m[2];if(m[3])y=m[3].length===2?2000+(+m[3]):+m[3]}
+  else if((m=q.match(/^(?:(\d{4}) ?年 ?)?(\d{1,2}) ?月 ?(\d{1,2}) ?(?:日|號|号)?$/))){if(m[1])y=+m[1];mo=+m[2];da=+m[3]}
+  else if((m=q.match(/^([a-z]{3,9})\.? (\d{1,2})(?:st|nd|rd|th)?,?(?: (\d{4}))?$/))){mo=mon(m[1]);da=+m[2];if(m[3])y=+m[3]}
+  else if((m=q.match(/^(\d{1,2})(?:st|nd|rd|th)? ([a-z]{3,9})\.?,?(?: (\d{4}))?$/))){mo=mon(m[2]);da=+m[1];if(m[3])y=+m[3]}
+  else return null;
+  if(!(mo>=1&&mo<=12&&da>=1&&da<=31))return null;return {y:y,m:mo,d:da}},
+ find:function(q,idx){var w=this.parse(q);if(!w)return null;var p2=function(n){return (n<10?'0':'')+n},key=p2(w.m)+'-'+p2(w.d),by={};
+  for(var i=0;i<idx.length;i++){var x=idx[i];if(x[2]!==4)continue;var t=/^(\d{4})-(\d\d-\d\d)/.exec(x[1]);if(!t||t[2]!==key||(w.y&&+t[1]!==w.y))continue;(by[t[1]]=by[t[1]]||[]).push(x)}
+  var ys=Object.keys(by).sort(),now=new Date();now.setHours(0,0,0,0);now.setDate(now.getDate()-6);
+  var pick=ys.filter(function(Y){return new Date(+Y,w.m-1,w.d)>=now})[0]||ys[ys.length-1];   // no year typed: the coming one (this week's Sunday counts till Saturday), else the latest
+  var Y=pick?+pick:(w.y||new Date().getFullYear()),dt=new Date(Y,w.m-1,w.d),list=pick?by[pick].slice():[],pg=list.filter(function(x){return x[4]==='p'});if(pg.length)list=pg;   // the sermon page itself; an older plan noted for that date stays out
+  return {date:dt,list:list}}};
+
+LS.search=function(box,res,prefix){if(!box)return;LS.mic(box);(function(){var sd=LS.sun.md(LS.sun.next());if(box.dataset.sun)return;box.dataset.sun='1';if(/1988/.test(box.placeholder))box.placeholder=box.placeholder.replace('1988',sd+' 主日 Sunday')})();var t=null,ts=null,last={q:'',n:null},MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
  function when(v){var d=new Date(v);return d.getDate()+' '+MON[d.getMonth()]+(d.getFullYear()!==new Date().getFullYear()?' '+d.getFullYear():'')}
  function row(x){return '<div class="qh" data-q="'+esc(x.q)+'"><button type="button" class="qhw">'+esc(x.q)+'</button><span class="qhm">'+((x.c||1)>1?x.c+'× · ':'')+when(x.t)+(x.n!=null?' · '+x.n+' 項':'')+'</span><button type="button" class="qhx" title="刪除 Remove" aria-label="刪除 Remove '+esc(x.q)+'">×</button></div>'}
- function past(){var a=LS.hist.get();if(!a.length){res.hidden=true;res.innerHTML='';return}res.hidden=false;
-  res.innerHTML='<div class="n">搜尋紀錄 <i lang="en">Search history</i>: '+a.length+'</div>'+a.map(row).join('')+'<div class="qhf"><button type="button" class="qhc">清除全部 <span lang="en">Clear all</span></button></div>'}
+ /* the help, read in full on focus (his word 18 Nov ~20:2x: a cut-off example cannot be read to its end) */
+ function help(){var sd=LS.sun.md(LS.sun.next());return '<div class="qhelp">可以搜尋 <i lang="en">You can search</i>: 字詞 <i lang="en">words</i>（悔改, Hebrews）· 主日日期 <i lang="en">a Sunday date</i>（'+sd+' = 本主日講道 <i lang="en">this Sunday\'s sermon</i>；年份可加可不加 <i lang="en">with or without the year</i>）</div>'}
+ function past(){var a=LS.hist.get();res.hidden=false;if(!a.length){res.innerHTML=help();return}
+  res.innerHTML=help()+'<div class="n">搜尋紀錄 <i lang="en">Search history</i>: '+a.length+'</div>'+a.map(row).join('')+'<div class="qhf"><button type="button" class="qhc">清除全部 <span lang="en">Clear all</span></button></div>'}
  function keep(firm){var v=box.value.trim();if(v)LS.hist.add(v,last.q===v?last.n:null,firm)}
  function run(){var q=box.value.trim().toLowerCase();if(!q){past();return}
   if(!LS.idx){if(!LS.idxWait){LS.idxWait=1;var s=document.createElement('script');s.src='d/search.js';s.onload=run;document.head.appendChild(s)}return}
   var words=q.split(/\s+/),out=[],n=0;for(var i=0;i<LS.idx.length;i++){var x=LS.idx[i],l=x[1].toLowerCase(),ok=true;
    for(var j=0;j<words.length;j++)if(l.indexOf(words[j])<0){ok=false;break}if(ok){n++;if(out.length<80)out.push(x)}}
   res.hidden=false;last={q:box.value.trim(),n:n};
+  var sun=LS.sun.find(q,LS.idx),SH='';if(sun){var dd=sun.date,DW=['主日 Sunday','週一 Monday','週二 Tuesday','週三 Wednesday','週四 Thursday','週五 Friday','週六 Saturday'][dd.getDay()],dl=DW+' '+(dd.getMonth()+1)+'/'+dd.getDate()+'/'+dd.getFullYear();
+   SH=sun.list.length?'<div class="n">講道 <i lang="en">Sermon</i> · '+dl+'</div>'+sun.list.map(function(x){var c=(LS.B[x[2]]||{}).col||'#6f665b';return '<a class="sunhit" href="'+prefix+'#i'+x[0]+'"><span class="ch" style="--c:'+c+'">'+((LS.B[x[2]]||{}).cn||x[2])+'</span><span class="m m-'+x[3]+'"></span><span>'+LS.flipT(x[1],LS.lang()).replace(/[<&]/g,function(m){return m==='<'?'&lt;':'&amp;'})+'</span></a>'}).join('')
+    :'<div class="n">'+dl+' · 這一天沒有講道 <i lang="en">No sermon on this date</i></div>'}
   var before=LS.hist.get().filter(function(x){var l=x.q.toLowerCase();return l!==q&&l.indexOf(q)>=0}).slice(0,5);
-  res.innerHTML=(before.length?'<div class="n">從前搜尋 <i lang="en">Searched before</i></div>'+before.map(row).join(''):'')+'<div class="n">'+n+' 項 found</div>'+out.map(function(x){var c=x[2]?(LS.B[x[2]]||{}).col:'#6f665b';
+  res.innerHTML=SH+(before.length?'<div class="n">從前搜尋 <i lang="en">Searched before</i></div>'+before.map(row).join(''):'')+'<div class="n">'+n+' 項 found</div>'+out.map(function(x){var c=x[2]?(LS.B[x[2]]||{}).col:'#6f665b';
    return '<a href="'+prefix+'#i'+x[0]+'"><span class="ch" style="--c:'+c+'">'+((LS.B[x[2]]||{}).cn||x[2])+'</span><span>'+LS.flipT(x[1],LS.lang()).replace(/[<&]/g,function(m){return m==='<'?'&lt;':'&amp;'})+'</span></a>'}).join('')}
  function walk(step){var l=[].slice.call(res.querySelectorAll('a,.qhw')),i=l.indexOf(document.activeElement)+step;if(!l.length||res.hidden)return;if(i<0||(step<0&&document.activeElement===box))return box.focus();if(i<l.length)l[i].focus()}
  function keys(e){if(e.key==='ArrowDown'){e.preventDefault();walk(1)}else if(e.key==='ArrowUp'){e.preventDefault();walk(-1)}else if(e.key==='Escape'){res.hidden=true;box.focus()}}
