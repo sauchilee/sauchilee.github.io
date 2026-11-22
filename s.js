@@ -37,14 +37,18 @@ LS.mic=function(inp){var SR=window.SpeechRecognition||window.webkitSpeechRecogni
 LS.sun={MO:['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'],
  next:function(){var d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+(7-d.getDay())%7);return d},
  md:function(d){return (d.getMonth()+1)+'/'+d.getDate()},
+ MOF:['january','february','march','april','may','june','july','august','september','october','november','december'],
  parse:function(q){q=q.trim().toLowerCase().replace(/\s+/g,' ');var m,y=null,mo,da,me=this;
   if(/^((本|這|这|下)?(個|个)?主日|(this |next )?sunday)$/.test(q)){var n=this.next();if(/^(下|next)/.test(q))n.setDate(n.getDate()+7);return {y:n.getFullYear(),m:n.getMonth()+1,d:n.getDate()}}
-  function mon(w){var i=me.MO.indexOf(w.slice(0,3));return i<0?0:i+1}
+  /* his words 19 Nov ~11:5x: "November the 22nd", "Nov 22", "11/22", "11/22/26", "11/22/2026", "Nov 22 2026": every common form; a leading Sunday word is dropped;
+     a month word must be a real month or its start (3+ letters), so ordinary words never turn into dates */
+  q=q.replace(/^(?:sun(?:day)?|主日|星期日|禮拜天|礼拜天)[,.]? (?=\S)/,'');
+  function mon(w){if(w.length<3)return 0;for(var i=0;i<12;i++)if(me.MOF[i].indexOf(w)===0)return i+1;return 0}
   if((m=q.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/))){y=+m[1];mo=+m[2];da=+m[3]}
   else if((m=q.match(/^(\d{1,2})[-\/.](\d{1,2})(?:[-\/.](\d{2}|\d{4}))?$/))){mo=+m[1];da=+m[2];if(m[3])y=m[3].length===2?2000+(+m[3]):+m[3]}
   else if((m=q.match(/^(?:(\d{4}) ?年 ?)?(\d{1,2}) ?月 ?(\d{1,2}) ?(?:日|號|号)?$/))){if(m[1])y=+m[1];mo=+m[2];da=+m[3]}
-  else if((m=q.match(/^([a-z]{3,9})\.? (\d{1,2})(?:st|nd|rd|th)?,?(?: (\d{4}))?$/))){mo=mon(m[1]);da=+m[2];if(m[3])y=+m[3]}
-  else if((m=q.match(/^(\d{1,2})(?:st|nd|rd|th)? ([a-z]{3,9})\.?,?(?: (\d{4}))?$/))){mo=mon(m[2]);da=+m[1];if(m[3])y=+m[3]}
+  else if((m=q.match(/^([a-z]{3,9})\.? ?(?:the )?(\d{1,2})(?:st|nd|rd|th)?,?(?: ?(\d{4}|'?\d{2}))?$/))){mo=mon(m[1]);da=+m[2];if(m[3]){var yy=m[3].replace("'",'');y=yy.length===2?2000+(+yy):+yy}}
+  else if((m=q.match(/^(?:the )?(\d{1,2})(?:st|nd|rd|th)? (?:of )?([a-z]{3,9})\.?,?(?: (\d{4}))?$/))){mo=mon(m[2]);da=+m[1];if(m[3])y=+m[3]}
   else return null;
   if(!(mo>=1&&mo<=12&&da>=1&&da<=31))return null;return {y:y,m:mo,d:da}},
  find:function(q,idx){var w=this.parse(q);if(!w)return null;var p2=function(n){return (n<10?'0':'')+n},key=p2(w.m)+'-'+p2(w.d),by={};
