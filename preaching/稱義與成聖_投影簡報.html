@@ -329,7 +329,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--
 #stage #sup:has(.sh .k.hy),#stage #zoom[data-k="hy"]{--kb:#0c1570;--kt:#ffffff;--kd:#090f51}
 #stage #sup:has(.sh .k.vd),#stage #zoom[data-k="vd"]{--kb:#556b2f;--kt:#ffffff;--kd:#3c4b21}
 #stage #sup:has(.sh .k.cr),#stage #zoom[data-k="cr"]{--kb:#845614;--kt:#ffffff;--kd:#5f3d0e}
-#stage #sup{left:40px;right:40px;max-height:80%}
+#stage #sup{left:40px;right:40px;max-height:80%}#sup.ws{max-height:92%}body:has(#sup.ws.on) .slide .zbtn{visibility:hidden}#suptext .wsp p{line-height:1.38}
 #stage #sup:has(.sh .k[class*=" "]){background:var(--kb);border-color:var(--kd);-webkit-backdrop-filter:none;backdrop-filter:none}
 #stage #sup:has(.sh .k[class*=" "]) .sh,#stage #sup:has(.sh .k[class*=" "]) .sh .rf,#stage #sup:has(.sh .k[class*=" "]) .x,#stage #sup:has(.sh .k[class*=" "]) #suptext,#stage #sup:has(.sh .k[class*=" "]) #suptext *,#stage #sup:has(.sh .k[class*=" "]) #supnote{color:var(--kt)}
 #stage #sup:has(.sh .k[class*=" "]) .x:hover{background:rgba(255,255,255,.18)}
@@ -550,7 +550,7 @@ let supId = null;
    source after it, at most about half the content's size (11-24px), shrinking itself, never the content, when room is short */
 function fitSup(){
   const box = $('#supbox'), el = $('#suptext'), n = $('#supnote');
-  n.style.fontSize = '11px'; fitEl(box, el, $('#sup').classList.contains('ws') ? 42 : 60, 22);
+  n.style.fontSize = '11px'; fitEl(box, el, $('#sup').classList.contains('ws') ? 63 : 60, 22);
   if (!n.textContent) return;
   const c = parseFloat(el.style.fontSize) || 22, fits = () => el.offsetHeight <= box.clientHeight && box.scrollWidth <= box.clientWidth + 1;
   let s = Math.max(11, Math.min(24, Math.floor(c * .45))); n.style.fontSize = s + 'px';
@@ -577,12 +577,12 @@ function openSup(id){
 /* the frame stands just above this slide's verse buttons, so each stays in reach and a click swaps the verse (his words 5 Nov 08:47-08:48); measured at each opening, slides differ */
 function placeSup(){
   const f = $('#sup'), R = $('#right'), bs = [...slides[cur].querySelectorAll('.tag')].map(c => c.getBoundingClientRect());
-  f.style.top = f.style.bottom = f.style.maxHeight = '';
+  f.style.top = f.style.bottom = f.style.maxHeight = ''; const ws = f.classList.contains('ws');
   if (!bs.length) return;
   const a = R.getBoundingClientRect(), z = a.height / R.offsetHeight || 1, H = R.offsetHeight;
   const up = (Math.min(...bs.map(b => b.top)) - a.top) / z, down = (a.bottom - Math.max(...bs.map(b => b.bottom))) / z, gap = 14;
-  if (up >= down) { f.style.bottom = (H - up + gap) + 'px'; const zb = slides[cur].querySelector('.zbtn'), zt = zb && zb.offsetParent ? Math.max(16, (zb.getBoundingClientRect().bottom - a.top) / z + 12) : 16; f.style.maxHeight = Math.min(.8 * H, up - gap - zt) + 'px'; }
-  else { f.style.top = (H - down + gap) + 'px'; f.style.bottom = 'auto'; f.style.maxHeight = Math.min(.8 * H, down - gap - 96) + 'px'; }
+  if (up >= down) { f.style.bottom = (H - up + gap) + 'px'; const zb = slides[cur].querySelector('.zbtn'), zt = !ws && zb && zb.offsetParent ? Math.max(16, (zb.getBoundingClientRect().bottom - a.top) / z + 12) : 16; f.style.maxHeight = Math.min((ws ? .92 : .8) * H, up - gap - zt) + 'px'; }
+  else { f.style.top = (H - down + gap) + 'px'; f.style.bottom = 'auto'; f.style.maxHeight = Math.min((ws ? .92 : .8) * H, down - gap - 96) + 'px'; }
 }
 function closeSup(){
   supId = null; $('#sup').classList.remove('on');
