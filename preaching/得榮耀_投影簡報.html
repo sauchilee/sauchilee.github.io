@@ -1085,13 +1085,13 @@ window.__state = () => ({cur, sup: supId, vid: vidOn(), zoom: zoomOn(), note: no
   let pinned = false, hideT = null;
   const busy = () => $q('#sup.on') || $q('#zoom.on') || $q('#note.on') || $q('#vid.on') || (window.__igz && __igz.on && __igz.on());
   const isOn = () => pn.classList.contains('on');
-  function openSk(pin){ if (busy()) return false; clearTimeout(hideT); if (!isOn()) build(); pn.classList.add('on'); bg.classList.add('on'); if (pin) pinned = true; markCur(); return true; }
+  function openSk(pin, t){ if (!pin && !t && busy()) return false; clearTimeout(hideT); if (!isOn()) build(); pn.classList.add('on'); bg.classList.add('on'); if (pin) pinned = true; markCur(); return true; }
   function closeSk(){ clearTimeout(hideT); pn.classList.remove('on'); bg.classList.remove('on'); pinned = false; }
   window.__skel = {open: openSk, close: closeSk, on: isOn, lang: l => setLang(l), get: () => LANG};
   const later = () => { clearTimeout(hideT); if (!pinned) hideT = setTimeout(closeSk, 450); };
   const trig = () => [...document.querySelectorAll('#skb, .skchip, .slide .ttl, .tk-head')].filter(el => el.offsetParent);
   const inside = (x, y) => trig().concat([pn]).some(el => { const r = el.getBoundingClientRect(); return x >= r.left - 4 && x <= r.right + 4 && y >= r.top - 4 && y <= r.bottom + 4; });
-  document.addEventListener('mouseover', e => { if (e.target.closest && e.target.closest('#skb, .skchip, .slide .ttl, .tk-head') && !isOn()) { clearTimeout(hideT); hideT = setTimeout(() => openSk(false), 300); } }, true);
+  document.addEventListener('mouseover', e => { if (e.target.closest && e.target.closest('#skb, .skchip, .slide .ttl, .tk-head') && !isOn()) { clearTimeout(hideT); hideT = setTimeout(() => openSk(false, e.target.closest('#skb')), 300); } }, true);
   document.addEventListener('mouseout', e => { if (e.target.closest && e.target.closest('#skb, .skchip, .slide .ttl, .tk-head') && !isOn()) clearTimeout(hideT); }, true);
   bg.addEventListener('mousemove', e => { if (inside(e.clientX, e.clientY)) clearTimeout(hideT); else later(); });
   pn.addEventListener('mouseenter', () => clearTimeout(hideT));
